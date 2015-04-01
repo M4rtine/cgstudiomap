@@ -1,0 +1,21 @@
+main/.*
+main/bin
+main/develop-eggs
+main/eggs
+main/etc
+main/parts
+
+__pycache__/
+*.py[cod]
+*.pyc
+*.css.map
+
+pip-log.txt
+pip-delete-this-directory.txt
+
+.idea
+
+# Backup files
+*~
+*.swp
+

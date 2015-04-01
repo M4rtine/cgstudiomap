@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="auth_signup.default_template_user" model="res.users">
+            <field name="groups_id" eval="[(4, ref('base_geoengine.group_geoengine_user')), (4, ref('base.group_user'))]"/>
+        </record>
+
+    </data>
+</openerp>

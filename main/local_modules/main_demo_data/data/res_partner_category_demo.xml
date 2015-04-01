@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="res_partner_category_vfx" model="res.partner.category">
+            <field name="name">VFX</field>
+        </record>
+        <record id="res_partner_category_video_game" model="res.partner.category">
+            <field name="name">Video Game</field>
+        </record>
+        <record id="res_partner_category_animated_features" model="res.partner.category">
+            <field name="name">‎Animated Features</field>
+        </record>
+    </data>
+</openerp>

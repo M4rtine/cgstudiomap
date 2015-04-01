@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--That rule would forbid portal user to edit and create properly-->
+        <!--res.partners-->
+        <record model="ir.rule" id="portal_sale.portal_personal_contact">
+            <field name="groups" eval="[(3, ref('base.group_portal'))]"/>
+        </record>
+
+        <record model="ir.rule" id="base.res_partner_portal_public_rule">
+            <field name="groups" eval="[(3, ref('base.group_portal'))]"/>
+        </record>
+
+        <record id="portal_sale.portal_personal_contact" model="ir.rule">
+            <field name="active">False</field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="res_partner_mpc_mtl" model="res.partner">
+            <field name="name">MPC</field>
+            <field eval="[(6, 0, [ref('main_demo_data.res_partner_category_vfx')])]"
+                   name="category_id"/>
+            <field name="is_company">1</field>
+            <field name="city">Montreal</field>
+            <field name="zip">H3C 1T2</field>
+            <field name="country_id" ref="base.ca"/>
+            <field name="street">645 Wellington St, Suite 307</field>
+            <field name="email">montreal@moving-picture.com</field>
+            <field name="phone">+1 (514) 840-9800</field>
+            <field name="website">http://www.moving-picture.com</field>
+            <field name="image" type="base64"
+                   file="main_demo_data/static/img/mpc-logo.png"/>
+        </record>
+
+        <record id="res_partner_cinesite_mtl" model="res.partner">
+            <field name="name">Cinesite</field>
+            <field eval="[(6, 0, [ref('main_demo_data.res_partner_category_animated_features')])]"
+                   name="category_id"/>
+            <field name="is_company">1</field>
+            <field name="city">Montreal</field>
+            <field name="zip">H2Y 0A3</field>
+            <field name="country_id" ref="base.ca"/>
+            <field name="street">250 Rue Saint Antoine Ouest</field>
+            <field name="phone">+1 (514) 600 3971</field>
+            <field name="website">http://www.cinesite.com/</field>
+            <field name="image" type="base64"
+                   file="main_demo_data/static/img/cinesite-logo.png"/>
+        </record>
+
+        <record id="res_partner_framestore_mtl" model="res.partner">
+            <field name="name">Framestore</field>
+            <field eval="[(6, 0, [ref('main_demo_data.res_partner_category_vfx')])]"
+                   name="category_id"/>
+            <field name="is_company">1</field>
+            <field name="city">Montreal</field>
+            <field name="zip">H2T 3B3</field>
+            <field name="country_id" ref="base.ca"/>
+            <field name="street">5455 Av. de Gaspé</field>
+            <field name="street2">Suite 900</field>
+            <field name="phone">+1 514 277 0004</field>
+            <field name="website">http://www.framestore.com/</field>
+            <field name="image" type="base64"
+                   file="main_demo_data/static/img/framestore-logo.png"/>
+        </record>
+    </data>
+</openerp>

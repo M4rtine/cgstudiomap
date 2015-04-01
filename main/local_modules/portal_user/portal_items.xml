@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!--Hide the unwanted portal menus from the portal user-->
+        <!--They are just hidden as we might want to bring some of them back in the future of the project-->
+        <!--Portal Old Menus is accessible from the settings menu (only by admin)-->
+        <menuitem name="Portal Old Menus" id="portal_old_menus" parent="base.menu_administration" sequence="20"/>
+        
+        <!--Menus from portal, the module that create the portal features. Portal is installed by default-->
+        <menuitem id="portal.portal_inbox" parent="portal_old_menus"/>
+        <menuitem id="portal.portal_mail_archivesfeeds" parent="portal_old_menus"/>
+        <menuitem id="portal.portal_messages" parent="portal_old_menus"/>
+        <menuitem id="portal_orders" parent="portal_old_menus"/>
+        <menuitem id="portal_after_sales" parent="portal_old_menus"/>
+        <menuitem id="portal_projects" parent="portal_old_menus"/>
+        
+        <!--Menus from portal_sale-->
+        <menuitem id="portal_sale.portal_quotations" parent="portal_old_menus"/>
+        <menuitem id="portal_sale.portal_sales_orders" parent="portal_old_menus"/>
+        <menuitem id="portal_sale.portal_invoices" parent="portal_old_menus"/>
+        
+        <!--Menus from board. This menus will most likely come back when the website is advanced enough-->
+        <!--to add charts.-->
+        <menuitem id="board.menu_board_my_dash" parent="portal_old_menus"/>
+
+        <menuitem name="Listings"
+                  id="portal_listing"
+                  parent="portal.portal_menu"
+                  sequence="20"/>
+
+        <record id="action_portal_companies" model="ir.actions.act_window">
+            <field name="name">Companies</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,form,tree,geoengine</field>
+            <field name="domain">[('is_company','=', True), ('active','=',True), ('name', '!=', 'cgstudiomap')]</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a contact in your address book.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_portal_companies"
+                  action="action_portal_companies"
+                  parent="portal_user.portal_listing"
+                  groups="base.group_portal"/>
+
+        <record id="action_portal_dead_companies" model="ir.actions.act_window">
+            <field name="name">Dead Companies</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,form,tree,geoengine</field>
+            <field name="domain">[('is_company','=', True), ('active', '=', False)]</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a contact in your address book.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_portal_dead_companies"
+                  action="action_portal_dead_companies"
+                  parent="portal_user.portal_listing"
+                  groups="base.group_portal"/>
+
+
+    </data>
+</openerp>

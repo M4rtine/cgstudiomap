@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="res_partner_adapted_view" model="ir.ui.view">
+            <field name="name">Res Partner: Adapt the view to users</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
+            <field name="arch" type="xml">
+                <field name="active" position="replace"/>
+                <field name="title" position="after">
+                    <field name="active"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

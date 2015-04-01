@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="portal_user_light_view" model="ir.ui.view">
+            <field name="name">Portal User: remove buttons/pages</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <!--Placeholder to add the field to the namespace of the view-->
+                    <field name="is_portal_user" invisible="1"/>
+                </field>
+                <page string="Sales &amp; Purchases" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', True)]}</attribute>
+                        </page>
+                <button name="%(crm.crm_case_category_act_oppor11)d" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', True)]}</attribute>
+                </button>
+                <button name="schedule_meeting" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', True)]}</attribute>
+                </button>
+                <button name="%(crm.crm_case_categ_phone_incoming0)d" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', True)]}</attribute>
+                </button>
+
+            </field>
+        </record>
+    </data>
+</openerp>
