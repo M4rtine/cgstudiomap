@@ -34,6 +34,7 @@
             <field name="res_model">res.partner</field>
             <field name="view_mode">kanban,form,tree,geoengine</field>
             <field name="domain">[('is_company','=', True), ('active','=',True), ('name', '!=', 'cgstudiomap')]</field>
+            <field name="context" eval="{'is_portal':True}"/>
             <field name="view_type">form</field>
             <field name="search_view_id" ref="base.view_res_partner_filter"/>
             <field name="help" type="html">
@@ -54,6 +55,7 @@
             <field name="res_model">res.partner</field>
             <field name="view_mode">kanban,form,tree,geoengine</field>
             <field name="domain">[('is_company','=', True), ('active', '=', False)]</field>
+            <field name="context" eval="{'is_portal':True}"/>
             <field name="view_type">form</field>
             <field name="search_view_id" ref="base.view_res_partner_filter"/>
             <field name="help" type="html">

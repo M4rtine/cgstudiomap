@@ -31,6 +31,7 @@
         'account',
         'portal',
         'portal_sale',
+        'website_partner',
     ],
     'external_dependencies': {
         'python': [],

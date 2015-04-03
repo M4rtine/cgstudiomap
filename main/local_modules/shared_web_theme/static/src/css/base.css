@@ -5743,7 +5743,7 @@ button.close, .openerp .close.oe_button {
 .openerp .oe_secondary_menu_section {
   color: #E67C2F; }
 .openerp .oe_form .oe_form_required input:not([disabled]):not([readonly]) {
-  background-color: rgba(243, 150, 84, 0.75) !important;
+  background-color: #FFD6A7 !important;
   color: black; }
 .openerp .oe_application .oe_breadcrumb_title > * {
   color: #E67C2F; }

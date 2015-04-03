@@ -4,23 +4,55 @@
         <record id="portal_user_light_view" model="ir.ui.view">
             <field name="name">Portal User: remove buttons/pages</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
+            <field name="inherit_id" ref="website_partner.view_partners_form_website"/>
             <field name="arch" type="xml">
                 <field name="name" position="after">
                     <!--Placeholder to add the field to the namespace of the view-->
                     <field name="is_portal_user" invisible="1"/>
+                    <!--<field name="is_portal_user"/>-->
                 </field>
+                <field name="email" position="replace">
+
+                    <field name="email" placeholder="e.g. cgstudiomap@gmail.com"/>
+                </field>
+                <field name="website" position="replace">
+                    <field name="website" widget="url" placeholder="e.g. www.cgstudiomap.com"/>
+                </field>
+                <field name="parent_id" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                </field>
+                <field name="function" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                </field>
+                <field name="mobile" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                </field>
+                <field name="title" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                </field>
+                <field name="website_published" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                </field>
+                <field name="fax" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                </field>
+                <div class="oe_edit_only" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                </div>
+                <page string="Contacts" position="attributes">
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                </page>
                 <page string="Sales &amp; Purchases" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', True)]}</attribute>
-                        </page>
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                </page>
                 <button name="%(crm.crm_case_category_act_oppor11)d" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', True)]}</attribute>
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
                 </button>
                 <button name="schedule_meeting" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', True)]}</attribute>
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
                 </button>
                 <button name="%(crm.crm_case_categ_phone_incoming0)d" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', True)]}</attribute>
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
                 </button>
 
             </field>

@@ -27,7 +27,7 @@ _logger = logging.getLogger(__name__)
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    @api.one
+    @api.multi
     def _is_portal_user(self):
         """Check if the current user is a portal user.
 
@@ -35,8 +35,16 @@ class ResPartner(models.Model):
         """
         user = self.env['res.users'].browse(self._uid)
         portal_group = self.env['ir.model.data'].get_object('base', 'group_portal')
-        self.is_portal_user = portal_group in user.groups_id
+        return portal_group in user.groups_id
 
-    is_portal_user = fields.Boolean(
-        compute='_is_portal_user', string="User is portal?"
-    )
+    @api.model
+    def create(self, vals):
+        """Set True to is_company if the res.partner is created by someone using
+        the portal."""
+        vals['is_company'] = self._is_portal_user()
+        return super(ResPartner, self).create(vals)
+
+    # Constant to test against to see if the current user is a portal user
+    # Should be used in couple with context
+    is_portal_user = fields.Boolean(default=True)
+
