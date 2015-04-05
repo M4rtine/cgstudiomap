@@ -1,15 +1,16 @@
-Shared Web Theme
-================
-Module that allows to port some of the bootstrap features into the back office.
+Partner Social Networks
+=======================
+Modules that manages the social network of the companies.
 
-It also allow to share the css between the front-end and the back-end
-
-Requirements
-------------
-It requires Sass (http://sass-lang.com/)
 
 Contributors
 ------------
 * Jordi Riera <kender.jr@gmail.com>
 
+
+TODO
+----
+* Connector to twitter with tweepy to check if the twitter account exists.
+    It will also allow to pick the twitter logo of the account if the res.partner has no
+    logo
 

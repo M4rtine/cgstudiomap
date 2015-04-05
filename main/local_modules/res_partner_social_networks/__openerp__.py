@@ -20,39 +20,17 @@
 ##############################################################################
 
 {
-    'name': 'Main Data Module',
+    'name': 'Partner Social Network',
     'version': '0.1',
     'author': 'Jordi Riera',
     'maintainer': 'Jordi Riera',
     'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Main Module, that install data, views etc.',
-    'description': """
-Main Data Module
-================
-This module contains the data, views, models.
-
-Contributors
-------------
-* Jordi Riera <kender.jr@gmail.com>
-
-""",
+    'category': 'Sales',
+    'summary': 'Manage social networks of partners.',
     'depends': [
-        'crm',
-        'website',
-        'website_crm',
-        'base_geolocalize',
-        'base_geoengine',
-        'geoengine_base_geolocalize',
-        'auth_signup',
-        'web_tree_image',
-        'web_widget_text_markdown',
     ],
     'data': [
-        'data/company_details.xml',
-        'data/res_groups_data.xml',
-        'data/res_users_data.xml',
-        'views/res_partner_view.xml',
+        'views/res_partner_views.xml',
     ],
     'installable': True,
 }

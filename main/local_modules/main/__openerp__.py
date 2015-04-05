@@ -60,6 +60,7 @@ Contributors
         'main_data',
         'shared_web_theme',
         'frontend',
+        'res_partner_social_networks',
     ],
     'data': [ ],
     'installable': True,

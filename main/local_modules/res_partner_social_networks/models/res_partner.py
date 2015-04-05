@@ -20,47 +20,15 @@
 ##############################################################################
 __author__ = 'foutoucour'
 
-from openerp import api, fields
-from openerp.addons.base_geolocalize.models.res_partner import (
-    geo_find, geo_query_address
-)
+from openerp import models, api, fields
 
-from openerp.addons.base_geoengine import geo_model
-
-class ResPartner(geo_model.GeoModel):
+class ResPartner(models.Model):
+    """Add Social Networks fields."""
     _inherit = 'res.partner'
 
-    @api.model
-    def add_geo_localization_details(self, vals):
-        result = geo_find(
-            geo_query_address(
-                street=vals.get('street'),
-                zip=vals.get('zip'),
-                city=vals.get('city'),
-                # state=vals.get('state'),
-                country=self.env['res.country'].browse(vals.get('country_id')).name,
-            )
-        )
-        if result:
-            vals['partner_latitude'] = result[0]
-            vals['partner_longitude'] = result[1]
-            vals['date_localization'] = fields.Date.context_today(self)
-        return vals
+    twitter = fields.Char('Twitter')
+    linkedin = fields.Char('Linkedin')
+    facebook = fields.Char('Facebook')
+    wikipedia = fields.Char('Wikipedia')
+    art_of_fx = fields.Char('Art of FX')
 
-    @api.model
-    def create(self, vals):
-        return super(ResPartner, self).create(
-            self.add_geo_localization_details(vals)
-        )
-
-    @api.multi
-    def write(self, vals):
-        return super(ResPartner, self).write(
-            self.add_geo_localization_details(vals)
-        )
-
-    country_id = fields.Many2one(required=True)
-    website = fields.Char(required=True)
-    street = fields.Char(required=True)
-    city = fields.Char(required=True)
-    zip = fields.Char(required=True)

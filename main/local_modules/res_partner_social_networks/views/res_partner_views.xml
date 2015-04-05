@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="res_partner_social_network_form_view" model="ir.ui.view">
+            <field name="name">Partner: Social Networks</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="email" position="after">
+                    <field name="twitter" widget="url" placeholder="https://www.twitter.com/cgstudiomap"/>
+                    <field name="linkedin" widget="url" placeholder="https://www.linkedin.com/company/cgstudiomap.com"/>
+                    <field name="facebook" widget="url"/>
+                </field>
+                <xpath expr="//page[last()]" position="after">
+                    <page string="Additional Social Networks">
+                        <group>
+                            <field name="wikipedia" widget="url"/>
+                            <field name="art_of_fx" widget="url"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
