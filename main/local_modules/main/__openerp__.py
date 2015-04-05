@@ -44,13 +44,15 @@ Contributors
         'sale',
         'website_crm',
         'auth_signup',
+        # web
+        'web_tree_image',
+        'web_widget_text_markdown',
         # server-tools
         'disable_openerp_online',
         'admin_technical_features',
         # geoengine
         'geoengine_base_geolocalize',
         'geoengine_partner',
-        'geoengine_geoname_geocoder',
         'base_geolocalize',
         # local modules
         'res_partner_filter',

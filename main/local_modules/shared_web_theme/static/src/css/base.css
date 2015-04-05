@@ -5707,6 +5707,8 @@ button.close, .openerp .close.oe_button {
     background-color: #d9752e;
     border-color: #d9752e; }
 
+.openerp img {
+  border-radius: 3px; }
 .openerp button, .openerp .oe_button {
   background-image: none;
   box-shadow: none;

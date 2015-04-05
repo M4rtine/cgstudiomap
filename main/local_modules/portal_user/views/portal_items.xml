@@ -23,13 +23,13 @@
         <!--to add charts.-->
         <menuitem id="board.menu_board_my_dash" parent="portal_old_menus"/>
 
-        <menuitem name="Listings"
+        <menuitem name="Companies"
                   id="portal_listing"
                   parent="portal.portal_menu"
                   sequence="20"/>
 
         <record id="action_portal_companies" model="ir.actions.act_window">
-            <field name="name">Companies</field>
+            <field name="name">Operative</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">kanban,form,tree,geoengine</field>
@@ -50,7 +50,7 @@
                   groups="base.group_portal"/>
 
         <record id="action_portal_dead_companies" model="ir.actions.act_window">
-            <field name="name">Dead Companies</field>
+            <field name="name">inactive</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">kanban,form,tree,geoengine</field>
@@ -69,7 +69,6 @@
                   action="action_portal_dead_companies"
                   parent="portal_user.portal_listing"
                   groups="base.group_portal"/>
-
 
     </data>
 </openerp>

@@ -19,29 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Portal User',
-    'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Settings of portal user',
-    'depends': [
-        'account',
-        'portal',
-        'portal_sale',
-        'website_partner',
-        'crm',
-    ],
-    'external_dependencies': {
-        'python': [],
-    },
-    'data': [
-        'views/portal_items.xml',
-        'views/res_partner_view.xml',
-        'security/ir.model.access.csv',
-        'security/base_security.xml',
-    ],
-    'installable': True,
-}
+from . import res_partner

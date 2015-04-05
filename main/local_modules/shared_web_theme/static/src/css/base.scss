@@ -12,6 +12,9 @@
 }
 
 .openerp {
+  img {
+    border-radius: 3px;
+  }
   button {
     @extend .btn;
     @extend .btn-default;
