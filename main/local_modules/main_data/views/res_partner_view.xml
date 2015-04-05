@@ -7,8 +7,10 @@
             <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
             <field name="arch" type="xml">
                 <field name="active" position="replace"/>
-                <field name="title" position="after">
-                    <field name="active"/>
+                <field name="category_id" position="after">
+                    <group>
+                        <field name="active"/>
+                    </group>
                 </field>
                 <field name="comment" position="attributes">
                     <attribute name="widget">bootstrap_markdown</attribute>
