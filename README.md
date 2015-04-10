@@ -46,7 +46,9 @@
   
   sudo apt-get install postgresql-9.3 postgresql-9.3-postgis-2.1 postgresql-client-9.3
   
-  sudo -u postgres psql -c 'create extension postgis;'echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" | sudo tee /etc/apt/sources.list.d/postgis.list
+  sudo -u postgres psql -c 'create extension postgis;'
+  
+  echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" | sudo tee /etc/apt/sources.list.d/postgis.list
   
   wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
   sudo apt-get update
