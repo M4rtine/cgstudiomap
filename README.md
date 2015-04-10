@@ -32,7 +32,9 @@
   sudo apt-get install postgis
 
 ##### Issues can be experienced with installing postgis, this post mught help to fix it:
-(for ubuntu 14.04, you might have to use a different version of postgres tho)
+
+  (for ubuntu 14.04, you might have to use a different version of postgres tho)
+  
   http://stackoverflow.com/questions/18696078/postgresql-error-when-trying-to-create-an-extension
 
   * Extracted from the post
