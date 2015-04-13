@@ -23,6 +23,13 @@
         <!--to add charts.-->
         <menuitem id="board.menu_board_my_dash" parent="portal_old_menus"/>
 
+        <!--#11 rename portal menu to Dashboard-->
+        <!--Also put the dashboard as the first menu-->
+        <menuitem name="Dashboard"
+                  id="portal.portal_menu"
+                  groups="base.group_portal"
+                  sequence="01"/>
+
         <menuitem name="Companies"
                   id="portal_listing"
                   parent="portal.portal_menu"

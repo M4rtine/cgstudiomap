@@ -52,8 +52,6 @@ Contributors
         'admin_technical_features',
         # geoengine
         'geoengine_base_geolocalize',
-        'geoengine_partner',
-        'base_geolocalize',
         # local modules
         'res_partner_filter',
         'portal_user',
