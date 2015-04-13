@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.org/foutoucour/cgstudiomap.svg?branch=develop)](https://travis-ci.org/foutoucour/cgstudiomap)
-[![Coverage Status](https://coveralls.io/repos/foutoucour/cgstudiomap/badge.png?branch=develop)](https://coveralls.io/r/foutoucour/cgstudiomap?branch=develop)
+
+[![Code Climate](https://codeclimate.com/github/foutoucour/cgstudiomap/badges/gpa.svg)](https://codeclimate.com/github/foutoucour/cgstudiomap)
+[![Test Coverage](https://codeclimate.com/github/foutoucour/cgstudiomap/badges/coverage.svg)](https://codeclimate.com/github/foutoucour/cgstudiomap)
+
 [![Stories in Ready](https://badge.waffle.io/foutoucour/cgstudiomap.png?label=ready&title=Ready)](http://waffle.io/foutoucour/cgstudiomap)
 
 
