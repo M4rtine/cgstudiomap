@@ -33,6 +33,7 @@
     ],
     'data': [
         'templates/login_template.xml',
+        'templates/contact_us_template.xml',
     ],
     'installable': True,
 }
