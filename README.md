@@ -7,3 +7,6 @@
 
 For more details, check our [wiki](https://github.com/foutoucour/cgstudiomap/wiki)
 
+##### Resources:
+* [code quality](https://codeclimate.com/github/foutoucour/cgstudiomap)
+* [waffle.io](https://waffle.io/foutoucour/cgstudiomap) 
