@@ -72,9 +72,14 @@
     color: $menu_section;
   }
 
-  .oe_form .oe_form_required input:not([disabled]):not([readonly]) {
-    background-color: $form_required !important;
-    color: $form_required_text;
+  .oe_form .oe_form_required
+  {
+    select:not([disabled]):not([readonly]),
+    textarea:not([disabled]):not([readonly]),
+    input:not([disabled]):not([readonly]) {
+      background-color: $form_required !important;
+      color: $form_required_text;
+    }
   }
 
   .oe_application {
