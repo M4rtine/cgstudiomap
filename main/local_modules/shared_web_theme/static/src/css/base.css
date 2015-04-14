@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -5744,6 +5743,8 @@ button.close, .openerp .close.oe_button {
   background-color: #EDEDED; }
 .openerp .oe_secondary_menu_section {
   color: #E67C2F; }
+.openerp .oe_form .oe_form_required select:not([disabled]):not([readonly]),
+.openerp .oe_form .oe_form_required textarea:not([disabled]):not([readonly]),
 .openerp .oe_form .oe_form_required input:not([disabled]):not([readonly]) {
   background-color: #FFD6A7 !important;
   color: black; }
