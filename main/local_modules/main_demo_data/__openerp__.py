@@ -39,6 +39,7 @@ Contributors
 """,
     'depends': [
         'main'
+        'res_group_computer_graphics',
     ],
     'data': [
         'data/res_partner_category_demo.xml',

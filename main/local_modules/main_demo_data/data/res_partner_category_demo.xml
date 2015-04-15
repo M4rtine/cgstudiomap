@@ -3,7 +3,7 @@
     <data>
 
         <record id="res_partner_category_vfx" model="res.partner.category">
-            <field name="name">VFX</field>
+            <field name="name">Motion Pictures and Film</field>
         </record>
         <record id="res_partner_category_video_game" model="res.partner.category">
             <field name="name">Video Game</field>
