@@ -35,7 +35,7 @@ class ResPartnerIndustry(models.Model):
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    industry_id = fields.Many2many(
+    industry_ids = fields.Many2many(
         'res.partner.industry',
         'res_partner_industry_rel',
         'partner_id',

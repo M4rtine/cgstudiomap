@@ -49,15 +49,11 @@ class ResPartner(geo_model.GeoModel):
 
     @api.model
     def create(self, vals):
-        return super(ResPartner, self).create(
-            self.add_geo_localization_details(vals)
-        )
+        return super(ResPartner, self).create(self.add_geo_localization_details(vals))
 
     @api.multi
     def write(self, vals):
-        return super(ResPartner, self).write(
-            self.add_geo_localization_details(vals)
-        )
+        return super(ResPartner, self).write(self.add_geo_localization_details(vals))
 
     country_id = fields.Many2one(required=True)
     website = fields.Char(required=True)

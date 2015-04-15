@@ -21,11 +21,46 @@
 
 import logging
 from openerp import fields, models, api
+from openerp import osv
 
 _logger = logging.getLogger(__name__)
+_logger.setLevel(logging.DEBUG)
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
+    _columns = {
+        'computer_graphics_active_rule': osv.fields.function(
+            lambda self, *a, **kw: {},  # placeholder. Not used further anyway
+            string="Computer graphics search rule",
+            fnct_search=lambda self, *a, **kw: self._search_active_rule(*a, **kw),
+            ),
+        }
+
+    def _search_active_rule(self, cr, uid, ids, name, args, context=None):
+        # FIXME: raise assert stack==1 when ran.
+        _logger.debug('_search_active_rule')
+        domain = self._search_rule(cr, uid, ids, name, args, context=context)
+        domain.append(('active', '=', True))
+        _logger.debug('domain: {}'.format(domain))
+        return domain
+
+    def _search_rule(self, cr, uid, ids, name, args, context=None):
+        """Check if the given records meet the requirement to be seen by a member
+        of computer graphics group.
+        """
+        _logger.debug('_search_rule')
+        domain = []
+        _logger.debug('user_in_cg_group: {}'.format(self.user_in_cg_group(cr, uid, context=context)))
+
+        if self.user_in_cg_group(cr, uid, context=context):
+            # A member of the group CG will only see companies from the industry.
+            domain = [
+                ('is_company', '=', True),
+                ('industry_ids', 'in', [self.get_industry_cg(cr, uid, context=context).id])
+            ]
+
+        _logger.debug('domain: {}'.format(domain))
+        return domain
 
     @api.multi
     def _is_portal_user(self):
