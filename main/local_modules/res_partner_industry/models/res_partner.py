@@ -19,32 +19,26 @@
 #
 ##############################################################################
 
-{
-    'name': 'Demo Data Module',
-    'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Demo data for development of the solution.',
-    'description': """
-Demo Data Module
-================
-This module contains data to help development of the solution.
+import logging
+from openerp import models, fields
 
-Contributors
-------------
-* Jordi Riera <kender.jr@gmail.com>
+_logger = logging.getLogger(__name__)
 
-""",
-    'depends': [
-        'main'
-        'res_group_computer_graphics',
-    ],
-    'data': [
-        'data/res_partner_category_demo.xml',
-        'data/res_partner_demo.xml',
-    ],
-    'installable': True,
-    'application': True,
-}
+
+class ResPartnerIndustry(models.Model):
+    """Industry is simply a copy of res.partner.category"""
+    _inherit = 'res.partner.category'
+    _name = 'res.partner.industry'
+    _description = 'Industry the partner work in.'
+
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    industry_ids = fields.Many2many(
+        'res.partner.industry',
+        'res_partner_industry_rel',
+        'partner_id',
+        'industry_id',
+        string='Industry',
+    )

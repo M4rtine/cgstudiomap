@@ -30,23 +30,23 @@
                   groups="base.group_portal"
                   sequence="01"/>
 
-        <menuitem name="Companies"
+        <menuitem name="Listings"
                   id="portal_listing"
                   parent="portal.portal_menu"
                   sequence="20"/>
 
         <record id="action_portal_companies" model="ir.actions.act_window">
-            <field name="name">Operative</field>
+            <field name="name">Companies</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
-            <field name="view_mode">kanban,form,tree,geoengine</field>
-            <field name="domain">[('is_company','=', True), ('active','=',True), ('name', '!=', 'cgstudiomap')]</field>
+            <field name="view_mode">geoengine,tree,kanban,form</field>
+            <field name="domain">[('industry_ids', 'in', [1]), ('active', '=', True), ('is_company', '=', True)]</field>
             <field name="context" eval="{'is_portal':True}"/>
             <field name="view_type">form</field>
             <field name="search_view_id" ref="base.view_res_partner_filter"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
-                    Click to add a contact in your address book.
+                    Click to add a Company to the book.
                 </p>
             </field>
         </record>
@@ -57,17 +57,17 @@
                   groups="base.group_portal"/>
 
         <record id="action_portal_dead_companies" model="ir.actions.act_window">
-            <field name="name">inactive</field>
+            <field name="name">Inactive</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
-            <field name="view_mode">kanban,form,tree,geoengine</field>
-            <field name="domain">[('is_company','=', True), ('active', '=', False)]</field>
+            <field name="view_mode">geoengine,tree,kanban,form</field>
             <field name="context" eval="{'is_portal':True}"/>
             <field name="view_type">form</field>
+            <field name="domain">[('industry_ids', 'in', [1]), ('active', '=', False), ('is_company', '=', True)]</field>
             <field name="search_view_id" ref="base.view_res_partner_filter"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
-                    Click to add a contact in your address book.
+                    Click to add a Company to the book.
                 </p>
             </field>
         </record>

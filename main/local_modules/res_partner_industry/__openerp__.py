@@ -20,31 +20,17 @@
 ##############################################################################
 
 {
-    'name': 'Demo Data Module',
+    'name': 'Res Partner Industry',
     'version': '0.1',
     'author': 'Jordi Riera',
     'maintainer': 'Jordi Riera',
     'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Demo data for development of the solution.',
-    'description': """
-Demo Data Module
-================
-This module contains data to help development of the solution.
-
-Contributors
-------------
-* Jordi Riera <kender.jr@gmail.com>
-
-""",
-    'depends': [
-        'main'
-        'res_group_computer_graphics',
-    ],
+    'category': 'Sale',
+    'summary': 'Add a relation to a partner with an industry',
+    'depends': [],
     'data': [
-        'data/res_partner_category_demo.xml',
-        'data/res_partner_demo.xml',
+        'views/res_partner_view.xml',
+        'security/ir.model.access.csv',
     ],
     'installable': True,
-    'application': True,
 }

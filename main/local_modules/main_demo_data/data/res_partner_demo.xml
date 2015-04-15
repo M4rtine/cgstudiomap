@@ -4,6 +4,8 @@
 
         <record id="res_partner_mpc_mtl" model="res.partner">
             <field name="name">MPC</field>
+            <field eval="[(6, 0, [ref('res_group_computer_graphics.res_partner_industry_computer_graphics')])]"
+                   name="industry_ids"/>
             <field eval="[(6, 0, [ref('main_demo_data.res_partner_category_vfx')])]"
                    name="category_id"/>
             <field name="is_company">1</field>
@@ -20,6 +22,8 @@
 
         <record id="res_partner_cinesite_mtl" model="res.partner">
             <field name="name">Cinesite</field>
+            <field eval="[(6, 0, [ref('res_group_computer_graphics.res_partner_industry_computer_graphics')])]"
+                   name="industry_ids"/>
             <field eval="[(6, 0, [ref('main_demo_data.res_partner_category_animated_features')])]"
                    name="category_id"/>
             <field name="is_company">1</field>
@@ -35,6 +39,8 @@
 
         <record id="res_partner_framestore_mtl" model="res.partner">
             <field name="name">Framestore</field>
+            <field eval="[(6, 0, [ref('res_group_computer_graphics.res_partner_industry_computer_graphics')])]"
+                   name="industry_ids"/>
             <field eval="[(6, 0, [ref('main_demo_data.res_partner_category_vfx')])]"
                    name="category_id"/>
             <field name="is_company">1</field>
@@ -47,6 +53,25 @@
             <field name="website">http://www.framestore.com/</field>
             <field name="image" type="base64"
                    file="main_demo_data/static/img/framestore-logo.png"/>
+        </record>
+
+        <record id="res_partner_rhytym_and_hues_la" model="res.partner">
+            <field name="name">Rhythm and Hues</field>
+            <field eval="[(6, 0, [ref('res_group_computer_graphics.res_partner_industry_computer_graphics')])]"
+                   name="industry_ids"/>
+            <field eval="[(6, 0, [ref('main_demo_data.res_partner_category_vfx')])]"
+                   name="category_id"/>
+            <field name="is_company">1</field>
+            <field name="active">0</field>
+            <field name="city">Los Angeles</field>
+            <field name="zip">90245</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="street">2100 East Grand Avenue El Segundo</field>
+            <field name="website">http://www.rhythm.com/</field>
+            <field name="twitter">https://twitter.com/rhythmandhues</field>
+            <field name="facebook">https://www.facebook.com/RhythmAndHues</field>
+            <field name="image" type="base64"
+                   file="main_demo_data/static/img/rnh-logo.png"/>
         </record>
     </data>
 </openerp>

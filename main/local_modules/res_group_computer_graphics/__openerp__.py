@@ -20,31 +20,17 @@
 ##############################################################################
 
 {
-    'name': 'Demo Data Module',
+    'name': 'Res Groups Computer Graphics',
     'version': '0.1',
     'author': 'Jordi Riera',
     'maintainer': 'Jordi Riera',
     'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Demo data for development of the solution.',
-    'description': """
-Demo Data Module
-================
-This module contains data to help development of the solution.
-
-Contributors
-------------
-* Jordi Riera <kender.jr@gmail.com>
-
-""",
-    'depends': [
-        'main'
-        'res_group_computer_graphics',
-    ],
+    'category': 'Sale',
+    'summary': 'Add a new res.groups "Computer Graphics" and its rules.',
+    'depends': ['res_partner_industry'],
     'data': [
-        'data/res_partner_category_demo.xml',
-        'data/res_partner_demo.xml',
+        'data/res_groups_data.xml',
+        'data/res_partner_industry_data.xml',
     ],
     'installable': True,
-    'application': True,
 }

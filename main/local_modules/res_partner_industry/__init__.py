@@ -19,32 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Demo Data Module',
-    'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Demo data for development of the solution.',
-    'description': """
-Demo Data Module
-================
-This module contains data to help development of the solution.
-
-Contributors
-------------
-* Jordi Riera <kender.jr@gmail.com>
-
-""",
-    'depends': [
-        'main'
-        'res_group_computer_graphics',
-    ],
-    'data': [
-        'data/res_partner_category_demo.xml',
-        'data/res_partner_demo.xml',
-    ],
-    'installable': True,
-    'application': True,
-}
+from . import models

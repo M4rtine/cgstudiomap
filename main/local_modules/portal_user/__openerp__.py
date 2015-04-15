@@ -33,6 +33,8 @@
         'portal_sale',
         'website_partner',
         'website_menu_by_user_status',
+        'res_partner_industry',
+        'res_group_computer_graphics',
         'crm',
     ],
     'external_dependencies': {
