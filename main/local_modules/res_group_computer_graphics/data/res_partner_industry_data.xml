@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="res_partner_industry_computer_graphics" model="res.partner.industry">
+            <field name="name">Computer Graphics</field>
+        </record>
+    </data>
+</openerp>
