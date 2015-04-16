@@ -29,11 +29,14 @@
     'summary': 'Frontend pages',
     'depends': [
         'web',
+        'website',
         'auth_signup',
+        'res_group_computer_graphics',
     ],
     'data': [
         'templates/login_template.xml',
         'templates/contact_us_template.xml',
+        'templates/homepage.xml',
     ],
     'installable': True,
 }

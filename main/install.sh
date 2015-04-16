@@ -4,9 +4,7 @@ PROJECT_HOME=`pwd`
 # Force to use the frozen configuration.
 # BUILDOUT_CFG=$PROJECT_HOME/frozen.cfg
 BUILDOUT_CFG=$PROJECT_HOME/frozen.cfg
-# clean_files has to be called before odoo as it intends to reset the
-# external repository before merges and pulls.
-PARTS="clean_files odoo merges"
+PARTS="odoo"
 
 # Prepare buildout environment
 /usr/bin/env python2 $PROJECT_HOME/bootstrap.py -c $BUILDOUT_CFG

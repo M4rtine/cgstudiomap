@@ -38,7 +38,7 @@ Contributors
 
 """,
     'depends': [
-        'main'
+        'main',
         'res_group_computer_graphics',
     ],
     'data': [

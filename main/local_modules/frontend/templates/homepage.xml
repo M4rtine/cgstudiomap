@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="homepage" name="Homepage" page="True" priority="29">
+            <t t-call="website.layout">
+                <link rel="stylesheet" href="/frontend/static/src/js/ammap_3.14.0/ammap.css" type="text/css"/>
+                <script src="/frontend/static/src/js/ammap_3.14.0/ammap.js" type="text/javascript"></script>
+                <!-- map file should be included after ammap.js -->
+                <script src="/frontend/static/src/js/ammap_3.14.0/maps/js/worldLow.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                var map;
+
+                AmCharts.ready(function() {
+                    map = new AmCharts.AmMap();
+                    map.pathToImages = "/frontend/static/src/js/ammap_3.14.0/images/";
+
+                    map.colorSteps = 10;
+                    var dataProvider = {
+                        mapVar: AmCharts.maps.worldLow,
+                    };
+                    var areas = new Array()
+                    <t t-foreach="geochart_data" t-as="country">
+                    areas[areas.length] = {
+                        id: "<t t-esc="country.code"/>",
+                        name: "<t t-esc="country.name"/>",
+                        value: <t t-esc="geochart_data[country]"/>
+                        };
+                    </t>
+                    dataProvider['areas'] = areas;
+                    map.areasSettings = {
+                        autoZoom: true,
+                        balloonText: "[[title]] ([[value]])"
+                    };
+                    map.dataProvider = dataProvider;
+
+                    var valueLegend = new AmCharts.ValueLegend();
+                    valueLegend.right = 10;
+                    valueLegend.minValue = "little";
+                    valueLegend.maxValue = "a lot!";
+                    map.valueLegend = valueLegend;
+
+
+                    map.write("<t t-esc="geochart_target"/>");
+                });
+                </script>
+
+                <div id="wrap" class="oe_structure oe_empty">
+                    <div t-att-id="geochart_target" style="width: 100%; height: 500px;"></div>
+
+                </div>
+            </t>
+        </template>
+    </data>
+</openerp>
