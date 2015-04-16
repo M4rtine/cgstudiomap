@@ -11280,3 +11280,997 @@ TransactionRollbackError: could not serialize access due to concurrent update
 2015-04-15 20:30:38,347 2239 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 20:30:38] "POST /longpolling/poll HTTP/1.1" 200 -
 2015-04-15 20:31:11,835 2239 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 20:31:11] "POST /longpolling/poll HTTP/1.1" 200 -
 2015-04-15 20:31:28,448 2239 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 20:31:28] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 21:42:21,668 2946 INFO ? openerp: OpenERP version 8.0
+2015-04-15 21:42:21,688 2946 INFO ? openerp: addons paths: ['/home/ubuntu/.local/share/Odoo/addons/8.0', u'/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons', u'/home/ubuntu/cgstudiomap/main/parts/odoo/addons', u'/home/ubuntu/cgstudiomap/main/local_modules', u'/home/ubuntu/cgstudiomap/main/parts/server-tools', u'/home/ubuntu/cgstudiomap/main/parts/geospatial', u'/home/ubuntu/cgstudiomap/main/parts/web', u'/home/ubuntu/cgstudiomap/main/parts/website', '/media/sf_cgstudiomap/main/parts/odoo/openerp/addons']
+2015-04-15 21:42:21,690 2946 INFO ? openerp: database hostname: localhost
+2015-04-15 21:42:21,692 2946 INFO ? openerp: database port: 5432
+2015-04-15 21:42:21,693 2946 INFO ? openerp: database user: odoo
+2015-04-15 21:42:25,238 2946 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-04-15 21:42:25,485 2946 INFO cg openerp.modules.loading: loading 1 modules...
+2015-04-15 21:42:25,516 2946 INFO cg openerp.modules.loading: 1 modules loaded in 0.03s, 0 queries
+2015-04-15 21:42:32,975 2946 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-04-15 21:42:49,432 2946 INFO ? openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2015-04-15 21:42:49,488 2946 INFO ? openerp.addons.report.models.report: Upgrade Wkhtmltopdf to (at least) 0.12.0
+2015-04-15 21:43:06,645 2946 INFO ? openerp.http: HTTP Configuring static files
+2015-04-15 21:43:17,751 2946 ERROR cg openerp.modules.graph: module main_demo_data: Unmet dependencies: mainres_group_computer_graphics
+2015-04-15 21:43:17,752 2946 WARNING cg openerp.modules.graph: Some modules were not loaded.
+2015-04-15 21:43:20,598 2946 INFO cg openerp.modules.loading: loading 66 modules...
+2015-04-15 21:43:26,149 2946 INFO cg openerp.modules.module: module frontend: creating or updating database tables
+2015-04-15 21:43:26,495 2946 INFO cg openerp.modules.loading: loading frontend/templates/login_template.xml
+2015-04-15 21:43:26,917 2946 INFO cg openerp.modules.loading: loading frontend/templates/contact_us_template.xml
+2015-04-15 21:43:27,042 2946 INFO cg openerp.modules.loading: loading frontend/templates/homepage.xml
+2015-04-15 21:43:30,509 2946 INFO cg openerp.modules.module: module main: creating or updating database tables
+2015-04-15 21:43:31,074 2946 INFO cg openerp.modules.loading: 66 modules loaded in 10.47s, 0 queries
+2015-04-15 21:43:31,105 2946 ERROR cg openerp.modules.graph: module main_demo_data: Unmet dependencies: mainres_group_computer_graphics
+2015-04-15 21:43:31,107 2946 WARNING cg openerp.modules.graph: Some modules were not loaded.
+2015-04-15 21:43:31,108 2946 INFO cg openerp.modules.loading: loading 66 modules...
+2015-04-15 21:43:31,109 2946 INFO cg openerp.modules.loading: 66 modules loaded in 0.00s, 0 queries
+2015-04-15 21:43:31,138 2946 ERROR cg openerp.modules.graph: module main_demo_data: Unmet dependencies: mainres_group_computer_graphics
+2015-04-15 21:43:31,139 2946 WARNING cg openerp.modules.graph: Some modules were not loaded.
+2015-04-15 21:43:31,140 2946 INFO cg openerp.modules.loading: loading 66 modules...
+2015-04-15 21:43:31,141 2946 INFO cg openerp.modules.loading: 66 modules loaded in 0.00s, 0 queries
+2015-04-15 21:43:34,946 2946 INFO cg openerp.modules.loading: Modules loaded.
+2015-04-15 21:43:34,963 2946 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:43:34,963 2946 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:43:34,964 2946 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:43:34,965 2946 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:43:34,965 2946 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:43:37,428 2946 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:43:37] "POST /web/action/load HTTP/1.1" 200 -
+2015-04-15 21:43:37,429 2946 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:43:37] "POST /web/action/load HTTP/1.1" 200 -
+2015-04-15 21:43:37,550 2946 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:43:37] "POST /calendar/notify HTTP/1.1" 200 -
+2015-04-15 21:43:38,683 2946 ERROR cg openerp.addons.website.models.ir_http: 500 Internal Server Error:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_http.py", line 196, in _handle_exception
+    response = super(ir_http, self)._handle_exception(exception)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_http.py", line 146, in _handle_exception
+    return request._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 659, in _handle_exception
+    return super(HttpRequest, self)._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1358, in get_response
+    result.flatten()
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1231, in flatten
+    self.response.append(self.render())
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1225, in render
+    context=request.context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_ui_view.py", line 172, in render
+    return super(view, self).render(cr, uid, id_or_xml_id, values=values, engine=engine, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_ui_view.py", line 1029, in render
+    return self.pool[engine].render(cr, uid, id_or_xml_id, qcontext, loader=loader, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 261, in render
+    return self.render_node(self.get_template(id_or_xml_id, qwebcontext), qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 436, in render_tag_call
+    d[0] = self.render_element(element, template_attributes, generated_attributes, d)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 387, in render_tag_foreach
+    raise QWebException("foreach enumerator %r is not defined while rendering template %r" % (expr, template), template=template)
+QWebException: foreach enumerator 'companies' is not defined while rendering template u'website.homepage'
+
+2015-04-15 21:43:38,768 2946 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:43:38] "GET / HTTP/1.1" 500 -
+2015-04-15 21:43:38,892 2946 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:43:38] "GET /web/static/lib/fontawesome/css/font-awesome.css HTTP/1.1" 200 -
+2015-04-15 21:43:38,905 2946 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:43:38] "GET /web/static/lib/bootstrap/css/bootstrap.css HTTP/1.1" 200 -
+2015-04-15 21:43:38,914 2946 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:43:38] "GET /web/static/lib/jquery/jquery.js HTTP/1.1" 200 -
+2015-04-15 21:43:38,929 2946 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:43:38] "GET /website/static/src/css/website.css HTTP/1.1" 200 -
+2015-04-15 21:43:38,947 2946 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:43:38] "GET /web/static/lib/bootstrap/js/bootstrap.js HTTP/1.1" 200 -
+2015-04-15 21:44:27,284 2946 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:44:27] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 21:44:27,611 2946 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:44:27] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 21:44:53,040 2946 INFO cg openerp.service.server: Initiating shutdown
+2015-04-15 21:44:53,052 2946 INFO cg openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2015-04-15 21:45:19,905 2990 INFO ? openerp: OpenERP version 8.0
+2015-04-15 21:45:19,906 2990 INFO ? openerp: addons paths: ['/home/ubuntu/.local/share/Odoo/addons/8.0', u'/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons', u'/home/ubuntu/cgstudiomap/main/parts/odoo/addons', u'/home/ubuntu/cgstudiomap/main/local_modules', u'/home/ubuntu/cgstudiomap/main/parts/server-tools', u'/home/ubuntu/cgstudiomap/main/parts/geospatial', u'/home/ubuntu/cgstudiomap/main/parts/web', u'/home/ubuntu/cgstudiomap/main/parts/website', '/media/sf_cgstudiomap/main/parts/odoo/openerp/addons']
+2015-04-15 21:45:19,907 2990 INFO ? openerp: database hostname: localhost
+2015-04-15 21:45:19,908 2990 INFO ? openerp: database port: 5432
+2015-04-15 21:45:19,909 2990 INFO ? openerp: database user: odoo
+2015-04-15 21:45:23,318 2990 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-04-15 21:45:23,505 2990 INFO cg openerp.modules.loading: loading 1 modules...
+2015-04-15 21:45:23,529 2990 INFO cg openerp.modules.loading: 1 modules loaded in 0.02s, 0 queries
+2015-04-15 21:45:40,503 2990 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-04-15 21:45:49,201 2990 INFO ? openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2015-04-15 21:45:49,324 2990 INFO ? openerp.addons.report.models.report: Upgrade Wkhtmltopdf to (at least) 0.12.0
+2015-04-15 21:45:52,521 2990 DEBUG ? openerp.addons.frontend.controllers.main: openerp.addons.frontend.controllers.main
+2015-04-15 21:45:55,243 2990 INFO ? openerp.http: HTTP Configuring static files
+2015-04-15 21:45:55,246 2990 INFO cg openerp.http: HTTP Configuring static files
+2015-04-15 21:45:57,502 2990 ERROR cg openerp.modules.graph: module main_demo_data: Unmet dependencies: mainres_group_computer_graphics
+2015-04-15 21:45:57,503 2990 WARNING cg openerp.modules.graph: Some modules were not loaded.
+2015-04-15 21:45:58,992 2990 INFO cg openerp.modules.loading: loading 66 modules...
+2015-04-15 21:46:02,248 2990 INFO cg openerp.modules.module: module frontend: creating or updating database tables
+2015-04-15 21:46:02,494 2990 INFO cg openerp.modules.loading: loading frontend/templates/login_template.xml
+2015-04-15 21:46:02,740 2990 INFO cg openerp.modules.loading: loading frontend/templates/contact_us_template.xml
+2015-04-15 21:46:02,790 2990 INFO cg openerp.modules.loading: loading frontend/templates/homepage.xml
+2015-04-15 21:46:04,834 2990 INFO cg openerp.modules.module: module main: creating or updating database tables
+2015-04-15 21:46:05,191 2990 INFO cg openerp.modules.loading: 66 modules loaded in 6.20s, 0 queries
+2015-04-15 21:46:05,207 2990 ERROR cg openerp.modules.graph: module main_demo_data: Unmet dependencies: mainres_group_computer_graphics
+2015-04-15 21:46:05,208 2990 WARNING cg openerp.modules.graph: Some modules were not loaded.
+2015-04-15 21:46:05,209 2990 INFO cg openerp.modules.loading: loading 66 modules...
+2015-04-15 21:46:05,210 2990 INFO cg openerp.modules.loading: 66 modules loaded in 0.00s, 0 queries
+2015-04-15 21:46:05,224 2990 ERROR cg openerp.modules.graph: module main_demo_data: Unmet dependencies: mainres_group_computer_graphics
+2015-04-15 21:46:05,225 2990 WARNING cg openerp.modules.graph: Some modules were not loaded.
+2015-04-15 21:46:05,227 2990 INFO cg openerp.modules.loading: loading 66 modules...
+2015-04-15 21:46:05,228 2990 INFO cg openerp.modules.loading: 66 modules loaded in 0.00s, 0 queries
+2015-04-15 21:46:08,768 2990 INFO cg openerp.modules.loading: Modules loaded.
+2015-04-15 21:46:08,776 2990 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:46:08,776 2990 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:46:10,661 2990 ERROR cg openerp.addons.website.models.ir_http: 500 Internal Server Error:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_http.py", line 196, in _handle_exception
+    response = super(ir_http, self)._handle_exception(exception)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_http.py", line 146, in _handle_exception
+    return request._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 659, in _handle_exception
+    return super(HttpRequest, self)._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1358, in get_response
+    result.flatten()
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1231, in flatten
+    self.response.append(self.render())
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1225, in render
+    context=request.context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_ui_view.py", line 172, in render
+    return super(view, self).render(cr, uid, id_or_xml_id, values=values, engine=engine, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_ui_view.py", line 1029, in render
+    return self.pool[engine].render(cr, uid, id_or_xml_id, qcontext, loader=loader, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 261, in render
+    return self.render_node(self.get_template(id_or_xml_id, qwebcontext), qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 436, in render_tag_call
+    d[0] = self.render_element(element, template_attributes, generated_attributes, d)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 387, in render_tag_foreach
+    raise QWebException("foreach enumerator %r is not defined while rendering template %r" % (expr, template), template=template)
+QWebException: foreach enumerator 'companies' is not defined while rendering template u'website.homepage'
+
+2015-04-15 21:46:10,829 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:10] "GET / HTTP/1.1" 500 -
+2015-04-15 21:46:12,448 2990 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:12] "GET /website/static/src/css/website.css HTTP/1.1" 304 -
+2015-04-15 21:46:13,984 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:13] "GET /web/static/lib/jquery/jquery.js HTTP/1.1" 404 -
+2015-04-15 21:46:13,994 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:13] "GET /web/static/lib/bootstrap/js/bootstrap.js HTTP/1.1" 404 -
+2015-04-15 21:46:14,014 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:14] "GET /web/static/lib/bootstrap/css/bootstrap.css HTTP/1.1" 404 -
+2015-04-15 21:46:14,039 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:14] "GET /web/static/lib/fontawesome/css/font-awesome.css HTTP/1.1" 404 -
+2015-04-15 21:46:33,153 2990 ERROR cg openerp.addons.website.models.ir_http: 500 Internal Server Error:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_http.py", line 196, in _handle_exception
+    response = super(ir_http, self)._handle_exception(exception)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_http.py", line 146, in _handle_exception
+    return request._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 659, in _handle_exception
+    return super(HttpRequest, self)._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1358, in get_response
+    result.flatten()
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1231, in flatten
+    self.response.append(self.render())
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1225, in render
+    context=request.context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_ui_view.py", line 172, in render
+    return super(view, self).render(cr, uid, id_or_xml_id, values=values, engine=engine, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_ui_view.py", line 1029, in render
+    return self.pool[engine].render(cr, uid, id_or_xml_id, qcontext, loader=loader, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 261, in render
+    return self.render_node(self.get_template(id_or_xml_id, qwebcontext), qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 436, in render_tag_call
+    d[0] = self.render_element(element, template_attributes, generated_attributes, d)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 387, in render_tag_foreach
+    raise QWebException("foreach enumerator %r is not defined while rendering template %r" % (expr, template), template=template)
+QWebException: foreach enumerator 'companies' is not defined while rendering template u'website.homepage'
+
+2015-04-15 21:46:33,221 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:33] "GET / HTTP/1.1" 500 -
+2015-04-15 21:46:33,310 2990 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:33] "GET /website/static/src/css/website.css HTTP/1.1" 304 -
+2015-04-15 21:46:34,084 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:34] "GET /web/static/lib/fontawesome/css/font-awesome.css HTTP/1.1" 404 -
+2015-04-15 21:46:34,085 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:34] "GET /web/static/lib/jquery/jquery.js HTTP/1.1" 404 -
+2015-04-15 21:46:34,106 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:34] "GET /web/static/lib/bootstrap/js/bootstrap.js HTTP/1.1" 404 -
+2015-04-15 21:46:34,114 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:34] "GET /web/static/lib/bootstrap/css/bootstrap.css HTTP/1.1" 404 -
+2015-04-15 21:46:59,623 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:46:59] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 21:47:49,701 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:47:49] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 21:48:06,619 2990 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:48:06] "POST /calendar/notify HTTP/1.1" 200 -
+2015-04-15 21:48:11,275 2990 INFO cg openerp.service.server: Initiating shutdown
+2015-04-15 21:48:11,276 2990 INFO cg openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2015-04-15 21:48:35,951 3032 INFO ? openerp: OpenERP version 8.0
+2015-04-15 21:48:35,953 3032 INFO ? openerp: addons paths: ['/home/ubuntu/.local/share/Odoo/addons/8.0', u'/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons', u'/home/ubuntu/cgstudiomap/main/parts/odoo/addons', u'/home/ubuntu/cgstudiomap/main/local_modules', u'/home/ubuntu/cgstudiomap/main/parts/server-tools', u'/home/ubuntu/cgstudiomap/main/parts/geospatial', u'/home/ubuntu/cgstudiomap/main/parts/web', u'/home/ubuntu/cgstudiomap/main/parts/website', '/media/sf_cgstudiomap/main/parts/odoo/openerp/addons']
+2015-04-15 21:48:35,953 3032 INFO ? openerp: database hostname: localhost
+2015-04-15 21:48:35,953 3032 INFO ? openerp: database port: 5432
+2015-04-15 21:48:35,953 3032 INFO ? openerp: database user: odoo
+2015-04-15 21:48:39,439 3032 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-04-15 21:48:39,690 3032 INFO cg openerp.modules.loading: loading 1 modules...
+2015-04-15 21:48:39,714 3032 INFO cg openerp.modules.loading: 1 modules loaded in 0.02s, 0 queries
+2015-04-15 21:48:57,304 3032 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-04-15 21:49:05,259 3032 INFO cg openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2015-04-15 21:49:05,333 3032 INFO cg openerp.addons.report.models.report: Upgrade Wkhtmltopdf to (at least) 0.12.0
+2015-04-15 21:49:08,853 3032 DEBUG ? openerp.addons.frontend.controllers.main: openerp.addons.frontend.controllers.main
+2015-04-15 21:49:12,159 3032 INFO ? openerp.http: HTTP Configuring static files
+2015-04-15 21:49:12,160 3032 INFO cg openerp.http: HTTP Configuring static files
+2015-04-15 21:49:16,041 3032 INFO cg openerp.modules.loading: loading 67 modules...
+2015-04-15 21:49:19,980 3032 INFO cg openerp.modules.module: module frontend: creating or updating database tables
+2015-04-15 21:49:19,994 3032 INFO cg openerp.modules.loading: loading frontend/templates/login_template.xml
+2015-04-15 21:49:20,298 3032 INFO cg openerp.modules.loading: loading frontend/templates/contact_us_template.xml
+2015-04-15 21:49:20,371 3032 INFO cg openerp.modules.loading: loading frontend/templates/homepage.xml
+2015-04-15 21:49:22,589 3032 INFO cg openerp.modules.module: module main: creating or updating database tables
+2015-04-15 21:49:24,175 3032 INFO cg openerp.modules.module: module main_demo_data: creating or updating database tables
+2015-04-15 21:49:24,185 3032 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_category_demo.xml
+2015-04-15 21:49:24,241 3032 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_demo.xml
+2015-04-15 21:49:26,563 3032 INFO cg openerp.modules.loading: 67 modules loaded in 10.52s, 0 queries
+2015-04-15 21:49:28,713 3032 INFO cg openerp.modules.loading: Modules loaded.
+2015-04-15 21:49:28,722 3032 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:49:28,722 3032 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:49:29,596 3032 DEBUG cg openerp.addons.frontend.controllers.main: index
+2015-04-15 21:49:30,415 3032 ERROR cg openerp.addons.website.models.ir_http: 500 Internal Server Error:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_http.py", line 196, in _handle_exception
+    response = super(ir_http, self)._handle_exception(exception)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_http.py", line 146, in _handle_exception
+    return request._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 659, in _handle_exception
+    return super(HttpRequest, self)._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1358, in get_response
+    result.flatten()
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1231, in flatten
+    self.response.append(self.render())
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1225, in render
+    context=request.context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_ui_view.py", line 172, in render
+    return super(view, self).render(cr, uid, id_or_xml_id, values=values, engine=engine, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_ui_view.py", line 1029, in render
+    return self.pool[engine].render(cr, uid, id_or_xml_id, qcontext, loader=loader, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 261, in render
+    return self.render_node(self.get_template(id_or_xml_id, qwebcontext), qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 436, in render_tag_call
+    d[0] = self.render_element(element, template_attributes, generated_attributes, d)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 387, in render_tag_foreach
+    raise QWebException("foreach enumerator %r is not defined while rendering template %r" % (expr, template), template=template)
+QWebException: foreach enumerator 'companies' is not defined while rendering template u'website.homepage'
+
+2015-04-15 21:49:30,535 3032 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:49:30] "GET / HTTP/1.1" 500 -
+2015-04-15 21:49:30,642 3032 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:49:30] "GET /web/static/lib/fontawesome/css/font-awesome.css HTTP/1.1" 200 -
+2015-04-15 21:49:30,654 3032 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:49:30] "GET /web/static/lib/jquery/jquery.js HTTP/1.1" 200 -
+2015-04-15 21:49:30,668 3032 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:49:30] "GET /website/static/src/css/website.css HTTP/1.1" 304 -
+2015-04-15 21:49:30,668 3032 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:49:30] "GET /web/static/lib/bootstrap/css/bootstrap.css HTTP/1.1" 200 -
+2015-04-15 21:49:30,773 3032 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 21:49:30] "GET /web/static/lib/bootstrap/js/bootstrap.js HTTP/1.1" 200 -
+2015-04-15 21:50:19,885 3032 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:50:19] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 21:51:00,334 3032 INFO cg openerp.service.server: Initiating shutdown
+2015-04-15 21:51:00,337 3032 INFO cg openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2015-04-15 21:51:25,200 3067 INFO ? openerp: OpenERP version 8.0
+2015-04-15 21:51:25,200 3067 INFO ? openerp: addons paths: ['/home/ubuntu/.local/share/Odoo/addons/8.0', u'/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons', u'/home/ubuntu/cgstudiomap/main/parts/odoo/addons', u'/home/ubuntu/cgstudiomap/main/local_modules', u'/home/ubuntu/cgstudiomap/main/parts/server-tools', u'/home/ubuntu/cgstudiomap/main/parts/geospatial', u'/home/ubuntu/cgstudiomap/main/parts/web', u'/home/ubuntu/cgstudiomap/main/parts/website', '/media/sf_cgstudiomap/main/parts/odoo/openerp/addons']
+2015-04-15 21:51:25,201 3067 INFO ? openerp: database hostname: localhost
+2015-04-15 21:51:25,202 3067 INFO ? openerp: database port: 5432
+2015-04-15 21:51:25,202 3067 INFO ? openerp: database user: odoo
+2015-04-15 21:51:27,855 3067 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-04-15 21:51:28,024 3067 INFO cg openerp.modules.loading: loading 1 modules...
+2015-04-15 21:51:28,047 3067 INFO cg openerp.modules.loading: 1 modules loaded in 0.02s, 0 queries
+2015-04-15 21:51:38,598 3067 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-04-15 21:51:48,768 3067 INFO ? openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2015-04-15 21:51:48,849 3067 INFO ? openerp.addons.report.models.report: Upgrade Wkhtmltopdf to (at least) 0.12.0
+2015-04-15 21:51:52,981 3067 DEBUG ? openerp.addons.frontend.controllers.main: openerp.addons.frontend.controllers.main
+2015-04-15 21:51:56,568 3067 INFO ? openerp.http: HTTP Configuring static files
+2015-04-15 21:52:02,474 3067 INFO cg openerp.modules.loading: loading 67 modules...
+2015-04-15 21:52:06,304 3067 INFO cg openerp.modules.module: module frontend: creating or updating database tables
+2015-04-15 21:52:06,568 3067 INFO cg openerp.modules.loading: loading frontend/templates/login_template.xml
+2015-04-15 21:52:06,865 3067 INFO cg openerp.modules.loading: loading frontend/templates/contact_us_template.xml
+2015-04-15 21:52:06,947 3067 INFO cg openerp.modules.loading: loading frontend/templates/homepage.xml
+2015-04-15 21:52:09,285 3067 INFO cg openerp.modules.module: module main: creating or updating database tables
+2015-04-15 21:52:11,092 3067 INFO cg openerp.modules.module: module main_demo_data: creating or updating database tables
+2015-04-15 21:52:11,254 3067 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_category_demo.xml
+2015-04-15 21:52:11,295 3067 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_demo.xml
+2015-04-15 21:52:13,541 3067 INFO cg openerp.modules.loading: 67 modules loaded in 11.07s, 0 queries
+2015-04-15 21:52:15,714 3067 INFO cg openerp.modules.loading: Modules loaded.
+2015-04-15 21:52:15,722 3067 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:52:15,724 3067 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:52:16,432 3067 DEBUG cg openerp.addons.frontend.controllers.main: index
+2015-04-15 21:52:16,444 3067 DEBUG cg openerp.addons.frontend.controllers.main: main_menu: website.menu(1,)
+2015-04-15 21:52:16,458 3067 DEBUG cg openerp.addons.frontend.controllers.main: first_menu: website.menu(2,)
+2015-04-15 21:52:16,464 3067 DEBUG cg openerp.addons.frontend.controllers.main: Rendering ir.http
+2015-04-15 21:52:17,226 3067 ERROR cg openerp.addons.website.models.ir_http: 500 Internal Server Error:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_http.py", line 196, in _handle_exception
+    response = super(ir_http, self)._handle_exception(exception)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_http.py", line 146, in _handle_exception
+    return request._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 659, in _handle_exception
+    return super(HttpRequest, self)._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1358, in get_response
+    result.flatten()
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1231, in flatten
+    self.response.append(self.render())
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1225, in render
+    context=request.context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_ui_view.py", line 172, in render
+    return super(view, self).render(cr, uid, id_or_xml_id, values=values, engine=engine, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_ui_view.py", line 1029, in render
+    return self.pool[engine].render(cr, uid, id_or_xml_id, qcontext, loader=loader, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 261, in render
+    return self.render_node(self.get_template(id_or_xml_id, qwebcontext), qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 436, in render_tag_call
+    d[0] = self.render_element(element, template_attributes, generated_attributes, d)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 387, in render_tag_foreach
+    raise QWebException("foreach enumerator %r is not defined while rendering template %r" % (expr, template), template=template)
+QWebException: foreach enumerator 'companies' is not defined while rendering template u'website.homepage'
+
+2015-04-15 21:52:17,345 3067 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:52:17] "GET / HTTP/1.1" 500 -
+2015-04-15 21:53:06,572 3067 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:53:06] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 21:53:06,739 3067 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:53:06] "POST /calendar/notify HTTP/1.1" 200 -
+2015-04-15 21:53:39,659 3067 INFO cg openerp.service.server: Initiating shutdown
+2015-04-15 21:53:39,664 3067 INFO cg openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2015-04-15 21:54:05,139 3095 INFO ? openerp: OpenERP version 8.0
+2015-04-15 21:54:05,140 3095 INFO ? openerp: addons paths: ['/home/ubuntu/.local/share/Odoo/addons/8.0', u'/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons', u'/home/ubuntu/cgstudiomap/main/parts/odoo/addons', u'/home/ubuntu/cgstudiomap/main/local_modules', u'/home/ubuntu/cgstudiomap/main/parts/server-tools', u'/home/ubuntu/cgstudiomap/main/parts/geospatial', u'/home/ubuntu/cgstudiomap/main/parts/web', u'/home/ubuntu/cgstudiomap/main/parts/website', '/media/sf_cgstudiomap/main/parts/odoo/openerp/addons']
+2015-04-15 21:54:05,141 3095 INFO ? openerp: database hostname: localhost
+2015-04-15 21:54:05,142 3095 INFO ? openerp: database port: 5432
+2015-04-15 21:54:05,142 3095 INFO ? openerp: database user: odoo
+2015-04-15 21:54:08,235 3095 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-04-15 21:54:08,494 3095 INFO cg openerp.modules.loading: loading 1 modules...
+2015-04-15 21:54:08,524 3095 INFO cg openerp.modules.loading: 1 modules loaded in 0.03s, 0 queries
+2015-04-15 21:54:26,380 3095 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-04-15 21:54:37,690 3095 INFO ? openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2015-04-15 21:54:37,767 3095 INFO ? openerp.addons.report.models.report: Upgrade Wkhtmltopdf to (at least) 0.12.0
+2015-04-15 21:54:41,790 3095 DEBUG ? openerp.addons.frontend.controllers.main: openerp.addons.frontend.controllers.main
+2015-04-15 21:54:44,746 3095 INFO ? openerp.http: HTTP Configuring static files
+2015-04-15 21:54:44,749 3095 INFO cg openerp.http: HTTP Configuring static files
+2015-04-15 21:54:49,756 3095 INFO cg openerp.modules.loading: loading 67 modules...
+2015-04-15 21:54:53,354 3095 INFO cg openerp.modules.module: module frontend: creating or updating database tables
+2015-04-15 21:54:53,595 3095 INFO cg openerp.modules.loading: loading frontend/templates/login_template.xml
+2015-04-15 21:54:53,871 3095 INFO cg openerp.modules.loading: loading frontend/templates/contact_us_template.xml
+2015-04-15 21:54:53,932 3095 INFO cg openerp.modules.loading: loading frontend/templates/homepage.xml
+2015-04-15 21:54:56,271 3095 INFO cg openerp.modules.module: module main: creating or updating database tables
+2015-04-15 21:54:58,101 3095 INFO cg openerp.modules.module: module main_demo_data: creating or updating database tables
+2015-04-15 21:54:58,288 3095 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_category_demo.xml
+2015-04-15 21:54:58,372 3095 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_demo.xml
+2015-04-15 21:55:00,054 3095 INFO cg openerp.modules.loading: 67 modules loaded in 10.30s, 0 queries
+2015-04-15 21:55:02,304 3095 INFO cg openerp.modules.loading: Modules loaded.
+2015-04-15 21:55:02,311 3095 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:55:02,312 3095 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:55:03,054 3095 DEBUG cg openerp.addons.frontend.controllers.main: index
+2015-04-15 21:55:03,067 3095 DEBUG cg openerp.addons.frontend.controllers.main: [3, 12, 1, 7, 8, 9, 6, 13, 11, 5]
+2015-04-15 21:55:03,076 3095 DEBUG cg openerp.addons.frontend.controllers.main: main_menu: website.menu(1,)
+2015-04-15 21:55:03,107 3095 DEBUG cg openerp.addons.frontend.controllers.main: first_menu: website.menu(2,)
+2015-04-15 21:55:03,113 3095 DEBUG cg openerp.addons.frontend.controllers.main: Rendering ir.http
+2015-04-15 21:55:03,774 3095 ERROR cg openerp.addons.website.models.ir_http: 500 Internal Server Error:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_http.py", line 196, in _handle_exception
+    response = super(ir_http, self)._handle_exception(exception)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_http.py", line 146, in _handle_exception
+    return request._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 659, in _handle_exception
+    return super(HttpRequest, self)._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1358, in get_response
+    result.flatten()
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1231, in flatten
+    self.response.append(self.render())
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1225, in render
+    context=request.context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_ui_view.py", line 172, in render
+    return super(view, self).render(cr, uid, id_or_xml_id, values=values, engine=engine, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_ui_view.py", line 1029, in render
+    return self.pool[engine].render(cr, uid, id_or_xml_id, qcontext, loader=loader, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 261, in render
+    return self.render_node(self.get_template(id_or_xml_id, qwebcontext), qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 436, in render_tag_call
+    d[0] = self.render_element(element, template_attributes, generated_attributes, d)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 387, in render_tag_foreach
+    raise QWebException("foreach enumerator %r is not defined while rendering template %r" % (expr, template), template=template)
+QWebException: foreach enumerator 'companies' is not defined while rendering template u'website.homepage'
+
+2015-04-15 21:55:03,902 3095 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:55:03] "GET / HTTP/1.1" 500 -
+2015-04-15 21:55:53,124 3095 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:55:53] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 21:56:39,012 3095 INFO cg openerp.service.server: Initiating shutdown
+2015-04-15 21:56:39,014 3095 INFO cg openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2015-04-15 21:57:04,025 3125 INFO ? openerp: OpenERP version 8.0
+2015-04-15 21:57:04,027 3125 INFO ? openerp: addons paths: ['/home/ubuntu/.local/share/Odoo/addons/8.0', u'/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons', u'/home/ubuntu/cgstudiomap/main/parts/odoo/addons', u'/home/ubuntu/cgstudiomap/main/local_modules', u'/home/ubuntu/cgstudiomap/main/parts/server-tools', u'/home/ubuntu/cgstudiomap/main/parts/geospatial', u'/home/ubuntu/cgstudiomap/main/parts/web', u'/home/ubuntu/cgstudiomap/main/parts/website', '/media/sf_cgstudiomap/main/parts/odoo/openerp/addons']
+2015-04-15 21:57:04,028 3125 INFO ? openerp: database hostname: localhost
+2015-04-15 21:57:04,029 3125 INFO ? openerp: database port: 5432
+2015-04-15 21:57:04,030 3125 INFO ? openerp: database user: odoo
+2015-04-15 21:57:06,986 3125 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-04-15 21:57:07,169 3125 INFO cg openerp.modules.loading: loading 1 modules...
+2015-04-15 21:57:07,194 3125 INFO cg openerp.modules.loading: 1 modules loaded in 0.02s, 0 queries
+2015-04-15 21:57:14,079 3125 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-04-15 21:57:26,947 3125 INFO ? openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2015-04-15 21:57:27,026 3125 INFO ? openerp.addons.report.models.report: Upgrade Wkhtmltopdf to (at least) 0.12.0
+2015-04-15 21:57:31,584 3125 DEBUG ? openerp.addons.frontend.controllers.main: openerp.addons.frontend.controllers.main
+2015-04-15 21:57:38,839 3125 INFO ? openerp.http: HTTP Configuring static files
+2015-04-15 21:57:53,152 3125 INFO cg openerp.modules.loading: loading 67 modules...
+2015-04-15 21:57:57,017 3125 INFO cg openerp.modules.module: module frontend: creating or updating database tables
+2015-04-15 21:57:57,311 3125 INFO cg openerp.modules.loading: loading frontend/templates/login_template.xml
+2015-04-15 21:57:57,827 3125 INFO cg openerp.modules.loading: loading frontend/templates/contact_us_template.xml
+2015-04-15 21:57:57,894 3125 INFO cg openerp.modules.loading: loading frontend/templates/homepage.xml
+2015-04-15 21:58:00,302 3125 INFO cg openerp.modules.module: module main: creating or updating database tables
+2015-04-15 21:58:02,845 3125 INFO cg openerp.modules.module: module main_demo_data: creating or updating database tables
+2015-04-15 21:58:02,971 3125 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_category_demo.xml
+2015-04-15 21:58:03,071 3125 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_demo.xml
+2015-04-15 21:58:05,126 3125 INFO cg openerp.modules.loading: 67 modules loaded in 11.97s, 0 queries
+2015-04-15 21:58:07,580 3125 INFO cg openerp.modules.loading: Modules loaded.
+2015-04-15 21:58:07,611 3125 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:58:07,612 3125 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 21:58:08,700 3125 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:58:08] "POST /calendar/notify HTTP/1.1" 200 -
+2015-04-15 21:58:58,710 3125 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:58:58] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 21:59:48,794 3125 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 21:59:48] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 22:00:03,626 3125 DEBUG cg openerp.addons.frontend.controllers.main: index
+2015-04-15 22:00:03,630 3125 DEBUG cg openerp.addons.frontend.controllers.main: [3, 12, 1, 7, 8, 9, 6, 13, 11, 5]
+2015-04-15 22:00:04,336 3125 ERROR cg openerp.addons.website.models.ir_http: 500 Internal Server Error:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_http.py", line 196, in _handle_exception
+    response = super(ir_http, self)._handle_exception(exception)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_http.py", line 146, in _handle_exception
+    return request._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 659, in _handle_exception
+    return super(HttpRequest, self)._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1358, in get_response
+    result.flatten()
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1231, in flatten
+    self.response.append(self.render())
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1225, in render
+    context=request.context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_ui_view.py", line 172, in render
+    return super(view, self).render(cr, uid, id_or_xml_id, values=values, engine=engine, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_ui_view.py", line 1029, in render
+    return self.pool[engine].render(cr, uid, id_or_xml_id, qcontext, loader=loader, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 261, in render
+    return self.render_node(self.get_template(id_or_xml_id, qwebcontext), qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 192, in get_template
+    raise_qweb_exception(QWebTemplateNotFound, message="Loader could not find template %r" % name, template=origin_template)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 190, in get_template
+    xml_doc = qwebcontext.loader(name)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_ui_view.py", line 1027, in loader
+    return self.read_template(cr, uid, name, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "<string>", line 2, in read_template
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/tools/cache.py", line 122, in lookup
+    value = d[key] = self.method(*args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_ui_view.py", line 856, in read_template
+    raise ValueError('Invalid template id: %r' % (xml_id,))
+QWebTemplateNotFound: Invalid template id: 'homepage'
+
+2015-04-15 22:00:04,405 3125 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:00:04] "GET / HTTP/1.1" 500 -
+2015-04-15 22:00:38,853 3125 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:00:38] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 22:01:01,974 3125 INFO cg openerp.service.server: Initiating shutdown
+2015-04-15 22:01:01,980 3125 INFO cg openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2015-04-15 22:01:26,564 3161 INFO ? openerp: OpenERP version 8.0
+2015-04-15 22:01:26,566 3161 INFO ? openerp: addons paths: ['/home/ubuntu/.local/share/Odoo/addons/8.0', u'/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons', u'/home/ubuntu/cgstudiomap/main/parts/odoo/addons', u'/home/ubuntu/cgstudiomap/main/local_modules', u'/home/ubuntu/cgstudiomap/main/parts/server-tools', u'/home/ubuntu/cgstudiomap/main/parts/geospatial', u'/home/ubuntu/cgstudiomap/main/parts/web', u'/home/ubuntu/cgstudiomap/main/parts/website', '/media/sf_cgstudiomap/main/parts/odoo/openerp/addons']
+2015-04-15 22:01:26,567 3161 INFO ? openerp: database hostname: localhost
+2015-04-15 22:01:26,567 3161 INFO ? openerp: database port: 5432
+2015-04-15 22:01:26,568 3161 INFO ? openerp: database user: odoo
+2015-04-15 22:01:29,657 3161 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-04-15 22:01:29,848 3161 INFO cg openerp.modules.loading: loading 1 modules...
+2015-04-15 22:01:29,870 3161 INFO cg openerp.modules.loading: 1 modules loaded in 0.02s, 0 queries
+2015-04-15 22:01:51,728 3161 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-04-15 22:02:01,137 3161 INFO cg openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2015-04-15 22:02:01,203 3161 INFO cg openerp.addons.report.models.report: Upgrade Wkhtmltopdf to (at least) 0.12.0
+2015-04-15 22:02:04,861 3161 DEBUG cg openerp.addons.frontend.controllers.main: openerp.addons.frontend.controllers.main
+2015-04-15 22:02:08,009 3161 INFO ? openerp.http: HTTP Configuring static files
+2015-04-15 22:02:08,014 3161 INFO cg openerp.http: HTTP Configuring static files
+2015-04-15 22:02:14,305 3161 INFO cg openerp.modules.loading: loading 67 modules...
+2015-04-15 22:02:18,187 3161 INFO cg openerp.modules.module: module frontend: creating or updating database tables
+2015-04-15 22:02:18,476 3161 INFO cg openerp.modules.loading: loading frontend/templates/login_template.xml
+2015-04-15 22:02:18,752 3161 INFO cg openerp.modules.loading: loading frontend/templates/contact_us_template.xml
+2015-04-15 22:02:18,829 3161 INFO cg openerp.modules.loading: loading frontend/templates/homepage.xml
+2015-04-15 22:02:21,413 3161 INFO cg openerp.modules.module: module main: creating or updating database tables
+2015-04-15 22:02:23,258 3161 INFO cg openerp.modules.module: module main_demo_data: creating or updating database tables
+2015-04-15 22:02:23,394 3161 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_category_demo.xml
+2015-04-15 22:02:23,451 3161 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_demo.xml
+2015-04-15 22:02:25,339 3161 INFO cg openerp.modules.loading: 67 modules loaded in 11.03s, 0 queries
+2015-04-15 22:02:27,531 3161 INFO cg openerp.modules.loading: Modules loaded.
+2015-04-15 22:02:27,544 3161 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 22:02:27,946 3161 DEBUG cg openerp.addons.frontend.controllers.main: index
+2015-04-15 22:02:27,948 3161 DEBUG cg openerp.addons.frontend.controllers.main: [3, 12, 1, 7, 8, 9, 6, 13, 11, 5]
+2015-04-15 22:02:28,569 3161 ERROR cg openerp.addons.website.models.ir_http: 500 Internal Server Error:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_http.py", line 196, in _handle_exception
+    response = super(ir_http, self)._handle_exception(exception)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_http.py", line 146, in _handle_exception
+    return request._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 659, in _handle_exception
+    return super(HttpRequest, self)._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1358, in get_response
+    result.flatten()
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1231, in flatten
+    self.response.append(self.render())
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 1225, in render
+    context=request.context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_ui_view.py", line 172, in render
+    return super(view, self).render(cr, uid, id_or_xml_id, values=values, engine=engine, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_ui_view.py", line 1029, in render
+    return self.pool[engine].render(cr, uid, id_or_xml_id, qcontext, loader=loader, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 261, in render
+    return self.render_node(self.get_template(id_or_xml_id, qwebcontext), qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 436, in render_tag_call
+    d[0] = self.render_element(element, template_attributes, generated_attributes, d)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 422, in render_tag_foreach
+    ru.append(self.render_element(element, template_attributes, generated_attributes, copy_qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 300, in render_node
+    result = self.render_element(element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 326, in render_element
+    raise_qweb_exception(message="Could not render element %r" % element.tag, node=element, template=template)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 321, in render_element
+    g_inner.append(self.render_node(current_node, qwebcontext))
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 298, in render_node
+    result = self._render_tag[t_render](self, element, template_attributes, generated_attributes, qwebcontext)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_qweb.py", line 483, in render_tag_field
+    field = record._fields[field_name]
+QWebException: 'int' object has no attribute '_fields'
+
+2015-04-15 22:02:28,686 3161 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:02:28] "GET / HTTP/1.1" 500 -
+2015-04-15 22:03:06,038 3161 INFO cg openerp.service.server: Initiating shutdown
+2015-04-15 22:03:06,047 3161 INFO cg openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2015-04-15 22:03:31,224 3182 INFO ? openerp: OpenERP version 8.0
+2015-04-15 22:03:31,225 3182 INFO ? openerp: addons paths: ['/home/ubuntu/.local/share/Odoo/addons/8.0', u'/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons', u'/home/ubuntu/cgstudiomap/main/parts/odoo/addons', u'/home/ubuntu/cgstudiomap/main/local_modules', u'/home/ubuntu/cgstudiomap/main/parts/server-tools', u'/home/ubuntu/cgstudiomap/main/parts/geospatial', u'/home/ubuntu/cgstudiomap/main/parts/web', u'/home/ubuntu/cgstudiomap/main/parts/website', '/media/sf_cgstudiomap/main/parts/odoo/openerp/addons']
+2015-04-15 22:03:31,226 3182 INFO ? openerp: database hostname: localhost
+2015-04-15 22:03:31,226 3182 INFO ? openerp: database port: 5432
+2015-04-15 22:03:31,227 3182 INFO ? openerp: database user: odoo
+2015-04-15 22:03:34,430 3182 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-04-15 22:03:34,613 3182 INFO cg openerp.modules.loading: loading 1 modules...
+2015-04-15 22:03:34,643 3182 INFO cg openerp.modules.loading: 1 modules loaded in 0.03s, 0 queries
+2015-04-15 22:03:53,841 3182 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-04-15 22:04:01,754 3182 INFO cg openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2015-04-15 22:04:01,783 3182 INFO cg openerp.addons.report.models.report: Upgrade Wkhtmltopdf to (at least) 0.12.0
+2015-04-15 22:04:04,765 3182 DEBUG cg openerp.addons.frontend.controllers.main: openerp.addons.frontend.controllers.main
+2015-04-15 22:04:07,418 3182 INFO cg openerp.http: HTTP Configuring static files
+2015-04-15 22:04:11,770 3182 INFO cg openerp.modules.loading: loading 67 modules...
+2015-04-15 22:04:15,083 3182 INFO cg openerp.modules.module: module frontend: creating or updating database tables
+2015-04-15 22:04:15,396 3182 INFO cg openerp.modules.loading: loading frontend/templates/login_template.xml
+2015-04-15 22:04:15,626 3182 INFO cg openerp.modules.loading: loading frontend/templates/contact_us_template.xml
+2015-04-15 22:04:15,692 3182 INFO cg openerp.modules.loading: loading frontend/templates/homepage.xml
+2015-04-15 22:04:17,657 3182 INFO cg openerp.modules.module: module main: creating or updating database tables
+2015-04-15 22:04:19,225 3182 INFO cg openerp.modules.module: module main_demo_data: creating or updating database tables
+2015-04-15 22:04:19,363 3182 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_category_demo.xml
+2015-04-15 22:04:19,427 3182 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_demo.xml
+2015-04-15 22:04:21,230 3182 INFO cg openerp.modules.loading: 67 modules loaded in 9.46s, 0 queries
+2015-04-15 22:04:23,141 3182 INFO cg openerp.modules.loading: Modules loaded.
+2015-04-15 22:04:27,296 3182 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 22:04:27,607 3182 DEBUG cg openerp.addons.frontend.controllers.main: index
+2015-04-15 22:04:27,609 3182 DEBUG cg openerp.addons.frontend.controllers.main: [3, 12, 1, 7, 8, 9, 6, 13, 11, 5]
+2015-04-15 22:04:28,535 3182 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:28] "GET / HTTP/1.1" 200 -
+2015-04-15 22:04:29,040 3182 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:29] "GET /web/css/web.assets_common/27946c4 HTTP/1.1" 200 -
+2015-04-15 22:04:29,651 3182 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:29] "GET /web/js/web.assets_common/27946c4 HTTP/1.1" 200 -
+2015-04-15 22:04:30,007 3182 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:30] "GET /web/css/website.assets_editor/d209698 HTTP/1.1" 200 -
+2015-04-15 22:04:30,008 3182 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:30] "GET /web/css/website.assets_frontend/408669a HTTP/1.1" 200 -
+2015-04-15 22:04:30,089 3182 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:30] "GET /web/js/website.assets_frontend/408669a HTTP/1.1" 200 -
+2015-04-15 22:04:30,164 3182 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:30] "GET /logo.png HTTP/1.1" 200 -
+2015-04-15 22:04:30,563 3182 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:30] "GET /shared_web_theme/static/dock_sea.jpeg HTTP/1.1" 304 -
+2015-04-15 22:04:30,579 3182 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:30] "GET /web/static/lib/fontawesome/fonts/fontawesome-webfont.woff?v=4.2.0 HTTP/1.1" 304 -
+2015-04-15 22:04:30,967 3182 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:30] "GET /website/static/src/xml/website.xml HTTP/1.1" 304 -
+2015-04-15 22:04:31,394 3182 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:31] "GET /web/js/website.assets_editor/d209698 HTTP/1.1" 200 -
+2015-04-15 22:04:31,684 3182 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:31] "GET /website/static/src/xml/website.editor.xml HTTP/1.1" 200 -
+2015-04-15 22:04:31,788 3182 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:31] "GET /website/static/src/xml/website.contentMenu.xml HTTP/1.1" 200 -
+2015-04-15 22:04:31,828 3182 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:31] "GET /website/static/src/xml/website.seo.xml HTTP/1.1" 200 -
+2015-04-15 22:04:31,871 3182 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:31] "GET /website/static/src/xml/website.snippets.xml HTTP/1.1" 200 -
+2015-04-15 22:04:31,956 3182 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:31] "GET /website/static/src/xml/website.ace.xml HTTP/1.1" 200 -
+2015-04-15 22:04:32,033 3182 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:04:32] "POST /website/translations HTTP/1.1" 200 -
+2015-04-15 22:12:54,987 3182 INFO cg openerp.service.server: Initiating shutdown
+2015-04-15 22:12:54,992 3182 INFO cg openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2015-04-15 22:13:19,622 3251 INFO ? openerp: OpenERP version 8.0
+2015-04-15 22:13:19,623 3251 INFO ? openerp: addons paths: ['/home/ubuntu/.local/share/Odoo/addons/8.0', u'/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons', u'/home/ubuntu/cgstudiomap/main/parts/odoo/addons', u'/home/ubuntu/cgstudiomap/main/local_modules', u'/home/ubuntu/cgstudiomap/main/parts/server-tools', u'/home/ubuntu/cgstudiomap/main/parts/geospatial', u'/home/ubuntu/cgstudiomap/main/parts/web', u'/home/ubuntu/cgstudiomap/main/parts/website', '/media/sf_cgstudiomap/main/parts/odoo/openerp/addons']
+2015-04-15 22:13:19,624 3251 INFO ? openerp: database hostname: localhost
+2015-04-15 22:13:19,624 3251 INFO ? openerp: database port: 5432
+2015-04-15 22:13:19,625 3251 INFO ? openerp: database user: odoo
+2015-04-15 22:13:23,450 3251 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-04-15 22:13:23,738 3251 INFO cg openerp.modules.loading: loading 1 modules...
+2015-04-15 22:13:23,763 3251 INFO cg openerp.modules.loading: 1 modules loaded in 0.02s, 0 queries
+2015-04-15 22:13:45,733 3251 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-04-15 22:13:53,370 3251 INFO cg openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2015-04-15 22:13:53,444 3251 INFO cg openerp.addons.report.models.report: Upgrade Wkhtmltopdf to (at least) 0.12.0
+2015-04-15 22:13:56,425 3251 DEBUG cg openerp.addons.frontend.controllers.main: openerp.addons.frontend.controllers.main
+2015-04-15 22:13:59,092 3251 INFO cg openerp.http: HTTP Configuring static files
+2015-04-15 22:14:03,366 3251 INFO cg openerp.modules.loading: loading 67 modules...
+2015-04-15 22:14:06,603 3251 INFO cg openerp.modules.module: module frontend: creating or updating database tables
+2015-04-15 22:14:06,913 3251 INFO cg openerp.modules.loading: loading frontend/templates/login_template.xml
+2015-04-15 22:14:07,128 3251 INFO cg openerp.modules.loading: loading frontend/templates/contact_us_template.xml
+2015-04-15 22:14:07,184 3251 INFO cg openerp.modules.loading: loading frontend/templates/homepage.xml
+2015-04-15 22:14:09,035 3251 INFO cg openerp.modules.module: module main: creating or updating database tables
+2015-04-15 22:14:10,500 3251 INFO cg openerp.modules.module: module main_demo_data: creating or updating database tables
+2015-04-15 22:14:10,622 3251 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_category_demo.xml
+2015-04-15 22:14:10,664 3251 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_demo.xml
+2015-04-15 22:14:14,501 3251 INFO cg openerp.modules.loading: 67 modules loaded in 11.13s, 0 queries
+2015-04-15 22:14:16,244 3251 INFO cg openerp.modules.loading: Modules loaded.
+2015-04-15 22:14:53,659 3251 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 22:14:54,060 3251 DEBUG cg openerp.addons.frontend.controllers.main: index
+2015-04-15 22:14:54,065 3251 DEBUG cg openerp.addons.frontend.controllers.main: [res.partner(3,), res.partner(12,), res.partner(1,), res.partner(7,), res.partner(8,), res.partner(9,), res.partner(6,), res.partner(13,), res.partner(11,), res.partner(5,)]
+2015-04-15 22:14:55,293 3251 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:14:55] "GET / HTTP/1.1" 200 -
+2015-04-15 22:14:58,885 3251 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:14:58] "POST /website/translations HTTP/1.1" 200 -
+2015-04-15 22:18:55,534 3251 INFO cg openerp.service.server: Initiating shutdown
+2015-04-15 22:18:55,541 3251 INFO cg openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2015-04-15 22:19:19,901 3290 INFO ? openerp: OpenERP version 8.0
+2015-04-15 22:19:19,903 3290 INFO ? openerp: addons paths: ['/home/ubuntu/.local/share/Odoo/addons/8.0', u'/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons', u'/home/ubuntu/cgstudiomap/main/parts/odoo/addons', u'/home/ubuntu/cgstudiomap/main/local_modules', u'/home/ubuntu/cgstudiomap/main/parts/server-tools', u'/home/ubuntu/cgstudiomap/main/parts/geospatial', u'/home/ubuntu/cgstudiomap/main/parts/web', u'/home/ubuntu/cgstudiomap/main/parts/website', '/media/sf_cgstudiomap/main/parts/odoo/openerp/addons']
+2015-04-15 22:19:19,904 3290 INFO ? openerp: database hostname: localhost
+2015-04-15 22:19:19,905 3290 INFO ? openerp: database port: 5432
+2015-04-15 22:19:19,906 3290 INFO ? openerp: database user: odoo
+2015-04-15 22:19:23,099 3290 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-04-15 22:19:23,288 3290 INFO cg openerp.modules.loading: loading 1 modules...
+2015-04-15 22:19:23,311 3290 INFO cg openerp.modules.loading: 1 modules loaded in 0.02s, 0 queries
+2015-04-15 22:19:45,382 3290 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-04-15 22:19:53,150 3290 INFO cg openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2015-04-15 22:19:53,229 3290 INFO cg openerp.addons.report.models.report: Upgrade Wkhtmltopdf to (at least) 0.12.0
+2015-04-15 22:19:56,345 3290 DEBUG cg openerp.addons.frontend.controllers.main: openerp.addons.frontend.controllers.main
+2015-04-15 22:19:58,962 3290 INFO cg openerp.http: HTTP Configuring static files
+2015-04-15 22:20:03,244 3290 INFO cg openerp.modules.loading: loading 67 modules...
+2015-04-15 22:20:06,625 3290 INFO cg openerp.modules.module: module frontend: creating or updating database tables
+2015-04-15 22:20:06,982 3290 INFO cg openerp.modules.loading: loading frontend/templates/login_template.xml
+2015-04-15 22:20:07,225 3290 INFO cg openerp.modules.loading: loading frontend/templates/contact_us_template.xml
+2015-04-15 22:20:07,281 3290 INFO cg openerp.modules.loading: loading frontend/templates/homepage.xml
+2015-04-15 22:20:09,230 3290 INFO cg openerp.modules.module: module main: creating or updating database tables
+2015-04-15 22:20:10,758 3290 INFO cg openerp.modules.module: module main_demo_data: creating or updating database tables
+2015-04-15 22:20:10,905 3290 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_category_demo.xml
+2015-04-15 22:20:10,970 3290 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_demo.xml
+2015-04-15 22:20:12,769 3290 INFO cg openerp.modules.loading: 67 modules loaded in 9.52s, 0 queries
+2015-04-15 22:20:14,567 3290 INFO cg openerp.modules.loading: Modules loaded.
+2015-04-15 22:20:44,912 3290 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 22:20:45,307 3290 DEBUG cg openerp.addons.frontend.controllers.main: index
+2015-04-15 22:20:45,487 3290 ERROR cg openerp.addons.website.models.ir_http: 500 Internal Server Error:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/addons/website/models/ir_http.py", line 196, in _handle_exception
+    response = super(ir_http, self)._handle_exception(exception)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_http.py", line 146, in _handle_exception
+    return request._handle_exception(exception)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 659, in _handle_exception
+    return super(HttpRequest, self)._handle_exception(exception)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/ir/ir_http.py", line 172, in _dispatch
+    result = request.dispatch()
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 677, in dispatch
+    r = self._call_function(**self.params)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 303, in _call_function
+    return checked_call(self.db, *args, **kwargs)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/service/model.py", line 113, in wrapper
+    return f(dbname, *args, **kwargs)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 300, in checked_call
+    return self.endpoint(*a, **kw)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 796, in __call__
+    return self.method(*args, **kw)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/http.py", line 396, in response_wrap
+    response = f(*args, **kw)
+  File "/home/ubuntu/cgstudiomap/main/local_modules/frontend/controllers/main.py", line 30, in index
+    cr, uid, [('active', '=', True), ('is_company', '='', True'), ('industry_ids', '=', [industry_cg.id])]
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/models.py", line 1639, in search
+    return self._search(cr, user, args, offset=offset, limit=limit, order=order, context=context, count=count)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons/base/res/res_partner.py", line 656, in _search
+    count=count, access_rights_uid=access_rights_uid)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/models.py", line 4621, in _search
+    query = self._where_calc(cr, user, args, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/api.py", line 241, in wrapper
+    return old_api(self, *args, **kwargs)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/models.py", line 4444, in _where_calc
+    e = expression.expression(cr, user, domain, self, context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/osv/expression.py", line 646, in __init__
+    self.parse(cr, uid, context=context)
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/osv/expression.py", line 749, in parse
+    self.stack = [ExtendedLeaf(leaf, self.root_model) for leaf in self.expression]
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/osv/expression.py", line 532, in __init__
+    self.check_leaf()
+  File "/media/sf_cgstudiomap/main/parts/odoo/openerp/osv/expression.py", line 588, in check_leaf
+    raise ValueError("Invalid leaf %s" % str(self.leaf))
+ValueError: Invalid leaf ('is_company', '=, True')
+
+2015-04-15 22:20:46,098 3290 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:20:46] "GET / HTTP/1.1" 500 -
+2015-04-15 22:20:47,084 3290 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:20:47] "GET /web/static/lib/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 -
+2015-04-15 22:20:47,099 3290 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:20:47] "GET /web/static/lib/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 -
+2015-04-15 22:20:47,103 3290 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:20:47] "GET /web/static/lib/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 -
+2015-04-15 22:20:47,107 3290 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:20:47] "GET /web/static/lib/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 -
+2015-04-15 22:20:47,110 3290 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:20:47] "GET /web/static/lib/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 -
+2015-04-15 22:21:03,435 3290 INFO cg openerp.service.server: Initiating shutdown
+2015-04-15 22:21:03,442 3290 INFO cg openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2015-04-15 22:21:29,619 3316 INFO ? openerp: OpenERP version 8.0
+2015-04-15 22:21:29,621 3316 INFO ? openerp: addons paths: ['/home/ubuntu/.local/share/Odoo/addons/8.0', u'/home/ubuntu/cgstudiomap/main/parts/odoo/openerp/addons', u'/home/ubuntu/cgstudiomap/main/parts/odoo/addons', u'/home/ubuntu/cgstudiomap/main/local_modules', u'/home/ubuntu/cgstudiomap/main/parts/server-tools', u'/home/ubuntu/cgstudiomap/main/parts/geospatial', u'/home/ubuntu/cgstudiomap/main/parts/web', u'/home/ubuntu/cgstudiomap/main/parts/website', '/media/sf_cgstudiomap/main/parts/odoo/openerp/addons']
+2015-04-15 22:21:29,623 3316 INFO ? openerp: database hostname: localhost
+2015-04-15 22:21:29,623 3316 INFO ? openerp: database port: 5432
+2015-04-15 22:21:29,624 3316 INFO ? openerp: database user: odoo
+2015-04-15 22:21:32,277 3316 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2015-04-15 22:21:32,438 3316 INFO cg openerp.modules.loading: loading 1 modules...
+2015-04-15 22:21:32,485 3316 INFO cg openerp.modules.loading: 1 modules loaded in 0.05s, 0 queries
+2015-04-15 22:21:41,627 3316 INFO ? openerp.addons.bus.bus: Bus.loop listen imbus on db postgres
+2015-04-15 22:21:51,952 3316 INFO ? openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf
+2015-04-15 22:21:52,029 3316 INFO ? openerp.addons.report.models.report: Upgrade Wkhtmltopdf to (at least) 0.12.0
+2015-04-15 22:21:55,870 3316 DEBUG ? openerp.addons.frontend.controllers.main: openerp.addons.frontend.controllers.main
+2015-04-15 22:21:59,308 3316 INFO ? openerp.http: HTTP Configuring static files
+2015-04-15 22:21:59,309 3316 INFO cg openerp.http: HTTP Configuring static files
+2015-04-15 22:22:05,166 3316 INFO cg openerp.modules.loading: loading 67 modules...
+2015-04-15 22:22:09,178 3316 INFO cg openerp.modules.module: module frontend: creating or updating database tables
+2015-04-15 22:22:09,562 3316 INFO cg openerp.modules.loading: loading frontend/templates/login_template.xml
+2015-04-15 22:22:09,816 3316 INFO cg openerp.modules.loading: loading frontend/templates/contact_us_template.xml
+2015-04-15 22:22:09,880 3316 INFO cg openerp.modules.loading: loading frontend/templates/homepage.xml
+2015-04-15 22:22:12,098 3316 INFO cg openerp.modules.module: module main: creating or updating database tables
+2015-04-15 22:22:14,001 3316 INFO cg openerp.modules.module: module main_demo_data: creating or updating database tables
+2015-04-15 22:22:14,155 3316 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_category_demo.xml
+2015-04-15 22:22:14,217 3316 INFO cg openerp.modules.loading: loading main_demo_data/data/res_partner_demo.xml
+2015-04-15 22:22:16,282 3316 INFO cg openerp.modules.loading: 67 modules loaded in 11.11s, 0 queries
+2015-04-15 22:22:18,485 3316 INFO cg openerp.modules.loading: Modules loaded.
+2015-04-15 22:22:18,510 3316 INFO cg openerp.addons.base.ir.ir_http: Generating routing map
+2015-04-15 22:22:18,953 3316 DEBUG cg openerp.addons.frontend.controllers.main: index
+2015-04-15 22:22:18,957 3316 WARNING cg openerp.osv.expression: The domain term '('industry_ids', '=', [1])' should use the 'in' or 'not in' operator.
+2015-04-15 22:22:18,960 3316 DEBUG cg openerp.addons.frontend.controllers.main: [res.partner(12,), res.partner(7,), res.partner(8,), res.partner(6,), res.partner(13,), res.partner(11,)]
+2015-04-15 22:22:19,924 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:19] "GET / HTTP/1.1" 200 -
+2015-04-15 22:22:21,864 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:21] "POST /website/translations HTTP/1.1" 200 -
+2015-04-15 22:22:32,032 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "GET /web/static/lib/ckeditor/skins/moono/editor_gecko.css?t=E0LB HTTP/1.1" 200 -
+2015-04-15 22:22:32,055 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "GET /web/static/lib/ckeditor/lang/en.js?t=E0LB HTTP/1.1" 200 -
+2015-04-15 22:22:32,243 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "GET /web/static/lib/ckeditor/skins/moono/icons.png HTTP/1.1" 200 -
+2015-04-15 22:22:32,267 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "POST /website/snippets HTTP/1.1" 200 -
+2015-04-15 22:22:32,585 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "GET /website/static/src/img/blocks/block_banner.png HTTP/1.1" 200 -
+2015-04-15 22:22:32,697 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "GET /website/static/src/img/banner/banner_picture.png HTTP/1.1" 200 -
+2015-04-15 22:22:32,698 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "GET /website/static/src/img/blocks/block_text_image.png HTTP/1.1" 200 -
+2015-04-15 22:22:32,743 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "GET /website/static/src/img/text_image.png HTTP/1.1" 200 -
+2015-04-15 22:22:32,777 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "GET /website/static/src/img/blocks/block_image_text.png HTTP/1.1" 200 -
+2015-04-15 22:22:32,805 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "GET /website/static/src/img/image_text.jpg HTTP/1.1" 200 -
+2015-04-15 22:22:32,921 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "GET /website/static/src/img/odoo.jpg HTTP/1.1" 200 -
+2015-04-15 22:22:32,996 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:32] "GET /website/static/src/img/blocks/block_text_block.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,020 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_jumbotron.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,025 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_title.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,057 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_features.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,087 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/big_picture.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,091 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_big_picture.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,123 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_three_columns.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,136 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/desert_thumb.jpg HTTP/1.1" 200 -
+2015-04-15 22:22:33,162 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/deers_thumb.jpg HTTP/1.1" 200 -
+2015-04-15 22:22:33,248 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/china_thumb.jpg HTTP/1.1" 200 -
+2015-04-15 22:22:33,258 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_well.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,295 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_panel.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,308 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_quote.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,339 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/library/ipad.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,341 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_button.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,348 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_separator.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,417 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_image_gallery.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,439 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_faq.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,467 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/desert.jpg HTTP/1.1" 200 -
+2015-04-15 22:22:33,467 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_comparison.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,487 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/landscape.jpg HTTP/1.1" 200 -
+2015-04-15 22:22:33,520 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/openerp_logo.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,521 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_quotes_slider.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,556 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_references.png HTTP/1.1" 200 -
+2015-04-15 22:22:33,562 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:33] "GET /website/static/src/img/blocks/block_parallax.png HTTP/1.1" 200 -
+2015-04-15 22:22:36,270 3316 DEBUG cg openerp.addons.frontend.controllers.main: index
+2015-04-15 22:22:36,284 3316 WARNING cg openerp.osv.expression: The domain term '('industry_ids', '=', [1])' should use the 'in' or 'not in' operator.
+2015-04-15 22:22:36,289 3316 DEBUG cg openerp.addons.frontend.controllers.main: [res.partner(12,), res.partner(7,), res.partner(8,), res.partner(6,), res.partner(13,), res.partner(11,)]
+2015-04-15 22:22:36,542 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:36] "GET / HTTP/1.1" 200 -
+2015-04-15 22:22:37,178 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:37] "GET /web/css/website.assets_frontend/408669a HTTP/1.1" 200 -
+2015-04-15 22:22:37,219 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:37] "GET /web/css/website.assets_editor/d209698 HTTP/1.1" 200 -
+2015-04-15 22:22:37,305 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:37] "GET /web/js/website.assets_frontend/408669a HTTP/1.1" 200 -
+2015-04-15 22:22:37,369 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:37] "GET /web/css/web.assets_common/27946c4 HTTP/1.1" 200 -
+2015-04-15 22:22:37,620 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:37] "GET /web/js/website.assets_editor/d209698 HTTP/1.1" 200 -
+2015-04-15 22:22:37,693 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:37] "GET /web/js/web.assets_common/27946c4 HTTP/1.1" 200 -
+2015-04-15 22:22:37,909 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:37] "GET /logo.png HTTP/1.1" 304 -
+2015-04-15 22:22:37,912 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:37] "GET /shared_web_theme/static/dock_sea.jpeg HTTP/1.1" 304 -
+2015-04-15 22:22:38,428 3316 INFO ? werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:38] "GET /website/static/src/xml/website.xml HTTP/1.1" 304 -
+2015-04-15 22:22:39,915 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:39] "POST /website/translations HTTP/1.1" 200 -
+2015-04-15 22:22:40,862 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:40] "GET /Web HTTP/1.1" 404 -
+2015-04-15 22:22:44,199 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:44] "POST /website/translations HTTP/1.1" 200 -
+2015-04-15 22:22:49,459 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:49] "GET /web HTTP/1.1" 200 -
+2015-04-15 22:22:52,345 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:52] "GET /web/css/web.assets_backend/0f394d8 HTTP/1.1" 200 -
+2015-04-15 22:22:55,848 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:22:55] "GET /web/js/web.assets_backend/0f394d8 HTTP/1.1" 200 -
+2015-04-15 22:23:00,119 3316 INFO cg openerp.service.common: successful login from 'admin' using database 'cg'
+2015-04-15 22:23:00,145 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:00] "POST /web/session/get_session_info HTTP/1.1" 200 -
+2015-04-15 22:23:01,880 3316 INFO None openerp.http: Generating nondb routing
+2015-04-15 22:23:03,841 3316 INFO None werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:03] "POST /web/proxy/load HTTP/1.1" 200 -
+2015-04-15 22:23:05,958 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:05] "POST /web/session/modules HTTP/1.1" 200 -
+2015-04-15 22:23:06,629 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:06] "POST /web/webclient/translations HTTP/1.1" 200 -
+2015-04-15 22:23:08,004 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:08] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 -
+2015-04-15 22:23:08,045 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:08] "POST /web/dataset/call_kw/res.users/read HTTP/1.1" 200 -
+2015-04-15 22:23:08,199 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:08] "POST /calendar/notify HTTP/1.1" 200 -
+2015-04-15 22:23:08,241 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:08] "POST /web/dataset/call_kw/res.users/read HTTP/1.1" 200 -
+2015-04-15 22:23:08,464 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:08] "POST /im_chat/init HTTP/1.1" 200 -
+2015-04-15 22:23:08,538 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:08] "GET /web/binary/image?model=res.users&field=image_small&id=1 HTTP/1.1" 304 -
+2015-04-15 22:23:08,694 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:08] "POST /web/action/load HTTP/1.1" 200 -
+2015-04-15 22:23:08,799 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:08] "POST /web/menu/load_needaction HTTP/1.1" 200 -
+2015-04-15 22:23:08,917 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:08] "POST /web/dataset/call_kw/share.wizard/has_share HTTP/1.1" 200 -
+2015-04-15 22:23:09,063 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:09] "POST /web/dataset/call_kw/res.partner/fields_view_get HTTP/1.1" 200 -
+2015-04-15 22:23:09,201 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:09] "POST /web/dataset/call_kw/ir.filters/get_filters HTTP/1.1" 200 -
+2015-04-15 22:23:09,231 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:09] "POST /web/dataset/call_kw/res.partner/fields_view_get HTTP/1.1" 200 -
+2015-04-15 22:23:09,241 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:09] "POST /web/dataset/call_kw/res.partner/fields_get HTTP/1.1" 200 -
+2015-04-15 22:23:09,936 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:09] "POST /web/dataset/search_read HTTP/1.1" 200 -
+2015-04-15 22:23:10,104 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:10] "GET /web/binary/image?model=res.partner&field=image_small&id=13 HTTP/1.1" 200 -
+2015-04-15 22:23:10,127 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:10] "POST /web/dataset/call_kw/res.partner.category/name_get HTTP/1.1" 200 -
+2015-04-15 22:23:10,397 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:10] "GET /web/binary/image?model=res.partner&field=image_small&id=7 HTTP/1.1" 200 -
+2015-04-15 22:23:10,401 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:10] "GET /web/binary/image?model=res.partner&field=image_small&id=1 HTTP/1.1" 304 -
+2015-04-15 22:23:10,483 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:10] "GET /web/binary/image?model=res.partner&field=image_small&id=6 HTTP/1.1" 200 -
+2015-04-15 22:23:10,500 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:10] "GET /web/binary/image?model=res.partner&field=image_small&id=8 HTTP/1.1" 200 -
+2015-04-15 22:23:10,531 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:10] "GET /web/binary/image?model=res.partner&field=image_small&id=9 HTTP/1.1" 304 -
+2015-04-15 22:23:10,549 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:10] "GET /web/binary/image?model=res.partner&field=image_small&id=5 HTTP/1.1" 304 -
+2015-04-15 22:23:16,686 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:16] "POST /web/dataset/call_kw/res.partner/fields_view_get HTTP/1.1" 200 -
+2015-04-15 22:23:19,414 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:19] "POST /web/dataset/call_kw/res.partner/read HTTP/1.1" 200 -
+2015-04-15 22:23:20,152 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:20] "POST /web/dataset/call_kw/account.fiscal.position/name_search HTTP/1.1" 200 -
+2015-04-15 22:23:20,231 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:20] "POST /web/dataset/call_kw/account.payment.term/name_search HTTP/1.1" 200 -
+2015-04-15 22:23:20,382 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:20] "POST /web/dataset/call_kw/account.payment.term/name_search HTTP/1.1" 200 -
+2015-04-15 22:23:20,433 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:20] "POST /web/dataset/call_kw/res.partner/get_edit_info_for_geo_column HTTP/1.1" 200 -
+2015-04-15 22:23:20,566 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:20] "POST /web/dataset/call_kw/res.partner/read_followers_data HTTP/1.1" 200 -
+2015-04-15 22:23:20,699 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:20] "POST /web/dataset/call_kw/mail.message/message_read HTTP/1.1" 200 -
+2015-04-15 22:23:20,796 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:20] "POST /web/dataset/search_read HTTP/1.1" 200 -
+2015-04-15 22:23:21,483 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:21] "POST /web/dataset/call_kw/res.users/fields_view_get HTTP/1.1" 200 -
+2015-04-15 22:23:22,228 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:22] "POST /web/dataset/call_kw/mail.message/set_message_read HTTP/1.1" 200 -
+2015-04-15 22:23:23,851 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:23] "POST /web/dataset/call_kw/res.partner/search_read HTTP/1.1" 200 -
+2015-04-15 22:23:24,884 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:24] "POST /web/dataset/call_kw/res.users/read HTTP/1.1" 200 -
+2015-04-15 22:23:24,893 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:24] "POST /web/dataset/call_kw/res.partner.industry/name_get HTTP/1.1" 200 -
+2015-04-15 22:23:25,061 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:25] "POST /web/dataset/call_kw/res.partner/read_followers_data HTTP/1.1" 200 -
+2015-04-15 22:23:25,114 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:25] "POST /web/dataset/call_kw/mail.message/message_read HTTP/1.1" 200 -
+2015-04-15 22:23:26,100 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:26] "POST /web/dataset/call_kw/mail.message/set_message_read HTTP/1.1" 200 -
+2015-04-15 22:23:27,445 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:27] "GET /web/binary/image?model=res.partner&field=image_small&id=9&resize= HTTP/1.1" 304 -
+2015-04-15 22:23:29,259 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:29] "POST /web/dataset/call_kw/res.partner/search_read HTTP/1.1" 200 -
+2015-04-15 22:23:29,776 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:29] "POST /web/dataset/search_read HTTP/1.1" 200 -
+2015-04-15 22:23:31,596 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:31] "GET /web/binary/image?model=res.partner&id=1&field=image_medium&t=1429136611399 HTTP/1.1" 200 -
+2015-04-15 22:23:31,726 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:31] "POST /web/dataset/call_kw/res.partner/read_followers_data HTTP/1.1" 200 -
+2015-04-15 22:23:31,746 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:31] "POST /web/dataset/call_kw/mail.message/message_read HTTP/1.1" 200 -
+2015-04-15 22:23:31,896 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:31] "POST /web/dataset/call_kw/mail.message/set_message_read HTTP/1.1" 200 -
+2015-04-15 22:23:32,404 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:32] "POST /web/dataset/search_read HTTP/1.1" 200 -
+2015-04-15 22:23:38,634 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:38] "POST /web/action/load HTTP/1.1" 200 -
+2015-04-15 22:23:38,860 3316 DEBUG cg openerp.addons.frontend.controllers.main: index
+2015-04-15 22:23:38,864 3316 WARNING cg openerp.osv.expression: The domain term '('industry_ids', '=', [1])' should use the 'in' or 'not in' operator.
+2015-04-15 22:23:38,867 3316 DEBUG cg openerp.addons.frontend.controllers.main: [res.partner(12,), res.partner(7,), res.partner(8,), res.partner(6,), res.partner(13,), res.partner(11,)]
+2015-04-15 22:23:39,134 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:39] "GET / HTTP/1.1" 200 -
+2015-04-15 22:23:41,033 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:41] "POST /website/translations HTTP/1.1" 200 -
+2015-04-15 22:23:58,755 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 22:23:58] "POST /longpolling/poll HTTP/1.1" 200 -
+2015-04-15 23:43:18,746 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 23:43:18] "GET /page/website.contactus HTTP/1.1" 200 -
+2015-04-15 23:43:20,064 3316 INFO cg werkzeug: 192.168.0.105 - - [15/Apr/2015 23:43:20] "POST /website/translations HTTP/1.1" 200 -

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="homepage" name="Homepage" page="True" priority="29">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <div class="oe_single_form_container modal-content">
+                        <t t-foreach="companies" t-as="company">
+                            <p>
+                                <span t-field="company.name"/>
+                            </p>
+                        </t>
+                    </div>
+
+                </div>
+            </t>
+        </template>
+    </data>
+</openerp>

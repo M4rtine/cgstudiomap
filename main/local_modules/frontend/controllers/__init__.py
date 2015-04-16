@@ -19,24 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Frontend',
-    'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
-    'license': 'AGPL-3',
-    'category': 'Web',
-    'summary': 'Frontend pages',
-    'depends': [
-        'web',
-        'website',
-        'auth_signup',
-        'res_group_computer_graphics',
-    ],
-    'data': [
-        'templates/login_template.xml',
-        'templates/contact_us_template.xml',
-        'templates/homepage.xml',
-    ],
-    'installable': True,
-}
+from . import main
