@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from collections import defaultdict
 
 import logging
 import re
@@ -27,14 +28,17 @@ class MainPage(Website):
             cr, uid, 'res_group_computer_graphics', 'res_partner_industry_computer_graphics'
         )
         company_ids = partner_pool.search(
-            cr, uid, [('active', '=', True), ('is_company', '=', True), ('industry_ids', '=', [industry_cg.id])]
+            cr, uid, [('active', '=', True), ('is_company', '=', True), ('industry_ids', 'in', [industry_cg.id])]
         )
-        companies = [partner_pool.browse(cr, uid, i) for i in company_ids]
 
-        _logger.debug(companies)
+        by_countries = defaultdict(int)
+        for country in [partner_pool.browse(cr, uid, i).country_id for i in company_ids]:
+            by_countries[country] = by_countries[country] + 1
+
         values = {
             'page': page,
-            'companies': companies,
+            'geochart_data': by_countries,
+            'geochart_target': 'geochart_div',
             }
         # try:
         #     main_menu = request.registry['ir.model.data'].get_object(request.cr, request.uid, 'website', 'main_menu')
