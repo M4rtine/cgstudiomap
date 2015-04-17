@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
+#    This module copyright (C)  cgstudiomap.org <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,27 +18,3 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': 'Frontend',
-    'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
-    'license': 'AGPL-3',
-    'category': 'Web',
-    'summary': 'Frontend pages',
-    'depends': [
-        'web',
-        'website',
-        'ammap',
-        'portal',
-        'auth_signup',
-        'res_group_computer_graphics',
-    ],
-    'data': [
-        'templates/login_template.xml',
-        'templates/contact_us_template.xml',
-        'templates/homepage.xml',
-    ],
-    'installable': True,
-}

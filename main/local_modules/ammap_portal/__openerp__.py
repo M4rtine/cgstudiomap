@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
+#    This module copyright (C)  cgstudiomap.org <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,25 +20,20 @@
 ##############################################################################
 
 {
-    'name': 'Frontend',
+    'name': 'Ammap Portal',
     'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
+    'author': 'cgstudiomap.org',
+    'maintainer': 'cgstudiomap.org',
     'license': 'AGPL-3',
     'category': 'Web',
-    'summary': 'Frontend pages',
+    'summary': 'Allow designer user to have access to the AmMap configs from the portal.',
     'depends': [
-        'web',
-        'website',
         'ammap',
         'portal',
-        'auth_signup',
-        'res_group_computer_graphics',
     ],
     'data': [
-        'templates/login_template.xml',
-        'templates/contact_us_template.xml',
-        'templates/homepage.xml',
+        'security/ir.model.access.csv',
+        'views/ammap_config_view.xml',
     ],
     'installable': True,
 }
