@@ -25,6 +25,7 @@ class MainPage(Website):
         industry_cg = ir_model_data_pool.get_object(
             cr, uid, 'res_group_computer_graphics', 'res_partner_industry_computer_graphics'
         )
+        ammap_homepage = ir_model_data_pool.get_object(cr, uid, 'frontend', 'homepage_ammap_config')
         company_ids = partner_pool.search(
             cr, uid, [('active', '=', True), ('is_company', '=', True), ('industry_ids', 'in', [industry_cg.id])]
         )
@@ -37,6 +38,7 @@ class MainPage(Website):
             'page': page,
             'geochart_data': by_countries,
             'geochart_target': 'geochart_div',
+            'ammap_config': ammap_homepage,
             }
         # try:
         #     main_menu = request.registry['ir.model.data'].get_object(request.cr, request.uid, 'website', 'main_menu')

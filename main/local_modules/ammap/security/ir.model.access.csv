@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_ammap_config_user","AmMap Config User","ammap.model_ammap_config","base.group_user",1,0,0,0
+"access_ammap_config_admin","AmMap Config Admin","ammap.model_ammap_config","base.group_system",1,1,1,1

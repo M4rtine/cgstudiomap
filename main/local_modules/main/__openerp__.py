@@ -59,6 +59,7 @@ Contributors
         'shared_web_theme',
         'frontend',
         'res_partner_social_networks',
+        'ammap_portal',
     ],
     'data': [ ],
     'installable': True,

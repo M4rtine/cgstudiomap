@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <record id="homepage_ammap_config" model="ammap.config">
+            <field name="name">homepage</field>
+            <field name="color">#777777</field>
+            <field name="color_solid">#E67C2F</field>
+            <field name="description">Config of the map on the homepage.</field>
+        </record>
+
         <template id="homepage" name="Homepage" page="True" priority="29">
             <t t-call="website.layout">
-                <link rel="stylesheet" href="/frontend/static/src/js/ammap_3.14.0/ammap.css" type="text/css"/>
-                <script src="/frontend/static/src/js/ammap_3.14.0/ammap.js" type="text/javascript"></script>
+                <link rel="stylesheet" href="/ammap/static/src/js/ammap_3.14.0/ammap.css" type="text/css"/>
+                <script src="/ammap/static/src/js/ammap_3.14.0/ammap.js" type="text/javascript"></script>
                 <!-- map file should be included after ammap.js -->
-                <script src="/frontend/static/src/js/ammap_3.14.0/maps/js/worldLow.js" type="text/javascript"></script>
+                <script src="/ammap/static/src/js/ammap_3.14.0/maps/js/worldLow.js" type="text/javascript"></script>
                 <script type="text/javascript">
                 var map;
 
                 AmCharts.ready(function() {
                     map = new AmCharts.AmMap();
-                    map.pathToImages = "/frontend/static/src/js/ammap_3.14.0/images/";
+                    map.pathToImages = "/ammap/static/src/js/ammap_3.14.0/images/";
 
                     map.colorSteps = 10;
                     var dataProvider = {
@@ -27,11 +34,34 @@
                         };
                     </t>
                     dataProvider['areas'] = areas;
+                    map.dataProvider = dataProvider;
+                    // make the map static. Can't be dragged.
+                    map.dragMap = false;
+
+
                     map.areasSettings = {
                         autoZoom: true,
+                        // low value color
+                        color: "<t t-esc='ammap_config.color'/>",
+                        // high value color
+                        colorSolid: "<t t-esc='ammap_config.color_solid'/>",
+                        // Color for country without value.
+                        unlistedAreasColor: "<t t-esc='ammap_config.unlisted_areas_color'/>",
+
+                        autoZoom: false,
                         balloonText: "[[title]] ([[value]])"
+
                     };
-                    map.dataProvider = dataProvider;
+                    map.zoomControl = {
+                        // disable the zoom
+                        zoomControlEnabled: false,
+                        // disable the pan controls.
+                        panControlEnabled: false
+
+	                };
+                    // disable zoom on double click as we removed the zoom controls.
+                    map.zoomOnDoubleClick = false;
+
 
                     var valueLegend = new AmCharts.ValueLegend();
                     valueLegend.right = 10;
@@ -46,7 +76,6 @@
 
                 <div id="wrap" class="oe_structure oe_empty">
                     <div t-att-id="geochart_target" style="width: 100%; height: 500px;"></div>
-
                 </div>
             </t>
         </template>
