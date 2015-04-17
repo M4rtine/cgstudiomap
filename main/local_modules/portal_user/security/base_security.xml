@@ -13,7 +13,7 @@
         </record>
 
         <record id="portal_sale.portal_personal_contact" model="ir.rule">
-            <field name="active">False</field>
+            <field name="active" eval="False"/>
         </record>
 
     </data>

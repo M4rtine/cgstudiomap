@@ -52,6 +52,7 @@ Contributors
         'data/company_details.xml',
         'data/res_groups_data.xml',
         'data/res_users_data.xml',
+        'security/ir_rules.xml',
         'views/res_partner_view.xml',
     ],
     'installable': True,

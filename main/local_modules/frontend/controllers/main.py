@@ -12,9 +12,7 @@ from openerp.tools import image_save_for_web
 from openerp.addons.website.controllers.main import Website
 
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
 
-_logger.debug(__name__)
 
 class MainPage(Website):
     @http.route('/', type='http', auth="public", website=True)
