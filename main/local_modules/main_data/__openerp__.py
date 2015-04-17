@@ -54,6 +54,7 @@ Contributors
         'data/res_users_data.xml',
         'security/ir_rules.xml',
         'views/res_partner_view.xml',
+        'templates/web_layout.xml',
     ],
     'installable': True,
 }

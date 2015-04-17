@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:
+-->
+<openerp>
+    <data>
+
+
+        <template id='web_layout' inherit_id="web.layout" name="cgstudiomap: Web layout">
+            <xpath expr="//title" position="replace">
+                <title>cgstudiomap</title>
+            </xpath>
+            <xpath expr='//link[@rel="shortcut icon"]' position="replace">
+                <link rel="shortcut icon" href="/main_data/static/src/img/favicon.ico" type="image/x-icon"/>
+            </xpath>
+        </template>
+
+        <template id='website_layout' inherit_id="website.layout" name="cgstudiomap: Website layout">
+            <xpath expr='//head' position="inside">
+                <link rel="shortcut icon" href="/main_data/static/src/img/favicon.ico" type="image/x-icon"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>
