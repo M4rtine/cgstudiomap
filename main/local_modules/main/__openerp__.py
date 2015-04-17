@@ -44,6 +44,8 @@ Contributors
         'sale',
         'website_crm',
         'auth_signup',
+        # telephony
+        'base_phone',
         # web
         'web_tree_image',
         'web_widget_text_markdown',
