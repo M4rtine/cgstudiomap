@@ -45,7 +45,7 @@ Contributors
         'website_crm',
         'auth_signup',
         # telephony
-        'base_phone',
+        'base_phone_validation',
         # web
         'web_tree_image',
         'web_widget_text_markdown',
