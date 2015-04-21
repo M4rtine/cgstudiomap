@@ -56,11 +56,12 @@ Contributors
         'geoengine_base_geolocalize',
         # local modules
         'res_partner_filter',
+        'res_partner_social_networks',
+        'res_partner_location_validation',
         'portal_user',
         'main_data',
         'shared_web_theme',
         'frontend',
-        'res_partner_social_networks',
         'ammap_portal',
     ],
     'data': [ ],
