@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="res_partner_address_search_view" model="ir.ui.view">
+            <field name="name">Res Partner: Address search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="email_template.res_partner_opt_out_search"/>
+            <field name="priority">50</field>
+            <field name="arch" type="xml">
+                <group string="Group By" position="replace"/>
+                <field name="name" position="attributes">
+                    <attribute name="string">Search</attribute>
+                    <attribute name="filter_domain">['|','|','|','|',('display_name','ilike',self),('ref','=',self),('email','ilike',self),('city','ilike',self),('country_id.name','ilike',self)]</attribute>
+                </field>
+                <filter name="type_person" position="replace"/>
+                <filter name="type_company" position="replace"/>
+                <filter name="customer" position="replace"/>
+                <filter name="supplier" position="replace"/>
+                <filter help="My Partners" position="replace"/>
+                <field name="user_id" position="replace"/>
+                <field name="parent_id" position="replace"/>
+                <filter name="not_opt_out" position="replace"/>
+
+                <field name="name" position="after">
+                    <separator/>
+                    <field name="email" filter_domain="[('email', 'ilike', self)]"/>
+                    <field name="city" filter_domain="[('city', 'ilike', self)]"/>
+                    <field name="country_id" filter_domain="[('country_id.name', 'ilike', self)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="City" context="{'group_by': 'city'}"/>
+                        <filter string="Country" context="{'group_by': 'country_id'}"/>
+                    </group>
+                </field>
+
+            </field>
+        </record>
+        
+        <!--Revision of the tree view of res.partner-->
+        <!--Good practices and UX guides us to add to the view all the columns the filter can search into-->
+        <record id="res_partner_adress_tree_view" model="ir.ui.view">
+            <field name="name">res.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="country_id" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </field>
+                <field name="country_id" position="before">
+                    <field name="category_id"/>
+                    <field name="city"/>
+                    <field name="state_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
