@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
+#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -22,8 +22,8 @@
 {
     'name': 'Portal User',
     'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
+    'author': 'cgstudiomap',
+    'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Main',
     'summary': 'Settings of portal user',

@@ -44,6 +44,7 @@ Contributors
     'data': [
         'data/res_partner_category_demo.xml',
         'data/res_partner_demo.xml',
+        'data/res_user_demo.xml',
     ],
     'installable': True,
     'application': True,

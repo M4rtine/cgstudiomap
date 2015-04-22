@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
-        <menuitem id="base.menu_settings"
+        <menuitem id="base.menu_portal_settings"
                   name="Settings"
                   parent="portal.portal_menu"
                   sequence="200"/>
 
         <menuitem id="ammap_config_portal_menu"
-                  parent="base.menu_settings"
+                  parent="base.menu_portal_settings"
                   action="ammap.action_ammap_config"
                   sequence="20"/>
     </data>

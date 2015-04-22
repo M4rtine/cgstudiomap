@@ -53,6 +53,8 @@ class ResPartner(models.Model):
             field = getattr(self, field_name)
             if not data and field:
                 data = field
+            if not data:
+                return ''
             data = data.encode(__codec__)
             _logger.debug('data ({}): {}'.format(field_name, data))
 
@@ -102,10 +104,15 @@ class ResPartner(models.Model):
             _logger.debug('country_name: {}'.format(country_name))
             location = ' '.join([location, country_name])
         _logger.debug('location (country): {}'.format(location))
+        location = location.strip()
+        _logger.debug('bool(location): {}'.format(bool(location)))
+        if location:
+            geocode = Geocoder.geocode(location)
+            _logger.debug('geocode: {}'.format(geocode))
+            return geocode
 
-        geocode = Geocoder.geocode(location)
-        _logger.debug('self.__geocode: {}'.format(geocode))
-        return geocode
+        _logger.debug('Empty Location, returning None')
+        return None
 
     @api.model
     def _clean_location_data(self, vals):
@@ -115,28 +122,44 @@ class ResPartner(models.Model):
         :return: dict with the values for the orm.
         """
         _logger.debug('_clean_location_data')
+        _logger.debug('vals: {}'.format(vals))
+
+        # set of field required to make the geocode
+        required_fields = {'street', 'city', 'country_id', 'zip'}
+        # Test whether every element in required_field is in vals.
+        if not required_fields <= set(vals):
+            _logger.debug(
+                'Missing required keys. Skipping Location data cleaning'
+            )
+            return vals
+
         # First a geocode is build from the data of the record.
         # the build is done with the data from vals completed by
         # the data in the record (in case of write ie)
-        location = self._build_geocode(vals)
+        geocode = self._build_geocode(vals)
+
+        # The location values might not be in the vals.
+        if geocode is None:
+            return vals
+
         # then the cleaned data are reinjected to the values the
         # record will be created/written with.
-        street_number = location.street_number
+        street_number = geocode.street_number
         if not street_number is None:
             vals['street'] = ' '.join(
-                [location.street_number, location.route]
+                [geocode.street_number, geocode.route]
             )
         else:
-            vals['street'] = location.route.encode(__codec__)
+            vals['street'] = geocode.route.encode(__codec__)
 
-        vals['zip'] = location.postal_code.encode(__codec__)
-        vals['city'] = location.city.encode(__codec__)
+        vals['zip'] = geocode.postal_code.encode(__codec__)
+        vals['city'] = geocode.city.encode(__codec__)
 
         # Getting the country of the location
         # Normally all the countries are registered to odoo by default.
         country_pool = self.env['res.country']
         country = country_pool.search(
-            [('code', '=', location.country__short_name)]
+            [('code', '=', geocode.country__short_name)]
         )
 
         if country:
@@ -144,13 +167,13 @@ class ResPartner(models.Model):
 
         # the case of state is a bit more tricky.
         # all the countries don't have state.
-        if location.state:
+        if geocode.state:
             # Even tho, all the states are not registered by default to odoo.
             # We have first to check if there is a record for the given state
             # code (state__short__name)
             state_pool = self.env['res.country.state']
             state = state_pool.search([
-                ('code', '=', location.state__short_name),
+                ('code', '=', geocode.state__short_name),
                 ('country_id', '=', country.id)
             ])
             # Checking the search returned something
@@ -158,8 +181,8 @@ class ResPartner(models.Model):
             if not state:
                 state = state_pool.create({
                     'country_id': country.id,
-                    'name': location.state__long_name,
-                    'code': location.state__short_name,
+                    'name': geocode.state__long_name,
+                    'code': geocode.state__short_name,
                 })
 
             vals['state_id'] = state.id

@@ -8,3 +8,8 @@ Contributors
 ------------
 * Jordi Riera <kender.jr@gmail.com>
 
+
+Roadmap / bug
+=============
+
+* Case of the max of request is not handled.
