@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-# OpenERP, Open Source Management Solution
-# This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
+#    OpenERP, Open Source Management Solution
+#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,33 +21,19 @@
 from openerp.exceptions import ValidationError
 
 __author__ = 'foutoucour'
+__codec__ = 'utf-8'
 
 import logging
 from openerp import models, api
 from pygeocoder import Geocoder
 
 _logger = logging.getLogger(__name__)
+# _logger.setLevel(logging.DEBUG)
 
 
 class ResPartner(models.Model):
     """Add Social Networks fields."""
     _inherit = 'res.partner'
-
-    @api.constrains('street', 'city', 'zip')
-    def _validate_location(self):
-        """Check if a location matches a geocode."""
-        _logger.debug('_validate_location')
-        geocode = self._build_geocode()
-        _logger.debug(
-            'geocode.valid_address: {}'.format(geocode.valid_address)
-        )
-        if not geocode.valid_address:
-            error_msg = '\n'.join([
-                'The given address ({}) cannot be located.'.format(geocode),
-                'Please double check it.'
-            ])
-            _logger.error(error_msg)
-            raise ValidationError(error_msg)
 
     @api.model
     def _build_geocode(self, vals=None):
@@ -58,39 +44,50 @@ class ResPartner(models.Model):
 
         The Geocode is built from the the data in vals completed by the data
         in the record itself.
-
+        #
         :param vals: set of values for the record. Default: {}
         :return: Geocoder.geocode instance
         """
+        def get_data(field_name):
+            data = vals.get(field_name)
+            field = getattr(self, field_name)
+            if not data and field:
+                data = field
+            data = data.encode(__codec__)
+            _logger.debug('data ({}): {}'.format(field_name, data))
+
+            return data
+
         _logger.debug('_build_geocode')
         if vals is None:
             vals = {}
         _logger.debug('vals: {}'.format(vals))
 
-        location = vals.get('street', self.street)
-        street2 = vals.get('street2', self.street2)
+        location = get_data('street')
+        # Don't get street2 into the geocode it might screw the location
+        # actually.
+        city = get_data('city')
+        zip = get_data('zip')
 
-        if street2:
-            location = ' '.join([location, street2])
-
-        location = ' '.join([
-            location,
-            vals.get('city', self.city),
-            vals.get('zip', self.zip)
-        ])
+        location = ' '.join([location, city, zip])
         _logger.debug(
             'location (street, street2, city, zip): {}'.format(location)
         )
         state_id = vals.get('state_id')
-        _logger.debug('vals.get("state_id"): {}'.format(state_id))
+        _logger.debug('vals.get(state_id): {}'.format(state_id))
         if state_id:
             location = ' '.join([
                 location,
-                self.env['res.country.state'].browse(state_id).name
+                self.env['res.country.state'].browse(state_id).name.encode(__codec__)
             ])
 
         elif self.state_id:
-            location = ' '.join([location, self.state_id.name])
+            state_name = self.state_id.name.encode(__codec__)
+            _logger.debug(
+                'self.state_id.name: {}'.format(state_name)
+            )
+
+            location = ' '.join([location, state_name])
         _logger.debug('location (state): {}'.format(location))
 
         country_id = vals.get('country_id')
@@ -98,14 +95,16 @@ class ResPartner(models.Model):
         if country_id:
             location = ' '.join([
                 location,
-                self.env['res.country'].browse(country_id).name
+                self.env['res.country'].browse(country_id).name.encode(__codec__)
             ])
         elif self.country_id:
-            location = ' '.join([location, self.country_id.name])
+            country_name = self.country_id.name.encode(__codec__)
+            _logger.debug('country_name: {}'.format(country_name))
+            location = ' '.join([location, country_name])
         _logger.debug('location (country): {}'.format(location))
 
         geocode = Geocoder.geocode(location)
-        _logger.debug('geocode: {}'.format(geocode))
+        _logger.debug('self.__geocode: {}'.format(geocode))
         return geocode
 
     @api.model
@@ -128,10 +127,10 @@ class ResPartner(models.Model):
                 [location.street_number, location.route]
             )
         else:
-            vals['street'] = location.route
+            vals['street'] = location.route.encode(__codec__)
 
-        vals['zip'] = location.postal_code
-        vals['city'] = location.city
+        vals['zip'] = location.postal_code.encode(__codec__)
+        vals['city'] = location.city.encode(__codec__)
 
         # Getting the country of the location
         # Normally all the countries are registered to odoo by default.
