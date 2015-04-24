@@ -4,7 +4,7 @@
         <!--Hide the unwanted portal menus from the portal user-->
         <!--They are just hidden as we might want to bring some of them back in the future of the project-->
         <!--Portal Old Menus is accessible from the settings menu (only by admin)-->
-        <menuitem name="Portal Old Menus" id="portal_old_menus" parent="base.menu_administration" sequence="20"/>
+        <menuitem name="Portal Old Menus" id="portal_old_menus" parent="base.menu_administration" sequence="200"/>
         
         <!--Menus from portal, the module that create the portal features. Portal is installed by default-->
         <menuitem id="portal.portal_inbox" parent="portal_old_menus"/>
@@ -22,6 +22,8 @@
         <!--Menus from board. This menus will most likely come back when the website is advanced enough-->
         <!--to add charts.-->
         <menuitem id="board.menu_board_my_dash" parent="portal_old_menus"/>
+        <menuitem name="Hide Messaging" id="hide_messaging" parent="base.menu_administration" sequence="201"/>
+        <menuitem name="Messaging" id="mail.mail_feeds_main" parent="portal_user.hide_messaging" groups="base.group_user" sequence="10"/>
 
         <!--#11 rename portal menu to Dashboard-->
         <!--Also put the dashboard as the first menu-->
@@ -77,5 +79,83 @@
                   parent="portal_user.portal_listing"
                   groups="base.group_portal"/>
 
+
+        <!--https://github.com/cgstudiomap/cgstudiomap/issues/35-->
+        <!--Menu should look like:-->
+        <!--Settings-->
+        <!-- - Dashboard-->
+        <!-- - Account-->
+        <!--   - Preferences-->
+        <!--   - Log out-->
+        <!-- - Report an issue -->
+        <menuitem id="base.menu_portal_settings"
+                  name="Settings"
+                  parent="portal.portal_menu"
+                  sequence="200"/>
+
+        <!--Dashboard-->
+        <!--<record id="action_dashboard" model="ir.actions.act_url">-->
+            <!--<field name="name">Dashboard</field>-->
+            <!--<field name="url">/web</field>-->
+            <!--<field name="target">self</field>-->
+        <!--</record>-->
+        <!--<menuitem id="menu_portal_dashboard_link"-->
+                  <!--action="action_dashboard"-->
+                  <!--name="Dashboard"-->
+                  <!--parent="base.menu_portal_settings"-->
+                  <!--sequence="1"-->
+                  <!--groups="base.group_portal"/>-->
+
+        <!--Account Menu-->
+        <menuitem id="menu_portal_account"
+                  name="Account"
+                  parent="base.menu_portal_settings"
+                  sequence="2"
+                  groups="base.group_portal"/>
+
+
+        <!--Account/Preferences-->
+        <record id="action_res_users" model="ir.actions.act_window">
+            <field name="name">Users</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.users</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="base.view_users_tree"/>
+            <field name="search_view_id" ref="base.view_users_form"/>
+        </record>
+        <menuitem id="menu_preferences"
+                  action="action_res_users"
+                  name="Preferences"
+                  parent="portal_user.menu_portal_account"
+                  sequence="1"
+                  groups="base.group_portal"/>
+
+        <!--Account/Log out -->
+        <record id="action_logout" model="ir.actions.act_url">
+            <field name="name">Log out</field>
+            <field name="url">/web/session/logout</field>
+            <field name="target">self</field>
+        </record>
+
+        <menuitem id="menu_portal_logout"
+                  action="action_logout"
+                  name="Log out"
+                  parent="portal_user.menu_portal_account"
+                  sequence="2"
+                  groups="base.group_portal"/>
+
+        <!--Report Issues-->
+        <record id="action_report_issue" model="ir.actions.act_url">
+            <field name="name">Report an Issue</field>
+            <field name="url">https://github.com/cgstudiomap/cgstudiomap/issues</field>
+            <field name="target">self</field>
+        </record>
+
+        <menuitem id="menu_portal_report_issue"
+                  action="action_report_issue"
+                  name="Report an Issue"
+                  parent="base.menu_portal_settings"
+                  sequence="3"
+                  groups="base.group_portal"/>
     </data>
 </openerp>
