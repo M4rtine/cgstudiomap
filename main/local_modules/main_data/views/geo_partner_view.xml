@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--Modification of the data given to the map_info to fit the requirements -->
+        <!--we declared in the javascript-->
+        <!--/base_geoengine/static/src/js/geoengine_view.js-->
+        <record id="geoengine_partner.ir_ui_view_geo_partner" model="ir.ui.view">
+            <field name="name">Partner view cgstudiomap</field>
+            <field eval="16" name="priority"/>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <geoengine version="7.0">
+                    <field name="name" select="1"/>
+                    <field name="street" />
+                    <field name="street2"/>
+                    <field name="zip"/>
+                    <field name="city"/>
+                    <field name="country_id"/>
+                </geoengine>
+            </field>
+        </record>
+
+    </data>
+</openerp>
