@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="res_partner_industry_corp" model="res.partner.industry">
+            <field name="code">corp</field>
+            <field name="name">Corportate</field>
+        </record>
+        <record id="res_partner_industry_man" model="res.partner.industry">
+            <field name="code">man</field>
+            <field name="name">Manufacturing</field>
+        </record>
+        <record id="res_partner_industry_leg" model="res.partner.industry">
+            <field name="code">leg</field>
+            <field name="name">Legal</field>
+        </record>
+        <record id="res_partner_industry_hlth" model="res.partner.industry">
+            <field name="code">hlth</field>
+            <field name="name">Health</field>
+        </record>
+        <record id="res_partner_industry_art" model="res.partner.industry">
+            <field name="code">art</field>
+            <field name="name">Art</field>
+        </record>
+        <record id="res_partner_industry_good" model="res.partner.industry">
+            <field name="code">good</field>
+            <field name="name">Goods</field>
+        </record>
+        <record id="res_partner_industry_cons" model="res.partner.industry">
+            <field name="code">cons</field>
+            <field name="name">Construction</field>
+        </record>
+        <record id="res_partner_industry_gov" model="res.partner.industry">
+            <field name="code">gov</field>
+            <field name="name">Government</field>
+        </record>
+        <record id="res_partner_industry_fin" model="res.partner.industry">
+            <field name="code">fin</field>
+            <field name="name">Financial</field>
+        </record>
+        <record id="res_partner_industry_med" model="res.partner.industry">
+            <field name="code">med</field>
+            <field name="name">Media</field>
+        </record>
+        <record id="res_partner_industry_org" model="res.partner.industry">
+            <field name="code">org</field>
+            <field name="name">Organization</field>
+        </record>
+        <record id="res_partner_industry_tech" model="res.partner.industry">
+            <field name="code">tech</field>
+            <field name="name">Technology</field>
+        </record>
+        <record id="res_partner_industry_agr" model="res.partner.industry">
+            <field name="code">agr</field>
+            <field name="name">Agriculture</field>
+        </record>
+        <record id="res_partner_industry_edu" model="res.partner.industry">
+            <field name="code">edu</field>
+            <field name="name">Education</field>
+        </record>
+        <record id="res_partner_industry_rec" model="res.partner.industry">
+            <field name="code">rec</field>
+            <field name="name">Record</field>
+        </record>
+        <record id="res_partner_industry_tran" model="res.partner.industry">
+            <field name="code">tran</field>
+            <field name="name">Transport</field>
+        </record>
+        <record id="res_partner_industry_serv" model="res.partner.industry">
+            <field name="code">serv</field>
+            <field name="name">Service</field>
+        </record>
+
+    </data>
+</openerp>

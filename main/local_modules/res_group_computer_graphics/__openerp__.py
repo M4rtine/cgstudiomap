@@ -30,7 +30,6 @@
     'depends': ['res_partner_industry'],
     'data': [
         'data/res_groups_data.xml',
-        'data/res_partner_industry_data.xml',
     ],
     'installable': True,
 }

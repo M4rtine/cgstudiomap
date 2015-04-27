@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record id="res_partner_industry_computer_graphics" model="res.partner.industry">
+        <record id="group_computer_graphics" model="res.groups">
             <field name="name">Computer Graphics</field>
+            <field name="category_id" ref="base.module_category_usability"/>
         </record>
+
     </data>
 </openerp>

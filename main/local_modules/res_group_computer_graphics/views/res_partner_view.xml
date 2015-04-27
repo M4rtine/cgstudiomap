@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="res_partner_computer_graphics" model="ir.ui.view">
+            <field name="name">Res Partner: Computer Graphics</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="res_partner_industry.res_partner_industry_form_view"/>
+            <field name="context">{'industry':'media'}</field>
+        </record>
+    </data>
+</openerp>
