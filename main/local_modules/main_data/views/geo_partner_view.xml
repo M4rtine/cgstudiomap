@@ -20,5 +20,11 @@
             </field>
         </record>
 
+        <record id="geoengine_partner.geoengine_vector_layer_res_partner_google" model="geoengine.raster.layer">
+            <field name="raster_type">osm</field>
+            <field name="name">Partner background</field>
+            <field name="view_id" ref="geoengine_partner.ir_ui_view_geo_partner"/>
+            <field eval="0" name="overlay"/>
+        </record>
     </data>
 </openerp>
