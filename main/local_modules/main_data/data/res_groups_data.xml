@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record id="base.group_user" model="res.groups">
-            <field name="implied_ids" eval="[(4, ref('base_geoengine.group_geoengine_user'))]"/>
+        <!--Setup of the group media.-->
+        <record id="res_partner_industry.group_industry_med" model="res.groups">
+            <field name="implied_ids"
+                   eval="[(6, 0, [ref('base_geoengine.group_geoengine_user'), ref('base.group_portal'), ref('base.group_user')])]"
+                   />
         </record>
-
     </data>
 </openerp>

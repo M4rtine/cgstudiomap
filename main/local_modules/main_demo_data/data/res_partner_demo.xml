@@ -4,10 +4,8 @@
 
         <record id="res_partner_mpc_mtl" model="res.partner">
             <field name="name">MPC</field>
-            <field eval="[(6, 0, [ref('res_group_computer_graphics.res_partner_industry_computer_graphics')])]"
-                   name="industry_ids"/>
-            <field eval="[(6, 0, [ref('main_demo_data.res_partner_category_vfx')])]"
-                   name="category_id"/>
+            <field eval="[(6, 0, [ref('res_partner_industry.motion_pictures_and_film')])]" name="industry_ids"/>
+            <field eval="[(6, 0, [ref('res_partner_industry.med')])]" name="industry_family_ids"/>
             <field name="is_company">1</field>
             <field name="city">Montreal</field>
             <field name="zip">H3C 1T2</field>
@@ -22,10 +20,8 @@
 
         <record id="res_partner_cinesite_mtl" model="res.partner">
             <field name="name">Cinesite</field>
-            <field eval="[(6, 0, [ref('res_group_computer_graphics.res_partner_industry_computer_graphics')])]"
-                   name="industry_ids"/>
-            <field eval="[(6, 0, [ref('main_demo_data.res_partner_category_animated_features')])]"
-                   name="category_id"/>
+            <field eval="[(6, 0, [ref('res_partner_industry.animation')])]" name="industry_ids"/>
+            <field eval="[(6, 0, [ref('res_partner_industry.med')])]" name="industry_family_ids"/>
             <field name="is_company">1</field>
             <field name="city">Montreal</field>
             <field name="zip">H2Y 0A3</field>
@@ -39,10 +35,8 @@
 
         <record id="res_partner_framestore_mtl" model="res.partner">
             <field name="name">Framestore</field>
-            <field eval="[(6, 0, [ref('res_group_computer_graphics.res_partner_industry_computer_graphics')])]"
-                   name="industry_ids"/>
-            <field eval="[(6, 0, [ref('main_demo_data.res_partner_category_vfx')])]"
-                   name="category_id"/>
+            <field eval="[(6, 0, [ref('res_partner_industry.motion_pictures_and_film')])]" name="industry_ids"/>
+            <field eval="[(6, 0, [ref('res_partner_industry.med')])]" name="industry_family_ids"/>
             <field name="is_company">1</field>
             <field name="city">Montreal</field>
             <field name="zip">H2T 3B3</field>
@@ -57,10 +51,9 @@
 
         <record id="res_partner_rhytym_and_hues_la" model="res.partner">
             <field name="name">Rhythm and Hues</field>
-            <field eval="[(6, 0, [ref('res_group_computer_graphics.res_partner_industry_computer_graphics')])]"
+            <field eval="[(6, 0, [ref('res_partner_industry.motion_pictures_and_film'), ref('res_partner_industry.animation')])]"
                    name="industry_ids"/>
-            <field eval="[(6, 0, [ref('main_demo_data.res_partner_category_vfx')])]"
-                   name="category_id"/>
+            <field eval="[(6, 0, [ref('res_partner_industry.med')])]" name="industry_family_ids"/>
             <field name="is_company">1</field>
             <field name="active" eval="False"/>
             <field name="city">Los Angeles</field>

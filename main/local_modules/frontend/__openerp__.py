@@ -33,7 +33,7 @@
         'ammap',
         'portal',
         'auth_signup',
-        'res_group_computer_graphics',
+        'res_partner_industry',
     ],
     'data': [
         'templates/login_template.xml',

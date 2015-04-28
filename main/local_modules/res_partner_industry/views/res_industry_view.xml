@@ -1,9 +1,15 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
+        <menuitem name='Industry'
+                  groups="base.group_system"
+                  id="menu_industry"
+                  parent="base.menu_config_address_book"
+                  sequence="30"/>
+        <!--Industry Family-->
         <record id="res_industry_family_form_view" model="ir.ui.view">
             <field name="name">res.industry.family.form.view</field>
-            <field name="model">res.partner.industry</field>
+            <field name="model">res.industry.family</field>
             <field name="arch" type="xml">
                 <form string="Industry Families">
                     <sheet>
@@ -20,17 +26,104 @@
                 </form>
             </field>
         </record>
+
+        <record id="res_industry_family_tree_view" model="ir.ui.view">
+            <field name="name">res.industry.family.tree.view</field>
+            <field name="model">res.industry.family</field>
+            <field name="arch" type="xml">
+                <tree string="Industry Families">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
         <record id="res_industry_family_action" model="ir.actions.act_window">
             <field name="name">Industry Families</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.industry.family</field>
-            <field name="view_type">tree</field>
-            <field name="view_id" ref="res_industry_family_form_view"/>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="res_industry_family_tree_view"/>
         </record>
+
+        <record id="res_industry_family_form_action" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="res_industry_family_form_view"/>
+            <field name="act_window_id" ref="res_industry_family_action"/>
+        </record>
+
+        <record id="res_industry_family_tree_action" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="res_industry_family_tree_view"/>
+            <field name="act_window_id" ref="res_industry_family_action"/>
+        </record>
+
         <menuitem action="res_industry_family_action"
                   groups="base.group_system"
                   id="menu_res_industry_family"
-                  parent="base.menu_base_config"
+                  parent="menu_industry"
+                  sequence="30"/>
+
+        <!--Industry-->
+        <record id="res_industry_form_view" model="ir.ui.view">
+            <field name="name">res.industry.form.view</field>
+            <field name="model">res.industry</field>
+            <field name="arch" type="xml">
+                <form string="Industry Families">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="family_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="res_industry_tree_view" model="ir.ui.view">
+            <field name="name">res.industry.tree.view</field>
+            <field name="model">res.industry</field>
+            <field name="arch" type="xml">
+                <tree string="Industry Families">
+                    <field name="name"/>
+                    <field name="family_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="res_industry_action" model="ir.actions.act_window">
+            <field name="name">Industries</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.industry</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="res_industry_tree_view"/>
+        </record>
+
+        <record id="res_industry_form_action" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="res_industry_form_view"/>
+            <field name="act_window_id" ref="res_industry_action"/>
+        </record>
+
+        <record id="res_industry_tree_action" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="res_industry_tree_view"/>
+            <field name="act_window_id" ref="res_industry_action"/>
+        </record>
+
+        <menuitem action="res_industry_action"
+                  groups="base.group_system"
+                  id="menu_res_industry"
+                  parent="menu_industry"
                   sequence="30"/>
 
     </data>
