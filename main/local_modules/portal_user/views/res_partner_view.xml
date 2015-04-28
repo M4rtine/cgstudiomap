@@ -20,8 +20,11 @@
                 <field name="parent_id" position="attributes">
                     <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
                 </field>
-                <field name="industry_ids" position="attributes">
+                <field name="industry_family_ids" position="attributes">
                     <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                </field>
+                <field name="industry_ids" position="attributes">
+                    <attribute name="options">{'limit': 10, 'create': false, 'create_edit': false}</attribute>
                 </field>
                 <field name="function" position="attributes">
                     <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>

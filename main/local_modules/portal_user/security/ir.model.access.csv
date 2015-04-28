@@ -13,7 +13,6 @@ access_res_partner_bank_type_field_portal_user,res_partner_bank_type_field group
 access_res_partner_category_portal_user,res_partner_category group_portal,base.model_res_partner_category,base.group_portal,1,1,1,0
 access_res_partner_title_portal_user,res_partner_title group_portal,base.model_res_partner_title,base.group_portal,1,1,1,0
 access_res_bank_portal_user,res_bank_portal_user,base.model_res_bank,base.group_portal,1,1,1,0
-access_res_partner_industry_portal_user,res_partner_industry group_portal,res_partner_industry.model_res_partner_industry,base.group_portal,1,1,1,0
 access_product_pricelist_type_portal_user,product.pricelist.type partner manager,product.model_product_pricelist_type,base.group_portal,1,0,0,0
 access_product_pricelist_portal_user,product.pricelist partner manager,product.model_product_pricelist,base.group_portal,1,0,0,0
 access_calendar_event_portal_user,calendar.event.partner.manager,calendar.model_calendar_event,base.group_portal,1,1,1,0

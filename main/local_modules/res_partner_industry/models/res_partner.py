@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,25 +20,70 @@
 ##############################################################################
 
 import logging
-from openerp import models, fields
+from openerp import models, fields, api
 
 _logger = logging.getLogger(__name__)
+_logger.setLevel(logging.DEBUG)
 
 
-class ResPartnerIndustry(models.Model):
-    """Industry is simply a copy of res.partner.category"""
-    _inherit = 'res.partner.category'
-    _name = 'res.partner.industry'
-    _description = 'Industry the partner work in.'
+class ResIndustryFamily(models.Model):
+    _name = 'res.industry.family'
+    _description = 'Group of Industries'
+
+    name = fields.Char('Name', size=128, required=True)
+    code = fields.Char('Code', size=4)
+
+
+class ResIndustry(models.Model):
+    _name = 'res.industry'
+    _description = 'Industry'
+
+    name = fields.Char('Name', size=128, required=True)
+    family_ids = fields.Many2many(
+        'res.industry.family',
+        string='Industry Families',
+        )
 
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
+    industry_family_ids = fields.Many2many(
+        'res.industry.family',
+        string='Industry Families',
+        )
+
     industry_ids = fields.Many2many(
-        'res.partner.industry',
-        'res_partner_industry_rel',
-        'partner_id',
-        'industry_id',
-        string='Industry',
+        'res.industry',
+        string='Industries',
     )
+
+    @api.model
+    def _get_industry_details_from_context(self, vals):
+        """Find the industries mentionned in the context"""
+        _logger.debug('context: {}'.format(self._context))
+        industry_family_codes = self._context.get('industry_family_codes', [])
+        _logger.debug('industry_family_codes: {}'.format(industry_family_codes))
+        if industry_family_codes:
+            _logger.debug('industry_family_codes: True')
+            industry_family_pool = self.env['res.industry.family']
+            vals['industry_family_ids'] = [
+                (4, family.id)
+                for family in industry_family_pool.search([
+                    ('code', 'in', industry_family_codes)
+                ])
+            ]
+            _logger.debug('vals[industry_family_pool]: {}'.format(vals['industry_family_pool']))
+        return vals
+
+    @api.multi
+    def write(self, vals):
+        return super(ResPartner, self).write(
+            self._get_industry_details_from_context(vals)
+        )
+
+    @api.model
+    def create(self, vals):
+        return super(ResPartner, self).create(
+            self._get_industry_details_from_context(vals)
+        )
