@@ -2,7 +2,7 @@
 @import "_colors";
 
 .btn-primary {
-  background-color: $main_orange;
+  background-color: $c-cg;
   border-color: $light_orange;
   &:hover {
     background-color: $light_orange;
@@ -13,7 +13,7 @@
 
 .openerp {
   img {
-    border-radius: 3px;
+    border-radius: 0px;
   }
   button {
     @extend .btn;
@@ -90,7 +90,7 @@
       color: $breadcrumb_item;
     }
     a {
-      color: $url_links;
+      color: $c-txt-link;
     }
   }
   .nav-pills > li.active a {
@@ -123,11 +123,11 @@
     background-color: $badge_backgroung_color;
   }
   .oe_leftbar > div a.oe_logo img {
-    border-radius: 7px;
+    border-radius: 0px;
   }
   .oe_searchview {
-    border-radius: 4px;
-    border-color: $light_orange;
+    border-radius: 0px;
+    border-color: $c-studios;
   }
   .oe_tag_dark {
     background-color: $tag_dark;
@@ -136,10 +136,10 @@
     background-color: $search_facet;
   }
   .oe_searchview .oe-autocomplete ul li.oe-selection-focus {
-    background-color: $main_orange !important;
+    background-color: $c-cg !important;
   }
   .oe_horizontal_separator {
-    color: $main_orange;
+    color: $c-map;
   }
 }
 
@@ -172,8 +172,8 @@ footer {
   box-shadow: none;
 }
 a {
-  color: $url_links;
+  color: $c-txt-link;
 }
 
 .btn-link
-{ color: $main_orange}
+{ color: $c-txt-link}
