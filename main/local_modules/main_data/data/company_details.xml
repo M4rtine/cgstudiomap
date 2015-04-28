@@ -2,7 +2,7 @@
 <openerp>
     <data noupdate="0">
         <record id="base.main_company" model="res.company">
-            <field name="logo" type="base64" file="main_data/static/cgstudiomap.png"/>
+            <field name="logo" type="base64" file="main_data/static/cgstudiomap.svg"/>
             <field name="name">cgstudiomap</field>
             <field name="rml_header1">Where studios are</field>
             <!--Address fields-->
