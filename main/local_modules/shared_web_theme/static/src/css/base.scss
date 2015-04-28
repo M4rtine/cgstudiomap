@@ -3,11 +3,10 @@
 
 .btn-primary {
   background-color: $c-cg;
-  border-color: $light_orange;
+  border-color: $c-cg-80opa;
   &:hover {
-    background-color: $light_orange;
-    border-color: $light_orange;
-
+    background-color: $c-cg-80opa;
+    border-color: $c-cg-80opa;
   }
 }
 
@@ -61,12 +60,10 @@
     background-image: none;
   }
   ul.oe_form_status li.oe_active > .arrow span {
-    background: none;
-    background-color: #5382B9;
+    background: #5382B9 none;
   }
   ul.oe_form_status li > .arrow span {
-    background: none;
-    background-color: #EDEDED;
+    background: #EDEDED none;
   }
   .oe_secondary_menu_section {
     color: $menu_section;
