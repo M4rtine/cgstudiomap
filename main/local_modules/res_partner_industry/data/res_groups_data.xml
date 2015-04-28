@@ -1,9 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record id="group_computer_graphics" model="res.groups">
-            <field name="name">Computer Graphics</field>
-            <field name="category_id" ref="base.module_category_usability"/>
+        <!--category the groups will be grouped in view-->
+        <record model="ir.module.category" id="module_category_industry_family">
+            <field name="name">Industry Families</field>
+            <field name="sequence">102</field>
+        </record>
+
+        <record id="group_industry_corp" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Corportate</field>
+        </record>
+        <record id="group_industry_man" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Manufacturing</field>
+        </record>
+        <record id="group_industry_leg" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Legal</field>
+        </record>
+        <record id="group_industry_hlth" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Health</field>
+        </record>
+        <record id="group_industry_art" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Art</field>
+        </record>
+        <record id="group_industry_good" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Goods</field>
+        </record>
+        <record id="group_industry_cons" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Construction</field>
+        </record>
+        <record id="group_industry_gov" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Government</field>
+        </record>
+        <record id="group_industry_fin" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Financial</field>
+        </record>
+        <record id="group_industry_med" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Media</field>
+        </record>
+        <record id="group_industry_org" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Organization</field>
+        </record>
+        <record id="group_industry_tech" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Technology</field>
+        </record>
+        <record id="group_industry_agr" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Agriculture</field>
+        </record>
+        <record id="group_industry_edu" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Education</field>
+        </record>
+        <record id="group_industry_rec" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Record</field>
+        </record>
+        <record id="group_industry_tran" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Transport</field>
+        </record>
+        <record id="group_industry_serv" model="res.groups">
+            <field name="category_id" ref="module_category_industry_family"/>
+            <field name="name">Service</field>
         </record>
 
     </data>

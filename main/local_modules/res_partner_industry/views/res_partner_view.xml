@@ -7,6 +7,7 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <field name="category_id" position="before">
+                    <field name="industry_family_ids" widget="many2many_tags" placeholder="Industry families..."/>
                     <field name="industry_ids" widget="many2many_tags" placeholder="Industries..."/>
                 </field>
             </field>

@@ -29,6 +29,7 @@
     'summary': 'Change filter for res.partner',
     'depends': [
         'email_template',
+        'res_partner_industry',
     ],
     'external_dependencies': {
         'python': [],
