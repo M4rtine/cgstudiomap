@@ -5699,9 +5699,6 @@ button.close, .openerp .close.oe_button {
 @media print {
   .hidden-print {
     display: none !important; } }
-/* BASE color */
-/* BACKGROUND color */
-/* TEXT color */
 .btn-primary, .openerp button.oe_highlight, .openerp .oe_highlight.oe_button {
   background-color: #b05ae2;
   border-color: rgba(176, 90, 226, 0.8); }
@@ -5748,7 +5745,7 @@ button.close, .openerp .close.oe_button {
 .openerp .oe_form .oe_form_required textarea:not([disabled]):not([readonly]),
 .openerp .oe_form .oe_form_required input:not([disabled]):not([readonly]) {
   background-color: #b05ae2 !important;
-  color: #5e5e5e; }
+  color: #f1f1f3; }
 .openerp .oe_application .oe_breadcrumb_title > * {
   color: #a2db19; }
 .openerp .oe_application .oe_breadcrumb_item:not(:last-child) {
@@ -5759,7 +5756,7 @@ button.close, .openerp .close.oe_button {
   background-color: #b05ae2;
   color: #f1f1f3; }
   .openerp .nav-pills > li.active a:hover, .openerp .nav-pills > li.active a:focus {
-    background-color: #f1f1f3;
+    background-color: rgba(176, 90, 226, 0.8);
     color: #f1f1f3; }
   .openerp .nav-pills > li.active a .badge {
     background-color: #b05ae2; }
@@ -5780,6 +5777,12 @@ button.close, .openerp .close.oe_button {
 .openerp .oe_searchview {
   border-radius: 0px;
   border-color: #a2db19; }
+  .openerp .oe_searchview .oe_focused {
+    border-color: #a2db19; }
+.openerp .oe_tag {
+  border-radius: 0;
+  border-color: #a2db19;
+  background-color: #f1f1f3; }
 .openerp .oe_tag_dark {
   background-color: #b05ae2; }
 .openerp .oe_searchview .oe_searchview_facets .oe_searchview_facet .oe_facet_values {

@@ -1,15 +1,15 @@
 
-/* BASE color */
+// BASE color
 $c-cg: rgb(176,90,226);
 $c-map: rgb(0,192,237);
 $c-studios: rgb(162,219,25);
 $c-cg-80opa: rgba($c-cg, 0.8);
 
-/* BACKGROUND color */
+// BACKGROUND color
 $c-bg-light: rgb(241,241,243);
 $c-bg-dark: rgb(94,94,94);
 
-/* TEXT color */
+// TEXT color
 $c-txt-dark: $c-bg-dark;
 $c-txt-light: $c-bg-light;
 $c-txt-link: $c-studios;
@@ -28,12 +28,12 @@ $search_facet: $c-bg-light;
 $menu_section: $c-cg;
 
 $url_links: $c-studios;
-$form_required_text: $c-txt-dark;
+$form_required_text: $c-txt-light;
 $form_required: $c-cg;
 
 $nav_pills: $c-cg;
 $nav_pills_text: $c-txt-light;
-$nav_pills_hover: $c-bg-light;
+$nav_pills_hover: $c-cg-80opa;
 $nav_pills_text_hover: $c-txt-light;
 
 $stat_button: $c-map;
