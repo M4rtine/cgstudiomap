@@ -18,17 +18,17 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.exceptions import ValidationError
-
 __author__ = 'foutoucour'
 __codec__ = 'utf-8'
 
 import logging
+
 from openerp import models, api
-from pygeocoder import Geocoder
+from openerp.exceptions import except_orm
+from openerp.tools.translate import _
+from pygeocoder import Geocoder, GeocoderError
 
 _logger = logging.getLogger(__name__)
-# _logger.setLevel(logging.DEBUG)
 
 
 class ResPartner(models.Model):
@@ -104,10 +104,25 @@ class ResPartner(models.Model):
             _logger.debug('country_name: {}'.format(country_name))
             location = ' '.join([location, country_name])
         _logger.debug('location (country): {}'.format(location))
+
         location = location.strip()
         _logger.debug('bool(location): {}'.format(bool(location)))
+
         if location:
-            geocode = Geocoder.geocode(location)
+            # https://github.com/cgstudiomap/cgstudiomap/issues/64
+            # If the address is not localized, Geocoder raises a GeocoderError
+            # The raise results to a traceback that can be scary for the user
+            # It is so necessary to put this traceback in a more user-friendly
+            # report
+            try:
+                geocode = Geocoder.geocode(location)
+            except GeocoderError:
+                raise except_orm(
+                    _('Error'),
+                    _('The address cannot be geolocalized. '
+                      'Please enter a valid address.'
+                    )
+                )
             _logger.debug('geocode: {}'.format(geocode))
             return geocode
 
