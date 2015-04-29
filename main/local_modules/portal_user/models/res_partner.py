@@ -20,10 +20,11 @@
 ##############################################################################
 
 import logging
+import pprint
 from openerp import fields, models, api
-from openerp import osv
 
 _logger = logging.getLogger(__name__)
+_logger.setLevel(logging.DEBUG)
 
 
 class ResPartner(models.Model):
@@ -38,13 +39,16 @@ class ResPartner(models.Model):
         user = self.env['res.users'].browse(self._uid)
         portal_group = self.env['ir.model.data'].get_object('base',
                                                             'group_portal')
-        return portal_group in user.groups_id
+        ret = portal_group in user.groups_id
+        _logger.debug('_is_portal_user (uid = {}): {}'.format(self._uid, ret))
+        return ret
 
     @api.model
     def create(self, vals):
         """Set True to is_company if the res.partner is created by someone using
         the portal."""
         vals['is_company'] = self._is_portal_user()
+        _logger.debug('vals: {}'.format(pprint.pformat(vals)))
         return super(ResPartner, self).create(vals)
 
     # Constant to test against to see if the current user is a portal user

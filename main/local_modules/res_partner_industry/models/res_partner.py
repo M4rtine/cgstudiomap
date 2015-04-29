@@ -63,16 +63,20 @@ class ResPartner(models.Model):
         _logger.debug('context: {}'.format(self._context))
         industry_family_codes = self._context.get('industry_family_codes', [])
         _logger.debug('industry_family_codes: {}'.format(industry_family_codes))
+
         if industry_family_codes:
             _logger.debug('industry_family_codes: True')
             industry_family_pool = self.env['res.industry.family']
             vals['industry_family_ids'] = [
-                (4, family.id)
-                for family in industry_family_pool.search([
+                (4, family.id) for family in industry_family_pool.search([
                     ('code', 'in', industry_family_codes)
                 ])
             ]
-            _logger.debug('vals[industry_family_pool]: {}'.format(vals['industry_family_pool']))
+            _logger.debug(
+                'vals[industry_family_ids]: {}'.format(
+                    vals['industry_family_ids']
+                )
+            )
         return vals
 
     @api.multi
