@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!--It would be a mistake to let any user to be able to merge contacts.-->
+        <!--Most likely, a group of moderator will be created later that can-->
+        <!--do this kind of action.-->
+        <act_window id="crm.action_partner_merge"
+                    res_model="base.partner.merge.automatic.wizard"
+                    src_model="res.partner"
+                    target="new"
+                    multi="True"
+                    key2="client_action_multi"
+                    view_mode="form"
+                    groups="base.group_system"
+                    name="Automatic Merge (Admin Only)"/>
+
+    </data>
+
+</openerp>
