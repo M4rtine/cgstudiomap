@@ -138,13 +138,21 @@ class ResPartner(models.Model):
         """
         _logger.debug('_clean_location_data')
         _logger.debug('vals: {}'.format(vals))
+        # https://github.com/cgstudiomap/cgstudiomap/issues/71
+        # The validation of the address has to be triggered if
+        # any of the field related to the address is changed.
+        # That is translated by the prescence of the field in the
+        # keys of vals.
+        # Street2 is excluded here as it is not really involved in the
+        # geolocation.
+        address_related_fields = {'street', 'city', 'country_id', 'zip'}
 
-        # set of field required to make the geocode
-        required_fields = {'street', 'city', 'country_id', 'zip'}
-        # Test whether every element in required_field is in vals.
-        if not required_fields <= set(vals):
+        # Test if none of the fields are present in vals.
+        # set & set is the intersection of both sets.
+        if not address_related_fields & set(vals):
             _logger.debug(
-                'Missing required keys. Skipping Location data cleaning'
+                'No field related to address was found. '
+                'Skipping Location data cleaning'
             )
             return vals
 
