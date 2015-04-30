@@ -12,7 +12,7 @@
 
 .openerp {
   img {
-    border-radius: 0px;
+    border-radius: 0;
   }
   button {
     @extend .btn;
@@ -60,17 +60,16 @@
     background-image: none;
   }
   ul.oe_form_status li.oe_active > .arrow span {
-    background: #5382B9 none;
+    background: $c-cg none;
   }
   ul.oe_form_status li > .arrow span {
-    background: #EDEDED none;
+    background: $c-cg none;
   }
   .oe_secondary_menu_section {
     color: $menu_section;
   }
 
-  .oe_form .oe_form_required
-  {
+  .oe_form .oe_form_required {
     select:not([disabled]):not([readonly]),
     textarea:not([disabled]):not([readonly]),
     input:not([disabled]):not([readonly]) {
@@ -80,6 +79,7 @@
   }
 
   .oe_application {
+    
     .oe_breadcrumb_title > * {
       color: $breadcrumb_title;
     }
@@ -88,6 +88,9 @@
     }
     a {
       color: $c-txt-link;
+    }
+    .oe_form_sheetbg {
+      background: none;
     }
   }
   .nav-pills > li.active a {
@@ -118,14 +121,14 @@
     color: $badge_color;
     background-color: $badge_backgroung_color;
   }
-  .oe_leftbar > div a.oe_logo img {
-    border-radius: 0px;
+  .oe_leftbar > div a.oe_logo {
+    background-color: $c-bg-logo;
   }
   .oe_searchview {
-    border-radius: 0px;
+    border-radius: 0;
     border-color: $c-studios;
 
-    .oe_focused{
+    .oe_focused {
       border-color: $c-studios;
     }
   }
@@ -160,32 +163,36 @@
   margin-left: -200px;
 }
 
-.navbar-static-top{
-  background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.8);
+.navbar-static-top {
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
 }
 
-html{
-  background: url(../../form_sheetbg.png) repeat scroll 0% 0% transparent;
+html {
+  //  background: url(../../form_sheetbg.png) repeat scroll 0% 0% transparent;
 }
 
 body {
-  background: none repeat scroll 0% 0% rgba(255, 255, 255, 0);
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0);
 }
 
 footer {
-  background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.5);
-  padding:10px;
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
+  padding: 10px;
 }
 
 .modal-content {
   box-shadow: none;
 }
+
 a {
   color: $c-txt-link;
 }
 
 .btn-link {
   color: $c-txt-link
-};
+}
 
+;
+
+// Has to be imported after everything.
 @import "_flatify";

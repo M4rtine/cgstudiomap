@@ -5707,7 +5707,7 @@ button.close, .openerp .close.oe_button {
     border-color: rgba(108, 122, 137, 0.8); }
 
 .openerp img {
-  border-radius: 0px; }
+  border-radius: 0; }
 .openerp button, .openerp .oe_button {
   background-image: none;
   box-shadow: none;
@@ -5736,15 +5736,15 @@ button.close, .openerp .close.oe_button {
 .openerp .oe_form header {
   background-image: none; }
 .openerp ul.oe_form_status li.oe_active > .arrow span {
-  background: #5382B9 none; }
+  background: #6C7A89 none; }
 .openerp ul.oe_form_status li > .arrow span {
-  background: #EDEDED none; }
+  background: #6C7A89 none; }
 .openerp .oe_secondary_menu_section {
   color: #6C7A89; }
 .openerp .oe_form .oe_form_required select:not([disabled]):not([readonly]),
 .openerp .oe_form .oe_form_required textarea:not([disabled]):not([readonly]),
 .openerp .oe_form .oe_form_required input:not([disabled]):not([readonly]) {
-  background-color: #dce1dd !important;
+  background-color: #EEEEEE !important;
   color: #ECF0F; }
 .openerp .oe_application .oe_breadcrumb_title > * {
   color: #95A5A6; }
@@ -5752,6 +5752,8 @@ button.close, .openerp .close.oe_button {
   color: #757D75; }
 .openerp .oe_application a {
   color: #95A5A6; }
+.openerp .oe_application .oe_form_sheetbg {
+  background: none; }
 .openerp .nav-pills > li.active a {
   background-color: #6C7A89;
   color: #ECF0F; }
@@ -5772,10 +5774,10 @@ button.close, .openerp .close.oe_button {
 .openerp .badge {
   color: #6C7A89;
   background-color: #6C7A89; }
-.openerp .oe_leftbar > div a.oe_logo img {
-  border-radius: 0px; }
+.openerp .oe_leftbar > div a.oe_logo {
+  background-color: #434A54; }
 .openerp .oe_searchview {
-  border-radius: 0px;
+  border-radius: 0;
   border-color: #95A5A6; }
   .openerp .oe_searchview .oe_focused {
     border-color: #95A5A6; }
@@ -5800,16 +5802,13 @@ button.close, .openerp .close.oe_button {
   margin-left: -200px; }
 
 .navbar-static-top {
-  background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.8); }
-
-html {
-  background: url(../../form_sheetbg.png) repeat scroll 0% 0% transparent; }
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8); }
 
 body {
-  background: none repeat scroll 0% 0% rgba(255, 255, 255, 0); }
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0); }
 
 footer {
-  background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.5);
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
   padding: 10px; }
 
 .modal-content {
@@ -5827,7 +5826,7 @@ html {
   -webkit-text-size-adjust: 100% !important; }
 
 * {
-  border: 0 !important; }
+  border: 0; }
 
 * {
   -webkit-border-radius: 0 !important;
