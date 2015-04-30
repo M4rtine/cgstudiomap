@@ -5700,11 +5700,11 @@ button.close, .openerp .close.oe_button {
   .hidden-print {
     display: none !important; } }
 .btn-primary, .openerp button.oe_highlight, .openerp .oe_highlight.oe_button {
-  background-color: #b05ae2;
-  border-color: rgba(176, 90, 226, 0.8); }
+  background-color: #6C7A89;
+  border-color: rgba(108, 122, 137, 0.8); }
   .btn-primary:hover, .openerp button.oe_highlight:hover, .openerp .oe_highlight.oe_button:hover {
-    background-color: rgba(176, 90, 226, 0.8);
-    border-color: rgba(176, 90, 226, 0.8); }
+    background-color: rgba(108, 122, 137, 0.8);
+    border-color: rgba(108, 122, 137, 0.8); }
 
 .openerp img {
   border-radius: 0px; }
@@ -5740,57 +5740,57 @@ button.close, .openerp .close.oe_button {
 .openerp ul.oe_form_status li > .arrow span {
   background: #EDEDED none; }
 .openerp .oe_secondary_menu_section {
-  color: #b05ae2; }
+  color: #6C7A89; }
 .openerp .oe_form .oe_form_required select:not([disabled]):not([readonly]),
 .openerp .oe_form .oe_form_required textarea:not([disabled]):not([readonly]),
 .openerp .oe_form .oe_form_required input:not([disabled]):not([readonly]) {
-  background-color: #b05ae2 !important;
-  color: #f1f1f3; }
+  background-color: #dce1dd !important;
+  color: #ECF0F; }
 .openerp .oe_application .oe_breadcrumb_title > * {
-  color: #a2db19; }
+  color: #95A5A6; }
 .openerp .oe_application .oe_breadcrumb_item:not(:last-child) {
-  color: #5e5e5e; }
+  color: #757D75; }
 .openerp .oe_application a {
-  color: #a2db19; }
+  color: #95A5A6; }
 .openerp .nav-pills > li.active a {
-  background-color: #b05ae2;
-  color: #f1f1f3; }
+  background-color: #6C7A89;
+  color: #ECF0F; }
   .openerp .nav-pills > li.active a:hover, .openerp .nav-pills > li.active a:focus {
-    background-color: rgba(176, 90, 226, 0.8);
-    color: #f1f1f3; }
+    background-color: rgba(108, 122, 137, 0.8);
+    color: #ECF0F; }
   .openerp .nav-pills > li.active a .badge {
-    background-color: #b05ae2; }
+    background-color: #6C7A89; }
 .openerp .oe_stat_button {
-  color: #00c0ed; }
+  color: #ABB7B7; }
   .openerp .oe_stat_button .stat_button_icon {
-    color: #00c0ed; }
+    color: #ABB7B7; }
   .openerp .oe_stat_button:hover {
-    color: #00c0ed;
-    background-color: #f1f1f3; }
+    color: #ABB7B7;
+    background-color: #ECF0F; }
     .openerp .oe_stat_button:hover .fa {
-      color: #b05ae2; }
+      color: #6C7A89; }
 .openerp .badge {
-  color: #b05ae2;
-  background-color: #b05ae2; }
+  color: #6C7A89;
+  background-color: #6C7A89; }
 .openerp .oe_leftbar > div a.oe_logo img {
   border-radius: 0px; }
 .openerp .oe_searchview {
   border-radius: 0px;
-  border-color: #a2db19; }
+  border-color: #95A5A6; }
   .openerp .oe_searchview .oe_focused {
-    border-color: #a2db19; }
+    border-color: #95A5A6; }
 .openerp .oe_tag {
   border-radius: 0;
-  border-color: #a2db19;
-  background-color: #f1f1f3; }
+  border-color: #95A5A6;
+  background-color: #ECF0F; }
 .openerp .oe_tag_dark {
-  background-color: #b05ae2; }
+  background-color: #6C7A89; }
 .openerp .oe_searchview .oe_searchview_facets .oe_searchview_facet .oe_facet_values {
-  background-color: #f1f1f3; }
+  background-color: #ECF0F; }
 .openerp .oe_searchview .oe-autocomplete ul li.oe-selection-focus {
-  background-color: #b05ae2 !important; }
+  background-color: #6C7A89 !important; }
 .openerp .oe_horizontal_separator {
-  color: #00c0ed; }
+  color: #ABB7B7; }
 
 .oe_single_form_container {
   padding: 10px;
@@ -5816,9 +5816,34 @@ footer {
   box-shadow: none; }
 
 a {
-  color: #a2db19; }
+  color: #95A5A6; }
 
 .btn-link {
-  color: #a2db19; }
+  color: #95A5A6; }
+
+html {
+  font-family: sans-serif !important;
+  -ms-text-size-adjust: 100% !important;
+  -webkit-text-size-adjust: 100% !important; }
+
+* {
+  border: 0 !important; }
+
+* {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important; }
+
+* {
+  moz-box-shadow: 0 0 0 transparent !important;
+  -webkit-box-shadow: 0 0 0 transparent !important;
+  box-shadow: 0 0 0 transparent !important; }
+
+a:active,
+a:hover {
+  outline: 0 !important; }
+
+img {
+  border: 0 !important; }
 
 /*# sourceMappingURL=base.css.map */
