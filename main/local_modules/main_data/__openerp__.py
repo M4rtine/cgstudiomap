@@ -59,6 +59,7 @@ Contributors
         'views/geo_partner_view.xml',
         'views/base_partner_merge_view.xml',
         'templates/web_layout.xml',
+        'report/account_report.xml',
     ],
     'installable': True,
 }
