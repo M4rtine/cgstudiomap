@@ -66,10 +66,10 @@
                     <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
                 </button>
                 <field name="partner_latitude" position="attributes">
-                    <attribute name="attrs">{'readonly': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
                 </field>
                 <field name="partner_longitude" position="attributes">
-                    <attribute name="attrs">{'readonly': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
                 </field>
                 <field name="date_localization" position="attributes">
                     <attribute name="attrs">{'readonly': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>

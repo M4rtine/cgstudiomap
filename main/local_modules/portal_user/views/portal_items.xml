@@ -107,11 +107,11 @@
                   <!--groups="base.group_portal"/>-->
 
         <!--Account Menu-->
-        <menuitem id="menu_portal_account"
-                  name="Account"
-                  parent="base.menu_portal_settings"
-                  sequence="2"
-                  groups="base.group_portal"/>
+        <!--<menuitem id="menu_portal_account"-->
+                  <!--name="Account"-->
+                  <!--parent="base.menu_portal_settings"-->
+                  <!--sequence="2"-->
+                  <!--groups="base.group_portal"/>-->
 
 
         <!--Account/Preferences-->
@@ -123,12 +123,12 @@
             <field name="view_id" ref="base.view_users_tree"/>
             <field name="search_view_id" ref="base.view_users_form"/>
         </record>
-        <menuitem id="menu_preferences"
-                  action="action_res_users"
-                  name="Preferences"
-                  parent="portal_user.menu_portal_account"
-                  sequence="1"
-                  groups="base.group_portal"/>
+        <!--<menuitem id="menu_preferences"-->
+                  <!--action="action_res_users"-->
+                  <!--name="Preferences"-->
+                  <!--parent="portal_user.menu_portal_account"-->
+                  <!--sequence="1"-->
+                  <!--groups="base.group_portal"/>-->
 
         <!--Account/Log out -->
         <record id="action_logout" model="ir.actions.act_url">
@@ -137,12 +137,12 @@
             <field name="target">self</field>
         </record>
 
-        <menuitem id="menu_portal_logout"
-                  action="action_logout"
-                  name="Log out"
-                  parent="portal_user.menu_portal_account"
-                  sequence="2"
-                  groups="base.group_portal"/>
+        <!--<menuitem id="menu_portal_logout"-->
+                  <!--action="action_logout"-->
+                  <!--name="Log out"-->
+                  <!--parent="portal_user.menu_portal_account"-->
+                  <!--sequence="2"-->
+                  <!--groups="base.group_portal"/>-->
 
         <!--Report Issues-->
         <record id="action_report_issue" model="ir.actions.act_url">
