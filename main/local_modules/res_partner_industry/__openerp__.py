@@ -27,7 +27,7 @@
     'license': 'AGPL-3',
     'category': 'Sale',
     'summary': 'Add a relation to a partner with an industry',
-    'depends': [],
+    'depends': ['mail'],
     'data': [
         'views/res_partner_view.xml',
         'views/res_industry_view.xml',

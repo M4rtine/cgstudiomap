@@ -91,6 +91,7 @@
         <record id="animation" model="res.industry">
             <field name="name">Animation</field>
             <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.art'), ref('res_partner_industry.med')])]"/>
+            <field name="description">Animation is the process of creating motion and shape change illusion by means of the rapid display of a sequence of static images that minimally differ from each other. The illusion—as in motion pictures in general—is thought to rely on the phi phenomenon.</field>
         </record>
         <!--<record id="apparel_and_fashion" model="res.industry">-->
             <!--<field name="name">Apparel and Fashion</field>-->
@@ -123,6 +124,7 @@
         <record id="broadcast_media" model="res.industry">
             <field name="name">Broadcast Media</field>
             <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.med'), ref('res_partner_industry.rec')])]"/>
+            <field name="description">Broadcasting is usually associated with radio and television, though in practice radio and television transmissions take place using both wires and radio waves. The field of broadcasting includes a wide range of practices, from relatively private exchanges such as public radio, community radio and commercial radio, public television, and commercial television.</field>
         </record>
         <!--<record id="building_materials" model="res.industry">-->
             <!--<field name="name">Building Materials</field>-->
@@ -159,6 +161,7 @@
         <record id="computer_games" model="res.industry">
             <field name="name">Computer Games</field>
             <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.med'), ref('res_partner_industry.rec')])]"/>
+            <field name="description">A computer game is an electronic game that involves human interaction with a user interface to generate visual feedback on a video device.</field>
         </record>
         <!--<record id="computer_hardware" model="res.industry">-->
             <!--<field name="name">Computer Hardware</field>-->
@@ -203,6 +206,7 @@
         <record id="design" model="res.industry">
             <field name="name">Design</field>
             <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.art'), ref('res_partner_industry.med')])]"/>
+            <field name="description">Design is the creation of a plan or convention for the construction of an object or a system (as in architectural blueprints, engineering drawings, business processes, circuit diagrams and sewing patterns). In some cases the direct construction of an object (as in pottery, engineering, management, cowboy coding and graphic design) is also considered to be design.</field>
         </record>
         <!--<record id="education_management" model="res.industry">-->
             <!--<field name="name">Education Management</field>-->
@@ -219,6 +223,7 @@
         <record id="entertainment" model="res.industry">
             <field name="name">Entertainment</field>
             <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.med'), ref('res_partner_industry.rec')])]"/>
+            <field name="description">Entertainment is a form of activity that holds the attention and interest of an audience, or gives pleasure and delight. Storytelling, music, drama, dance, and different kinds of performance exist in all cultures, were supported in royal courts, developed into sophisticated forms and over time became available to all citizens.</field>
         </record>
         <!--<record id="environmental_services" model="res.industry">-->
             <!--<field name="name">Environmental Services</field>-->
@@ -247,6 +252,7 @@
         <record id="fine_art" model="res.industry">
             <field name="name">Fine Art</field>
             <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.art'), ref('res_partner_industry.med'), ref('res_partner_industry.rec')])]"/>
+            <field name="description">Historically, the five main fine arts were painting, sculpture, architecture, music and poetry, with performing arts including theater and dance. Today, the fine arts commonly include additional forms, such as film, photography, conceptual art, and printmaking. However, in some institutes of learning or in museums, fine art and frequently the term fine arts (pl.) as well, are associated exclusively with visual art forms.</field>
         </record>
         <!--<record id="fishery" model="res.industry">-->
             <!--<field name="name">Fishery</field>-->
@@ -287,6 +293,7 @@
         <record id="graphic_design" model="res.industry">
             <field name="name">Graphic Design</field>
             <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.art'), ref('res_partner_industry.med')])]"/>
+            <field name="description">Graphic design is the methodology of visual communication, and problem-solving through the use of type, space and image. The field is considered a subset of visual communication and communication design, but sometimes the term "graphic design" is used interchangeably with these due to overlapping skills involved.</field>
         </record>
         <!--<record id="health_wellness_and_fitness" model="res.industry">-->
             <!--<field name="name">Health, Wellness and Fitness</field>-->
@@ -415,6 +422,7 @@
         <record id="media_production" model="res.industry">
             <field name="name">Media Production</field>
             <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.med'), ref('res_partner_industry.rec')])]"/>
+            <field name="description">In media production, publishing, and art, content is information and experiences that provides value for an end-user or audience. Content can be delivered via many different media including the internet, television, and audio CDs, books, magazines, live events, such as conferences and stage performances.</field>
         </record>
         <!--<record id="medical_devices" model="res.industry">-->
             <!--<field name="name">Medical Devices</field>-->
@@ -439,6 +447,7 @@
         <record id="motion_pictures_and_film" model="res.industry">
             <field name="name">Motion Pictures and Film</field>
             <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.art'), ref('res_partner_industry.med'), ref('res_partner_industry.rec')])]"/>
+            <field name="description">A film, also called a movie or motion picture, is a series of still images which, when shown on a screen, creates the illusion of moving images due to the phi phenomenon. A film is created by photographing actual scenes with a motion picture camera; by photographing drawings or miniature models using traditional animation techniques; by means of CGI and computer animation; or by a combination of some or all of these techniques and other visual effects.</field>
         </record>
         <!--<record id="museums_and_institutions" model="res.industry">-->
             <!--<field name="name">Museums and Institutions</field>-->
@@ -467,6 +476,7 @@
         <record id="online_media" model="res.industry">
             <field name="name">Online Media</field>
             <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.med')])]"/>
+            <field name="description">Digital media, which includes photos, video and music, distributed over the Internet, which are either non-copyrighted or copyrighted materials provided either freely or for a fee.</field>
         </record>
         <!--<record id="outsourcing_offshoring" model="res.industry">-->
             <!--<field name="name">Outsourcing/Offshoring</field>-->
@@ -484,10 +494,6 @@
             <!--<field name="name">Paper and Forest Products</field>-->
             <!--<field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.man')])]"/>-->
         <!--</record>-->
-        <record id="performing_arts" model="res.industry">
-            <field name="name">Performing Arts</field>
-            <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.art'), ref('res_partner_industry.med'), ref('res_partner_industry.rec')])]"/>
-        </record>
         <!--<record id="pharmaceuticals" model="res.industry">-->
             <!--<field name="name">Pharmaceuticals</field>-->
             <!--<field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.hlth'), ref('res_partner_industry.tech')])]"/>-->
