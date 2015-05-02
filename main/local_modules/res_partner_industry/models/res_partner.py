@@ -27,21 +27,35 @@ _logger = logging.getLogger(__name__)
 
 class ResIndustryFamily(models.Model):
     _name = 'res.industry.family'
+    _inherit = ['mail.thread', 'ir.needaction_mixin']
     _description = 'Group of Industries'
 
     name = fields.Char('Name', size=128, required=True)
     code = fields.Char('Code', size=4)
+    image = fields.Binary(
+        "Image",
+        help="This field holds the image used as avatar for this family,"
+             " limited to 1024x1024px"
+    )
+    description = fields.Text('Description')
 
 
 class ResIndustry(models.Model):
     _name = 'res.industry'
+    _inherit = ['mail.thread', 'ir.needaction_mixin']
     _description = 'Industry'
 
     name = fields.Char('Name', size=128, required=True)
     family_ids = fields.Many2many(
         'res.industry.family',
         string='Industry Families',
-        )
+    )
+    image = fields.Binary(
+        "Image",
+        help="This field holds the image used as avatar for this industry,"
+             " limited to 1024x1024px"
+    )
+    description = fields.Text('Description')
 
 
 class ResPartner(models.Model):
