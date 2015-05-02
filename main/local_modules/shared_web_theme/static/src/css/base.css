@@ -5816,9 +5816,14 @@ footer {
 
 a {
   color: #95A5A6; }
+  a:hover, a:focus {
+    color: #757D75; }
 
 .btn-link {
   color: #95A5A6; }
+
+.bg-logo-color {
+  background-color: #434A54; }
 
 html {
   font-family: sans-serif !important;

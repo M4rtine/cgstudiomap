@@ -186,13 +186,20 @@ footer {
 
 a {
   color: $c-txt-link;
+  &:hover, &:focus {
+    color: $c-txt-link;
+  }
 }
 
 .btn-link {
-  color: $c-txt-link
+  color: $c-txt-link;
 }
 
-;
+
+.bg-logo-color {
+  background-color: $c-bg-logo;
+}
+
 
 // Has to be imported after everything.
 @import "_flatify";
