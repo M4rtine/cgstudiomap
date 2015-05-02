@@ -79,7 +79,7 @@
   }
 
   .oe_application {
-    
+
     .oe_breadcrumb_title > * {
       color: $breadcrumb_title;
     }
@@ -195,11 +195,48 @@ a {
   color: $c-txt-link;
 }
 
-
 .bg-logo-color {
   background-color: $c-bg-logo;
 }
 
+// Design of the map_info overlay
+//@import "_map_info";
+#map_infobox {
+  bottom: -13px;
+  left: 17px;
+  width: 250px;
+  height: 200px;
+}
+
+.map_overlay {
+  padding: 0;
+  border: 1px solid $c-map;
+}
+
+
+
+#map_info {
+  height: auto;
+  padding: 0;
+}
+
+#map_info_header {
+//  background-color: $c-map;
+//  color: $c-txt-light;
+  padding: 10px;
+}
+
+#map_info_content {
+  padding: 10px 10px 10px 20px;
+}
+
+#map_info_footer {
+  text-align: right;
+
+  button {
+    border: 0;
+  }
+}
 
 // Has to be imported after everything.
 @import "_flatify";

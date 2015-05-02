@@ -5817,13 +5817,38 @@ footer {
 a {
   color: #95A5A6; }
   a:hover, a:focus {
-    color: #757D75; }
+    color: #95A5A6; }
 
 .btn-link {
   color: #95A5A6; }
 
 .bg-logo-color {
   background-color: #434A54; }
+
+#map_infobox {
+  bottom: -13px;
+  left: 17px;
+  width: 250px;
+  height: 200px; }
+
+.map_overlay {
+  padding: 0;
+  border: 1px solid #ABB7B7; }
+
+#map_info {
+  height: auto;
+  padding: 0; }
+
+#map_info_header {
+  padding: 10px; }
+
+#map_info_content {
+  padding: 10px 10px 10px 20px; }
+
+#map_info_footer {
+  text-align: right; }
+  #map_info_footer button, #map_info_footer .openerp .oe_button, .openerp #map_info_footer .oe_button {
+    border: 0; }
 
 html {
   font-family: sans-serif !important;
