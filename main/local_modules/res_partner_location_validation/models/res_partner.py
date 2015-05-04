@@ -29,7 +29,7 @@ from openerp.tools.translate import _
 from pygeocoder import Geocoder, GeocoderError
 
 _logger = logging.getLogger(__name__)
-
+_logger.setLevel(logging.DEBUG)
 
 class ResPartner(models.Model):
     """Add Social Networks fields."""
@@ -173,6 +173,9 @@ class ResPartner(models.Model):
 
         # The location values might not be in the vals.
         if geocode is None:
+            return vals
+        
+        if geocode.route is None:
             return vals
 
         # if geocode.route is None:
