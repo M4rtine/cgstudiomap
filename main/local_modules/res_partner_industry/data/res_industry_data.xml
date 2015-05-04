@@ -163,18 +163,18 @@
             <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.med'), ref('res_partner_industry.rec')])]"/>
             <field name="description">A computer game is an electronic game that involves human interaction with a user interface to generate visual feedback on a video device.</field>
         </record>
-        <!--<record id="computer_hardware" model="res.industry">-->
-            <!--<field name="name">Computer Hardware</field>-->
-            <!--<field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.tech')])]"/>-->
-        <!--</record>-->
+        <record id="computer_hardware" model="res.industry">
+            <field name="name">Computer Hardware</field>
+            <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.med'), ref('res_partner_industry.tech')])]"/>
+        </record>
         <!--<record id="computer_networking" model="res.industry">-->
             <!--<field name="name">Computer Networking</field>-->
             <!--<field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.tech')])]"/>-->
         <!--</record>-->
-        <!--<record id="computer_software" model="res.industry">-->
-            <!--<field name="name">Computer Software</field>-->
-            <!--<field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.tech')])]"/>-->
-        <!--</record>-->
+        <record id="computer_software" model="res.industry">
+            <field name="name">Computer Software</field>
+            <field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.med'), ref('res_partner_industry.tech')])]"/>
+        </record>
         <!--<record id="construction" model="res.industry">-->
             <!--<field name="name">Construction</field>-->
             <!--<field name="family_ids" eval="[(6, 0,[ref('res_partner_industry.cons')])]"/>-->

@@ -24,7 +24,6 @@ import pprint
 from openerp import fields, models, api
 
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
 
 
 class ResPartner(models.Model):

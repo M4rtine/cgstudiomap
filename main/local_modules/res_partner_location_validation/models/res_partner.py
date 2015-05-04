@@ -164,6 +164,9 @@ class ResPartner(models.Model):
         # The location values might not be in the vals.
         if geocode is None:
             return vals
+        
+        if geocode.route is None:
+            return vals
 
         # then the cleaned data are reinjected to the values the
         # record will be created/written with.
