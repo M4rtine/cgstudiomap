@@ -89,8 +89,13 @@
                     <!--</div>-->
 
                     <!--</form>-->
-                    <div style="float:left" class="bg-logo-color">
-                        <img src="/logo.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+                    <div style="float:left;padding:10px;"
+                         class="bg-logo-color">
+                        <img src="/main_data/static/cgsm-logo-gray.png"
+                             t-att-alt="'Logo of %s' % res_company.name"
+                             t-att-title="res_company.name"
+                             style="width:150px;"
+                                />
                     </div>
                     <div style="float:left; padding:15px">
                         <h1>Sorry, Private Alpha Phase</h1>
@@ -105,7 +110,7 @@
                             <!--<a t-att-href="website.social_twitter"><i class="fa fa-twitter" style="font-size:40px"/></a> - <a t-att-href="website.social_github"><i class="fa fa-github" style="font-size:40px"/></a>-->
                             <br />
                             <br />
-                            Looking forward to seeing you on board!
+                            Looking forward to seeing you on board.
                         </p>
                         <p></p>
                         <p style="text-align: right">The team</p>
