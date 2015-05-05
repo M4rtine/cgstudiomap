@@ -225,7 +225,8 @@ a {
   bottom: -13px;
   left: 17px;
   width: 250px;
-  height: 200px;
+  height: 150px;
+  background-color: $c-bg-light;
 }
 
 .map_overlay {
@@ -233,17 +234,16 @@ a {
   border: 1px solid $c-map;
 }
 
-
-
 #map_info {
   height: auto;
   padding: 0;
 }
 
 #map_info_header {
-//  background-color: $c-map;
-//  color: $c-txt-light;
+  background-color: $c-map;
+  color: $c-txt-light;
   padding: 10px;
+  font-size: 1.5em;
 }
 
 #map_info_content {
@@ -252,8 +252,14 @@ a {
 
 #map_info_footer {
   text-align: right;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
   button {
     border: 0;
+    background-color: $c-cg;
+    color: $c-txt-light;
+    width: 100%;
   }
 }

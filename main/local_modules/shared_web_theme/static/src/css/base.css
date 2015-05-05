@@ -5759,7 +5759,7 @@ body {
 .openerp .oe_form .oe_form_required textarea:not([disabled]):not([readonly]),
 .openerp .oe_form .oe_form_required input:not([disabled]):not([readonly]) {
   background-color: #EEEEEE !important;
-  color: #ECF0F; }
+  color: #ECF0F1; }
 .openerp .oe_application .oe_breadcrumb_title > * {
   color: #95A5A6; }
 .openerp .oe_application .oe_breadcrumb_item:not(:last-child) {
@@ -5770,10 +5770,10 @@ body {
   background: none; }
 .openerp .nav-pills > li.active a {
   background-color: #6C7A89;
-  color: #ECF0F; }
+  color: #ECF0F1; }
   .openerp .nav-pills > li.active a:hover, .openerp .nav-pills > li.active a:focus {
     background-color: rgba(108, 122, 137, 0.8);
-    color: #ECF0F; }
+    color: #ECF0F1; }
   .openerp .nav-pills > li.active a .badge {
     background-color: #6C7A89; }
 .openerp .oe_stat_button {
@@ -5782,7 +5782,7 @@ body {
     color: #ABB7B7; }
   .openerp .oe_stat_button:hover {
     color: #ABB7B7;
-    background-color: #ECF0F; }
+    background-color: #ECF0F1; }
     .openerp .oe_stat_button:hover .fa {
       color: #6C7A89; }
 .openerp .badge {
@@ -5798,11 +5798,11 @@ body {
 .openerp .oe_tag {
   border-radius: 0;
   border-color: #95A5A6;
-  background-color: #ECF0F; }
+  background-color: #ECF0F1; }
 .openerp .oe_tag_dark {
   background-color: #6C7A89; }
 .openerp .oe_searchview .oe_searchview_facets .oe_searchview_facet .oe_facet_values {
-  background-color: #ECF0F; }
+  background-color: #ECF0F1; }
 .openerp .oe_searchview .oe-autocomplete ul li.oe-selection-focus {
   background-color: #6C7A89 !important; }
 .openerp .oe_horizontal_separator {
@@ -5847,7 +5847,8 @@ a {
   bottom: -13px;
   left: 17px;
   width: 250px;
-  height: 200px; }
+  height: 150px;
+  background-color: #ECF0F1; }
 
 .map_overlay {
   padding: 0;
@@ -5858,15 +5859,24 @@ a {
   padding: 0; }
 
 #map_info_header {
-  padding: 10px; }
+  background-color: #ABB7B7;
+  color: #ECF0F1;
+  padding: 10px;
+  font-size: 1.5em; }
 
 #map_info_content {
   padding: 10px 10px 10px 20px; }
 
 #map_info_footer {
-  text-align: right; }
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
   #map_info_footer button, #map_info_footer .openerp .oe_button, .openerp #map_info_footer .oe_button {
-    border: 0; }
+    border: 0;
+    background-color: #6C7A89;
+    color: #ECF0F1;
+    width: 100%; }
 
 html {
   font-family: sans-serif !important;
