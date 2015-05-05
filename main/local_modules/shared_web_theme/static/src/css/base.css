@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -5699,6 +5700,19 @@ button.close, .openerp .close.oe_button {
 @media print {
   .hidden-print {
     display: none !important; } }
+body {
+  overflow: hidden; }
+
+#geochart_div {
+  width: 100%;
+  height: 750px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0; }
+
+@media (max-width: 767px) {
+  #geochart_div {
+    height: 350px; } }
 .btn-primary, .openerp button.oe_highlight, .openerp .oe_highlight.oe_button {
   background-color: #6C7A89;
   border-color: rgba(108, 122, 137, 0.8); }
@@ -5803,6 +5817,10 @@ button.close, .openerp .close.oe_button {
 
 .navbar-static-top {
   background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8); }
+
+.navbar-static-top {
+  z-index: 1000;
+  border-width: 0 0 0; }
 
 body {
   background: none repeat scroll 0 0 rgba(255, 255, 255, 0); }
