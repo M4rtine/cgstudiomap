@@ -5703,6 +5703,8 @@ button.close, .openerp .close.oe_button {
 body {
   overflow: hidden; }
 
+/* CUSTOMIZE HOME MAP
+-------------------------------------------------- */
 #geochart_div {
   width: 100%;
   height: 750px;
@@ -5713,6 +5715,28 @@ body {
 @media (max-width: 767px) {
   #geochart_div {
     height: 350px; } }
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20; }
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0; }
+
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px; }
+
+.navbar-wrapper .navbar .container {
+  width: auto; }
+
 .btn-primary, .openerp button.oe_highlight, .openerp .oe_highlight.oe_button {
   background-color: #6C7A89;
   border-color: rgba(108, 122, 137, 0.8); }
