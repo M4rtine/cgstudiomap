@@ -69,9 +69,9 @@ class ResPartner(models.Model):
         # Don't get street2 into the geocode it might screw the location
         # actually.
         city = get_data('city')
-        zip = get_data('zip')
+        zip_ = get_data('zip')
 
-        location = ' '.join([location, city, zip])
+        location = ' '.join([location, city, zip_])
         _logger.debug(
             'location (street, street2, city, zip): {}'.format(location)
         )
@@ -116,14 +116,24 @@ class ResPartner(models.Model):
             # report
             try:
                 geocode = Geocoder.geocode(location)
-            except GeocoderError:
+            except GeocoderError as e:
                 raise except_orm(
                     _('Error'),
                     _('The address cannot be geolocalized. '
                       'Please enter a valid address.'
+                      '\n\nError details: {}'.format(e)
                     )
                 )
             _logger.debug('geocode: {}'.format(geocode))
+
+            if geocode.route is None:
+                raise except_orm(
+                    _('Error'),
+                    _('The address cannot be geolocalized. '
+                      'Please enter a valid street address.'
+                    )
+                )
+
             return geocode
 
         _logger.debug('Empty Location, returning None')
@@ -150,7 +160,7 @@ class ResPartner(models.Model):
         # Test if none of the fields are present in vals.
         # set & set is the intersection of both sets.
         if not address_related_fields & set(vals):
-            _logger.debug(
+            _logger.info(
                 'No field related to address was found. '
                 'Skipping Location data cleaning'
             )
@@ -164,14 +174,16 @@ class ResPartner(models.Model):
         # The location values might not be in the vals.
         if geocode is None:
             return vals
-        
-        if geocode.route is None:
-            return vals
+
+        # if geocode.route is None:
+        #     _logger.debug('Route is None, skipping.')
+        #     return vals
 
         # then the cleaned data are reinjected to the values the
         # record will be created/written with.
         street_number = geocode.street_number
-        if not street_number is None:
+
+        if street_number is not None:
             vals['street'] = ' '.join(
                 [geocode.street_number, geocode.route]
             )

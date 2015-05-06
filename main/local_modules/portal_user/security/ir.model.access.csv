@@ -3,7 +3,7 @@ access_portal_user,access_portal_user: res.partner,base.model_res_partner,base.g
 access_portal_user_account_move_line,access_portal_user: account.move.line,account.model_account_move_line,base.group_portal,1,1,0,0
 access_portal_user_phonecall,access_portal_user: crm.phonecall,crm.model_crm_phonecall,base.group_portal,1,1,1,0
 access_ir_property_portal_user,ir_property group_manager,base.model_ir_property,base.group_portal,1,1,1,0
-access_res_country_portal_user,res_country group_portal,base.model_res_country,base.group_portal,1,1,1,0
+access_res_country_portal_user,res_country group_portal,base.model_res_country,base.group_portal,1,1,0,0
 access_res_country_state_portal_user,res_country_state group_portal,base.model_res_country_state,base.group_portal,1,1,1,0
 access_res_country_group_portal_user,res_country_group group_portal,base.model_res_country_group,base.group_portal,1,1,1,0
 access_res_partner_portal_user,res_partner group_portal,account.model_res_partner,base.group_portal,1,1,1,0
