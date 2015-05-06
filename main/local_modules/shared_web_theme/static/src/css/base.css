@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -5783,7 +5782,7 @@ body {
 .openerp .oe_form .oe_form_required textarea:not([disabled]):not([readonly]),
 .openerp .oe_form .oe_form_required input:not([disabled]):not([readonly]) {
   background-color: #EEEEEE !important;
-  color: #ECF0F1; }
+  color: #757D75; }
 .openerp .oe_application .oe_breadcrumb_title > * {
   color: #95A5A6; }
 .openerp .oe_application .oe_breadcrumb_item:not(:last-child) {
