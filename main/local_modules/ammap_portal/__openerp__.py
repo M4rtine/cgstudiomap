@@ -29,6 +29,7 @@
     'summary': 'Allow designer user to have access to the AmMap configs from the portal.',
     'depends': [
         'ammap',
+        'website',
         'portal',
     ],
     'data': [
