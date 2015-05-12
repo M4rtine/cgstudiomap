@@ -3,9 +3,11 @@
     <data>
         <record id="homepage_ammap_config" model="ammap.config">
             <field name="name">homepage</field>
-            <field name="color">#FDD5B9</field>
-            <field name="color_solid">#D96511</field>
-            <field name="unlisted_areas_color">#DCE0E0</field>
+            <field name="color">#97E9F7</field>
+            <field name="color_solid">#00C0ED</field>
+            <field name="unlisted_areas_color">#E2E2E4</field>
+            <field name="roll_over_outline_color">#FFFF00</field>
+
             <field name="description">Config of the map on the homepage.</field>
         </record>
 
@@ -48,6 +50,8 @@
                         colorSolid: "<t t-esc='ammap_config.color_solid'/>",
                         // Color for country without value.
                         unlistedAreasColor: "<t t-esc='ammap_config.unlisted_areas_color'/>",
+                        // Color of borders when rolling over a country.
+                        rollOverOutlineColor: "<t t-esc='ammap_config.roll_over_outline_color'/>",
 
                         autoZoom: false,
                         balloonText: "[[title]] ([[value]])"

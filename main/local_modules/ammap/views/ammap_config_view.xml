@@ -14,6 +14,7 @@
                         <field name="color" widget="color"/>
                         <field name="color_solid" widget="color"/>
                         <field name="unlisted_areas_color" widget="color"/>
+                        <field name="roll_over_outline_color" widget="color"/>
                     </group>
                 </form>
             </field>
