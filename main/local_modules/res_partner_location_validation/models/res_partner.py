@@ -29,7 +29,7 @@ from openerp.tools.translate import _
 from pygeocoder import Geocoder, GeocoderError
 
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
+
 
 class ResPartner(models.Model):
     """Add Social Networks fields."""
