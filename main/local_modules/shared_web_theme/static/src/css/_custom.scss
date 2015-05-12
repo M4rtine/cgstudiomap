@@ -293,3 +293,17 @@ a {
     width: 100%;
   }
 }
+
+/* Z-INDEX important */
+
+.oe_im,
+.oe_im_chatview {
+	z-index: 10000 !important;
+}
+.openerp .oe_loading {
+  z-index: 9000 !important;
+}
+#the_map,
+div.olMap {
+	z-index: 100;
+}
