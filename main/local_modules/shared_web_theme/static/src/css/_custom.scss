@@ -1,6 +1,12 @@
+html, body{
+	height: 100%;
+}
 body {
 	overflow: hidden;
+	padding: 0;
+	margin: 0;
 }
+		
 
 
 /* CUSTOMIZE HOME MAP
@@ -19,7 +25,75 @@ body {
 	}
 }
 
+/* CUSTOMIZE DASHBOARD MAP
+-------------------------------------------------- */
+.openerp .oe_application > div > .oe_view_manager > .oe_view_manager_wrapper > div > .oe_view_manager_body {
+	position: absolute;
+	top: -7px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: auto;
+}
+.openerp .oe_view_manager {
+	display: table;
+	height: inherit;
+	width: 100%;
+	height: 100%;
+}
 
+.geoengine_view {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+@media (max-width: 767px){
+	.geoengine_view {
+		height: 6em;
+	}
+}
+@media (max-width: 992px){
+	.geoengine_view {
+		height: 20em;
+	}
+}
+@media (max-width: 1200px){
+	.geoengine_view {
+		height: 60em;
+	}
+}
+@media (min-width: 1201px){
+	.geoengine_view {
+		height: 70em;
+	}
+}
+#the_map,
+div.olMap {
+	position: absolute;
+	top: 0;
+	height: 100%;
+}
+.openerp .oe_view_manager_current > .oe_view_manager_header {
+	border-bottom: 0 solid transparent;
+	background-color: $c-bg-logo;
+	color: $c-txt-light;
+	background-image: transparent;
+}
+.openerp .oe_leftbar {
+	border-right: 0 solid transparent;
+	text-shadow: none;
+}
+.openerp .oe_view_manager table.oe_view_manager_header .oe_button_group {
+	border: 1px solid $c-cg;
+}
+.openerp .oe_view_manager table.oe_view_manager_header .oe_button_group a {
+	color: $c-txt-light;
+}
+.openerp .oe_view_manager table.oe_view_manager_header .oe_button_group .active {
+	background: $c-cg;
+
+}
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 
@@ -305,5 +379,5 @@ a {
 }
 #the_map,
 div.olMap {
-	z-index: 100;
+	z-index: 0;
 }
