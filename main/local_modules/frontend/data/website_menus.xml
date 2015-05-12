@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="menu_sign_up" model="website.menu">
+            <field name="name">Sign up</field>
+            <field name="url">/web/signup</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">70</field>
+            <field name="user_logged" eval="False"/>
+            <field name="user_not_logged" eval="True"/>
+        </record>
+
+        <record id="website.menu_homepage" model="website.menu">
+            <field name="user_logged" eval="False"/>
+            <field name="user_not_logged" eval="False"/>
+        </record>
+
+    </data>
+</openerp>

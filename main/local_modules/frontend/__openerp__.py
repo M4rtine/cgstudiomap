@@ -37,6 +37,7 @@
         'res_partner_industry',
     ],
     'data': [
+        'data/website_menus.xml',
         'templates/login_template.xml',
         'templates/contact_us_template.xml',
         'templates/homepage.xml',
