@@ -119,15 +119,6 @@
             </t>
         </template>
 
-        <record id="menu_sign_up" model="website.menu">
-            <field name="name">Sign up</field>
-            <field name="url">/web/signup</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence" type="int">70</field>
-            <field name="user_logged" eval="False"/>
-            <field name="user_not_logged" eval="True"/>
-        </record>
-
         <template id="auth_signup.reset_password"
                   name="Reset password Containter">
             <t t-call="web.login_layout">
