@@ -21,9 +21,9 @@
 
 {
     'name': 'Main Module',
-    'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
+    'version': '0.2',
+    'author': 'cgstudiomap',
+    'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Main',
     'summary': 'Main Module, that install everything',
