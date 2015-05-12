@@ -22,8 +22,8 @@
 {
     'name': 'Frontend',
     'version': '0.2',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
+    'author': 'cgstudiomap',
+    'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Web',
     'summary': 'Frontend pages',
