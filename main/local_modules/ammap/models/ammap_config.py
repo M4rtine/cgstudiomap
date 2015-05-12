@@ -52,3 +52,11 @@ class AmMapConfig(models.Model):
         help=('Color of all areas which are in the map svg file, '
               'but not listed as areas in DataSet.')
     )
+
+    roll_over_outline_color = fields.Char(
+        string='Roll Over Outline Color',
+        default='#CC0000',
+        size=7,
+        help=("Color of area's outline when user rolls-over it")
+    )
+
