@@ -32,13 +32,13 @@
                   groups="base.group_portal"
                   sequence="01"/>
 
-        <menuitem name="Listings"
+        <menuitem name="Companies"
                   id="portal_listing"
                   parent="portal.portal_menu"
                   sequence="20"/>
 
         <record id="action_portal_companies" model="ir.actions.act_window">
-            <field name="name">Companies</field>
+            <field name="name">Operatives</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">geoengine,tree,kanban,form</field>
@@ -59,7 +59,7 @@
                   groups="base.group_portal"/>
 
         <record id="action_portal_dead_companies" model="ir.actions.act_window">
-            <field name="name">Inactive</field>
+            <field name="name">Shut Down</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">geoengine,tree,kanban,form</field>
