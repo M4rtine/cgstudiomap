@@ -11,18 +11,18 @@ body {
 
 /* CUSTOMIZE HOME MAP
 -------------------------------------------------- */
+$break-width-small: 767px;
+
 #geochart_div {
 	width: 100%;
 	height: 750px;
 	text-align: center;
 	margin: 0 auto;
 	padding: 0;
-}
-
-@media (max-width: 767px){
-	#geochart_div {
-		height: 350px;
-	}
+	
+  @media screen and (max-width: $break-width-small) {
+	height: 350px;
+  }
 }
 
 /* CUSTOMIZE DASHBOARD MAP
@@ -42,32 +42,29 @@ body {
 	height: 100%;
 }
 
+
+
+$break-height-small: 800px;
+$break-height-medium: 1024px;
+$break-height-large: 1080px;
+
+$break-height-negative: 200px;
+
 .geoengine_view {
 	margin: 0;
 	padding: 0;
 	position: relative;
+	height: calc(#{$break-height-medium} - #{$break-height-negative});
+	
+  @media screen and (max-height: $break-height-small) {
+	  height: calc(#{$break-height-small} - #{$break-height-negative});
+  }
+  @media screen and (min-height: $break-height-large) {
+	  height: calc(#{$break-height-large} - #{$break-height-negative});
+  }
 }
 
-@media (max-width: 767px){
-	.geoengine_view {
-		height: 6em;
-	}
-}
-@media (max-width: 992px){
-	.geoengine_view {
-		height: 20em;
-	}
-}
-@media (max-width: 1200px){
-	.geoengine_view {
-		height: 60em;
-	}
-}
-@media (min-width: 1201px){
-	.geoengine_view {
-		height: 70em;
-	}
-}
+
 #the_map,
 div.olMap {
 	position: absolute;
@@ -93,6 +90,10 @@ div.olMap {
 .openerp .oe_view_manager table.oe_view_manager_header .oe_button_group .active {
 	background: $c-cg;
 
+}
+#map_infobox {
+  top: 14px;
+  left: 24px;
 }
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
