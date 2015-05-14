@@ -2,7 +2,7 @@
 ##############################################################################
 #
 # OpenERP, Open Source Management Solution
-#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
+# This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,6 +21,8 @@
 __author__ = 'foutoucour'
 
 from openerp import models, api, fields
+from openerp import exceptions
+
 
 class ResPartner(models.Model):
     """Add Social Networks fields."""
@@ -32,3 +34,42 @@ class ResPartner(models.Model):
     wikipedia = fields.Char('Wikipedia')
     art_of_fx = fields.Char('Art of FX')
 
+    @api.constrains('twitter')
+    def _validate_twitter_url(self):
+        """Test against the given url against RFC requirements"""
+        if not self._url_validation(self.twitter):
+            raise exceptions.ValidationError(
+                _('The given url for the twitter is not correct.')
+            )
+
+    @api.constrains('linkedin')
+    def _validate_linkedin_url(self):
+        """Test against the given url against RFC requirements"""
+        if not self._url_validation(self.linkedin):
+            raise exceptions.ValidationError(
+                _('The given url for the linkedin is not correct.')
+            )
+
+    @api.constrains('facebook')
+    def _validate_facebook_url(self):
+        """Test against the given url against RFC requirements"""
+        if not self._url_validation(self.facebook):
+            raise exceptions.ValidationError(
+                _('The given url for the facebook is not correct.')
+            )
+
+    @api.constrains('wikipedia')
+    def _validate_wikipedia_url(self):
+        """Test against the given url against RFC requirements"""
+        if not self._url_validation(self.wikipedia):
+            raise exceptions.ValidationError(
+                _('The given url for the wikipedia is not correct.')
+            )
+
+    @api.constrains('art_of_fx')
+    def _validate_art_of_fx_url(self):
+        """Test against the given url against RFC requirements"""
+        if not self._url_validation(self.art_of_fx):
+            raise exceptions.ValidationError(
+                _('The given url for the art_of_fx is not correct.')
+            )

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -25,20 +25,41 @@ import logging
 
 from openerp import models, api
 from openerp.tools.translate import _
-from openerp.exceptions import ValidationError
-from validate_email import validate_email
+from openerp import exceptions
+
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
+
 
 class ResPartner(models.Model):
     """Add a validation of the email address of the partner."""
     _inherit = 'res.partner'
 
-    @api.constrains('email')
-    def _validate_email(self):
-        """Test against the given email against RFC requirements"""
-        _logger.debug('self.email: {}'.format(self.email))
-        if not validate_email(self.email):
-            raise ValidationError(
-                _('The current email seems not valid. Please correct it')
+    @staticmethod
+    def _url_validation(url):
+        """Test a url to see if it passes our requirements
+
+        This test use the URLValidator of django.
+        Check https://docs.djangoproject.com/en/1.8/ref/validators/ for more details
+
+        :param url: str, url to test
+        :return: bool
+        """
+        val = URLValidator()
+        try:
+            val(url)
+            ret = True
+        except ValidationError:
+            ret = False
+        _logger.debug('url: {} -- valid: {}'.format(url, ret))
+        return ret
+
+    @api.constrains('website')
+    def _validate_website_url(self):
+        """Test against the given url against RFC requirements"""
+        if not self._url_validation(self.website):
+            raise exceptions.ValidationError(
+                _('The given url for the website is not correct.')
             )
