@@ -60,6 +60,7 @@ Contributors
         'res_partner_social_networks',
         'res_partner_location_validation',
         'res_partner_email_validation',
+        'res_partner_url_validation',
         'res_partner_industry',
         'portal_user',
         'main_data',
