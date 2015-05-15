@@ -16,7 +16,7 @@
                     <page string="Additional Social Networks">
                         <group>
                             <field name="wikipedia" widget="url"/>
-                            <field name="art_of_fx" widget="url"/>
+                            <!--<field name="art_of_fx" widget="url"/>-->
                         </group>
                     </page>
                 </xpath>

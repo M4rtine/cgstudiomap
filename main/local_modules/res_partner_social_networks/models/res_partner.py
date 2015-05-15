@@ -4,7 +4,7 @@
 # OpenERP, Open Source Management Solution
 # This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
 #
-#    This program is free software: you can redistribute it and/or modify
+# This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
 #    published by the Free Software Foundation, either version 3 of the
 #    License, or (at your option) any later version.
@@ -20,8 +20,13 @@
 ##############################################################################
 __author__ = 'foutoucour'
 
+import re
+import logging
 from openerp import models, api, fields
-from openerp import exceptions
+from openerp.tools.translate import _
+from openerp.exceptions import ValidationError
+
+_logger = logging.getLogger(__name__)
 
 
 class ResPartner(models.Model):
@@ -32,44 +37,72 @@ class ResPartner(models.Model):
     linkedin = fields.Char('Linkedin')
     facebook = fields.Char('Facebook')
     wikipedia = fields.Char('Wikipedia')
-    art_of_fx = fields.Char('Art of FX')
+    # art_of_vfx = fields.Char('Art of VFX')
+
+    @api.model
+    def _validate_social_network_url(self, url, regex):
+        _logger.debug('_validate_social_network_url')
+        _logger.debug('url: {}'.format(url))
+        _logger.debug('regex: {}'.format(regex))
+        self._url_validation(url)
+        if not re.match(regex, url):
+            err_msg = _(
+                'The given url ("{}") seems not to be an account.'.format(url)
+            )
+            raise ValidationError(err_msg)
+
+    @property
+    def _url_fields(self):
+        """Add social networks fields to inital list of url fields."""
+        fields = super(ResPartner, self)._url_fields
+        fields.extend([
+            'twitter',
+            'facebook',
+            'linkedin',
+            'wikipedia',
+            # 'art_of_fx',
+        ])
+        return fields
 
     @api.constrains('twitter')
     def _validate_twitter_url(self):
         """Test against the given url against RFC requirements"""
-        if not self._url_validation(self.twitter):
-            raise exceptions.ValidationError(
-                _('The given url for the twitter is not correct.')
-            )
+        self._validate_social_network_url(
+            self.twitter, r'^https?://(www\.)?twitter\.com/\w+$'
+        )
 
     @api.constrains('linkedin')
     def _validate_linkedin_url(self):
         """Test against the given url against RFC requirements"""
-        if not self._url_validation(self.linkedin):
-            raise exceptions.ValidationError(
-                _('The given url for the linkedin is not correct.')
-            )
+        self._validate_social_network_url(
+            self.linkedin,
+            # Linkedin got its page tracking system embed in the url
+            # then the url can be followed by ?trk...
+            r'https?://(www\.)?linkedin\.com/company/[\w-]+'
+        )
 
     @api.constrains('facebook')
     def _validate_facebook_url(self):
         """Test against the given url against RFC requirements"""
-        if not self._url_validation(self.facebook):
-            raise exceptions.ValidationError(
-                _('The given url for the facebook is not correct.')
-            )
+        self._validate_social_network_url(
+            self.facebook,
+            # Facebook got its page tracking system embed in the url
+            # then the url can be followed by ?fref...
+            r'https?://(www\.)?facebook\.com/[\w-]+'
+        )
 
     @api.constrains('wikipedia')
     def _validate_wikipedia_url(self):
         """Test against the given url against RFC requirements"""
-        if not self._url_validation(self.wikipedia):
-            raise exceptions.ValidationError(
-                _('The given url for the wikipedia is not correct.')
-            )
+        self._validate_social_network_url(
+            self.wikipedia,
+            # Facebook got its page tracking system embed in the url
+            # then the url can be followed by ?fref...
+            r'https?://\w*\.?wikipedia.org/wiki/[\w-]+'
+        )
 
-    @api.constrains('art_of_fx')
-    def _validate_art_of_fx_url(self):
-        """Test against the given url against RFC requirements"""
-        if not self._url_validation(self.art_of_fx):
-            raise exceptions.ValidationError(
-                _('The given url for the art_of_fx is not correct.')
-            )
+    # @api.constrains('art_of_vfx')
+    # def _validate_art_of_fx_url(self):
+    #     """Test against the given url against RFC requirements"""
+    #     self._url_validation(self.art_of_vfx)
+

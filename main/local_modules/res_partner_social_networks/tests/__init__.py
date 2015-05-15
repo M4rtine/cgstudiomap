@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -18,21 +18,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': 'Res Partner url validation',
-    'version': '0.2',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Sales',
-    'summary': 'Validation of the url type fields.',
-    'depends': [],
-    'external_dependencies': {
-        'python': ['django'],
-    },
-    'data': [
-        'views/res_partner_views.xml',
-    ],
-    'installable': True,
-}
+from . import test_res_partner
