@@ -12,6 +12,7 @@
                             string="Check url fields"
                             name="action_check_url_fields"
                             colspan="2"
+                            groups="base.group_system"
                             type="object"/>
                 </field>
             </field>
