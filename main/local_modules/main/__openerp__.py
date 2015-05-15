@@ -43,6 +43,7 @@ Contributors
         'product',
         'sale',
         'website_crm',
+        'website_blog',
         'auth_signup',
         # telephony
         'base_phone_validation',
