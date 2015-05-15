@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="res_partner_check_url_fields_form_view" model="ir.ui.view">
+            <field name="name">Partner: Check url fields</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="website" position="after">
+                    <button
+                            string="Check url fields"
+                            name="action_check_url_fields"
+                            colspan="2"
+                            type="object"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
