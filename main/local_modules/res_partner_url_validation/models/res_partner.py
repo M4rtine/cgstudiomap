@@ -139,6 +139,9 @@ class ResPartner(models.Model):
         val = URLValidator()
         _logger.debug('url: {}'.format(url))
 
+        if not url:
+            return True
+
         try:
             val(url)
 

@@ -36,6 +36,7 @@ class TestResPartner(common.TransactionCase):
             # sub domain
             'http://api.cgstudiomap.org',
         ]
+
         self.invalid_urls = [
             # missing :
             'http//www.cgstudiomap.org',
@@ -129,3 +130,11 @@ class TestResPartner(common.TransactionCase):
             for value in partner._check_url_fields().itervalues():
                 self.assertNotEqual(value, self.partner_pool._url_fields_valid_status)
 
+    def test_url_is_false(self):
+        """False should be accepted.
+        The field will at False if the user remove the  value from the field.
+        """
+        partner = self.partner_pool.create(
+            {'name': 't_name', 'website': False}
+        )
+        self.assertFalse(partner.website)
