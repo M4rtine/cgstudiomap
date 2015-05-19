@@ -56,4 +56,3 @@ class TestResPartner(common.TransactionCase):
             partner.write,
             {'email': self.invalid_email}
         )
-

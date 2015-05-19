@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -72,7 +72,7 @@ Contributors
         'ammap_portal',
         'website_blog_group_published_only',
     ],
-    'data': [ ],
+    'data': [],
     'installable': True,
     'application': True,
 }

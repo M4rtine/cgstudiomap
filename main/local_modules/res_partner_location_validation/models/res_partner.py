@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
+# OpenERP, Open Source Management Solution
+# This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,9 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-__author__ = 'foutoucour'
-__codec__ = 'utf-8'
-
 import logging
 
 from openerp import models, api
@@ -29,6 +26,7 @@ from openerp.tools.translate import _
 from pygeocoder import Geocoder, GeocoderError
 
 _logger = logging.getLogger(__name__)
+__codec__ = 'utf-8'
 
 
 class ResPartner(models.Model):
@@ -48,6 +46,7 @@ class ResPartner(models.Model):
         :param vals: set of values for the record. Default: {}
         :return: Geocoder.geocode instance
         """
+
         def get_data(field_name):
             data = vals.get(field_name)
             field = getattr(self, field_name)
@@ -80,7 +79,8 @@ class ResPartner(models.Model):
         if state_id:
             location = ' '.join([
                 location,
-                self.env['res.country.state'].browse(state_id).name.encode(__codec__)
+                self.env['res.country.state'].browse(state_id).name.encode(
+                    __codec__)
             ])
 
         elif self.state_id:
@@ -97,7 +97,8 @@ class ResPartner(models.Model):
         if country_id:
             location = ' '.join([
                 location,
-                self.env['res.country'].browse(country_id).name.encode(__codec__)
+                self.env['res.country'].browse(country_id).name.encode(
+                    __codec__)
             ])
         elif self.country_id:
             country_name = self.country_id.name.encode(__codec__)
@@ -122,7 +123,7 @@ class ResPartner(models.Model):
                     _('The address cannot be geolocalized. '
                       'Please enter a valid address.'
                       '\n\nError details: {}'.format(e)
-                    )
+                      )
                 )
             _logger.debug('geocode: {}'.format(geocode))
 
@@ -131,7 +132,7 @@ class ResPartner(models.Model):
                     _('Error'),
                     _('The address cannot be geolocalized. '
                       'Please enter a valid street address.'
-                    )
+                      )
                 )
 
             return geocode
@@ -174,7 +175,7 @@ class ResPartner(models.Model):
         # The location values might not be in the vals.
         if geocode is None:
             return vals
-        
+
         if geocode.route is None:
             return vals
 

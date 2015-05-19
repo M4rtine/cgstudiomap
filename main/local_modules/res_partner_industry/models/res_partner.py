@@ -76,7 +76,9 @@ class ResPartner(models.Model):
         """Find the industries mentionned in the context"""
         _logger.debug('context: {}'.format(self._context))
         industry_family_codes = self._context.get('industry_family_codes', [])
-        _logger.debug('industry_family_codes: {}'.format(industry_family_codes))
+        _logger.debug(
+            'industry_family_codes: {}'.format(industry_family_codes)
+        )
 
         if industry_family_codes:
             _logger.debug('industry_family_codes: True')

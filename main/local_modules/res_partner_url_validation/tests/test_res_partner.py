@@ -84,10 +84,11 @@ class TestResPartner(common.TransactionCase):
             self.assertEqual(partner.website, url)
 
     def test_validate_website_url_reformat(self):
-        """Odoo format url to add the http://wwww. before at creation if needed.
+        """Odoo format url to add the http://wwww. before at creation
+        if needed.
 
         Even if it can be considered as out of scope of the these module, but
-        I want to be sure the url pass the validation after the formating.
+        I want to be sure the url pass the validation after the formatting.
         """
         url = 'cgstudiomap.org'
         partner = self.partner_pool.create(
@@ -120,7 +121,9 @@ class TestResPartner(common.TransactionCase):
                 {'name': 't_name', 'website': url}
             )
             for value in partner._check_url_fields().itervalues():
-                self.assertEqual(value, self.partner_pool._url_fields_valid_status)
+                self.assertEqual(
+                    value, self.partner_pool._url_fields_valid_status
+                )
 
     def test_action_check_url_invalid_url(self):
         for url in self.missing_ping_urls:
@@ -128,7 +131,9 @@ class TestResPartner(common.TransactionCase):
                 {'name': 't_name', 'website': url}
             )
             for value in partner._check_url_fields().itervalues():
-                self.assertNotEqual(value, self.partner_pool._url_fields_valid_status)
+                self.assertNotEqual(
+                    value, self.partner_pool._url_fields_valid_status
+                )
 
     def test_url_is_false(self):
         """False should be accepted.

@@ -2,7 +2,7 @@
 ##############################################################################
 #
 # OpenERP, Open Source Management Solution
-#    This module copyright (C)  cgstudiomap.org <cgstudiomap@gmail.com>
+# This module copyright (C)  cgstudiomap.org <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,9 +18,9 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-__author__ = 'foutoucour'
-
 from openerp import fields, models
+
+__author__ = 'foutoucour'
 
 
 class AmMapConfig(models.Model):
@@ -57,6 +57,5 @@ class AmMapConfig(models.Model):
         string='Roll Over Outline Color',
         default='#CC0000',
         size=7,
-        help=("Color of area's outline when user rolls-over it")
+        help="Color of area's outline when user rolls-over it"
     )
-

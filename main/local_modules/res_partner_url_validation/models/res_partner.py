@@ -7,7 +7,7 @@
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
+# License, or (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -18,9 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-__author__ = 'foutoucour'
-
 import pprint
 import logging
 import socket
@@ -47,8 +44,8 @@ class ResPartner(models.Model):
     def _url_fields(self):
         """Returns the name of fields used in `_check_url_fields` method
 
-        A property is used here, instead of a simple list to be able to add more fields
-        in other definition of the model using super()
+        A property is used here, instead of a simple list to be able to
+        add more fields in other definition of the model using super()
         """
         return ['website']
 
@@ -63,7 +60,7 @@ class ResPartner(models.Model):
         statuses = self._check_url_fields()
         msg = ''
         for key, value in statuses.iteritems():
-            msg = '\n'.join([msg,  '{}: {}'.format(key, value)])
+            msg = '\n'.join([msg, '{}: {}'.format(key, value)])
 
         raise except_orm(
             _('information'),
@@ -75,7 +72,8 @@ class ResPartner(models.Model):
         """Check the field registered to self._url_fields against our test.
 
         return: dict, describe the status of all the fields
-            status can be: valid if all test went well, or the error from the tests
+            status can be: valid if all test went well, or the error from
+            the tests
         """
         _logger.debug('_check_url_fields')
         statuses = {}
@@ -119,7 +117,8 @@ class ResPartner(models.Model):
                 )
             )
         except URLError as e:
-            err_msg = _('We failed to reach a server. Reason: {}'.format(str(e.reason)))
+            err_msg = _('We failed to reach a server. Reason: {}'.format(
+                str(e.reason)))
 
         if err_msg:
             raise ValidationError(err_msg)
@@ -131,7 +130,8 @@ class ResPartner(models.Model):
         """Test a url to see if it passes our requirements
 
         The test use the URLValidator of django.
-        Check https://docs.djangoproject.com/en/1.8/ref/validators/ for more details
+        Check https://docs.djangoproject.com/en/1.8/ref/validators/ for more
+        details
 
         :param url: str, url to test
         :return: bool
@@ -145,12 +145,14 @@ class ResPartner(models.Model):
         try:
             val(url)
 
-        # We can't actually read the error message without to init a django instance
+        # We can't actually read the error message without to init a django
+        # instance
         # Trying to read the error will raise:
         # ```
-        # django.core.exceptions.ImproperlyConfigured: Requested setting USE_I18N, but
-        # settings are not configured. You must either define the environment variable
-        # DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
+        # django.core.exceptions.ImproperlyConfigured: Requested setting
+        # USE_I18N, but settings are not configured. You must either define
+        # the environment variable DJANGO_SETTINGS_MODULE or call
+        # settings.configure() before accessing settings.
         # ```
         except DjangoValidationError:
             err_msg = _(
