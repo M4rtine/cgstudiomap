@@ -43,6 +43,7 @@ Contributors
         'product',
         'sale',
         'website_crm',
+        'website_blog',
         'auth_signup',
         # telephony
         'base_phone_validation',
@@ -55,6 +56,8 @@ Contributors
         'admin_technical_features',
         # geoengine
         'geoengine_base_geolocalize',
+        # website
+        'website_blog_mgmt',
         # local modules
         'res_partner_filter',
         'res_partner_social_networks',
@@ -67,6 +70,7 @@ Contributors
         'shared_web_theme',
         'frontend',
         'ammap_portal',
+        'website_blog_group_published_only',
     ],
     'data': [ ],
     'installable': True,
