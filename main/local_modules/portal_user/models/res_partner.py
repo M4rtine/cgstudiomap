@@ -53,4 +53,3 @@ class ResPartner(models.Model):
     # Constant to test against to see if the current user is a portal user
     # Should be used in couple with context
     is_portal_user = fields.Boolean(default=True)
-

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -18,9 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-__author__ = 'foutoucour'
-
 import logging
 
 from openerp import models, api
@@ -29,6 +26,7 @@ from openerp.exceptions import ValidationError
 from validate_email import validate_email
 
 _logger = logging.getLogger(__name__)
+
 
 class ResPartner(models.Model):
     """Add a validation of the email address of the partner."""

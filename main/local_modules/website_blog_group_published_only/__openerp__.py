@@ -28,7 +28,8 @@
     'website': 'http://www.cgstudiomap.org',
     'license': 'AGPL-3',
     'category': 'Website',
-    'summary': 'Create a new group to allow portal member to be also blog poster',
+    'summary': ('Create a new group to allow portal member to be also blog '
+                'poster'),
     'depends': [
         'website_blog',
     ],

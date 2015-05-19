@@ -18,8 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-__author__ = 'foutoucour'
-
 import re
 import logging
 from openerp import models, api, fields
@@ -105,4 +103,3 @@ class ResPartner(models.Model):
     # def _validate_art_of_fx_url(self):
     #     """Test against the given url against RFC requirements"""
     #     self._url_validation(self.art_of_vfx)
-

@@ -15,7 +15,7 @@
 # GNU Affero General Public License for more details.
 #
 # You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 from openerp.exceptions import ValidationError
@@ -24,8 +24,8 @@ from openerp.tests import common
 
 class TestResPartner(common.TransactionCase):
     """Set of two types of test:
-        * test that a valid url goes through the contrains. That allows to be sure the
-            reg ex is not to restricive
+        * test that a valid url goes through the contrains. That allows to be
+        sure the reg ex is not to restrictive
         * test on invalid urls to be sure the reg ex is not too loose.
     """
 
@@ -60,11 +60,13 @@ class TestResPartner(common.TransactionCase):
             'https://www.linkedin.com/company/savoir-faire-linux',
             'https://www.linkedin.com/company/method-studios',
             'https://www.linkedin.com/company/sony-pictures-imageworks',
-            'https://www.linkedin.com/company/165049',  # MPC, the url can be with the id too
+            'https://www.linkedin.com/company/165049',
+            # MPC, the url can be with the id too
             'http://www.linkedin.com/company/animation-lab',
             'https://linkedin.com/company/cgstudiomap.com',
-            'https://www.linkedin.com/company/method-studios?trk=company_logo',  # Linkedin as a tracking system in the url
-            ]
+            'https://www.linkedin.com/company/method-studios?trk=company_logo',
+            # Linkedin as a tracking system in the url
+        ]
         self._test_valid_accounts('linkedin', accounts)
 
     def test_invalid_linkedin_accounts(self):
@@ -76,7 +78,8 @@ class TestResPartner(common.TransactionCase):
             'https://www.linkedin.com',
             'https://linkedin?com/company/cgstudiomap.com',
             # no company folder
-            'https://www.linkedin.com/165049',  # MPC, the url can be with the id too
+            'https://www.linkedin.com/165049',
+            # MPC, the url can be with the id too
             'http://www.cgstudiomap.org',
         ]
         self._test_invalid_accounts('linkedin', accounts)
@@ -87,7 +90,7 @@ class TestResPartner(common.TransactionCase):
             'http://www.facebook.com/Moving.Picture.Company?fref=ts',
             'https://facebook.com/DisneyPixar',
             'https://www.facebook.com/CGMeetup',
-            ]
+        ]
         self._test_valid_accounts('facebook', accounts)
 
     def test_invalid_facebook_accounts(self):
@@ -120,7 +123,7 @@ class TestResPartner(common.TransactionCase):
             # typo in wikipedia
             'https://fr.wiipedia.org/wiki/Pixar_Animation_Studios',
             'http://www.cgstudiomap.org',
-            ]
+        ]
         self._test_invalid_accounts('wikipedia', accounts)
 
     def _test_valid_accounts(self, field_name, accounts):

@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
+# OpenERP, Open Source Management Solution
+# This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
 #
-#    This program is free software: you can redistribute it and/or modify
+# This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
 #    published by the Free Software Foundation, either version 3 of the
 #    License, or (at your option) any later version.
@@ -37,16 +37,7 @@ class IrConfigParameter(models.Model):
             self.write(cr, uid, param_id, vals)
         else:
             self.create(cr, uid, vals)
-        # Set on the sign in and reset my password features for the front end
-        # by default
+        # Set on the sign in and reset my password features for the
+        # front end by default
         self.set_param(cr, uid, 'auth_signup.reset_password', True)
         self.set_param(cr, uid, 'auth_signup.allow_uninvited', True)
-
-# class base_config_settings(models.TransientModel):
-#     _inherit = 'base.config.settings'
-#
-#     def init(self, cr):
-#         self.set_param(self._cr, self._uid, 'auth_signup.reset_password', True)
-        # icp.set_param(cr, uid, 'auth_signup.allow_uninvited', repr(config.auth_signup_uninvited))
-        # icp.set_param(cr, uid, 'auth_signup.template_user_id', repr(config.auth_signup_template_user_id.id))
-

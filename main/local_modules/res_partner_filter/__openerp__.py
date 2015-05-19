@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -34,6 +34,6 @@
     'external_dependencies': {
         'python': [],
     },
-    'data': [ 'res_partner_view.xml' ],
+    'data': ['res_partner_view.xml'],
     'installable': True,
 }
