@@ -1,8 +1,17 @@
-body {
-	overflow: hidden;
-	background-color: #f2f2f2;
+body,html {
+ height: 100%;
+ padding: 0;
+ margin: 0;
 }
 
+body {
+	overflow-x: hidden;
+	background-color: #f2f2f2;
+}
+body.home {
+	overflow: hidden;
+	background-color: $c-bg-light;
+}
 
 /* CUSTOMIZE HOME MAP
 -------------------------------------------------- */
