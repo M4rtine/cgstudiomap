@@ -14,9 +14,13 @@
 # To provide both the URL and a branch, use:
 # sale-workflow https://github.com/OCA/sale-workflow branchname
 
+connector-telephony https://github.com/OCA/connector-telephony 8.0
+geospatial https://github.com/OCA/geospatial 8.0
 server-tools https://github.com/OCA/server-tools 8.0
-geosptial https://github.com/OCA/geospatial 8.0
+web https://github.com/OCA/web 8.0
+geosptial https://github.com/OCA/website 8.0
 
-geosptial https://github.com/acsone/geospatial 8.0-migrate-from-7.0
+geosptial https://github.com/cgstudiomap/geospatial edit_to_our_map_info
 odoo https://github.com/acsone/odoo 8.0-fix-5616-ir_model_fields-from-fields
 odoo https://github.com/acsone/odoo 8.0-fix-use_symbol-c-in-sql-create
+connector-telephony https://github.com/cgstudiomap/connector-telephony 8.0-base_phone_validation
