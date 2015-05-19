@@ -6303,28 +6303,98 @@ button.close, .openerp .close.oe_button {
     display: none !important; } }
 
 /* line 1, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+html, body {
+  height: 100%; }
+
+/* line 4, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 body {
-  overflow: hidden; }
+  overflow: hidden;
+  padding: 0;
+  margin: 0; }
 
 /* CUSTOMIZE HOME MAP
 -------------------------------------------------- */
-/* line 8, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 16, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 #geochart_div {
   width: 100%;
   height: 750px;
   text-align: center;
   margin: 0 auto;
   padding: 0; }
+  @media screen and (max-width: 767px) {
+    #geochart_div {
+      height: 350px; } }
 
-@media (max-width: 767px) {
-  /* line 17, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
-  #geochart_div {
-    height: 350px; } }
+/* CUSTOMIZE DASHBOARD MAP
+-------------------------------------------------- */
+/* line 30, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+.openerp .oe_application > div > .oe_view_manager > .oe_view_manager_wrapper > div > .oe_view_manager_body {
+  position: absolute;
+  top: -7px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto; }
+
+/* line 38, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+.openerp .oe_view_manager {
+  display: table;
+  height: inherit;
+  width: 100%;
+  height: 100%; }
+
+/* line 53, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+.geoengine_view {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: calc(1024px - 200px); }
+  @media screen and (max-height: 800px) {
+    .geoengine_view {
+      height: calc(800px - 200px); } }
+  @media screen and (min-height: 1080px) {
+    .geoengine_view {
+      height: calc(1080px - 200px); } }
+
+/* line 69, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+#the_map, div.olMap {
+  position: absolute;
+  top: 0;
+  height: 100%; }
+
+/* line 74, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+.openerp .oe_view_manager_current > .oe_view_manager_header {
+  border-bottom: 0 solid transparent;
+  background-color: #434A54;
+  color: #ECF0F1;
+  background-image: transparent; }
+
+/* line 80, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+.openerp .oe_leftbar {
+  border-right: 0 solid transparent;
+  text-shadow: none; }
+
+/* line 84, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+.openerp .oe_view_manager table.oe_view_manager_header .oe_button_group {
+  border: 1px solid #6C7A89; }
+
+/* line 87, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+.openerp .oe_view_manager table.oe_view_manager_header .oe_button_group a {
+  color: #ECF0F1; }
+
+/* line 90, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+.openerp .oe_view_manager table.oe_view_manager_header .oe_button_group .active {
+  background: #6C7A89; }
+
+/* line 94, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+#map_infobox {
+  top: 14px;
+  left: 24px; }
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
-/* line 27, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 102, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .navbar-wrapper {
   position: absolute;
   top: 0;
@@ -6333,144 +6403,144 @@ body {
   z-index: 20; }
 
 /* Flip around the padding for proper display in narrow viewports */
-/* line 36, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 111, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .navbar-wrapper > .container {
   padding-right: 0;
   padding-left: 0; }
 
-/* line 40, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 115, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .navbar-wrapper .navbar {
   padding-right: 15px;
   padding-left: 15px; }
 
-/* line 44, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 119, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .navbar-wrapper .navbar .container {
   width: auto; }
 
-/* line 50, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 125, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .btn-primary, .openerp button.oe_highlight, .openerp .oe_highlight.oe_button {
   background-color: #6C7A89;
   border-color: rgba(108, 122, 137, 0.8); }
-  /* line 53, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+  /* line 128, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
   .btn-primary:hover, .openerp button.oe_highlight:hover, .openerp .oe_highlight.oe_button:hover {
     background-color: rgba(108, 122, 137, 0.8);
     border-color: rgba(108, 122, 137, 0.8); }
 
-/* line 60, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 135, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp img {
   border-radius: 0; }
-/* line 63, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 138, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp button, .openerp .oe_button {
   background-image: none;
   box-shadow: none;
   text-shadow: none;
   outline: none; }
-  /* line 72, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+  /* line 147, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
   .openerp button:hover, .openerp .oe_button:hover {
     box-shadow: none;
     text-shadow: none;
     outline: none;
     background-image: none; }
-  /* line 79, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+  /* line 154, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
   .openerp button.oe_highlight, .openerp .oe_highlight.oe_button {
     background-image: none;
     box-shadow: none;
     text-shadow: none;
     outline: none; }
-    /* line 85, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+    /* line 160, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
     .openerp button.oe_highlight:hover, .openerp .oe_highlight.oe_button:hover {
       box-shadow: none;
       text-shadow: none;
       outline: none;
       background-image: none; }
-  /* line 92, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+  /* line 167, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
   .openerp button.oe_form_button, .openerp .oe_form_button.oe_button {
     padding: 2px 12px 2px 12px; }
-/* line 105, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 180, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_view_manager_current > .oe_view_manager_header, .openerp ul.oe_form_status li, .openerp ul.oe_form_status li.oe_active, .openerp .oe_form header {
   background-image: none; }
-/* line 108, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 183, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp ul.oe_form_status li.oe_active > .arrow span {
   background: #6C7A89 none; }
-/* line 111, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 186, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp ul.oe_form_status li > .arrow span {
   background: #6C7A89 none; }
-/* line 114, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 189, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_secondary_menu_section {
   color: #6C7A89; }
-/* line 121, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 196, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_form .oe_form_required select:not([disabled]):not([readonly]), .openerp .oe_form .oe_form_required textarea:not([disabled]):not([readonly]), .openerp .oe_form .oe_form_required input:not([disabled]):not([readonly]) {
   background-color: #EEEEEE !important;
   color: #757D75; }
-/* line 129, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 204, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_application .oe_breadcrumb_title > * {
   color: #95A5A6; }
-/* line 132, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 207, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_application .oe_breadcrumb_item:not(:last-child) {
   color: #757D75; }
-/* line 135, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 210, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_application a {
   color: #95A5A6; }
-/* line 138, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 213, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_application .oe_form_sheetbg {
   background: none; }
-/* line 142, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 217, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .nav-pills > li.active a {
   background-color: #6C7A89;
   color: #ECF0F1; }
-  /* line 145, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+  /* line 220, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
   .openerp .nav-pills > li.active a:hover, .openerp .nav-pills > li.active a:focus {
     background-color: rgba(108, 122, 137, 0.8);
     color: #ECF0F1; }
-  /* line 149, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+  /* line 224, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
   .openerp .nav-pills > li.active a .badge {
     background-color: #6C7A89; }
-/* line 153, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 228, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_stat_button {
   color: #ABB7B7; }
-  /* line 155, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+  /* line 230, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
   .openerp .oe_stat_button .stat_button_icon {
     color: #ABB7B7; }
-  /* line 158, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+  /* line 233, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
   .openerp .oe_stat_button:hover {
     color: #ABB7B7;
     background-color: #ECF0F1; }
-    /* line 161, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+    /* line 236, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
     .openerp .oe_stat_button:hover .fa {
       color: #6C7A89; }
-/* line 166, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 241, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .badge {
   color: #6C7A89;
   background-color: #6C7A89; }
-/* line 170, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 245, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_leftbar > div a.oe_logo {
   background-color: #434A54; }
-/* line 173, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 248, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_searchview {
   border-radius: 0;
   border-color: #95A5A6; }
-  /* line 177, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+  /* line 252, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
   .openerp .oe_searchview .oe_focused {
     border-color: #95A5A6; }
-/* line 185, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 260, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_tag {
   border-radius: 0;
   border-color: #95A5A6;
   background-color: #ECF0F1; }
-/* line 190, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 265, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_tag_dark {
   background-color: #6C7A89; }
-/* line 193, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 268, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_searchview .oe_searchview_facets .oe_searchview_facet .oe_facet_values {
   background-color: #ECF0F1; }
-/* line 196, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 271, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_searchview .oe-autocomplete ul li.oe-selection-focus {
   background-color: #6C7A89 !important; }
-/* line 199, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 274, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_horizontal_separator {
   color: #ABB7B7; }
 
-/* line 204, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 279, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .oe_single_form_container {
   padding: 10px;
   left: 50%;
@@ -6478,79 +6548,79 @@ body {
   width: 400px;
   margin-left: -200px; }
 
-/* line 212, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 287, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .navbar-static-top {
   background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8); }
 
-/* line 215, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 290, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .navbar-static-top {
   z-index: 1000;
   border-width: 0 0 0; }
 
-/* line 224, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 299, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 body {
   background: none repeat scroll 0 0 rgba(255, 255, 255, 0); }
 
-/* line 228, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 303, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 footer {
   background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
   padding: 10px; }
 
-/* line 233, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 308, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .modal-content {
   box-shadow: none; }
 
-/* line 237, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 312, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 a {
   color: #95A5A6; }
-  /* line 239, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+  /* line 314, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
   a:hover, a:focus {
     color: #95A5A6; }
 
-/* line 244, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 319, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .btn-link {
   color: #95A5A6; }
 
-/* line 248, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 323, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .bg-logo-color {
   background-color: #434A54; }
 
-/* line 254, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 329, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 #map_infobox {
   bottom: -13px;
-  left: 17px;
+  left: 50px;
   width: 250px;
   height: 150px;
   background-color: #ECF0F1; }
 
-/* line 262, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 337, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .map_overlay {
   padding: 0;
   border: 1px solid #ABB7B7; }
 
-/* line 267, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 342, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 #map_info {
   height: auto;
   padding: 0; }
 
-/* line 272, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 347, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 #map_info_header {
   background-color: #ABB7B7;
   color: #ECF0F1;
   padding: 10px;
   font-size: 1.5em; }
 
-/* line 279, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 354, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 #map_info_content {
   padding: 10px 10px 10px 20px; }
 
-/* line 283, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 358, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 #map_info_footer {
   text-align: right;
   position: absolute;
   bottom: 0;
   width: 100%; }
-  /* line 289, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+  /* line 364, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
   #map_info_footer button, #map_info_footer .openerp .oe_button, .openerp #map_info_footer .oe_button {
     border: 0;
     background-color: #6C7A89;
@@ -6558,17 +6628,17 @@ a {
     width: 100%; }
 
 /* Z-INDEX important */
-/* line 300, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 375, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .oe_im, .oe_im_chatview {
   z-index: 10000 !important; }
 
-/* line 303, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 378, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 .openerp .oe_loading {
   z-index: 9000 !important; }
 
-/* line 307, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
+/* line 382, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
 #the_map, div.olMap {
-  z-index: 100; }
+  z-index: 0; }
 
 /* line 1, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
 html {
@@ -6576,27 +6646,25 @@ html {
   -ms-text-size-adjust: 100% !important;
   -webkit-text-size-adjust: 100% !important; }
 
-/* line 7, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
+/* line 8, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
 * {
-  border: 0; }
-
-/* line 11, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
-* {
+  border: 0;
   -webkit-border-radius: 0 !important;
   -moz-border-radius: 0 !important;
-  border-radius: 0 !important; }
-
-/* line 17, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
-* {
+  border-radius: 0 !important;
+  moz-box-shadow: 0 0 0 transparent !important;
+  -webkit-box-shadow: 0 0 0 transparent !important;
+  box-shadow: 0 0 0 transparent !important;
+  text-shadow: 0 0 0 transparent;
   moz-box-shadow: 0 0 0 transparent !important;
   -webkit-box-shadow: 0 0 0 transparent !important;
   box-shadow: 0 0 0 transparent !important; }
 
-/* line 24, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
+/* line 26, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
 a:active, a:hover {
   outline: 0 !important; }
 
-/* line 28, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
+/* line 30, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
 img {
   border: 0 !important; }
 
