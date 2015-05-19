@@ -2,7 +2,8 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
+#    This module copyright (C) 2015 Savoir-faire Linux
+#    (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,18 +21,24 @@
 ##############################################################################
 
 {
-    'name': 'Partner Social Network',
-    'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
+    'name': 'Website Blog Group Published Only',
+    'version': '1.0',
+    'author': 'cgstudiomap',
+    'maintainer': 'cgstudiomap',
+    'website': 'http://www.cgstudiomap.org',
     'license': 'AGPL-3',
-    'category': 'Sales',
-    'summary': 'Manage social networks of partners.',
+    'category': 'Website',
+    'summary': 'Create a new group to allow portal member to be also blog poster',
     'depends': [
-        'res_partner_url_validation',
+        'website_blog',
     ],
+    'external_dependencies': {
+        'python': [],
+    },
     'data': [
-        'views/res_partner_views.xml',
+        'website_blog_data.xml',
     ],
+    'demo': [],
+    'test': [],
     'installable': True,
 }

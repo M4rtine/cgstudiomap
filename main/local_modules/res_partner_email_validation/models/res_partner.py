@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
+#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,19 +19,26 @@
 #
 ##############################################################################
 
-{
-    'name': 'Partner Social Network',
-    'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
-    'license': 'AGPL-3',
-    'category': 'Sales',
-    'summary': 'Manage social networks of partners.',
-    'depends': [
-        'res_partner_url_validation',
-    ],
-    'data': [
-        'views/res_partner_views.xml',
-    ],
-    'installable': True,
-}
+__author__ = 'foutoucour'
+
+import logging
+
+from openerp import models, api
+from openerp.tools.translate import _
+from openerp.exceptions import ValidationError
+from validate_email import validate_email
+
+_logger = logging.getLogger(__name__)
+
+class ResPartner(models.Model):
+    """Add a validation of the email address of the partner."""
+    _inherit = 'res.partner'
+
+    @api.constrains('email')
+    def _validate_email(self):
+        """Test against the given email against RFC requirements"""
+        _logger.debug('self.email: {}'.format(self.email))
+        if not validate_email(self.email):
+            raise ValidationError(
+                _('The current email seems not valid. Please correct it')
+            )

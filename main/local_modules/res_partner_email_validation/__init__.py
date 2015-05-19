@@ -19,19 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Partner Social Network',
-    'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
-    'license': 'AGPL-3',
-    'category': 'Sales',
-    'summary': 'Manage social networks of partners.',
-    'depends': [
-        'res_partner_url_validation',
-    ],
-    'data': [
-        'views/res_partner_views.xml',
-    ],
-    'installable': True,
-}
+from . import models

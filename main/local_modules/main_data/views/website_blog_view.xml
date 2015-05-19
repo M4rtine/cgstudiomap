@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--Add the access to subtilte in blog form view-->
+        <record id="blog_subtitle_form" model="ir.ui.view">
+            <field name="name">Blog: Access to subtitle</field>
+            <field name="model">blog.blog</field>
+            <field name="inherit_id" ref="website_blog.view_blog_blog_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="subtitle"/>
+                </field>
+
+            </field>
+        </record>
+
+    </data>
+</openerp>

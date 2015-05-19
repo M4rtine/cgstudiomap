@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.module.category" id="base.module_category_website_blog">
+            <field name="name">Website Blog</field>
+            <field name="sequence">17</field>
+        </record>
+        <record id="base.group_website_blog_published_post_only" model="res.groups">
+            <field name="name">See Published Blog Post Only</field>
+            <field name="category_id" ref="base.module_category_website_blog"/>
+        </record>
+
+        <record model="ir.rule" id="website_blog.website_blog_post_public">
+            <field name="groups" eval="[(6, 0, [ref('base.group_website_blog_published_post_only')])]"/>
+        </record>
+
+    </data>
+</openerp>
