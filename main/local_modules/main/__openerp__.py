@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -43,6 +43,7 @@ Contributors
         'product',
         'sale',
         'website_crm',
+        'website_blog',
         'auth_signup',
         # telephony
         'base_phone_validation',
@@ -55,18 +56,23 @@ Contributors
         'admin_technical_features',
         # geoengine
         'geoengine_base_geolocalize',
+        # website
+        'website_blog_mgmt',
         # local modules
         'res_partner_filter',
         'res_partner_social_networks',
         'res_partner_location_validation',
+        'res_partner_email_validation',
+        'res_partner_url_validation',
         'res_partner_industry',
         'portal_user',
         'main_data',
         'shared_web_theme',
         'frontend',
         'ammap_portal',
+        'website_blog_group_published_only',
     ],
-    'data': [ ],
+    'data': [],
     'installable': True,
     'application': True,
 }

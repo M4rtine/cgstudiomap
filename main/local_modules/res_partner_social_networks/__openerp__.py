@@ -28,6 +28,7 @@
     'category': 'Sales',
     'summary': 'Manage social networks of partners.',
     'depends': [
+        'res_partner_url_validation',
     ],
     'data': [
         'views/res_partner_views.xml',

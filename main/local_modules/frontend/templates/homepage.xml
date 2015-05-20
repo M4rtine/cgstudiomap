@@ -3,10 +3,10 @@
     <data>
         <record id="homepage_ammap_config" model="ammap.config">
             <field name="name">homepage</field>
-            <field name="color">#97E9F7</field>
-            <field name="color_solid">#00C0ED</field>
-            <field name="unlisted_areas_color">#E2E2E4</field>
-            <field name="roll_over_outline_color">#FFFF00</field>
+            <field name="color">#FCF9DB</field>
+            <field name="color_solid">#FDEC00</field>
+            <field name="unlisted_areas_color">#9E9E9E</field>
+            <field name="roll_over_outline_color">#333333</field>
 
             <field name="description">Config of the map on the homepage.</field>
         </record>

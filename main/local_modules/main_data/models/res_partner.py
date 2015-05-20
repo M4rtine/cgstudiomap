@@ -2,9 +2,9 @@
 ##############################################################################
 #
 # OpenERP, Open Source Management Solution
-#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
+# This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
 #
-#    This program is free software: you can redistribute it and/or modify
+# This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
 #    published by the Free Software Foundation, either version 3 of the
 #    License, or (at your option) any later version.
@@ -18,14 +18,13 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-__author__ = 'foutoucour'
-
 from openerp import api, fields
 from openerp.addons.base_geolocalize.models.res_partner import (
     geo_find, geo_query_address
 )
 
 from openerp.addons.base_geoengine import geo_model
+
 
 class ResPartner(geo_model.GeoModel):
     _inherit = 'res.partner'
@@ -38,7 +37,8 @@ class ResPartner(geo_model.GeoModel):
                 zip=vals.get('zip'),
                 city=vals.get('city'),
                 # state=vals.get('state'),
-                country=self.env['res.country'].browse(vals.get('country_id')).name,
+                country=self.env['res.country'].browse(
+                    vals.get('country_id')).name,
             )
         )
         if result:
@@ -49,11 +49,13 @@ class ResPartner(geo_model.GeoModel):
 
     @api.model
     def create(self, vals):
-        return super(ResPartner, self).create(self.add_geo_localization_details(vals))
+        return super(ResPartner, self).create(
+            self.add_geo_localization_details(vals))
 
     @api.multi
     def write(self, vals):
-        return super(ResPartner, self).write(self.add_geo_localization_details(vals))
+        return super(ResPartner, self).write(
+            self.add_geo_localization_details(vals))
 
     country_id = fields.Many2one(required=True)
     website = fields.Char(required=True)

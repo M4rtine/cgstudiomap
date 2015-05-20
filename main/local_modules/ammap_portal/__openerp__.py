@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap.org <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,8 @@
     'maintainer': 'cgstudiomap.org',
     'license': 'AGPL-3',
     'category': 'Web',
-    'summary': 'Allow designer user to have access to the AmMap configs from the portal.',
+    'summary': ('Allow designer user to have access to the AmMap configs '
+                'from the portal.'),
     'depends': [
         'ammap',
         'website',

@@ -100,6 +100,11 @@
 					<t t-raw="head or ''" name='layout_head'/>
 				</head>
             </xpath>
+			
+			<xpath expr='//body' position="attributes">
+				<attribute name="class">home</attribute>
+			</xpath>
+				
         </template>
 
 

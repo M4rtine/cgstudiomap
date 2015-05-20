@@ -1,7 +1,8 @@
 Partner Social Networks
 =======================
-Modules that manages the social network of the companies.
+Module that manages the social network of the companies.
 
+The module check if the url are valid for each social networks.
 
 Contributors
 ------------
