@@ -163,10 +163,7 @@ body {
       }
     }
   }
-  .badge {
-    color: $badge_color;
-    background-color: $badge_backgroung_color;
-  }
+
   .oe_leftbar > div a.oe_logo {
     background-color: $c-bg-logo;
   }
@@ -195,6 +192,46 @@ body {
   }
   .oe_searchview .oe-autocomplete ul li.oe-selection-focus {
     background-color: $c-cg !important;
+  }
+
+	.oe_searchview_drawer {
+		
+		.oe_searchview_section li {
+			font-size: 1.1em;
+			line-height: 20px;
+			min-width: 10px;
+			height: 20px;
+			padding: 0 7px;
+			white-space: nowrap;
+			display: inline-block;
+			cursor: pointer;
+			position: relative;
+			margin-right: 8px;
+			text-transform: uppercase;
+			
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-o-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			
+			-webkit-border-radius: 10px !important; 
+			-moz-border-radius: 10px !important;
+			border-radius: 10px !important;
+		}
+		li {
+			color: $c-txt-dark;
+			background-color: $c-bg-light;	
+		}
+		.badge {
+			color: $c-txt-light;
+			background-color: $badge_backgroung_color;
+		}
+	}
+  .badge {
+    color: $c-txt-light;
+    background-color: $badge_backgroung_color;
   }
   .oe_horizontal_separator {
     color: $c-map;
