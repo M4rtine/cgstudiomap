@@ -5700,17 +5700,11 @@ button.close, .openerp .close.oe_button {
 @media print {
   .hidden-print {
     display: none !important; } }
-<<<<<<< HEAD
-||||||| merged common ancestors
-
-/* line 1, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
-=======
 body, html {
   height: 100%;
   padding: 0;
   margin: 0; }
 
->>>>>>> develop
 body {
   overflow-x: hidden;
   background-color: #f2f2f2; }
@@ -5734,10 +5728,6 @@ body.home {
 @media (max-width: 767px) {
   #geochart_div {
     height: 350px; } }
-<<<<<<< HEAD
-||||||| merged common ancestors
-
-=======
 .geoengine_view {
   margin: 0;
   padding: 0;
@@ -5779,7 +5769,6 @@ div.olMap {
   top: 14px;
   left: 24px; }
 
->>>>>>> develop
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
@@ -5840,6 +5829,8 @@ div.olMap {
   background-image: none; }
 .openerp ul.oe_form_status li.oe_active > .arrow span {
   background: #6C7A89 none; }
+.openerp ul.oe_form_status li.oe_active {
+  background-color: #6C7A89; }
 .openerp ul.oe_form_status li > .arrow span {
   background: #6C7A89 none; }
 .openerp .oe_secondary_menu_section {
@@ -5874,18 +5865,6 @@ div.olMap {
     background-color: #ECF0F1; }
     .openerp .oe_stat_button:hover .fa {
       color: #6C7A89; }
-<<<<<<< HEAD
-||||||| merged common ancestors
-/* line 166, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
-.openerp .badge {
-  color: #ECF0F1;
-  background-color: #6C7A89; }
-/* line 170, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
-=======
-.openerp .badge {
-  color: #ECF0F1;
-  background-color: #6C7A89; }
->>>>>>> develop
 .openerp .oe_leftbar > div a.oe_logo {
   background-color: #434A54; }
 .openerp .oe_searchview {
@@ -5903,7 +5882,8 @@ div.olMap {
   background-color: #ECF0F1; }
 .openerp .oe_searchview .oe-autocomplete ul li.oe-selection-focus {
   background-color: #6C7A89 !important; }
-<<<<<<< HEAD
+.openerp .oe_view_manager_view_search {
+  color: #6C7A89; }
 .openerp .oe_searchview_drawer .oe_searchview_section li {
   font-size: 1.1em;
   line-height: 20px;
@@ -5934,10 +5914,6 @@ div.olMap {
 .openerp .badge {
   color: #ECF0F1;
   background-color: #6C7A89; }
-||||||| merged common ancestors
-/* line 199, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
-=======
->>>>>>> develop
 .openerp .oe_horizontal_separator {
   color: #ABB7B7; }
 
@@ -5955,18 +5931,6 @@ div.olMap {
   z-index: 1000;
   border-width: 0 0 0; }
 
-<<<<<<< HEAD
-body {
-  background: none repeat scroll 0 0 rgba(255, 255, 255, 0); }
-
-||||||| merged common ancestors
-/* line 224, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
-body {
-  background: none repeat scroll 0 0 rgba(255, 255, 255, 0); }
-
-/* line 228, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_custom.scss */
-=======
->>>>>>> develop
 footer {
   background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
   padding: 10px; }
@@ -6037,38 +6001,15 @@ html {
   -ms-text-size-adjust: 100% !important;
   -webkit-text-size-adjust: 100% !important; }
 
-<<<<<<< HEAD
-* {
-  border: 0; }
-
-||||||| merged common ancestors
-/* line 7, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
-* {
-  border: 0; }
-
-/* line 11, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
-=======
->>>>>>> develop
 * {
   border: 0;
   -webkit-border-radius: 0 !important;
   -moz-border-radius: 0 !important;
-<<<<<<< HEAD
-  border-radius: 0 !important; }
-
-* {
-||||||| merged common ancestors
-  border-radius: 0 !important; }
-
-/* line 17, C:/Users/Felipe/Documents/GitHub/cgstudiomap/main/local_modules/shared_web_theme/static/src/css/_flatify.scss */
-* {
-=======
   border-radius: 0 !important;
   moz-box-shadow: 0 0 0 transparent !important;
   -webkit-box-shadow: 0 0 0 transparent !important;
   box-shadow: 0 0 0 transparent !important;
   text-shadow: 0 0 0 transparent;
->>>>>>> develop
   moz-box-shadow: 0 0 0 transparent !important;
   -webkit-box-shadow: 0 0 0 transparent !important;
   box-shadow: 0 0 0 transparent !important; }
