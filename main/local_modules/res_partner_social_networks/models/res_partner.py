@@ -62,44 +62,47 @@ class ResPartner(models.Model):
         ])
         return fields
 
+    @api.one
     @api.constrains('twitter')
     def _validate_twitter_url(self):
         """Test against the given url against RFC requirements"""
-        self._validate_social_network_url(
-            self.twitter, r'^https?://(www\.)?twitter\.com/\w+$'
-        )
+        if self.twitter:
+            self._validate_social_network_url(
+                self.twitter, r'^https?://(www\.)?twitter\.com/\w+$'
+            )
 
+    @api.one
     @api.constrains('linkedin')
     def _validate_linkedin_url(self):
         """Test against the given url against RFC requirements"""
-        self._validate_social_network_url(
-            self.linkedin,
-            # Linkedin got its page tracking system embed in the url
-            # then the url can be followed by ?trk...
-            r'https?://(www\.)?linkedin\.com/company/[\w-]+'
-        )
+        if self.linkedin:
+            self._validate_social_network_url(
+                self.linkedin,
+                # Linkedin got its page tracking system embed in the url
+                # then the url can be followed by ?trk...
+                r'https?://(www\.)?linkedin\.com/company/[\w-]+'
+            )
 
+    @api.one
     @api.constrains('facebook')
     def _validate_facebook_url(self):
         """Test against the given url against RFC requirements"""
-        self._validate_social_network_url(
-            self.facebook,
-            # Facebook got its page tracking system embed in the url
-            # then the url can be followed by ?fref...
-            r'https?://(www\.)?facebook\.com/[\w-]+'
-        )
+        if self.facebook:
+            self._validate_social_network_url(
+                self.facebook,
+                # Facebook got its page tracking system embed in the url
+                # then the url can be followed by ?fref...
+                r'https?://(www\.)?facebook\.com/[\w-]+'
+            )
 
+    @api.one
     @api.constrains('wikipedia')
     def _validate_wikipedia_url(self):
         """Test against the given url against RFC requirements"""
-        self._validate_social_network_url(
-            self.wikipedia,
-            # Facebook got its page tracking system embed in the url
-            # then the url can be followed by ?fref...
-            r'https?://\w*\.?wikipedia.org/wiki/[\w-]+'
-        )
-
-    # @api.constrains('art_of_vfx')
-    # def _validate_art_of_fx_url(self):
-    #     """Test against the given url against RFC requirements"""
-    #     self._url_validation(self.art_of_vfx)
+        if self.wikipedia:
+            self._validate_social_network_url(
+                self.wikipedia,
+                # Facebook got its page tracking system embed in the url
+                # then the url can be followed by ?fref...
+                r'https?://\w*\.?wikipedia.org/wiki/[\w-]+'
+            )
