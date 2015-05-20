@@ -9,9 +9,14 @@
                 <sheet position="before">
                     <header>
                         <button name="action_close_company" type="object" string="Set Closed for business"
-                                states="open"/>
+                                states="open"
+                                help="The company is currently set as open.\nClick this button is you know the company is actually closed."
+                                />
+
                         <button name="action_open_company" type="object" string="Reopen"
-                                states="closed"/>
+                                states="closed"
+                                help="The company is currently set as closed.\nClick this button to change the state to 'open'."
+                                />
                         <field name="state"
                                widget="statusbar"
                                statusbar_visible="open,closed"
