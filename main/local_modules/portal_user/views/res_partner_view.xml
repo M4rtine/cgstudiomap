@@ -18,13 +18,16 @@
                     <field name="website" widget="url" placeholder="e.g. www.cgstudiomap.com"/>
                 </field>
                 <field name="parent_id" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </field>
                 <field name="category_id" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
+                </field>
+                <field name="active" position="attributes">
+                    <attribute name="groups">base.group_system</attribute>
                 </field>
                 <field name="industry_family_ids" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </field>
                 <field name="country_id" position="attributes">
                     <attribute name="widget">{'create': false, 'create_edit': false}</attribute>
@@ -33,49 +36,49 @@
                     <attribute name="options">{'limit': 10, 'create': false, 'create_edit': false}</attribute>
                 </field>
                 <field name="function" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </field>
                 <field name="mobile" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </field>
                 <field name="title" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </field>
                 <field name="website_published" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </field>
                 <field name="fax" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </field>
                 <div class="oe_edit_only" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </div>
                 <page string="Contacts" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </page>
                 <page string="Sales &amp; Purchases" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </page>
                 <button name="%(crm.crm_case_category_act_oppor11)d" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </button>
                 <button name="schedule_meeting" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </button>
                 <button name="%(crm.crm_case_categ_phone_incoming0)d" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </button>
                 <field name="partner_latitude" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </field>
                 <field name="partner_longitude" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </field>
                 <field name="date_localization" position="attributes">
-                    <attribute name="attrs">{'readonly': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </field>
                 <button name="geo_localize" position="attributes">
-                    <attribute name="attrs">{'invisible': [('is_portal_user', '=', context.get('is_portal', False))]}</attribute>
+                    <attribute name="groups">base.group_system</attribute>
                 </button>
 
             </field>
