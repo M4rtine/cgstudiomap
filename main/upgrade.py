@@ -1,12 +1,15 @@
 # -*- python -*-
+import logging
 
 client_module = 'main'
+
 
 
 def update_res_partner_state(session, logger):
     """Method to go throught all the partner and to move from management by
     `active` field to `state`
     """
+    logger.setLevel(logging.DEBUG)
     logger.info('update_res_partner_state()')
     partner_pool = session.registry('res.partner')
     domain = ['|', ('active', '=', False), ('active', '=', True)]
@@ -17,18 +20,10 @@ def update_res_partner_state(session, logger):
         # Before the update, a company was considered as closed if `active`
         # was set to False. Now it depends on the state.
         if partner.is_company:
-            logger.debug(
-                'partner: {}, active: {}, state: {}'.format(partner.name,
-                                                            partner.active,
-                                                            partner.state))
             if partner.active:
                 partner.write({'state': 'open'})
             else:
                 partner.write({'state': 'closed', 'active': True})
-            logger.debug(
-                'partner: {}, active: {}, state: {}'.format(partner.name,
-                                                            partner.active,
-                                                            partner.state))
 
 
 def run(session, logger):
