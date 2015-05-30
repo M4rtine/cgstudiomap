@@ -19,6 +19,7 @@
 #
 ##############################################################################
 import logging
+from pprint import pformat
 
 from openerp import models, api
 from openerp.exceptions import except_orm
@@ -228,13 +229,17 @@ class ResPartner(models.Model):
                 })
 
             vals['state_id'] = state.id
-
+        _logger.debug('vals: {}'.format(vals))
         return vals
 
     @api.model
     def create(self, vals):
         _logger.debug('res_partner_location_validation.create')
-        return super(ResPartner, self).create(self._clean_location_data(vals))
+        vals = self._clean_location_data(vals)
+        _logger.debug('_clean_location_data: {}'.format(pformat(vals)))
+        ret = super(ResPartner, self).create(vals)
+        _logger.debug('ret: {}'.format(ret))
+        return ret
 
     @api.multi
     def write(self, vals):

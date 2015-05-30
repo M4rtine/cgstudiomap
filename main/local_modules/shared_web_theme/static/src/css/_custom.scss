@@ -177,6 +177,9 @@ div.olMap {
   ul.oe_form_status li.oe_active > .arrow span {
     background: $c-cg none;
   }
+  ul.oe_form_status li.oe_active {
+    background-color: $c-cg;
+  }
   ul.oe_form_status li > .arrow span {
     background: $c-cg none;
   }
@@ -262,7 +265,9 @@ div.olMap {
   .oe_searchview .oe-autocomplete ul li.oe-selection-focus {
     background-color: $c-cg !important;
   }
-
+    .oe_view_manager_view_search{
+      color: $c-cg;
+    }
 	.oe_searchview_drawer {
 		
 		.oe_searchview_section li {

@@ -32,11 +32,13 @@ class ResPartner(models.Model):
     """Add a validation of the email address of the partner."""
     _inherit = 'res.partner'
 
+    @api.one
     @api.constrains('email')
     def _validate_email(self):
         """Test against the given email against RFC requirements"""
         _logger.debug('self.email: {}'.format(self.email))
-        if not validate_email(self.email):
-            raise ValidationError(
-                _('The current email seems not valid. Please correct it')
-            )
+        if self.email:
+            if not validate_email(self.email):
+                raise ValidationError(
+                    _('The current email seems not valid. Please correct it')
+                )
