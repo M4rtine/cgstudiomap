@@ -33,6 +33,7 @@ class TestResPartner(common.TransactionCase):
 
         self.france = self.ir_model_data_pool.get_object('base', 'fr')
         self.canada = self.ir_model_data_pool.get_object('base', 'ca')
+        self.usa = self.ir_model_data_pool.get_object('base', 'us')
 
     def test_codec(self):
         self.assertEqual(res_partner.__codec__, 'utf-8')
@@ -115,3 +116,18 @@ class TestResPartner(common.TransactionCase):
 
         self.assertEqual(ret['street'], u'5455 Avenue de Gasp\xe9')
         self.assertEqual(ret['city'], 'Montr\xc3\xa9al')
+
+    def test_bug_139(self):
+        """https://github.com/cgstudiomap/cgstudiomap/issues/139
+
+        Keep this test to check the bug does not come back somehow.
+        """
+        vals = {
+            'street': u'231 front street',
+            'zip': '11201',
+            'city': 'New York',
+            'country_id': self.usa.id
+        }
+
+        ret = self.res_partner_pool._clean_location_data(vals)
+        self.assertIsInstance(ret, dict)
