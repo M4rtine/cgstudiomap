@@ -87,3 +87,7 @@ class ResPartner(geo_model.GeoModel):
         help='Current state of the company.',
         select=True
     )
+
+
+    # missing detail methods
+

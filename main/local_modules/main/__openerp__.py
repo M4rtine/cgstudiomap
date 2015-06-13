@@ -59,6 +59,7 @@ Contributors
         # website
         'website_blog_mgmt',
         # local modules
+        'bots',
         'res_partner_filter',
         'res_partner_social_networks',
         'res_partner_location_validation',

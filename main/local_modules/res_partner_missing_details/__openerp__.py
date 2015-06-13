@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,17 +20,17 @@
 ##############################################################################
 
 {
-    'name': 'Main Data Module',
-    'version': '0.3',
+    'name': 'Partner Missing Details',
+    'version': '0.1',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Main',
-    'summary': 'Main Module, that install data, views etc.',
+    'summary': 'Allow to tag a partner that would miss details',
     'description': """
-Main Data Module
-================
-This module contains the data, views, models.
+Main Module
+===========
+Creates a new tag for res.partner that list what fields need more details
 
 Contributors
 ------------
@@ -38,32 +38,10 @@ Contributors
 
 """,
     'depends': [
-        'crm',
-        'website',
-        'website_blog',
-        'website_crm',
-        'base_geolocalize',
-        'geoengine_partner',
-        'base_geoengine',
-        'geoengine_base_geolocalize',
-        'auth_signup',
-        'web_tree_image',
-        'web_widget_text_markdown',
-        'res_partner_missing_details'
     ],
     'data': [
-        'data/company_details.xml',
-        'data/res_groups_data.xml',
-        'data/res_users_data.xml',
-        'data/missing_details.xml',
-        'security/ir_rules.xml',
-        'security/ir.model.access.csv',
-        'views/website_blog_view.xml',
+        'views/res_missing_details_view.xml',
         'views/res_partner_view.xml',
-        'views/geo_partner_view.xml',
-        'views/base_partner_merge_view.xml',
-        'templates/web_layout.xml',
-        'report/account_report.xml',
     ],
     'installable': True,
 }
