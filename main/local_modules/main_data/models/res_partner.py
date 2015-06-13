@@ -26,7 +26,6 @@ from openerp.addons.base_geolocalize.models.res_partner import (
 
 from openerp.addons.base_geoengine import geo_model
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
 
 
 class ResPartner(geo_model.GeoModel):
