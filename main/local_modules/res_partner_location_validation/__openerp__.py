@@ -21,7 +21,7 @@
 
 {
     'name': 'Res Partner location validation',
-    'version': '0.1',
+    'version': '0.3',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',

@@ -4,7 +4,6 @@ import logging
 client_module = 'main'
 
 
-
 def update_res_partner_state(session, logger):
     """Method to go throught all the partner and to move from management by
     `active` field to `state`

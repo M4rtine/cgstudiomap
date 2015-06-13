@@ -196,7 +196,11 @@ class ResPartner(models.Model):
             vals['street'] = geocode.route.encode(__codec__)
 
         vals['zip'] = geocode.postal_code.encode(__codec__)
-        vals['city'] = geocode.city.encode(__codec__)
+        # https://github.com/cgstudiomap/cgstudiomap/issues/139
+        # it seems sometimes geocode can't define a city value
+        # we then takes the sublocality value to avoid to have a None value.
+        city = geocode.city or geocode.sublocality
+        vals['city'] = city.encode(__codec__)
 
         # Getting the country of the location
         # Normally all the countries are registered to odoo by default.
