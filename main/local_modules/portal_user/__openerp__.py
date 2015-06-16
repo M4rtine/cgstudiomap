@@ -36,6 +36,7 @@
         'res_partner_industry',
         'web_m2x_options',
         'crm',
+        'res_partner_missing_details',
     ],
     'external_dependencies': {
         'python': [],

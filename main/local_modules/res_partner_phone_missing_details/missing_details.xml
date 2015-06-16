@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <record id="missing_detail_missing_phone" model="res.missing_detail">
+            <field name="name">Missing phone</field>
+        </record>
+    </data>
+</openerp>

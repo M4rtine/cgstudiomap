@@ -2,7 +2,7 @@
 ##############################################################################
 #
 # OpenERP, Open Source Management Solution
-#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
+# This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,21 +18,27 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import logging
 
-{
-    'name': 'Partner Missing Details',
-    'version': '0.1',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Allow to tag a partner that would miss details',
-    'depends': [],
-    'data': [
-        'security/ir.model.access.csv',
-        'ir_cron.xml',
-        'views/res_missing_details_view.xml',
-        'views/res_partner_view.xml',
-    ],
-    'installable': True,
-}
+from openerp import models, api
+
+_logger = logging.getLogger(__name__)
+
+
+class ResPartner(models.Model):
+    """Add a validation of the email address of the partner."""
+    _inherit = 'res.partner'
+
+    @api.model
+    def get_missing_details(self):
+        missing_details = super(ResPartner, self).get_missing_details()
+        ir_model_data_pool = self.env['ir.model.data']
+        if not self.phone:
+            missing_details.append(
+                ir_model_data_pool.get_object(
+                    'res_partner_phone_missing_details',
+                    'missing_detail_missing_phone'
+                ).id
+            )
+
+        return missing_details

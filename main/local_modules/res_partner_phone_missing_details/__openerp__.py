@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-# OpenERP, Open Source Management Solution
+#    OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,19 +20,20 @@
 ##############################################################################
 
 {
-    'name': 'Partner Missing Details',
-    'version': '0.1',
+    'name': 'Res Partner phone: missing details',
+    'version': '0.2',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Allow to tag a partner that would miss details',
-    'depends': [],
+    'category': 'Sales',
+    'summary': 'Set up for phone for missing details bot',
+    'depends': [
+        'res_partner_missing_details',
+        'base_phone_validation',
+    ],
+    'external_dependencies': {},
     'data': [
-        'security/ir.model.access.csv',
-        'ir_cron.xml',
-        'views/res_missing_details_view.xml',
-        'views/res_partner_view.xml',
+        'missing_details.xml',
     ],
     'installable': True,
 }

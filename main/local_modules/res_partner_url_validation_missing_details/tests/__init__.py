@@ -1,7 +1,7 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
-# OpenERP, Open Source Management Solution
+#    OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -18,21 +18,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': 'Partner Missing Details',
-    'version': '0.1',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Allow to tag a partner that would miss details',
-    'depends': [],
-    'data': [
-        'security/ir.model.access.csv',
-        'ir_cron.xml',
-        'views/res_missing_details_view.xml',
-        'views/res_partner_view.xml',
-    ],
-    'installable': True,
-}
+from . import test_res_partner

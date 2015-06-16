@@ -19,4 +19,21 @@
 #
 ##############################################################################
 
-from . import models
+{
+    'name': 'Res Partner location validation: missing details',
+    'version': '0.2',
+    'author': 'cgstudiomap',
+    'maintainer': 'cgstudiomap',
+    'license': 'AGPL-3',
+    'category': 'Sales',
+    'summary': 'Set up for locations for missing details bot',
+    'depends': [
+        'res_partner_missing_details',
+        'res_partner_location_validation',
+    ],
+    'external_dependencies': {},
+    'data': [
+        'missing_details.xml',
+    ],
+    'installable': True,
+}

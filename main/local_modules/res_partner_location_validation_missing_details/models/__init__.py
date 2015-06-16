@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-# OpenERP, Open Source Management Solution
-#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
+#    OpenERP, Open Source Management Solution
+#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,26 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'bots',
-    'version': '0.1',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'automatic actions',
-    'description': """
-Main Module
-===========
-This module sets the bots that run automatic actions.
-
-Contributors
-------------
-* Jordi Riera <kender.jr@gmail.com>
-
-""",
-    'depends': [
-    ],
-    'data': [],
-    'installable': True,
-}
+from . import res_partner

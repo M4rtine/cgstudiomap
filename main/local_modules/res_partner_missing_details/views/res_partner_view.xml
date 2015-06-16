@@ -7,7 +7,9 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <field name="category_id" position="before">
-                    <field name="missing_detail_ids" widget="many2many_tags" placeholder="Missing details..."/>
+                    <field name="missing_detail_ids"
+                           widget="many2many_tags"
+                           placeholder="Missing details..."/>
                 </field>
             </field>
         </record>

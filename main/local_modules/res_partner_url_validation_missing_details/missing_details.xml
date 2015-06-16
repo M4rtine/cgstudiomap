@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <record id="missing_detail_missing_website" model="res.missing_detail">
+            <field name="name">Missing website</field>
+        </record>
+        <record id="missing_detail_dead_website" model="res.missing_detail">
+            <field name="name">Dead website</field>
+        </record>
+        <record id="missing_detail_invalid_website" model="res.missing_detail">
+            <field name="name">Invalid website</field>
+        </record>
+    </data>
+</openerp>

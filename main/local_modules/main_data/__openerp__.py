@@ -49,13 +49,11 @@ Contributors
         'auth_signup',
         'web_tree_image',
         'web_widget_text_markdown',
-        'res_partner_missing_details'
     ],
     'data': [
         'data/company_details.xml',
         'data/res_groups_data.xml',
         'data/res_users_data.xml',
-        'data/missing_details.xml',
         'security/ir_rules.xml',
         'security/ir.model.access.csv',
         'views/website_blog_view.xml',
