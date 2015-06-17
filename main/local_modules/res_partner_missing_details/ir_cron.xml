@@ -5,8 +5,10 @@
         <record forcecreate="True" id="missing_details_cron" model="ir.cron">
             <field name="name">Missing Details Bot</field>
             <field name="user_id" ref="base.user_root"/>
-            <field name="interval_number">2</field>
-            <field name="interval_type">minutes</field>
+            <!--Set to 12 hours has it seems the bot kills sessions somehow.-->
+            <!--This way does not solve the issue but wont distrub the users-->
+            <field name="interval_number">12</field>
+            <field name="interval_type">hours</field>
             <field name="numbercall">-1</field>
             <field eval="False" name="doall"/>
             <field eval="'res.partner'" name="model"/>
