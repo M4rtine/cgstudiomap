@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,33 +20,19 @@
 ##############################################################################
 
 {
-    'name': 'Portal User',
-    'version': '0.2',
+    'name': 'Partner Missing Details',
+    'version': '0.1',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Main',
-    'summary': 'Settings of portal user',
-    'depends': [
-        'account',
-        'portal',
-        'portal_sale',
-        'website_partner',
-        'website_menu_by_user_status',
-        'res_partner_industry',
-        'web_m2x_options',
-        'crm',
-        'res_partner_missing_details',
-    ],
-    'external_dependencies': {
-        'python': [],
-    },
+    'summary': 'Allow to tag a partner that would miss details',
+    'depends': [],
     'data': [
-        'views/portal_items.xml',
-        'views/res_partner_view.xml',
-        'views/website_menu.xml',
         'security/ir.model.access.csv',
-        'security/base_security.xml',
+        'ir_cron.xml',
+        'views/res_missing_details_view.xml',
+        'views/res_partner_view.xml',
     ],
     'installable': True,
 }

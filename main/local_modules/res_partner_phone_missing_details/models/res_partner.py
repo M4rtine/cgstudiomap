@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
+# OpenERP, Open Source Management Solution
+# This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,35 +18,27 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import logging
 
-{
-    'name': 'Portal User',
-    'version': '0.2',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Settings of portal user',
-    'depends': [
-        'account',
-        'portal',
-        'portal_sale',
-        'website_partner',
-        'website_menu_by_user_status',
-        'res_partner_industry',
-        'web_m2x_options',
-        'crm',
-        'res_partner_missing_details',
-    ],
-    'external_dependencies': {
-        'python': [],
-    },
-    'data': [
-        'views/portal_items.xml',
-        'views/res_partner_view.xml',
-        'views/website_menu.xml',
-        'security/ir.model.access.csv',
-        'security/base_security.xml',
-    ],
-    'installable': True,
-}
+from openerp import models, api
+
+_logger = logging.getLogger(__name__)
+
+
+class ResPartner(models.Model):
+    """Add a validation of the email address of the partner."""
+    _inherit = 'res.partner'
+
+    @api.model
+    def get_missing_details(self):
+        missing_details = super(ResPartner, self).get_missing_details()
+        ir_model_data_pool = self.env['ir.model.data']
+        if not self.phone:
+            missing_details.append(
+                ir_model_data_pool.get_object(
+                    'res_partner_phone_missing_details',
+                    'missing_detail_missing_phone'
+                ).id
+            )
+
+        return missing_details

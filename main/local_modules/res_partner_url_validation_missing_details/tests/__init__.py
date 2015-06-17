@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -18,35 +18,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': 'Portal User',
-    'version': '0.2',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Settings of portal user',
-    'depends': [
-        'account',
-        'portal',
-        'portal_sale',
-        'website_partner',
-        'website_menu_by_user_status',
-        'res_partner_industry',
-        'web_m2x_options',
-        'crm',
-        'res_partner_missing_details',
-    ],
-    'external_dependencies': {
-        'python': [],
-    },
-    'data': [
-        'views/portal_items.xml',
-        'views/res_partner_view.xml',
-        'views/website_menu.xml',
-        'security/ir.model.access.csv',
-        'security/base_security.xml',
-    ],
-    'installable': True,
-}
+from . import test_res_partner

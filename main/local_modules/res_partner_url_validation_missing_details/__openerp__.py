@@ -20,33 +20,20 @@
 ##############################################################################
 
 {
-    'name': 'Portal User',
+    'name': 'Res Partner url validation: missing details',
     'version': '0.2',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Settings of portal user',
+    'category': 'Sales',
+    'summary': 'Set up for urls for missing details bot',
     'depends': [
-        'account',
-        'portal',
-        'portal_sale',
-        'website_partner',
-        'website_menu_by_user_status',
-        'res_partner_industry',
-        'web_m2x_options',
-        'crm',
         'res_partner_missing_details',
+        'res_partner_url_validation',
     ],
-    'external_dependencies': {
-        'python': [],
-    },
+    'external_dependencies': {},
     'data': [
-        'views/portal_items.xml',
-        'views/res_partner_view.xml',
-        'views/website_menu.xml',
-        'security/ir.model.access.csv',
-        'security/base_security.xml',
+        'missing_details.xml',
     ],
     'installable': True,
 }
