@@ -85,7 +85,7 @@ class ResPartner(models.Model):
         ]
         for partner in self.search(leaves,
                                    order='last_missing_details_check',
-                                   limit=1):
+                                   limit=300):
             _logger.info(
                 'Checking for missing details: {}'.format(partner.name)
             )
