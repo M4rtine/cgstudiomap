@@ -3,12 +3,21 @@
     <data noupdate="0">
         <record id="missing_detail_missing_website" model="res.missing_detail">
             <field name="name">Missing website</field>
+            <field name="description">The form is missing a value for the field website.
+                You might want to search for the company name on google and see if you find a website.
+            </field>
         </record>
         <record id="missing_detail_dead_website" model="res.missing_detail">
             <field name="name">Dead website</field>
+            <field name="description">The address given for the website doesn't respond to our call (aka ping).
+                You might want to search on google to check if the company didn't move its website to another address.
+                It might also mean the company closed.</field>
         </record>
         <record id="missing_detail_invalid_website" model="res.missing_detail">
             <field name="name">Invalid website</field>
+            <field name="description">The address given for the website doesn't seems to be an url.
+                Try to copy past the address into your browser and see if it works.
+                If it is, you can solve the problem by copy back the address your browser has. It might have reformated the address.</field>
         </record>
     </data>
 </openerp>

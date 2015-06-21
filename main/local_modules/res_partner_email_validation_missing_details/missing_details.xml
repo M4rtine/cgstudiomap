@@ -6,6 +6,12 @@
         </record>
         <record id="missing_detail_missing_email" model="res.missing_detail">
             <field name="name">Missing email</field>
+            <field name="description">The form is missing a value for the field email.
+                Several ways to find email of a company.
+                It might simply be on the website and it was not just not added to the card.
+                If not, you might find the email using google directly, by quering something like @nameofthecompany.
+                Finally, you might be interested by using https://emailhunter.co to find public email of the company.
+            </field>
         </record>
     </data>
 </openerp>
