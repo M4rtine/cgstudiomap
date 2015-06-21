@@ -195,11 +195,12 @@ class ResPartner(models.Model):
         else:
             vals['street'] = geocode.route.encode(__codec__)
 
-        vals['zip'] = geocode.postal_code.encode(__codec__)
+	zip_code = geocode.postal_code or vals['zip'] or self.zip or 0
+        vals['zip'] = zip_code.encode(__codec__)
         # https://github.com/cgstudiomap/cgstudiomap/issues/139
         # it seems sometimes geocode can't define a city value
         # we then takes the sublocality value to avoid to have a None value.
-        city = geocode.city or geocode.sublocality
+        city = geocode.city or geocode.sublocality or geocode.administrative_area_level_1
         vals['city'] = city.encode(__codec__)
 
         # Getting the country of the location
