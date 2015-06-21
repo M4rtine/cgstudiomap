@@ -44,7 +44,6 @@ class ResPartner(models.Model):
 
     missing_detail_ids = fields.Many2many(
         'res.missing_detail',
-        readonly=True,
         string='Missing Details'
     )
     last_missing_details_check = fields.Date()
@@ -95,17 +94,4 @@ class ResPartner(models.Model):
             _logger.debug('Write from bot.')
             details = partner.set_missing_details()
             _logger.debug('Missing Details: {}'.format(details))
-            super(ResPartner, partner).write(details)
-
-    @api.multi
-    def write(self, vals):
-        """The write resets the missing details as the details were most
-        likely updates by user.
-        """
-        _logger.debug('Classic write')
-        vals.update({
-            # reseting the values of when the values updated by user.
-            'missing_detail_ids': [(5)],
-            'last_missing_details_check': fields.date.today(),
-        })
-        return super(ResPartner, self).write(vals)
+            partner.write(details)
