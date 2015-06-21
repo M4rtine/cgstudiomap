@@ -3,6 +3,10 @@
     <data noupdate="0">
         <record id="missing_detail_missing_phone" model="res.missing_detail">
             <field name="name">Missing phone</field>
+            <field name="description">The form is missing a value for the field phone.
+                You might want to search on google for the name of the company and copy the number back in the form to help the community.
+                You might also need to reach the website. The phone number is often in the "Contact" page.
+            </field>
         </record>
     </data>
 </openerp>

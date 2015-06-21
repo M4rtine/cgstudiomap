@@ -3,6 +3,9 @@
     <data noupdate="0">
         <record id="missing_detail_cannot_geocode_address" model="res.missing_detail">
             <field name="name">Cannot Geocode Address</field>
+            <field name="description">The current location of the company raised an error when it was send to Google for reformating.
+                You might want to check to test against Google Map the location manually to see what it returns and update accordingly the location.
+            </field>
         </record>
     </data>
 </openerp>

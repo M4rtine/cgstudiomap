@@ -30,13 +30,16 @@ class ResMissingDetail(models.Model):
     _name = 'res.missing_detail'
     _description = 'Missing Detail'
 
-    name = fields.Char('Name', size=128, required=True)
+    name = fields.Char('Missing Details', size=128, required=True)
     image = fields.Binary(
         "Image",
         help="This field holds the image used as avatar for this industry,"
              " limited to 1024x1024px"
     )
-    description = fields.Text('Description')
+    description = fields.Text(
+        'Helper',
+        help='Guide to user to solve the missing detail.'
+    )
 
 
 class ResPartner(models.Model):
@@ -44,7 +47,6 @@ class ResPartner(models.Model):
 
     missing_detail_ids = fields.Many2many(
         'res.missing_detail',
-        readonly=True,
         string='Missing Details'
     )
     last_missing_details_check = fields.Date()
@@ -76,7 +78,7 @@ class ResPartner(models.Model):
         return vals
 
     @api.model
-    def set_missing_details_bot(self):
+    def set_missing_details_bot(self, limit=10):
         """Method called by the bot."""
         leaves = [
             '|',
@@ -86,7 +88,7 @@ class ResPartner(models.Model):
         ]
         for partner in self.search(leaves,
                                    order='last_missing_details_check',
-                                   limit=10):
+                                   limit=limit):
             _logger.info(
                 'Checking for missing details: {}'.format(
                     partner.name.encode(__codec__)
@@ -95,17 +97,4 @@ class ResPartner(models.Model):
             _logger.debug('Write from bot.')
             details = partner.set_missing_details()
             _logger.debug('Missing Details: {}'.format(details))
-            super(ResPartner, partner).write(details)
-
-    @api.multi
-    def write(self, vals):
-        """The write resets the missing details as the details were most
-        likely updates by user.
-        """
-        _logger.debug('Classic write')
-        vals.update({
-            # reseting the values of when the values updated by user.
-            'missing_detail_ids': [(5)],
-            'last_missing_details_check': fields.date.today(),
-        })
-        return super(ResPartner, self).write(vals)
+            partner.write(details)
