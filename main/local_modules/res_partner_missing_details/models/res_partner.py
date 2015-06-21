@@ -76,7 +76,7 @@ class ResPartner(models.Model):
         return vals
 
     @api.model
-    def set_missing_details_bot(self):
+    def set_missing_details_bot(self, limit=10):
         """Method called by the bot."""
         leaves = [
             '|',
@@ -86,7 +86,7 @@ class ResPartner(models.Model):
         ]
         for partner in self.search(leaves,
                                    order='last_missing_details_check',
-                                   limit=10):
+                                   limit=limit):
             _logger.info(
                 'Checking for missing details: {}'.format(
                     partner.name.encode(__codec__)
