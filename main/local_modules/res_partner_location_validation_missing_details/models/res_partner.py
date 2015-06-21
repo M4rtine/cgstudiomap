@@ -42,7 +42,7 @@ class ResPartner(models.Model):
                 'zip': self.zip
             }
             self._clean_location_data(vals)
-        except except_orm, AttributeError:
+        except (except_orm, AttributeError):
             missing_details.append(
                 ir_model_data_pool.get_object(
                     'res_partner_location_validation_missing_details',

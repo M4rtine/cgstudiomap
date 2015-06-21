@@ -5,7 +5,7 @@
 # This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
+# it under the terms of the GNU Affero General Public License as
 #    published by the Free Software Foundation, either version 3 of the
 #    License, or (at your option) any later version.
 #
@@ -23,6 +23,7 @@ import logging
 from openerp import models, api, fields
 
 _logger = logging.getLogger(__name__)
+__codec__ = 'utf-8'
 
 
 class ResMissingDetail(models.Model):
@@ -85,9 +86,11 @@ class ResPartner(models.Model):
         ]
         for partner in self.search(leaves,
                                    order='last_missing_details_check',
-                                   limit=300):
+                                   limit=10):
             _logger.info(
-                'Checking for missing details: {}'.format(partner.name)
+                'Checking for missing details: {}'.format(
+                    partner.name.encode(__codec__)
+                )
             )
             _logger.debug('Write from bot.')
             details = partner.set_missing_details()
