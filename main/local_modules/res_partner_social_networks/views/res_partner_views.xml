@@ -8,8 +8,8 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <field name="email" position="after">
-                    <field name="twitter" widget="url" placeholder="https://www.twitter.com/cgstudiomap"/>
-                    <field name="linkedin" widget="url" placeholder="https://www.linkedin.com/company/cgstudiomap.com"/>
+                    <field name="twitter" widget="url"/>
+                    <field name="linkedin" widget="url"/>
                     <field name="facebook" widget="url"/>
                 </field>
                 <xpath expr="//page[last()]" position="after">
