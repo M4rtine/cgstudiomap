@@ -30,13 +30,16 @@ class ResMissingDetail(models.Model):
     _name = 'res.missing_detail'
     _description = 'Missing Detail'
 
-    name = fields.Char('Name', size=128, required=True)
+    name = fields.Char('Missing Details', size=128, required=True)
     image = fields.Binary(
         "Image",
         help="This field holds the image used as avatar for this industry,"
              " limited to 1024x1024px"
     )
-    description = fields.Text('Description')
+    description = fields.Text(
+        'Helper',
+        help='Guide to user to solve the missing detail.'
+    )
 
 
 class ResPartner(models.Model):
