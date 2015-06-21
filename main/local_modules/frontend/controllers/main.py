@@ -27,19 +27,17 @@ class MainPage(Website):
             cr, uid, 'frontend', 'homepage_ammap_config', context=context
         )
 
+        filters = [
+            ('active', '=', True),
+            ('is_company', '=', True),
+            ('industry_family_ids', 'in', [media.id]),
+        ]
         by_countries = defaultdict(int)
         for country in country_pool.search(cr, uid, [], context=context):
-            number_partners = len(
-                partner_pool.search(
-                    cr, uid,
-                    [
-                        ('active', '=', True),
-                        ('is_company', '=', True),
-                        ('industry_family_ids', 'in', [media.id]),
-                        ('country_id', '=', country)
-                    ],
-                    context=context
-                )
+            number_partners = partner_pool.search_count(
+                cr, uid,
+                filters + [('country_id', '=', country)],
+                context=context
             )
             if number_partners:
                 by_countries[
@@ -51,6 +49,7 @@ class MainPage(Website):
             'geochart_data': by_countries,
             'geochart_target': 'geochart_div',
             'ammap_config': ammap_homepage,
+            'nbr_partners': partner_pool.search_count(cr, uid, filters)
         }
 
         return request.render('frontend.homepage', values)
