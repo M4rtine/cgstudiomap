@@ -11,11 +11,14 @@
                     <field name="is_portal_user" invisible="1"/>
                     <!--<field name="is_portal_user"/>-->
                 </field>
-                <field name="email" position="replace">
-                    <field name="email" placeholder="e.g. cgstudiomap@gmail.com"/>
+                <field name="street2" position="attributes">
+                    <attribute name="placeholder">Bureau, suite, office #</attribute>
                 </field>
-                <field name="website" position="replace">
-                    <field name="website" widget="url" placeholder="e.g. www.cgstudiomap.com"/>
+                <field name="email" position="attributes">
+                    <attribute name="placeholder"> </attribute>
+                </field>
+                <field name="website" position="attributes">
+                    <attribute name="placeholder"> </attribute>
                 </field>
                 <field name="parent_id" position="attributes">
                     <attribute name="groups">base.group_system</attribute>
