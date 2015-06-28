@@ -5740,12 +5740,6 @@ body.home {
     .geoengine_view {
       height: calc(1080px - 200px); } }
 
-#the_map,
-div.olMap {
-  position: absolute;
-  top: 0;
-  height: 100%; }
-
 .openerp .oe_view_manager_current > .oe_view_manager_header {
   border-bottom: 0 solid transparent;
   background-color: #434A54;
