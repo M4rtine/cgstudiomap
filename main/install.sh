@@ -4,8 +4,8 @@ PROJECT_HOME=`pwd`
 # Force to use the frozen configuration.
 # BUILDOUT_CFG=$PROJECT_HOME/frozen.cfg
 BUILDOUT_CFG=$PROJECT_HOME/frozen.cfg
-PARTS="reset_repos odoo"
-#PARTS="odoo"
+#PARTS="reset_repos odoo"
+PARTS="odoo"
 
 # Prepare buildout environment
 /usr/bin/env python2 $PROJECT_HOME/bootstrap.py -c $BUILDOUT_CFG
