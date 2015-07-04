@@ -20,19 +20,20 @@
 ##############################################################################
 
 {
-    'name': 'Partner Missing Details',
-    'version': '0.2',
+    'name': 'Res Group Archetype',
+    'version': '0.1',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Main',
-    'summary': 'Allow to tag a partner that would miss details',
-    'depends': [],
+    'summary': 'Archetypes of cgstudiomap user types',
+    'depends': [
+        'website_blog_group_published_only',
+        'res_partner_industry',
+        'base_geoengine',
+    ],
     'data': [
-        'security/ir.model.access.csv',
-        'ir_cron.xml',
-        'views/res_missing_details_view.xml',
-        'views/res_partner_view.xml',
+        'res_groups_data.xml',
     ],
     'installable': True,
 }

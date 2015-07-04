@@ -1,7 +1,11 @@
-Partner Missing Details
-=======================
-Setup a bot that is able to investigate res.partner and add tags that
-describe what kind of detail is missing to the partner form.
+Res Group Archetype
+===================
+Setup of typical setup of res.users groups/securities.
+
+Archetypes
+----------
+
+- user: typical user of cgstudiomap. Minimal requirements for every day usage of the website.
 
 Contributors
 ------------

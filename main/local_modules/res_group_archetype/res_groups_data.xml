@@ -2,79 +2,70 @@
 <openerp>
     <data>
         <!--category the groups will be grouped in view-->
-        <record model="ir.module.category" id="module_category_industry_family">
-            <field name="name">Industry Families</field>
-            <field name="sequence">102</field>
+        <record model="ir.module.category"
+                id="module_category_cgstudiomap_archetype">
+            <field name="name">cgstudiomap archetypes</field>
+            <field name="sequence">1</field>
         </record>
 
-        <record id="group_industry_corp" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Corportate</field>
+        <record id="group_archetype_user" model="res.groups">
+            <field name="category_id"
+                   ref="module_category_cgstudiomap_archetype"/>
+            <field name="name">User</field>
+            <!-- + Employee-->
+            <!-- + Portal-->
+            <!-- + Industry Media-->
+            <!-- + Geoengine User-->
+            <!-- + Published Webblog posts-->
+            <field name="implied_ids"
+                   eval="[
+                   (6, 0, [
+                    ref('base.group_user'),
+                    ref('base.group_portal'),
+                    ref('res_partner_industry.group_industry_med'),
+                    ref('base_geoengine.group_geoengine_user'),
+                    ref('base.group_website_blog_published_post_only'),
+                   ]),
+                   (3, ref('base.group_partner_manager')),
+                   ]"
+                    />
+            <field name="comment">Minimal settings for everyday usage of the website.
+                WARNING: Remove the "contact creation" at the very bottom of the list of settings.
+                This setting is not automatically removed but should!
+            </field>
         </record>
-        <record id="group_industry_man" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Manufacturing</field>
+
+        <record id="group_archetype_blog_poster" model="res.groups">
+            <field name="category_id"
+                   ref="module_category_cgstudiomap_archetype"/>
+            <field name="name">Blog Poster</field>
+            <!-- + knowledge user -->
+            <!-- + website designer-->
+            <field name="implied_ids"
+                   eval="[
+                   (4, ref('base.group_document_user')),
+                   (4, ref('base.group_website_designer')),
+                   (3, ref('base.group_website_blog_published_post_only')),
+                   ]"
+                    />
+            <field name="comment">Settings to give rights to write blog post.
+            WARNING: REMOVE link to Only Published posts</field>
         </record>
-        <record id="group_industry_leg" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Legal</field>
+        <record id="group_archetype_admin" model="res.groups">
+            <field name="category_id"
+                   ref="module_category_cgstudiomap_archetype"/>
+            <field name="name">Admin</field>
+            <!--+ Administration Settings-->
+            <!--+ technical Features-->
+            <field name="implied_ids"
+                   eval="[
+                   (4, ref('base.group_system')),
+                   (4, ref('base.group_no_one')),
+                   ]"
+                    />
+            <field name="comment">Settings to give rights to setup users and use technical features.</field>
         </record>
-        <record id="group_industry_hlth" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Health</field>
-        </record>
-        <record id="group_industry_art" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Art</field>
-        </record>
-        <record id="group_industry_good" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Goods</field>
-        </record>
-        <record id="group_industry_cons" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Construction</field>
-        </record>
-        <record id="group_industry_gov" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Government</field>
-        </record>
-        <record id="group_industry_fin" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Financial</field>
-        </record>
-        <record id="group_industry_med" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Media</field>
-        </record>
-        <record id="group_industry_org" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Organization</field>
-        </record>
-        <record id="group_industry_tech" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Technology</field>
-        </record>
-        <record id="group_industry_agr" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Agriculture</field>
-        </record>
-        <record id="group_industry_edu" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Education</field>
-        </record>
-        <record id="group_industry_rec" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Record</field>
-        </record>
-        <record id="group_industry_tran" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Transport</field>
-        </record>
-        <record id="group_industry_serv" model="res.groups">
-            <field name="category_id" ref="module_category_industry_family"/>
-            <field name="name">Service</field>
-        </record>
+
 
     </data>
 </openerp>
