@@ -5834,6 +5834,8 @@ body.home {
 .openerp .oe_form .oe_form_required input:not([disabled]):not([readonly]) {
   background-color: #EEEEEE !important;
   color: #757D75; }
+.openerp select {
+  color: #757D75; }
 .openerp .oe_application .oe_breadcrumb_title > * {
   color: #95A5A6; }
 .openerp .oe_application .oe_breadcrumb_item:not(:last-child) {

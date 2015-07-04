@@ -189,6 +189,9 @@ $break-height-negative: 200px;
       color: $form_required_text;
     }
   }
+  select {
+    color: $c-txt-dark;
+  }
 
   .oe_application {
 
