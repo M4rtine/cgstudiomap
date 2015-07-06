@@ -21,7 +21,7 @@
 
 {
     'name': 'Main Data Module',
-    'version': '0.3',
+    'version': '166',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
@@ -49,6 +49,7 @@ Contributors
         'auth_signup',
         'web_tree_image',
         'web_widget_text_markdown',
+        'res_group_archetype',
     ],
     'data': [
         'data/company_details.xml',

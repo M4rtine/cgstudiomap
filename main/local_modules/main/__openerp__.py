@@ -21,7 +21,7 @@
 
 {
     'name': 'Main Module',
-    'version': '0.2',
+    'version': '166',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
@@ -77,6 +77,7 @@ Contributors
         'ammap_portal',
         'website_blog_group_published_only',
         'cron',
+        'res_group_archetype',
     ],
     'data': [],
     'installable': True,

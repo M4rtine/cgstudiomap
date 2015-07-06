@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -18,16 +18,22 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+
 {
-    'name': 'Shared Web Theme',
+    'name': 'Res Group Archetype',
     'version': '166',
     'author': 'cgstudiomap',
+    'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
-    'category': 'web',
-    'summary': 'Shared CSS between back end and front end.',
-    'depends': ['web', 'website', ],
+    'category': 'Main',
+    'summary': 'Archetypes of cgstudiomap user types',
+    'depends': [
+        'website_blog_group_published_only',
+        'res_partner_industry',
+        'base_geoengine',
+    ],
     'data': [
-        'web_theme.xml',
+        'res_groups_data.xml',
     ],
     'installable': True,
 }

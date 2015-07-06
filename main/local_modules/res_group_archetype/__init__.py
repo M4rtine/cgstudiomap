@@ -18,16 +18,3 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    'name': 'Shared Web Theme',
-    'version': '166',
-    'author': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'web',
-    'summary': 'Shared CSS between back end and front end.',
-    'depends': ['web', 'website', ],
-    'data': [
-        'web_theme.xml',
-    ],
-    'installable': True,
-}
