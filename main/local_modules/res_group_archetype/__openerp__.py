@@ -21,7 +21,7 @@
 
 {
     'name': 'Res Group Archetype',
-    'version': '0.1',
+    'version': '166',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',

@@ -21,7 +21,7 @@
 
 {
     'name': 'Main Module',
-    'version': '0.3',
+    'version': '166',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
