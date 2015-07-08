@@ -82,7 +82,233 @@
                 <div id="wrap" class="oe_structure oe_empty">
                     <div><span t-esc="nbr_partners"></span><span> Studios to check!</span></div>
                     <div t-att-id="geochart_target"></div>
+
+                    <div class="divide60"></div>
+                    <div style="background: white">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <div class="center-heading">
+                                        <h2>
+                                            <strong>What</strong> we do
+                                        </h2>
+                                        <span class="center-line"></span>
+                                        <p class="sub-text margin40">
+                                            We want to present you a simple and
+                                            functional template “ASSAN”. It is a
+                                            powerful Multi-Purpose HTML 5 Template.
+                                            Build whatever you like with this
+                                            Template that looks effortlessly
+                                            on-point in Business
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--center heading end-->
+                            <div class="divide50"></div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6 margin30">
+                                    <div class="colored-boxed green">
+                                        <i class="fa fa-cogs"></i>
+                                        <h3>Free support n updates</h3>
+                                        <span class="center-line"></span>
+                                        <p>
+                                            Nullam vulputate lorem ut leo. Sed
+                                            volutpat. Etiam non pede. Nullam et
+                                            mauris.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!--colored boxed col end-->
+                                <div class="col-md-3 col-sm-6 margin30">
+                                    <div class="colored-boxed dark">
+                                        <i class="fa fa-tablet"></i>
+                                        <h3>Ultra responsive</h3>
+                                        <span class="center-line"></span>
+                                        <p>
+                                            Nullam vulputate lorem ut leo. Sed
+                                            volutpat. Etiam non pede. Nullam et
+                                            mauris.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!--colored boxed col end-->
+                                <div class="col-md-3 col-sm-6 margin30">
+                                    <div class="colored-boxed blue">
+                                        <i class="fa fa-heart"></i>
+                                        <h3>made with love</h3>
+                                        <span class="center-line"></span>
+                                        <p>
+                                            Nullam vulputate lorem ut leo. Sed
+                                            volutpat. Etiam non pede. Nullam et
+                                            mauris.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!--colored boxed col end-->
+                                <div class="col-md-3 col-sm-6 margin30">
+                                    <div class="colored-boxed red">
+                                        <i class="fa fa-sliders"></i>
+                                        <h3>Premium plugins</h3>
+                                        <span class="center-line"></span>
+                                        <p>
+                                            Nullam vulputate lorem ut leo. Sed
+                                            volutpat. Etiam non pede. Nullam et
+                                            mauris.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!--colored boxed col end-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--services container-->
+                    <div class="divide80"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="center-heading">
+                                    <h2>Recent <strong>Activity</strong></h2>
+                                    <span class="center-line"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="fun-fact-wrap-light">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 margin20 facts-in">
+                                    <h3><span class="counter">1000</span></h3>
+                                    <h4>Companies</h4>
+                                </div><!--facts in-->
+                                <div class="col-md-6 margin20 facts-in">
+                                    <h3><span class="counter">2300</span></h3>
+                                    <h4>Happy Users</h4>
+                                </div><!--facts in-->
+                                <!--<div class="col-md-3 margin20 facts-in">-->
+                                    <!--<h3><span class="counter">80</span></h3>-->
+                                    <!--<h4>Issues Opened</h4>-->
+                                <!--</div>&lt;!&ndash;facts in&ndash;&gt;-->
+                                <!--<div class="col-md-3 margin20 facts-in">-->
+                                    <!--<h3><span class="counter">3000</span></h3>-->
+                                    <!--<h4>Pull Requests</h4>-->
+                                <!--</div>&lt;!&ndash;facts in&ndash;&gt;-->
+                            </div>
+                        </div>
+                    </section><!--fun facts-->
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3 text-center">
+                                <div class="person-v2">
+                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
+                                    <div class="person-desc-v2">
+                                        <h3>Weta</h3>
+                                        <p><em>Wellington, New Zealand</em></p>
+                                        <p><em>tag1, tag2, tag3</em></p>
+                                    </div>
+                                </div>
+                            </div><!--person col end-->
+                            <div class="col-sm-3 text-center">
+                                <div class="person-v2">
+                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
+                                    <div class="person-desc-v2">
+                                        <h3>Weta</h3>
+                                        <p><em>Wellington, New Zealand</em></p>
+                                        <p><em>tag1, tag2, tag3</em></p>
+                                    </div>
+                                </div>
+                            </div><!--person col end-->
+                            <div class="col-sm-3 text-center">
+                                <div class="person-v2">
+                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
+                                    <div class="person-desc-v2">
+                                        <h3>Weta</h3>
+                                        <p><em>Wellington, New Zealand</em></p>
+                                        <p><em>tag1, tag2, tag3</em></p>
+                                    </div>
+                                </div>
+                            </div><!--person col end-->
+                            <div class="col-sm-3 text-center">
+                                <div class="person-v2">
+                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
+                                    <div class="person-desc-v2">
+                                        <h3>Weta</h3>
+                                        <p><em>Wellington, New Zealand</em></p>
+                                        <p><em>tag1, tag2, tag3</em></p>
+                                    </div>
+                                </div>
+                            </div><!--person col end-->
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3 text-center">
+                                <div class="person-v2">
+                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
+                                    <div class="person-desc-v2">
+                                        <h3>Weta</h3>
+                                        <p><em>Wellington, New Zealand</em></p>
+                                        <p><em>tag1, tag2, tag3</em></p>
+                                    </div>
+                                </div>
+                            </div><!--person col end-->
+                            <div class="col-sm-3 text-center">
+                                <div class="person-v2">
+                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
+                                    <div class="person-desc-v2">
+                                        <h3>Weta</h3>
+                                        <p><em>Wellington, New Zealand</em></p>
+                                        <p><em>tag1, tag2, tag3</em></p>
+                                    </div>
+                                </div>
+                            </div><!--person col end-->
+                            <div class="col-sm-3 text-center">
+                                <div class="person-v2">
+                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
+                                    <div class="person-desc-v2">
+                                        <h3>Weta</h3>
+                                        <p><em>Wellington, New Zealand</em></p>
+                                        <p><em>tag1, tag2, tag3</em></p>
+                                    </div>
+                                </div>
+                            </div><!--person col end-->
+                            <div class="col-sm-3 text-center">
+                                <div class="person-v2">
+                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
+                                    <div class="person-desc-v2">
+                                        <h3>Weta</h3>
+                                        <p><em>Wellington, New Zealand</em></p>
+                                        <p><em>tag1, tag2, tag3</em></p>
+                                    </div>
+                                </div>
+                            </div><!--person col end-->
+                        </div>
+                    </div>
                 </div>
+                <footer id="footer" style="background: black">
+
+                <div >
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 text-right">
+                                <a href="#">
+                                    <i class="fa fa-github fa-3x"></i>
+                                </a><!--news link-->
+                                <a href="#">
+                                    <i class="fa fa-twitter fa-3x"></i>
+                                </a><!--news link-->
+                                <a href="#">
+                                    <i class="fa fa-linkedin fa-3x"></i>
+                                </a><!--news link-->
+                                <a href="#">
+                                    <i class="fa fa-envelope fa-3x"></i>
+                                </a><!--news link-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </footer>
             </t>
         </template>
     </data>
