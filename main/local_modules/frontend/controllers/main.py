@@ -6,6 +6,7 @@ import logging
 from openerp.addons.web import http
 from openerp.http import request
 from openerp.addons.website.controllers.main import Website
+from openerp import SUPERUSER_ID
 
 _logger = logging.getLogger(__name__)
 
@@ -17,6 +18,7 @@ class MainPage(Website):
         page = 'homepage'
         cr, uid, context = request.cr, request.uid, request.context
         pool = request.registry
+        user_pool = pool['res.users']
         partner_pool = pool['res.partner']
         country_pool = pool['res.country']
         ir_model_data_pool = pool['ir.model.data']
@@ -43,13 +45,19 @@ class MainPage(Website):
                 by_countries[
                     country_pool.browse(cr, uid, country, context=context)
                 ] = number_partners
+        partners = [
+            partner_pool.browse(cr, uid, partner_id)
+            for partner_id in  partner_pool.search(cr, uid, filters, limit=8)
+        ]
 
         values = {
             'page': page,
             'geochart_data': by_countries,
             'geochart_target': 'geochart_div',
             'ammap_config': ammap_homepage,
-            'nbr_partners': partner_pool.search_count(cr, uid, filters)
+            'nbr_partners': partner_pool.search_count(cr, uid, filters),
+            'nbr_users': user_pool.search_count(cr, uid, [('active', '=', True)]),
+            'partners': partners
         }
 
         return request.render('frontend.homepage', values)

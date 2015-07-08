@@ -80,7 +80,7 @@
                 </script>
 
                 <div id="wrap" class="oe_structure oe_empty">
-                    <div><span t-esc="nbr_partners"></span><span> Studios to check!</span></div>
+                    <!--<div><span t-esc="nbr_partners"></span><span> Studios to check!</span></div>-->
                     <div t-att-id="geochart_target"></div>
 
                     <div class="divide60"></div>
@@ -179,11 +179,11 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6 margin20 facts-in">
-                                    <h3><span class="counter">1000</span></h3>
+                                    <h3><span class="counter" t-esc="nbr_partners"/></h3>
                                     <h4>Companies</h4>
                                 </div><!--facts in-->
                                 <div class="col-md-6 margin20 facts-in">
-                                    <h3><span class="counter">2300</span></h3>
+                                    <h3><span class="counter" t-esc="nbr_users"/></h3>
                                     <h4>Happy Users</h4>
                                 </div><!--facts in-->
                                 <!--<div class="col-md-3 margin20 facts-in">-->
@@ -200,89 +200,33 @@
 
                     <div class="container">
                         <div class="row">
+                            <t t-foreach="partners[:4]" t-as="partner">
                             <div class="col-sm-3 text-center">
                                 <div class="person-v2">
                                     <img src="img/team-5.jpg" class="img-responsive" alt=""/>
                                     <div class="person-desc-v2">
-                                        <h3>Weta</h3>
-                                        <p><em>Wellington, New Zealand</em></p>
-                                        <p><em>tag1, tag2, tag3</em></p>
+                                        <h3 t-esc="partner.name"/>
+                                        <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/></p>
+                                        <p><em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
                                     </div>
                                 </div>
                             </div><!--person col end-->
-                            <div class="col-sm-3 text-center">
-                                <div class="person-v2">
-                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
-                                    <div class="person-desc-v2">
-                                        <h3>Weta</h3>
-                                        <p><em>Wellington, New Zealand</em></p>
-                                        <p><em>tag1, tag2, tag3</em></p>
-                                    </div>
-                                </div>
-                            </div><!--person col end-->
-                            <div class="col-sm-3 text-center">
-                                <div class="person-v2">
-                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
-                                    <div class="person-desc-v2">
-                                        <h3>Weta</h3>
-                                        <p><em>Wellington, New Zealand</em></p>
-                                        <p><em>tag1, tag2, tag3</em></p>
-                                    </div>
-                                </div>
-                            </div><!--person col end-->
-                            <div class="col-sm-3 text-center">
-                                <div class="person-v2">
-                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
-                                    <div class="person-desc-v2">
-                                        <h3>Weta</h3>
-                                        <p><em>Wellington, New Zealand</em></p>
-                                        <p><em>tag1, tag2, tag3</em></p>
-                                    </div>
-                                </div>
-                            </div><!--person col end-->
+                            </t>
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-3 text-center">
-                                <div class="person-v2">
-                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
-                                    <div class="person-desc-v2">
-                                        <h3>Weta</h3>
-                                        <p><em>Wellington, New Zealand</em></p>
-                                        <p><em>tag1, tag2, tag3</em></p>
+                            <t t-foreach="partners[4:]" t-as="partner">
+                                <div class="col-sm-3 text-center">
+                                    <div class="person-v2">
+                                        <img src="img/team-5.jpg" class="img-responsive" alt=""/>
+                                        <div class="person-desc-v2">
+                                            <h3 t-esc="partner.name"/>
+                                            <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/></p>
+                                            <p><em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!--person col end-->
-                            <div class="col-sm-3 text-center">
-                                <div class="person-v2">
-                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
-                                    <div class="person-desc-v2">
-                                        <h3>Weta</h3>
-                                        <p><em>Wellington, New Zealand</em></p>
-                                        <p><em>tag1, tag2, tag3</em></p>
-                                    </div>
-                                </div>
-                            </div><!--person col end-->
-                            <div class="col-sm-3 text-center">
-                                <div class="person-v2">
-                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
-                                    <div class="person-desc-v2">
-                                        <h3>Weta</h3>
-                                        <p><em>Wellington, New Zealand</em></p>
-                                        <p><em>tag1, tag2, tag3</em></p>
-                                    </div>
-                                </div>
-                            </div><!--person col end-->
-                            <div class="col-sm-3 text-center">
-                                <div class="person-v2">
-                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
-                                    <div class="person-desc-v2">
-                                        <h3>Weta</h3>
-                                        <p><em>Wellington, New Zealand</em></p>
-                                        <p><em>tag1, tag2, tag3</em></p>
-                                    </div>
-                                </div>
-                            </div><!--person col end-->
+                                </div><!--person col end-->
+                            </t>
                         </div>
                     </div>
                 </div>
