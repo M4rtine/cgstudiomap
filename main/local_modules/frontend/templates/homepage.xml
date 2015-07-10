@@ -90,16 +90,12 @@
                                 <div class="col-sm-8 col-sm-offset-2">
                                     <div class="center-heading">
                                         <h2>
-                                            <strong>What</strong> we do
+                                            <strong>We believe that People should know more about any CG studio.</strong>
                                         </h2>
                                         <span class="center-line"></span>
                                         <p class="sub-text margin40">
-                                            We want to present you a simple and
-                                            functional template “ASSAN”. It is a
-                                            powerful Multi-Purpose HTML 5 Template.
-                                            Build whatever you like with this
-                                            Template that looks effortlessly
-                                            on-point in Business
+                                            We designed the premier open-data center of computer graphics' industry.
+                                            Come in and update, share, or simply read content.
                                         </p>
                                     </div>
                                 </div>
@@ -201,16 +197,19 @@
                     <div class="container">
                         <div class="row">
                             <t t-foreach="partners[:4]" t-as="partner">
-                            <div class="col-sm-3 text-center">
-                                <div class="person-v2">
-                                    <img src="img/team-5.jpg" class="img-responsive" alt=""/>
-                                    <div class="person-desc-v2">
-                                        <h3 t-esc="partner.name"/>
-                                        <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/></p>
-                                        <p><em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
+                                <div class="col-sm-3 text-center">
+                                    <img itemprop="image"
+                                         class="img img-responsive"
+                                         t-att-src="website.image_url(partner, 'image_small')"
+                                            />
+                                    <div class="person-v2">
+                                        <div class="person-desc-v2">
+                                            <h3 t-esc="partner.name"/>
+                                            <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/></p>
+                                            <p><em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!--person col end-->
+                                </div><!--person col end-->
                             </t>
                         </div>
 
@@ -229,6 +228,7 @@
                             </t>
                         </div>
                     </div>
+                    <div class="divide80"></div>
                 </div>
                 <footer id="footer" style="background: black">
 
@@ -236,18 +236,18 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 text-right">
-                                <a href="#">
+                                <a t-att-href="website.social_github">
                                     <i class="fa fa-github fa-3x"></i>
                                 </a><!--news link-->
-                                <a href="#">
+                                <a t-att-href="website.social_twitter">
                                     <i class="fa fa-twitter fa-3x"></i>
                                 </a><!--news link-->
-                                <a href="#">
+                                <a t-att-href="website.social_linkedin">
                                     <i class="fa fa-linkedin fa-3x"></i>
                                 </a><!--news link-->
-                                <a href="#">
-                                    <i class="fa fa-envelope fa-3x"></i>
-                                </a><!--news link-->
+                                <!--<a href="#">-->
+                                    <!--<i class="fa fa-envelope fa-3x"></i>-->
+                                <!--</a>&lt;!&ndash;news link&ndash;&gt;-->
                             </div>
                         </div>
                     </div>
