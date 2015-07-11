@@ -6149,8 +6149,7 @@ div.olMap {
 
 /****fun facts*****/
 .fun-fact-wrap-light {
-  background-color: #eee;
-  padding-bottom: 70px; }
+  padding-bottom: 40px; }
 
 .fun-fact-wrap-light .facts-in h3 .counter {
   color: #000; }
@@ -6190,6 +6189,9 @@ div.olMap {
 @media (max-width: 992px) {
   .facts-in {
     margin-bottom: 70px; } }
+.border-left {
+  border-left: 1px solid; }
+
 html {
   font-family: sans-serif !important;
   -ms-text-size-adjust: 100% !important;

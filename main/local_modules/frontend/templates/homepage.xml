@@ -197,7 +197,7 @@
                     <div class="container">
                         <div class="row">
                             <t t-foreach="partners[:4]" t-as="partner">
-                                <div class="col-sm-3 text-center">
+                                <div class="col-sm-3 border-left">
                                     <img itemprop="image"
                                          class="img img-responsive"
                                          t-att-src="website.image_url(partner, 'image_small')"
