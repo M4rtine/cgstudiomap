@@ -80,7 +80,6 @@
                 </script>
 
                 <div id="wrap" class="oe_structure oe_empty">
-                    <!--<div><span t-esc="nbr_partners"></span><span> Studios to check!</span></div>-->
                     <div t-att-id="geochart_target"></div>
 
                     <div class="divide60"></div>

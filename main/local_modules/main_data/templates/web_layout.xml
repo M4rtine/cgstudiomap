@@ -84,7 +84,7 @@
 					<meta name="msapplication-config" content="/main_data/static/src/fav/browserconfig.xml"/>
 					<meta name="theme-color" content="#ffffff"/>
 
-                    <title t-value="website.website_name"/>
+                    <title>cgstudiomap</title>
 
 
 					<t t-set="languages" t-value="website.get_languages() if website else None"/>
