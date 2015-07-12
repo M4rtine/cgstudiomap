@@ -54,7 +54,7 @@
                         rollOverOutlineColor: "<t t-esc='ammap_config.roll_over_outline_color'/>",
 
                         autoZoom: false,
-                        balloonText: "[[title]] ([[value]])"
+                        balloonText: "[[title]]: [[value]] studios"
 
                     };
                     map.zoomControl = {
@@ -169,7 +169,7 @@
                                         <p>
                                             cgstudiomap team is working on developping the website,
                                             today is a map that allows you to find studios worldwide,
-                                            tomorrow we woukld like to develop a job hunting tool…<br /><br />
+                                            tomorrow we would like to develop a job hunting tool…<br /><br />
                                             Together, let’s create a MOVEMENT!
                                         </p>
                                     </div>
@@ -282,17 +282,18 @@
                     <div>
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-9" >
-                                    Supervised by cgstudiomap.org team<br />
+                                <div class="col-sm-8" >
                                     Powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a>
                                 </div>
-                                <div class="col-sm-3 ">
-                                    <p >Connect with us:</p>
+                                <div class="col-sm-4">
+                                    <p>This website is maintained by volunteers hoping to make a difference.
+                                    Connect with us:
+                                    </p>
                                     <p>
-                                    <a t-att-href="website.social_github"><i class="fa fa-github fa-3x"/></a><!--news link-->
-                                    <a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-3x"/></a><!--news link-->
-                                    <a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-3x"/></a><!--news link-->
-                                    <a t-attf-href="/page/website.contactus"><i class="fa fa-envelope fa-3x"/></a><!--news link-->
+                                        <a t-attf-href="/page/website.contactus"><i class="fa fa-envelope fa-3x"/></a><!--news link-->
+                                        <a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-3x"/></a><!--news link-->
+                                        <a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-3x"/></a><!--news link-->
+                                        <a t-att-href="website.social_github"><i class="fa fa-github fa-3x"/></a><!--news link-->
                                     </p>
                                 </div>
                             </div>
