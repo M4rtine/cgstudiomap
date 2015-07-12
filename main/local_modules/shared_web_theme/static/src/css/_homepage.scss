@@ -245,3 +245,76 @@
 .border-left{
   border-left: 1px solid;
 }
+
+.sign-in-div {
+  position: absolute;
+  top: 130px;
+  right: 270px;
+  background-color: rgba($c-bg-dark, 0.8);
+  color: $c-txt-light;
+  text-align: center;
+  padding: 10px 30px 20px;
+
+  .small-text {
+    font-size: 0.85em;
+  }
+  h3 {
+
+    text-transform: uppercase;
+  }
+}
+
+.sign-in {
+  text-transform: uppercase;
+  width: 100%;
+  font-size: 1.6em;
+  letter-spacing: 1px;
+}
+
+.sign-in-text{
+  h2 {
+    margin-bottom: 0px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 1px;
+color: #333;
+font-size: 30px;
+  }
+}
+.studios {
+  h4 {
+    margin-top: 0;
+  }
+}
+.person-v2 {
+  margin: 0 10px;
+  float: left;
+  max-width: 170px;
+}
+
+.description {
+  .text {
+    margin: 0 10px;
+    max-width: 450px;
+  }
+
+  div {
+    float:left;
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+
+#footer {
+  background-color: black;
+  color: white;
+  i {
+    margin: 0 5px;
+  }
+}

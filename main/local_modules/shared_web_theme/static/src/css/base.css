@@ -6192,6 +6192,58 @@ div.olMap {
 .border-left {
   border-left: 1px solid; }
 
+.sign-in-div {
+  position: absolute;
+  top: 130px;
+  right: 270px;
+  background-color: rgba(117, 125, 117, 0.8);
+  color: #ECF0F1;
+  text-align: center;
+  padding: 10px 30px 20px; }
+  .sign-in-div .small-text {
+    font-size: 0.85em; }
+  .sign-in-div h3 {
+    text-transform: uppercase; }
+
+.sign-in {
+  text-transform: uppercase;
+  width: 100%;
+  font-size: 1.6em;
+  letter-spacing: 1px; }
+
+.sign-in-text h2 {
+  margin-bottom: 0px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #333;
+  font-size: 30px; }
+
+.studios h4 {
+  margin-top: 0; }
+
+.person-v2 {
+  margin: 0 10px;
+  float: left;
+  max-width: 170px; }
+
+.description .text {
+  margin: 0 10px;
+  max-width: 450px; }
+.description div {
+  float: left; }
+.description h3 {
+  margin-top: 0; }
+.description p {
+  text-align: justify;
+  text-justify: inter-word; }
+
+#footer {
+  background-color: black;
+  color: white; }
+  #footer i {
+    margin: 0 5px; }
+
 html {
   font-family: sans-serif !important;
   -ms-text-size-adjust: 100% !important;

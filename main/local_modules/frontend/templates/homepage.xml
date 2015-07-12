@@ -81,7 +81,17 @@
 
                 <div id="wrap" class="oe_structure oe_empty">
                     <div t-att-id="geochart_target"></div>
-
+                    <!--<t t-if="request.uid == %(base.public_user)d)">-->
+                    <div class="sign-in-div">
+                        <h3><strong>Find a studio</strong></h3>
+                        <p class="small-text">
+                            Welcome to cgstudiomap!<br />
+                            A map that allows you to find ANY studios worldwide<br/>
+                            by city, contact, specialities and even more.</p>
+                        <p>It is completely free forever.</p>
+                        <p><a t-attf-href="/web/signup" class="btn btn-warning sign-in pull-right"><strong>Sign in</strong></a></p>
+                    </div>
+                    <!--</t>-->
                     <div class="divide60"></div>
                     <div style="background: white">
                         <div class="container">
@@ -89,12 +99,12 @@
                                 <div class="col-sm-8 col-sm-offset-2">
                                     <div class="center-heading">
                                         <h2>
-                                            <strong>We believe that People should know more about any CG studio.</strong>
+                                            <strong>Because everyone should be familiar with the cg industry</strong>
                                         </h2>
                                         <span class="center-line"></span>
                                         <p class="sub-text margin40">
-                                            We designed the premier open-data center of computer graphics' industry.
-                                            Come in and update, share, or simply read content.
+                                            cgstudiomap is the premier open-data center of the computer graphic industry.<br/>
+                                            Come in: update, share or simply read the content.
                                         </p>
                                     </div>
                                 </div>
@@ -103,154 +113,191 @@
                             <!--center heading end-->
                             <div class="divide50"></div>
                             <div class="row">
-                                <div class="col-md-3 col-sm-6 margin30">
+                                <div class="col-md-6 margin30 description">
+                                    <div class="colored-boxed green">
+                                        <i class="fa fa-group"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h3>Community</h3>
+                                        <p>
+                                            cgstudiomap project is an initiative that promotes and celebrates open exchange,
+                                            collaborative participation, transparency and community development.
+                                            Anyone can freely update, edit and share the content.<br /><br />
+                                            <a t-attf-href="/web/signup">Sign-in</a> today and be part of the community!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 margin30 description">
+                                    <div class="colored-boxed green">
+                                        <i class="fa fa-folder-open"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h3>Open source project</h3>
+                                        <p>
+                                            cgstudiomap project is now open source,
+                                            the source code is available for modification and/or enhancement
+                                            by anyone. Programmers as well as other
+                                            members can contribute by improving all the source code and
+                                            by sharing the changes within the community. <br /><br />
+                                            Join us on <a t-att-href="website.social_github">Github</a> today!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divide50"></div>
+                            <div class="row">
+                                <div class="col-md-6 margin30 description">
                                     <div class="colored-boxed green">
                                         <i class="fa fa-cogs"></i>
-                                        <h3>Free support n updates</h3>
-                                        <span class="center-line"></span>
+                                    </div>
+                                    <div class="text">
+                                        <h3>Open Data</h3>
                                         <p>
-                                            Nullam vulputate lorem ut leo. Sed
-                                            volutpat. Etiam non pede. Nullam et
-                                            mauris.
+                                            As an Open data website, our data are freely available to everyone
+                                            to use and republish as you wish, without restrictions in the
+                                            only purpose of developping the community.<br /><br />
+                                            Start <a t-attf-href="/web/signup">contributing</a> today!
                                         </p>
                                     </div>
                                 </div>
-                                <!--colored boxed col end-->
-                                <div class="col-md-3 col-sm-6 margin30">
-                                    <div class="colored-boxed dark">
-                                        <i class="fa fa-tablet"></i>
-                                        <h3>Ultra responsive</h3>
-                                        <span class="center-line"></span>
-                                        <p>
-                                            Nullam vulputate lorem ut leo. Sed
-                                            volutpat. Etiam non pede. Nullam et
-                                            mauris.
-                                        </p>
-                                    </div>
-                                </div>
-                                <!--colored boxed col end-->
-                                <div class="col-md-3 col-sm-6 margin30">
-                                    <div class="colored-boxed blue">
-                                        <i class="fa fa-heart"></i>
-                                        <h3>made with love</h3>
-                                        <span class="center-line"></span>
-                                        <p>
-                                            Nullam vulputate lorem ut leo. Sed
-                                            volutpat. Etiam non pede. Nullam et
-                                            mauris.
-                                        </p>
-                                    </div>
-                                </div>
-                                <!--colored boxed col end-->
-                                <div class="col-md-3 col-sm-6 margin30">
+                                <div class="col-md-6 margin30 description">
                                     <div class="colored-boxed red">
-                                        <i class="fa fa-sliders"></i>
-                                        <h3>Premium plugins</h3>
-                                        <span class="center-line"></span>
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h3>Support</h3>
                                         <p>
-                                            Nullam vulputate lorem ut leo. Sed
-                                            volutpat. Etiam non pede. Nullam et
-                                            mauris.
+                                            cgstudiomap team is working on developping the website,
+                                            today is a map that allows you to find studios worldwide,
+                                            tomorrow we woukld like to develop a job hunting tool…<br /><br />
+                                            Together, let’s create a MOVEMENT!
                                         </p>
                                     </div>
                                 </div>
-                                <!--colored boxed col end-->
                             </div>
+                            <div class="divide80"></div>
                         </div>
                     </div>
                     <!--services container-->
                     <div class="divide80"></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="center-heading">
-                                    <h2>Recent <strong>Activity</strong></h2>
-                                    <span class="center-line"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <section class="fun-fact-wrap-light">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 margin20 facts-in">
-                                    <h3><span class="counter" t-esc="nbr_partners"/></h3>
-                                    <h4>Companies</h4>
-                                </div><!--facts in-->
-                                <div class="col-md-6 margin20 facts-in">
+                                <div class="col-md-4 margin20 facts-in">
                                     <h3><span class="counter" t-esc="nbr_users"/></h3>
                                     <h4>Happy Users</h4>
                                 </div><!--facts in-->
+                                <div class="col-md-4 margin20 facts-in">
+                                    <h3><span class="counter" t-esc="nbr_partners"/></h3>
+                                    <h4>Companies</h4>
+                                </div><!--facts in-->
                                 <!--<div class="col-md-3 margin20 facts-in">-->
-                                    <!--<h3><span class="counter">80</span></h3>-->
-                                    <!--<h4>Issues Opened</h4>-->
+                                    <!--<h3><span class="counter" t-esc="nbr_cities"/></h3>-->
+                                    <!--<h4>Cities</h4>-->
                                 <!--</div>&lt;!&ndash;facts in&ndash;&gt;-->
-                                <!--<div class="col-md-3 margin20 facts-in">-->
-                                    <!--<h3><span class="counter">3000</span></h3>-->
-                                    <!--<h4>Pull Requests</h4>-->
-                                <!--</div>&lt;!&ndash;facts in&ndash;&gt;-->
+                                <div class="col-md-4 margin20 facts-in">
+                                    <h3><span class="counter" t-esc="nbr_countries"/></h3>
+                                    <h4>Countries</h4>
+                                </div><!--facts in-->
                             </div>
                         </div>
                     </section><!--fun facts-->
 
                     <div class="container">
                         <div class="row">
-                            <t t-foreach="partners[:4]" t-as="partner">
-                                <div class="col-sm-3 border-left">
-                                    <img itemprop="image"
-                                         class="img img-responsive"
-                                         t-att-src="website.image_url(partner, 'image_small')"
-                                            />
-                                    <div class="person-v2">
-                                        <div class="person-desc-v2">
-                                            <h3 t-esc="partner.name"/>
-                                            <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/></p>
-                                            <p><em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
-                                        </div>
-                                    </div>
-                                </div><!--person col end-->
-                            </t>
-                        </div>
-
-                        <div class="row">
-                            <t t-foreach="partners[4:]" t-as="partner">
-                                <div class="col-sm-3 text-center">
-                                    <div class="person-v2">
-                                        <img src="img/team-5.jpg" class="img-responsive" alt=""/>
-                                        <div class="person-desc-v2">
-                                            <h3 t-esc="partner.name"/>
-                                            <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/></p>
-                                            <p><em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
-                                        </div>
-                                    </div>
-                                </div><!--person col end-->
-                            </t>
-                        </div>
-                    </div>
-                    <div class="divide80"></div>
-                </div>
-                <footer id="footer" style="background: black">
-
-                <div >
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 text-right">
-                                <a t-att-href="website.social_github">
-                                    <i class="fa fa-github fa-3x"></i>
-                                </a><!--news link-->
-                                <a t-att-href="website.social_twitter">
-                                    <i class="fa fa-twitter fa-3x"></i>
-                                </a><!--news link-->
-                                <a t-att-href="website.social_linkedin">
-                                    <i class="fa fa-linkedin fa-3x"></i>
-                                </a><!--news link-->
-                                <!--<a href="#">-->
-                                    <!--<i class="fa fa-envelope fa-3x"></i>-->
-                                <!--</a>&lt;!&ndash;news link&ndash;&gt;-->
+                            <div class="col-md-12">
+                                <div class="center-heading">
+                                    <h2>Recent <strong>Activity</strong></h2>
+                                    <span>Latest Updated Companies</span>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="container">
+                        <div class="row studios">
+                            <t t-foreach="partners[4:]" t-as="partner">
+                                <div class="col-sm-3">
+                                    <div style="float:left">
+                                        <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
+                                        <img itemprop="image"
+                                             class="img img-responsive"
+                                             t-att-src="website.image_url(partner, 'image_small')"
+                                                />
+                                        </a>
+                                    </div>
+                                    <div class="person-v2">
+                                        <div class="person-desc-v2">
+                                            <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
+                                            <h4 t-esc="partner.name"/></a>
+                                            <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
+                                            <em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
+                                        </div>
+                                    </div>
+                                </div><!--person col end-->
+                            </t>
+                        </div>
+
+                        <div class="row studios" style="margin-top:20px">
+                            <t t-foreach="partners[:4]" t-as="partner">
+                                <div class="col-sm-3">
+                                    <div style="float:left">
+                                        <img itemprop="image"
+                                             class="img img-responsive"
+                                             t-att-src="website.image_url(partner, 'image_small')"
+                                                />
+                                    </div>
+                                    <div class="person-v2">
+                                        <div class="person-desc-v2">
+                                            <a href="#"><h4 t-esc="partner.name"/></a>
+                                            <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
+                                                <em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
+                                        </div>
+                                    </div>
+                                </div><!--person col end-->
+                            </t>
+                        </div>
+                    </div>
+
                 </div>
+                <div class="divide40"></div>
+                <div class="sign-in-text" style="background:white">
+                    <div class="divide40"></div>
+                    <div class="container">
+                        <div class="row">
+                            <!--<div class="col-sm-7">-->
+                                <!--<h2>Sign in</h2>-->
+                                <!--<p>Join the force and help us to change cg industry</p>-->
+                            <!--</div>-->
+                            <div class="col-sm-12">
+                                <a t-attf-href="/web/signup" class="btn sign-in btn-warning" style="margin-top:25px">
+                                    <strong>Sign in</strong>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divide40"></div>
+                </div> <!--intro text end-->
+
+                <footer id="footer">
+                    <div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-9" >
+                                    Supervised by cgstudiomap.org team<br />
+                                    Powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a>
+                                </div>
+                                <div class="col-sm-3 ">
+                                    <p >Connect with us:</p>
+                                    <p>
+                                    <a t-att-href="website.social_github"><i class="fa fa-github fa-3x"/></a><!--news link-->
+                                    <a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-3x"/></a><!--news link-->
+                                    <a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-3x"/></a><!--news link-->
+                                    <a t-attf-href="/page/website.contactus"><i class="fa fa-envelope fa-3x"/></a><!--news link-->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </footer>
             </t>
         </template>

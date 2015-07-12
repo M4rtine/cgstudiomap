@@ -6,7 +6,6 @@ import logging
 from openerp.addons.web import http
 from openerp.http import request
 from openerp.addons.website.controllers.main import Website
-from openerp import SUPERUSER_ID
 
 _logger = logging.getLogger(__name__)
 
@@ -45,10 +44,19 @@ class MainPage(Website):
                 by_countries[
                     country_pool.browse(cr, uid, country, context=context)
                 ] = number_partners
+
         partners = [
             partner_pool.browse(cr, uid, partner_id)
-            for partner_id in  partner_pool.search(cr, uid, filters, limit=8)
+            for partner_id in partner_pool.search(
+                cr, uid, filters, limit=8, order='write_date'
+            )
         ]
+
+        # this is too slow I think. Need to make some test on how to have a
+        # really fast homepage.
+        # cities = set()
+        # for partner_id in partner_pool.search(cr, uid, filters):
+        #     cities.add(partner_pool.browse(cr, uid, partner_id).city)
 
         values = {
             'page': page,
@@ -56,8 +64,12 @@ class MainPage(Website):
             'geochart_target': 'geochart_div',
             'ammap_config': ammap_homepage,
             'nbr_partners': partner_pool.search_count(cr, uid, filters),
-            'nbr_users': user_pool.search_count(cr, uid, [('active', '=', True)]),
-            'partners': partners
+            'nbr_countries': len(by_countries.keys()),
+            # 'nbr_cities': len(cities),
+            'nbr_users': user_pool.search_count(
+                cr, uid, [('active', '=', True)]
+            ),
+            'partners': partners,
         }
 
         return request.render('frontend.homepage', values)
