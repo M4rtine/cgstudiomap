@@ -17,6 +17,7 @@ class MainPage(Website):
         page = 'homepage'
         cr, uid, context = request.cr, request.uid, request.context
         pool = request.registry
+        user_pool = pool['res.users']
         partner_pool = pool['res.partner']
         country_pool = pool['res.country']
         ir_model_data_pool = pool['ir.model.data']
@@ -44,12 +45,31 @@ class MainPage(Website):
                     country_pool.browse(cr, uid, country, context=context)
                 ] = number_partners
 
+        partners = [
+            partner_pool.browse(cr, uid, partner_id)
+            for partner_id in partner_pool.search(
+                cr, uid, filters, limit=8, order='write_date'
+            )
+        ]
+
+        # this is too slow I think. Need to make some test on how to have a
+        # really fast homepage.
+        # cities = set()
+        # for partner_id in partner_pool.search(cr, uid, filters):
+        #     cities.add(partner_pool.browse(cr, uid, partner_id).city)
+
         values = {
             'page': page,
             'geochart_data': by_countries,
             'geochart_target': 'geochart_div',
             'ammap_config': ammap_homepage,
-            'nbr_partners': partner_pool.search_count(cr, uid, filters)
+            'nbr_partners': partner_pool.search_count(cr, uid, filters),
+            'nbr_countries': len(by_countries.keys()),
+            # 'nbr_cities': len(cities),
+            'nbr_users': user_pool.search_count(
+                cr, uid, [('active', '=', True)]
+            ),
+            'partners': partners,
         }
 
         return request.render('frontend.homepage', values)
