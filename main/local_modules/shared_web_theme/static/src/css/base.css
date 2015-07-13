@@ -6192,7 +6192,7 @@ div.olMap {
 .border-left {
   border-left: 1px solid; }
 
-.sign-in-div {
+.sign-up-div {
   position: absolute;
   top: 130px;
   right: 270px;
@@ -6200,12 +6200,12 @@ div.olMap {
   color: #ECF0F1;
   text-align: center;
   padding: 10px 30px 20px; }
-  .sign-in-div .small-text {
+  .sign-up-div .small-text {
     font-size: 0.85em; }
-  .sign-in-div h3 {
+  .sign-up-div h3 {
     text-transform: uppercase; }
 
-.sign-in {
+.sign-up {
   text-transform: uppercase;
   width: 100%;
   font-size: 1.6em;

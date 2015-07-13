@@ -82,14 +82,14 @@
                 <div id="wrap" class="oe_structure oe_empty">
                     <div t-att-id="geochart_target"></div>
                     <!--<t t-if="request.uid == %(base.public_user)d)">-->
-                    <div class="sign-in-div">
+                    <div class="sign-up-div">
                         <h3><strong>Find a studio</strong></h3>
                         <p class="small-text">
                             Welcome to cgstudiomap!<br />
                             A map that allows you to find ANY studios worldwide<br/>
                             by city, contact, specialities and even more.</p>
                         <p>It is completely free forever.</p>
-                        <p><a t-attf-href="/web/signup" class="btn btn-warning sign-in pull-right"><strong>Sign in</strong></a></p>
+                        <p><a t-attf-href="/web/signup" class="btn btn-warning sign-up pull-right"><strong>Sign up</strong></a></p>
                     </div>
                     <!--</t>-->
                     <div class="divide60"></div>
@@ -123,7 +123,7 @@
                                             cgstudiomap project is an initiative that promotes and celebrates open exchange,
                                             collaborative participation, transparency and community development.
                                             Anyone can freely update, edit and share the content.<br /><br />
-                                            <a t-attf-href="/web/signup">Sign-in</a> today and be part of the community!
+                                            <a t-attf-href="/web/signup">Sign-up</a> today and be part of the community!
                                         </p>
                                     </div>
                                 </div>
@@ -260,7 +260,7 @@
 
                 </div>
                 <div class="divide40"></div>
-                <div class="sign-in-text" style="background:white">
+                <div class="sign-up-text" style="background:white">
                     <div class="divide40"></div>
                     <div class="container">
                         <div class="row">
@@ -269,8 +269,8 @@
                                 <!--<p>Join the force and help us to change cg industry</p>-->
                             <!--</div>-->
                             <div class="col-sm-12">
-                                <a t-attf-href="/web/signup" class="btn sign-in btn-warning" style="margin-top:25px">
-                                    <strong>Sign in</strong>
+                                <a t-attf-href="/web/signup" class="btn sign-up btn-warning" style="margin-top:25px">
+                                    <strong>Sign up</strong>
                                 </a>
                             </div>
                         </div>
