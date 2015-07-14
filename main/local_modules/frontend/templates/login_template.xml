@@ -62,59 +62,65 @@
             </t>
         </template>
 
-        <!--https://github.com/cgstudiomap/cgstudiomap/issues/73-->
-        <!--For the alpha as it is closed, the self sign up is not wanted.-->
-        <!--We change the view to inform how to get invited to the closed alpha.-->
         <template id="auth_signup.signup" name="Sign up Container">
             <t t-call="web.login_layout">
                 <!--Add a container to center the view and the modal-content to -->
                 <!--add border around the content-->
-                <div class="oe_single_form_container modal-content" style="width:670px; margin-left: -335px; display:inline-flex; padding:0">
-                    <!--<form class="oe_signup_form" role="form" method="post"-->
-                    <!--t-if="not message">-->
+                <div class="oe_single_form_container modal-content">
+                    <h2>Join in</h2>
+                    <p>
+                        Welcome to cgstudiomap!<br />
+                    A map that allows you to find ANY studios worldwide<br/>
+                    by city, contact, specialities and even more.
+                    </p>
+                    <p><strong>It is completely free forever.</strong></p>
+                    <hr />
 
-                    <!--<t t-call="auth_signup.fields"/>-->
+                    <form class="oe_signup_form" role="form" method="post"
+                    t-if="not message">
 
-                    <!--<p class="alert alert-danger" t-if="error">-->
-                    <!--<t t-esc="error"/>-->
-                    <!--</p>-->
-                    <!--<input type="hidden" name="redirect" t-att-value="redirect"/>-->
-                    <!--<input type="hidden" name="token" t-att-value="token"/>-->
-                    <!--<div class="clearfix oe_login_buttons">-->
-                    <!--<a t-attf-href="/web/login?{{ keep_query() }}"-->
-                    <!--class="btn btn-link pull-right">Back to Login-->
-                    <!--</a>-->
-                    <!--<button type="submit" class="btn btn-primary pull-left">Sign up-->
-                    <!--</button>-->
+                    <t t-call="auth_signup.fields"/>
+
+                    <p class="alert alert-danger" t-if="error">
+                    <t t-esc="error"/>
+                    </p>
+                    <input type="hidden" name="redirect" t-att-value="redirect"/>
+                    <input type="hidden" name="token" t-att-value="token"/>
+                    <div class="clearfix oe_login_buttons">
+                    <a t-attf-href="/web/login?{{ keep_query() }}"
+                    class="btn btn-link pull-right">Back to Login
+                    </a>
+                    <button type="submit" class="btn btn-primary pull-left">Sign up
+                    </button>
+                    </div>
+
+                    </form>
+                    <!--<div style="float:left;padding:10px;"-->
+                         <!--class="bg-logo-color">-->
+                        <!--<img src="/main_data/static/cgsm-logo-gray.png"-->
+                             <!--t-att-alt="'Logo of %s' % res_company.name"-->
+                             <!--t-att-title="res_company.name"-->
+                             <!--style="width:150px;"-->
+                                <!--/>-->
                     <!--</div>-->
+                    <!--<div style="float:left; padding:15px">-->
+                        <!--<h1>Sorry, Private Alpha Phase</h1>-->
+                        <!--<p></p>-->
 
-                    <!--</form>-->
-                    <div style="float:left;padding:10px;"
-                         class="bg-logo-color">
-                        <img src="/main_data/static/cgsm-logo-gray.png"
-                             t-att-alt="'Logo of %s' % res_company.name"
-                             t-att-title="res_company.name"
-                             style="width:150px;"
-                                />
-                    </div>
-                    <div style="float:left; padding:15px">
-                        <h1>Sorry, Private Alpha Phase</h1>
-                        <p></p>
-
-                        <p >
-                            Contact us via <a t-att-href="website.social_twitter">twitter</a> or <a t-attf-href="mailto:{{ res_company.email }}">email</a> to request your invitation.
-                            <br />
-                            We will invite you as soon as some slot opens!
-                            <br /><br/>
-                            Follow us on to be informed on the next move!<br />
-                            <!--<a t-att-href="website.social_twitter"><i class="fa fa-twitter" style="font-size:40px"/></a> - <a t-att-href="website.social_github"><i class="fa fa-github" style="font-size:40px"/></a>-->
-                            <br />
-                            <br />
-                            Looking forward to seeing you on board.
-                        </p>
-                        <p></p>
-                        <p style="text-align: right">The team</p>
-                    </div>
+                        <!--<p >-->
+                            <!--Contact us via <a t-att-href="website.social_twitter">twitter</a> or <a t-attf-href="mailto:{{ res_company.email }}">email</a> to request your invitation.-->
+                            <!--<br />-->
+                            <!--We will invite you as soon as some slot opens!-->
+                            <!--<br /><br/>-->
+                            <!--Follow us on to be informed on the next move!<br />-->
+                            <!--&lt;!&ndash;<a t-att-href="website.social_twitter"><i class="fa fa-twitter" style="font-size:40px"/></a> - <a t-att-href="website.social_github"><i class="fa fa-github" style="font-size:40px"/></a>&ndash;&gt;-->
+                            <!--<br />-->
+                            <!--<br />-->
+                            <!--Looking forward to seeing you on board.-->
+                        <!--</p>-->
+                        <!--<p></p>-->
+                        <!--<p style="text-align: right">The team</p>-->
+                    <!--</div>-->
                 </div>
             </t>
         </template>
