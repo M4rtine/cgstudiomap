@@ -5700,6 +5700,30 @@ button.close, .openerp .close.oe_button {
 @media print {
   .hidden-print {
     display: none !important; } }
+@font-face {
+  font-family: 'cgsm-bold';
+  src: url("colabbol-webfont.eot");
+  src: url("colabbol-webfont.eot?#iefix") format("embedded-opentype"), url("colabbol-webfont.woff2") format("woff2"), url("colabbol-webfont.woff") format("woff"), url("colabbol-webfont.ttf") format("truetype"), url("colabbol-webfont.svg#colaborate-boldregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'cgsm-light';
+  src: url("../fonts/colablig-webfont.eot");
+  src: url("../fonts/colablig-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/colablig-webfont.woff2") format("woff2"), url("../fonts/colablig-webfont.woff") format("woff"), url("../fonts/colablig-webfont.ttf") format("truetype"), url("../fonts/colablig-webfont.svg#colaboratelightregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'cgsm-regular';
+  src: url("../fonts/colabreg-webfont.eot");
+  src: url("../fonts/colabreg-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/colabreg-webfont.woff2") format("woff2"), url("../fonts/colabreg-webfont.woff") format("woff"), url("../fonts/colabreg-webfont.ttf") format("truetype"), url("../fonts/colabreg-webfont.svg#colaborate-regularregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'cgsm-thin';
+  src: url("../fonts/colabthi-webfont.eot");
+  src: url("../fonts/colabthi-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/colabthi-webfont.woff2") format("woff2"), url("../fonts/colabthi-webfont.woff") format("woff"), url("../fonts/colabthi-webfont.ttf") format("truetype"), url("../fonts/colabthi-webfont.svg#colaborate-thinregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 body, html {
   height: 100%;
   padding: 0;
@@ -5921,7 +5945,7 @@ body.home {
   margin-left: -200px; }
 
 .navbar-static-top {
-  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8); }
+  background: none repeat scroll 0 0 #434a54; }
 
 .navbar-static-top {
   z-index: 1000;
@@ -5992,6 +6016,11 @@ a {
 div.olMap {
   z-index: 100; }
 
+body {
+  font-family: 'cgsm-light';
+  font-size: 16px;
+  font-weight: normal; }
+
 .center-heading {
   text-align: center;
   margin-bottom: 40px; }
@@ -6014,7 +6043,7 @@ div.olMap {
   display: inline-block;
   width: 70px;
   height: 1px;
-  border-top: 1px solid #bbb;
+  border-top: 0 solid #bbb;
   /* border-bottom: 1px solid $skincolor; */
   margin: auto; }
 
@@ -6039,8 +6068,8 @@ div.olMap {
   font-size: 30px; }
 
 .colored-boxed.green i {
-  color: #4f82e9;
-  border-color: #4f82e9; }
+  color: #b05ae2;
+  border-color: transparent; }
 
 .colored-boxed.dark i {
   color: #333;
@@ -6051,8 +6080,8 @@ div.olMap {
   border-color: #3b5998; }
 
 .colored-boxed.red i {
-  color: #cb2027;
-  border-color: #cb2027; }
+  color: #b05ae2;
+  border-color: transparent; }
 
 .colored-boxed h3 {
   font-size: 16px;
@@ -6196,9 +6225,10 @@ div.olMap {
   position: absolute;
   top: 130px;
   right: 270px;
-  background-color: rgba(117, 125, 117, 0.8);
-  color: #ECF0F1;
-  text-align: center;
+  background-color: rgba(241, 241, 243, 0.7);
+  border: 1px solid #b86be5;
+  color: #5e5e5e;
+  text-align: left;
   padding: 10px 30px 20px; }
   .sign-up-div .small-text {
     font-size: 0.85em; }
@@ -6211,7 +6241,7 @@ div.olMap {
   font-size: 1.6em;
   letter-spacing: 1px; }
 
-.sign-in-text h2 {
+.sign-up-text h2 {
   margin-bottom: 0px;
   font-weight: 700;
   text-transform: uppercase;
@@ -6238,9 +6268,42 @@ div.olMap {
   text-align: justify;
   text-justify: inter-word; }
 
+.navbar-default .navbar-nav > li {
+  text-transform: uppercase; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #f8f0fc; }
+
+.navbar-default .navbar-nav > li > a :hover,
+.navbar-default .navbar-nav > li > a :visited,
+.navbar-default .navbar-nav > li > a :active {
+  color: #b86be5; }
+
+.btn-warning,
+.btn-warning a:hover {
+  color: #f1f1f3;
+  background-color: #8ce25a;
+  border-color: transparent; }
+
+.fun-fact-wrap-light .facts-in h3 .counter {
+  color: #f8f0fc;
+  background-color: #b86be5;
+  padding: 10px 30px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px; }
+
+.fun-fact-wrap-light .facts-in h4 {
+  color: #000;
+  font-family: 'cgsm-regular';
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-style: normal; }
+
 #footer {
-  background-color: black;
-  color: white; }
+  background-color: #0d0313;
+  color: #f8f0fc; }
   #footer i {
     margin: 0 5px; }
 
