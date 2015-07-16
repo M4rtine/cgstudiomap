@@ -129,12 +129,7 @@ class ResPartner(models.Model):
             _logger.debug('geocode: {}'.format(geocode))
 
             if geocode.route is None:
-                raise except_orm(
-                    _('Error'),
-                    _('The address cannot be geolocalized. '
-                      'Please enter a valid street address.'
-                      )
-                )
+                return None
 
             return geocode
 
