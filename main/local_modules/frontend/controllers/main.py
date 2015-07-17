@@ -6,14 +6,16 @@ import logging
 from openerp.addons.web import http
 from openerp.http import request
 from openerp.addons.website.controllers.main import Website
-
+import time
 _logger = logging.getLogger(__name__)
+_logger.setLevel(logging.DEBUG)
 
 
 class MainPage(Website):
     @http.route('/', type='http', auth="public", website=True)
     def index(self, **kw):
         _logger.debug('index')
+        time1 = time.time()
         page = 'homepage'
         cr, uid, context = request.cr, request.uid, request.context
         pool = request.registry
@@ -21,17 +23,12 @@ class MainPage(Website):
         partner_pool = pool['res.partner']
         country_pool = pool['res.country']
         ir_model_data_pool = pool['ir.model.data']
-        media = ir_model_data_pool.get_object(
-            cr, uid, 'res_partner_industry', 'med'
-        )
         ammap_homepage = ir_model_data_pool.get_object(
             cr, uid, 'frontend', 'homepage_ammap_config', context=context
         )
-
         filters = [
             ('active', '=', True),
             ('is_company', '=', True),
-            ('industry_family_ids', 'in', [media.id]),
         ]
         by_countries = defaultdict(int)
         for country in country_pool.search(cr, uid, [], context=context):
@@ -72,4 +69,6 @@ class MainPage(Website):
             'partners': partners,
         }
 
+        time2 = time.time()
+        _logger.debug('function took %0.3f ms' % ((time2-time1)*1000.0))
         return request.render('frontend.homepage', values)
