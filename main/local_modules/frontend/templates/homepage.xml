@@ -192,7 +192,7 @@
                     <div class="sign-up-div">
                         <h3><strong>Find a studio</strong></h3>
                         <p class="small-text">
-                            Welcome to cgstudiomap!<br />
+                            Welcome to cgstudiomap <span class="label label-danger">beta</span>!<br />
                             A map that allows you to find ANY studios worldwide<br/>
                             by city, contact, specialities and even more.</p>
                         <p>It is completely free forever.</p>
@@ -381,12 +381,12 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-8" >
-                                Powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a>
+                                <p>cgstudiomap <span class="label label-danger">beta</span></p>
+                                <p>Powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a></p>
+                                <p>maintained by volunteers hoping to make a difference.</p>
                             </div>
                             <div class="col-sm-4">
-                                <p>This website is maintained by volunteers hoping to make a difference.
-                                    Connect with us:
-                                </p>
+                                <p>Connect with us:</p>
                                 <p>
                                     <a t-attf-href="/page/website.contactus"><i class="fa fa-envelope fa-3x"/></a><!--news link-->
                                     <a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-3x"/></a><!--news link-->
