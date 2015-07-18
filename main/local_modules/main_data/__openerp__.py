@@ -21,7 +21,7 @@
 
 {
     'name': 'Main Data Module',
-    'version': '172',
+    'version': '200',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
