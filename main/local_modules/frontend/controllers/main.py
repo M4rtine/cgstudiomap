@@ -36,7 +36,7 @@ class MainPage(Website):
             p for p in partner_pool.search(filters + [('image', '!=', False)])
         ]
 
-        sample_partners = random.sample(partners, 8)
+        sample_partners = random.sample(partners, min(len(partners), 8))
 
         values = {
             'page': page,

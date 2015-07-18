@@ -11,77 +11,184 @@
             <field name="description">Config of the map on the homepage.</field>
         </record>
 
-        <template id="homepage" name="Homepage" page="True" priority="29">
-            <t t-call="website.layout">
-                <link rel="stylesheet" href="/ammap/static/src/js/ammap_3.14.0/ammap.css" type="text/css"/>
-                <script src="/ammap/static/src/js/ammap_3.14.0/ammap.js" type="text/javascript"></script>
-                <!-- map file should be included after ammap.js -->
-                <script src="/ammap/static/src/js/ammap_3.14.0/maps/js/worldLow.js" type="text/javascript"></script>
-                <script type="text/javascript">
+<template id="homepage" name="Homepage" page="True" priority="29">
+<html t-att-lang="lang and lang.replace('_', '-')" t-att-data-website-id="website.id if editable and website else None" t-att-data-editable="'1' if editable else None" t-att-data-translatable="'1' if translatable else None" t-att-data-view-xmlid="xmlid if editable else None" t-att-data-main-object="repr(main_object) if editable else None" t-att-data-oe-company-name="res_company.name">
+        <head>
+            <meta charset="utf-8" />
+            <title>cgstudiomap</title>
+
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+            <meta name="description" t-att-content="main_object and 'website_meta_description' in main_object
+                and main_object.website_meta_description or website_meta_description"/>
+            <meta name="keywords" t-att-content="main_object and 'website_meta_keywords' in main_object
+                and main_object.website_meta_keywords or website_meta_keywords"/>
+            <meta name="generator" content="Odoo"/>
+
+            <link rel="canonical" href="http://www.cgstudiomap.org/" />
+
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@CGStudioMap"/>
+            <meta name="twitter:title" content="Where cg is"/>
+            <meta name="twitter:description" content="Premier directory of Computer Graphics Industry."/>
+            <meta name="twitter:image" content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg"/>
+
+            <link rel="apple-touch-icon" sizes="57x57" href="/main_data/static/src/fav/apple-touch-icon-57x57.png"/>
+            <link rel="apple-touch-icon" sizes="60x60" href="/main_data/static/src/fav/apple-touch-icon-60x60.png"/>
+            <link rel="apple-touch-icon" sizes="72x72" href="/main_data/static/src/fav/apple-touch-icon-72x72.png"/>
+            <link rel="apple-touch-icon" sizes="76x76" href="/main_data/static/src/fav/apple-touch-icon-76x76.png"/>
+            <link rel="apple-touch-icon" sizes="114x114" href="/main_data/static/src/fav/apple-touch-icon-114x114.png"/>
+            <link rel="apple-touch-icon" sizes="120x120" href="/main_data/static/src/fav/apple-touch-icon-120x120.png"/>
+            <link rel="apple-touch-icon" sizes="144x144" href="/main_data/static/src/fav/apple-touch-icon-144x144.png"/>
+            <link rel="apple-touch-icon" sizes="152x152" href="/main_data/static/src/fav/apple-touch-icon-152x152.png"/>
+            <link rel="apple-touch-icon" sizes="180x180" href="/main_data/static/src/fav/apple-touch-icon-180x180.png"/>
+            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-32x32.png" sizes="32x32"/>
+            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-194x194.png" sizes="194x194"/>
+            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-96x96.png" sizes="96x96"/>
+            <link rel="icon" type="image/png" href="/main_data/static/src/fav/android-chrome-192x192.png" sizes="192x192"/>
+            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-16x16.png" sizes="16x16"/>
+            <link rel="manifest" href="/main_data/static/src/fav/manifest.json"/>
+            <link rel="shortcut icon" href="/main_data/static/src/fav/favicon.ico"/>
+            <meta name="msapplication-TileColor" content="#ffffff"/>
+            <meta name="msapplication-TileImage" content="/main_data/static/src/fav/mstile-144x144.png"/>
+            <meta name="msapplication-config" content="/main_data/static/src/fav/browserconfig.xml"/>
+            <meta name="theme-color" content="#ffffff"/>
+
+            <t t-set="title"><t t-if="additional_title"><t t-raw="additional_title"/> | </t><t t-esc="res_company.name"/></t>
+
+
+            <t t-set="languages" t-value="website.get_languages() if website else None"/>
+            <t t-if="request and request.website_multilang and website">
+                <t t-foreach="website.get_alternate_languages(request.httprequest)" t-as="lang">
+                    <link rel="alternate" t-att-hreflang="lang['hreflang']" t-att-href="lang['href']"/>
+                </t>
+            </t>
+            <!--links form web.asset_common-->
+            <link rel="stylesheet" href="/web/static/lib/fontawesome/css/font-awesome.css" type="text/css"/>
+            <script async="" src="//www.google-analytics.com/analytics.js"></script>
+
+            <!--bootstrap is imported in base.css anyway-->
+            <link rel="stylesheet" href="/shared_web_theme/static/src/css/base.css" type="text/css"/>
+            <link rel="stylesheet" href="/website/static/src/css/website.css" type="text/css"/>
+            <link rel="stylesheet" href="/website_mail/static/src/css/website_mail.css" type="text/css"/>
+            <link rel="stylesheet" href="/website_blog/static/src/css/website_blog.css" type="text/css"/>
+            <style type="text/css"></style>
+
+            <!--script for ammap-->
+            <link rel="stylesheet" href="/ammap/static/src/js/ammap_3.14.0/ammap.css" type="text/css"/>
+            <script src="/ammap/static/src/js/ammap_3.14.0/ammap.js" type="text/javascript"></script>
+            <!-- map file should be included after ammap.js -->
+            <script src="/ammap/static/src/js/ammap_3.14.0/maps/js/worldLow.js" type="text/javascript"></script>
+
+            <script type="text/javascript">
                 var map;
 
                 AmCharts.ready(function() {
-                    map = new AmCharts.AmMap();
-                    map.pathToImages = "/ammap/static/src/js/ammap_3.14.0/images/";
+                map = new AmCharts.AmMap();
+                map.pathToImages = "/ammap/static/src/js/ammap_3.14.0/images/";
 
-                    map.colorSteps = 10;
-                    var dataProvider = {
-                        mapVar: AmCharts.maps.worldLow,
-                    };
-                    var areas = new Array()
-                    <t t-foreach="geochart_data" t-as="country">
+                map.colorSteps = 10;
+                var dataProvider = {
+                mapVar: AmCharts.maps.worldLow,
+                };
+                var areas = new Array()
+                <t t-foreach="geochart_data" t-as="country">
                     areas[areas.length] = {
-                        id: "<t t-esc="country.code"/>",
-                        name: "<t t-esc="country.name"/>",
-                        value: <t t-esc="geochart_data[country]"/>
-                        };
-                    </t>
-                    dataProvider['areas'] = areas;
-                    map.dataProvider = dataProvider;
-                    // make the map static. Can't be dragged.
-                    map.dragMap = false;
-
-
-                    map.areasSettings = {
-                        autoZoom: true,
-                        // low value color
-                        color: "<t t-esc='ammap_config.color'/>",
-                        // high value color
-                        colorSolid: "<t t-esc='ammap_config.color_solid'/>",
-                        // Color for country without value.
-                        unlistedAreasColor: "<t t-esc='ammap_config.unlisted_areas_color'/>",
-                        // Color of borders when rolling over a country.
-                        rollOverOutlineColor: "<t t-esc='ammap_config.roll_over_outline_color'/>",
-
-                        autoZoom: false,
-                        balloonText: "[[title]]: [[value]] studios"
-
+                    id: "<t t-esc="country.code"/>",
+                    name: "<t t-esc="country.name"/>",
+                    value: <t t-esc="geochart_data[country]"/>
                     };
-                    map.zoomControl = {
-                        // disable the zoom
-                        zoomControlEnabled: false,
-                        // disable the pan controls.
-                        panControlEnabled: false
-
-	                };
-                    // disable zoom on double click as we removed the zoom controls.
-                    map.zoomOnDoubleClick = false;
+                </t>
+                dataProvider['areas'] = areas;
+                map.dataProvider = dataProvider;
+                // make the map static. Can't be dragged.
+                map.dragMap = false;
 
 
-                    var valueLegend = new AmCharts.ValueLegend();
-                    valueLegend.right = 10;
-                    valueLegend.minValue = "little";
-                    valueLegend.maxValue = "a lot!";
-                    map.valueLegend = valueLegend;
+                map.areasSettings = {
+                autoZoom: true,
+                // low value color
+                color: "<t t-esc='ammap_config.color'/>",
+                // high value color
+                colorSolid: "<t t-esc='ammap_config.color_solid'/>",
+                // Color for country without value.
+                unlistedAreasColor: "<t t-esc='ammap_config.unlisted_areas_color'/>",
+                // Color of borders when rolling over a country.
+                rollOverOutlineColor: "<t t-esc='ammap_config.roll_over_outline_color'/>",
+
+                autoZoom: false,
+                balloonText: "[[title]]: [[value]] studios"
+
+                };
+                map.zoomControl = {
+                // disable the zoom
+                zoomControlEnabled: false,
+                // disable the pan controls.
+                panControlEnabled: false
+
+                };
+                // disable zoom on double click as we removed the zoom controls.
+                map.zoomOnDoubleClick = false;
 
 
-                    map.write("<t t-esc="geochart_target"/>");
+                var valueLegend = new AmCharts.ValueLegend();
+                valueLegend.right = 10;
+                valueLegend.minValue = "little";
+                valueLegend.maxValue = "a lot!";
+                map.valueLegend = valueLegend;
+
+
+                map.write("<t t-esc="geochart_target"/>");
                 });
-                </script>
+            </script>
+        </head>
+        <body>
+            <div id="wrapwrap">
+                <header>
+                    <div class="navbar navbar-default navbar-static-top">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-top-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"/>
+                                    <span class="icon-bar"/>
+                                    <span class="icon-bar"/>
+                                </button>
+                                <img src="/logo.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+                                <a class="navbar-brand" href="/" t-field="res_company.name"/>
+                            </div>
+                            <div class="collapse navbar-collapse navbar-top-collapse">
+                                <ul class="nav navbar-nav navbar-right" id="top_menu">
+                                    <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                                        <t t-if="(submenu.user_logged and request.uid !=  3) or (submenu.user_not_logged and request.uid == 3)">
+                                            <t t-call="website.submenu"/>
+                                        </t>
+                                    </t>
+                                    <li class="divider" t-ignore="true" t-if="website.user_id != user_id"/>
+                                    <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <b>
+                                                <span t-esc="user_id.name"/>
+                                                <span class="caret"/>
+                                            </b>
+                                        </a>
+                                        <ul class="dropdown-menu js_usermenu" role="menu">
+                                            <li><a href="/web" role="menuitem">My Account</a></li>
+                                            <li class="divider"/>
+                                            <li><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <main>
 
                 <div id="wrap" class="oe_structure oe_empty">
                     <div t-att-id="geochart_target"></div>
-                    <!--<t t-if="request.uid == %(base.public_user)d)">-->
+                    <t t-if="request.uid == 3">
                     <div class="sign-up-div">
                         <h3><strong>Find a studio</strong></h3>
                         <p class="small-text">
@@ -91,7 +198,7 @@
                         <p>It is completely free forever.</p>
                         <p><a t-attf-href="/web/signup" class="btn btn-warning sign-up pull-right"><strong>Sign up</strong></a></p>
                     </div>
-                    <!--</t>-->
+                    </t>
                     <div class="divide60"></div>
                     <div style="background: white">
                         <div class="container">
@@ -267,30 +374,67 @@
                     </div>
                     <div class="divide40"></div>
                 </div> <!--intro text end-->
+            </main>
 
-                <footer id="footer">
-                    <div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-8" >
-                                    Powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a>
-                                </div>
-                                <div class="col-sm-4">
-                                    <p>This website is maintained by volunteers hoping to make a difference.
+            <footer id="footer">
+                <div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8" >
+                                Powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a>
+                            </div>
+                            <div class="col-sm-4">
+                                <p>This website is maintained by volunteers hoping to make a difference.
                                     Connect with us:
-                                    </p>
-                                    <p>
-                                        <a t-attf-href="/page/website.contactus"><i class="fa fa-envelope fa-3x"/></a><!--news link-->
-                                        <a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-3x"/></a><!--news link-->
-                                        <a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-3x"/></a><!--news link-->
-                                        <a t-att-href="website.social_github"><i class="fa fa-github fa-3x"/></a><!--news link-->
-                                    </p>
-                                </div>
+                                </p>
+                                <p>
+                                    <a t-attf-href="/page/website.contactus"><i class="fa fa-envelope fa-3x"/></a><!--news link-->
+                                    <a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-3x"/></a><!--news link-->
+                                    <a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-3x"/></a><!--news link-->
+                                    <a t-att-href="website.social_github"><i class="fa fa-github fa-3x"/></a><!--news link-->
+                                </p>
                             </div>
                         </div>
                     </div>
-                </footer>
-            </t>
-        </template>
+                </div>
+            </footer>
+            </div>
+
+            <!--block loading the css/javascript files -->
+            <!--coming from website.assets_frontend and website.assets_editor-->
+            <script type="text/javascript" src="/web/static/lib/es5-shim/es5-shim.min.js"></script>
+            <script src="/web/static/lib/underscore/underscore.js" type="text/javascript"></script>
+            <script src="/web/static/lib/underscore.string/lib/underscore.string.js" type="text/javascript"></script>
+            <script src="/web/static/lib/datejs/globalization/en-US.js" type="text/javascript"></script>
+            <script src="/web/static/lib/spinjs/spin.js" type="text/javascript"></script>
+            <script src="/web/static/lib/jquery/jquery.js" type="text/javascript"></script>
+            <script src="/web/static/lib/jquery.blockUI/jquery.blockUI.js" type="text/javascript"></script>
+            <script src="/web/static/lib/jquery.hotkeys/jquery.hotkeys.js" type="text/javascript"></script>
+            <script src="/web/static/lib/jquery.placeholder/jquery.placeholder.js" type="text/javascript"></script>
+            <script src="/web/static/lib/jquery.timeago/jquery.timeago.js" type="text/javascript"></script>
+            <script src="/web/static/lib/jquery.form/jquery.form.js" type="text/javascript"></script>
+            <script src="/web/static/lib/jquery.ba-bbq/jquery.ba-bbq.js" type="text/javascript"></script>
+            <script src="/web/static/lib/qweb/qweb2.js" type="text/javascript"></script>
+            <script src="/web/static/src/js/openerpframework.js" type="text/javascript"></script>
+            <script src="/web/static/src/js/tour.js" type="text/javascript"></script>
+            <script src="/web/static/src/js/watch.js" type="text/javascript"></script>
+            <script src="/website/static/src/js/website.js" type="text/javascript"></script>
+            <script src="/website/static/src/js/website.snippets.animation.js" type="text/javascript"></script>
+            <script src="/web/static/lib/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+            <!--end -->
+
+            <script t-if="website and website.google_analytics_key">
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', _.str.trim('<t t-esc="website.google_analytics_key"/>'), 'auto');
+                ga('send','pageview');
+            </script>
+        </body>
+    </html>
+</template>
+
     </data>
 </openerp>
