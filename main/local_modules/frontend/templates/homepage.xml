@@ -204,16 +204,6 @@
                     </section><!--fun facts-->
 
                     <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="center-heading">
-                                    <h2>Recent <strong>Activity</strong></h2>
-                                    <span>Latest Updated Companies</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
                         <div class="row studios">
                             <t t-foreach="partners[4:]" t-as="partner">
                                 <div class="col-sm-3">
