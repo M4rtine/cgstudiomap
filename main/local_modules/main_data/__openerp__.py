@@ -35,7 +35,7 @@ This module contains the data, views, models.
 Contributors
 ------------
 * Jordi Riera <kender.jr@gmail.com>
-
+* David Mazeau <d.mazeau@gmail.com>
 """,
     'depends': [
         'crm',
