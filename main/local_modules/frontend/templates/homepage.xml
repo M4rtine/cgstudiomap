@@ -286,24 +286,21 @@
                         <div class="row studios">
                             <t t-foreach="partners[4:]" t-as="partner">
                                 <div class="col-xs-6 col-md-3">
-                                        <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
-											
-											<img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
-											
-											<a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
-                                            <h4 t-esc="partner.name"/></a>
-                                            <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
-                                            <em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
-                                        </a>
+                                    <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
 
-<!--                                    <div class="person-v2">
-                                        <div class="person-desc-v2">
-                                            <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
-                                            <h4 t-esc="partner.name"/></a>
-                                            <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
-                                            <em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
-                                        </div>
-                                    </div>-->
+                                        <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
+
+                                        <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
+                                        <h4 t-esc="partner.name"/></a>
+                                        <p>
+                                            <em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
+                                            <em>
+                                                <t t-foreach="partner.industry_ids" t-as="ind">
+                                                    <span class="label label-default" t-esc="ind.name"/>
+                                                </t>
+                                            </em>
+                                        </p>
+                                    </a>
                                 </div><!--person col end-->
                             </t>
                         </div>
@@ -311,18 +308,19 @@
                         <div class="row studios">
                             <t t-foreach="partners[:4]" t-as="partner">
                                 <div class="col-xs-6 col-md-3">
-									
-									<img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
-
                                     <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
-                                        <h4 t-esc="partner.name"/></a>
-									<p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
-										<em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
-<!--                                    <div class="person-v2">
-                                        <div class="person-desc-v2">
+                                        <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
 
-                                        </div>
-                                    </div>-->
+                                        <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
+                                            <h4 t-esc="partner.name"/></a>
+                                        <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
+                                            <em>
+                                                <t t-foreach="partner.industry_ids" t-as="ind">
+                                                    <span class="label label-default" t-esc="ind.name"/>
+                                                </t>
+                                            </em>
+                                        </p>
+                                    </a>
                                 </div><!--person col end-->
                             </t>
                         </div>
