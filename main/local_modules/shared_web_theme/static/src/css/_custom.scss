@@ -407,3 +407,17 @@ a {
 div.olMap {
 	z-index: 100;
 }
+.center-line {
+  display: inline-block;
+  width: 70px;
+  height: 1px;
+  border-top: 1px solid #bbb;
+  /* border-bottom: 1px solid $skincolor; */
+  margin: auto; 
+}
+a {
+  -moz-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
