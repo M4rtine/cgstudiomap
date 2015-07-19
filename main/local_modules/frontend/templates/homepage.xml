@@ -101,6 +101,12 @@
                                             <t t-call="website.submenu"/>
                                         </t>
                                     </t>
+                                    <li class="divider" groups="base.group_public"/>
+                                    <li groups="base.group_public">
+                                        <a t-attf-href="/web/login">
+                                            <b>Sign in</b>
+                                        </a>
+                                    </li>
                                     <li class="divider" t-ignore="true" t-if="website.user_id != user_id"/>
                                     <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
