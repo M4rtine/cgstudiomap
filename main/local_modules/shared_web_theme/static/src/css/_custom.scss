@@ -17,24 +17,41 @@ body.home {
 /* CUSTOMIZE HOME MAP
 -------------------------------------------------- */
 $break-width-small: 767px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
 
 #geochart_div {
 	width: 100%;
-	height: 750px;
+	/*height: 750px;*/
 	text-align: center;
 	margin: 0 auto;
 	padding: 0;
+	padding-top: 70px;
 	
-  @media screen and (max-width: $break-width-small) {
-	height: 350px;
-  }
+/*		@media screen and (max-width: $break-width-small) {
+	  		height: 350px;
+		}*/
+		/* Small devices (tablets, 768px and up) */
+		@media (min-width: $screen-sm-min) {
+			height: 350px;
+		}
+
+		/* Medium devices (desktops, 992px and up) */
+		@media (min-width: $screen-md-min) {
+			height: 550px;
+		}
+
+		/* Large devices (large desktops, 1200px and up) */
+		@media (min-width: $screen-lg-min) {
+			height: 700px;
+		}
 }
 
-@media (max-width: 767px){
+/*@media (max-width: 767px){
 	#geochart_div {
 		height: 350px;
-	}
-}
+	}*/
 
 
 

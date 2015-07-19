@@ -78,7 +78,7 @@
             <link rel="stylesheet" href="/ammap/static/src/js/ammap_3.14.0/ammap.css" type="text/css"/>
 
         </head>
-        <body>
+        <body id="home">
 
                     <div class="navbar navbar-default navbar-fixed-top sticky" role="navigation">
                         <div class="container">
@@ -91,7 +91,7 @@
                                 </button>
 								<a class="navbar-brand" href="/">
 									<img src="/logo.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
-									<span t-field="res_company.name"/>  <span class="label label-danger">B</span>
+									<span t-field="res_company.name"/><!--  <span class="label label-danger">B</span>-->
                                 </a>
                             </div>
                             <div class="collapse navbar-collapse navbar-top-collapse">
@@ -120,30 +120,42 @@
                         </div>
                     </div>
 
-			<section id="home" class="screen-height">
                 <div id="wrap" class="oe_structure oe_empty">
-                    <div t-att-id="geochart_target"></div>
-                    <t t-if="request.uid == 3">
-                    <div class="sign-up-div">
-                        <h3><strong>Find a studio</strong></h3>
-                        <p class="small-text">
-                            Welcome to cgstudiomap <span class="label label-danger">Beta</span>!<br />
-                            A map that allows you to find ANY studios worldwide<br/>
-                            by city, contact, specialities and even more.</p>
-                        <p>It is completely free forever.</p>
-                        <p><a t-attf-href="/web/signup" class="btn btn-warning sign-up pull-right"><strong>Sign up</strong></a></p>
-                    </div>
-                    </t>
+					
+					
+                        <div class="container">
+
+									
+									<div class="hidden-xs" t-att-id="geochart_target"></div>
+									<t t-if="request.uid == 3" />
+							
+									<div class="infos-box">
+											<h3><b>Find a studio</b></h3>
+											<h4>Welcome to cgstudiomap <span class="label label-danger">Beta</span></h4>
+											<p class="small-text">
+												A map that allows you to find ANY studios worldwide<br/>
+												by city, contact, specialities and even more.</p>
+											<p>It is completely free forever.</p>
+											<p><a t-attf-href="/web/signup" class="btn btn-warning sign-up pull-right"><strong>Sign up</strong></a></p>
+									</div>
+
+
+
+						</div>
+					
 		
 					
 					
                     <div class="divide60"></div>
+					<div style="background:white">
                         <div class="container">
-							<div class="row">
+							<div class="row hidden-xs">
 								<div class="col-sm-1 col-sm-offset-5">
+									<a href="#more">
 									<div class="scroll-down">
 										<span><i class="fa fa-angle-down fa-3x"></i></span>
 									</div>
+									</a>
 								</div>
 							</div>
                             <div class="row">
@@ -162,11 +174,11 @@
 
                             </div>
                             <!--center heading end-->
-                            <div class="divide50"></div>
+                            <div id="more" class="divide50"></div>
                             <div class="row">
-                                <div class="col-md-6 margin30 description">
-                                    <div class="colored-boxed green">
-                                        <i class="fa fa-group"></i>
+                                <div class="col-md-6 col-sm-6 margin30">
+                                    <div class="colored-boxed">
+										<a t-attf-href="/web/signup"><i class="fa fa-group"></i></a>
                                     </div>
                                     <div class="text">
                                         <h3>Community</h3>
@@ -178,9 +190,9 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-6 margin30 description">
-                                    <div class="colored-boxed green">
-                                        <i class="fa fa-folder-open"></i>
+                                <div class="col-md-6 col-sm-6 margin30">
+                                    <div class="colored-boxed">
+										<a t-att-href="website.social_github"><i class="fa fa-folder-open"></i></a>
                                     </div>
                                     <div class="text">
                                         <h3>Open source project</h3>
@@ -197,9 +209,9 @@
                             </div>
                             <div class="divide50"></div>
                             <div class="row">
-                                <div class="col-md-6 margin30 description">
-                                    <div class="colored-boxed green">
-                                        <i class="fa fa-cogs"></i>
+                                <div class="col-md-6 col-sm-6 margin30">
+                                    <div class="colored-boxed">
+                                        <a t-attf-href="/web/signup"><i class="fa fa-cogs"></i></a>
                                     </div>
                                     <div class="text">
                                         <h3>Open Data</h3>
@@ -211,8 +223,8 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-6 margin30 description">
-                                    <div class="colored-boxed red">
+                                <div class="col-md-6 col-sm-6 margin30">
+                                    <div class="colored-boxed inv">
                                         <i class="fa fa-heart"></i>
                                     </div>
                                     <div class="text">
@@ -228,17 +240,27 @@
                             </div>
                             <div class="divide80"></div>
                         </div>
+						</div>
 
                     <!--services container-->
-                    <div class="divide80"></div>
+
+					
+					<div class="container full" style="background:#b05ae2">
+						<div class="logo">
+							<img class="img img-responsive" src="/main_data/static/cgsm-logo-colors.png" />
+						</div>
+					</div>
+					<div class="divide40"></div>
+					
+					
                     <section class="fun-fact-wrap-light">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-4 margin20 facts-in">
+                                <div class="col-xs-4 col-md-4 margin20 facts-in">
                                     <h3><span class="counter" t-esc="nbr_users"/></h3>
                                     <h4>Happy Users</h4>
                                 </div><!--facts in-->
-                                <div class="col-md-4 margin20 facts-in">
+                                <div class="col-xs-4 col-md-4 margin20 facts-in">
                                     <h3><span class="counter" t-esc="nbr_partners"/></h3>
                                     <h4>Companies</h4>
                                 </div><!--facts in-->
@@ -257,50 +279,49 @@
                     <div class="container">
                         <div class="row studios">
                             <t t-foreach="partners[4:]" t-as="partner">
-                                <div class="col-xs-2 col-sm-3">
-
+                                <div class="col-xs-6 col-md-3">
                                         <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
-                                        <img itemprop="image"
-                                             class="img img-responsive"
-                                             t-att-src="website.image_url(partner, 'image_small')"
-                                                />
+											
+											<img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
+											
+											<a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
+                                            <h4 t-esc="partner.name"/></a>
+                                            <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
+                                            <em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
                                         </a>
 
-                                    <div class="person-v2">
+<!--                                    <div class="person-v2">
                                         <div class="person-desc-v2">
                                             <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
                                             <h4 t-esc="partner.name"/></a>
                                             <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
                                             <em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div><!--person col end-->
                             </t>
                         </div>
 
-                        <div class="row studios" style="margin-top:20px">
+                        <div class="row studios">
                             <t t-foreach="partners[:4]" t-as="partner">
-                                <div class="col-sm-3">
-                                    <div style="float:left">
-                                        <img itemprop="image"
-                                             class="img img-responsive"
-                                             t-att-src="website.image_url(partner, 'image_small')"
-                                                />
-                                    </div>
-                                    <div class="person-v2">
+                                <div class="col-xs-6 col-md-3">
+									
+									<img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
+									<a href="#"><h4 t-esc="partner.name"/></a>
+									<p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
+										<em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
+<!--                                    <div class="person-v2">
                                         <div class="person-desc-v2">
-                                            <a href="#"><h4 t-esc="partner.name"/></a>
-                                            <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
-                                                <em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
+
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div><!--person col end-->
                             </t>
                         </div>
                     </div>
 
                 </div>
-			</section>
+
 			
                 <div class="divide40"></div>
                 <div class="sign-up-text" style="background:white">
@@ -326,9 +347,11 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-8" >
-                                <p>cgstudiomap <span class="label label-danger">Beta</span></p>
-                                <p>Powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a></p>
-                                <p>maintained by volunteers hoping to make a difference.</p>
+                                <p>
+								cgstudiomap <span class="label label-danger">Beta</span><br />
+                                powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a><br />
+                                maintained by volunteers hoping to make a difference.
+								</p>
                             </div>
                             <div class="col-sm-4">
                                 <p>Connect with us:</p>
@@ -343,7 +366,7 @@
                     </div>
                 </div>
 
-			<div class="scroll-up">
+			<div class="scroll-up hidden-xs">
 				<a href="#home"><i class="fa fa-angle-up"></i></a>
 			</div>
 			<div id="wrapwrap"></div>
