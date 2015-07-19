@@ -313,7 +313,9 @@
                                 <div class="col-xs-6 col-md-3">
 									
 									<img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
-									<a href="#"><h4 t-esc="partner.name"/></a>
+
+                                    <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
+                                        <h4 t-esc="partner.name"/></a>
 									<p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
 										<em t-esc="', '.join(ind.name for ind in partner.industry_ids)"/></p>
 <!--                                    <div class="person-v2">
