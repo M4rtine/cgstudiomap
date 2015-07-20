@@ -164,7 +164,7 @@
 									</a>
 								</div>
 							</div>
-                            <div class="row">
+                            <div id="more" class="row">
                                 <div class="col-sm-8 col-sm-offset-2">
                                     <div class="center-heading">
                                         <h2>
@@ -180,7 +180,7 @@
 
                             </div>
                             <!--center heading end-->
-                            <div id="more" class="divide50"></div>
+                            <div class="divide50"></div>
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 margin30">
                                     <div class="colored-boxed">
