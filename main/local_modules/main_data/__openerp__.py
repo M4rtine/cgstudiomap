@@ -21,7 +21,7 @@
 
 {
     'name': 'Main Data Module',
-    'version': '172',
+    'version': '200',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
@@ -35,7 +35,7 @@ This module contains the data, views, models.
 Contributors
 ------------
 * Jordi Riera <kender.jr@gmail.com>
-
+* David Mazeau <d.mazeau@gmail.com>
 """,
     'depends': [
         'crm',

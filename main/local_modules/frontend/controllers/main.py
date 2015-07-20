@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from collections import defaultdict
+import random
 
 import time
 import logging
@@ -30,9 +31,12 @@ class MainPage(Website):
             if number_partners:
                 by_countries[country] = number_partners
 
+        # https://github.com/cgstudiomap/cgstudiomap/issues/177
         partners = [
-            p for p in partner_pool.search(filters, order='write_date')[-8:]
-        ][::-1]
+            p for p in partner_pool.search(filters + [('image', '!=', False)])
+        ]
+
+        sample_partners = random.sample(partners, min(len(partners), 8))
 
         values = {
             'page': page,
@@ -42,7 +46,7 @@ class MainPage(Website):
             'nbr_partners': partner_pool.search_count(filters),
             'nbr_countries': len(by_countries.keys()),
             'nbr_users': user_pool.search_count([('active', '=', True)]),
-            'partners': partners,
+            'partners': sample_partners,
         }
 
         time2 = time.time()

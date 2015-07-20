@@ -11,5 +11,6 @@ It requires Sass (http://sass-lang.com/)
 Contributors
 ------------
 * Jordi Riera <kender.jr@gmail.com>
+* David Mazeau <d.mazeau@gmail.com>
 
 
