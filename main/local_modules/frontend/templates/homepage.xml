@@ -69,10 +69,12 @@
             <script async="" src="//www.google-analytics.com/analytics.js"></script>
 
             <!--bootstrap is imported in base.css anyway-->
-            <link rel="stylesheet" href="/shared_web_theme/static/src/css/base.css" type="text/css"/>
-            <link rel="stylesheet" href="/website/static/src/css/website.css" type="text/css"/>
-            <link rel="stylesheet" href="/website_mail/static/src/css/website_mail.css" type="text/css"/>
-            <link rel="stylesheet" href="/website_blog/static/src/css/website_blog.css" type="text/css"/>
+            <link rel="stylesheet" href="/shared_web_theme/static/src/css/fonts.css"/>
+            <link rel="stylesheet" href="/shared_web_theme/static/src/css/bootstrap.css"/>
+            <link rel="stylesheet" href="/shared_web_theme/static/src/css/base.css"/>
+            <link rel="stylesheet" href="/shared_web_theme/static/src/css/homepage.css"/>
+            <!--Has to be the last css of the queue-->
+            <link rel="stylesheet" href="/shared_web_theme/static/src/css/flatify.css"/>
 
             
             <link rel="stylesheet" href="/ammap/static/src/js/ammap_3.14.0/ammap.css" type="text/css"/>
