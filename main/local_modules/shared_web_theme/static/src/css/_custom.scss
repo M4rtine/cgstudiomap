@@ -12,14 +12,6 @@ body.home {
 	overflow-x: hidden;
 	background-color: $c-bg-light;
 }
-		
-
-/* CUSTOMIZE HOME MAP
--------------------------------------------------- */
-$break-width-small: 767px;
-$screen-sm-min: 768px;
-$screen-md-min: 992px;
-$screen-lg-min: 1200px;
 
 #geochart_div {
 	width: 100%;
@@ -47,19 +39,6 @@ $screen-lg-min: 1200px;
 			height: 700px;
 		}
 }
-
-/*@media (max-width: 767px){
-	#geochart_div {
-		height: 350px;
-	}*/
-
-
-
-$break-height-small: 800px;
-$break-height-medium: 1024px;
-$break-height-large: 1080px;
-
-$break-height-negative: 200px;
 
 .geoengine_view {
 	margin: 0;

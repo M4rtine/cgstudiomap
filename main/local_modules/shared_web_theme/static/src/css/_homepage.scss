@@ -1,18 +1,12 @@
-$screen-xs-max: 767px;
-$screen-sm-min: 768px;
-$screen-md-min: 992px;
-$screen-lg-min: 1200px;
-
 body {
 	font-family: 'cgsm-light';
 	font-size: 16px;
 	font-weight: normal;
 	min-height: 2000px;
 	
-
-	@media (max-width: $screen-xs-max) {
+/*	@media (max-width: $screen-xs-max) {
 		padding-top: 70px;
-	}
+	}*/
 }
 h1, h2, h3, h4 {
 	font-family: 'cgsm-regular';
@@ -476,11 +470,13 @@ iframe {
 	color: #5e5e5e;
 	text-align: left;
 	padding: 10px 30px 20px;
+	
 
 	/* Small devices (tablets, 768px and up) */
 	@media (max-width: $screen-xs-max) {
 		margin-right: 0!important;
 		margin-left: 0!important;
+		padding-top: 70px;
 		background-color: rgba(240,223,249, 0);
 		border: 0px solid rgba(13,3,19, 0);
 	}
