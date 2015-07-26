@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="website_blog.menu_news" model="website.menu">
+            <field name="name">News</field>
+        </record>
+
+        <record id="website.menu_contactus" model="website.menu">
+            <field name="name">About</field>
+        </record>
+    </data>
+</openerp>
