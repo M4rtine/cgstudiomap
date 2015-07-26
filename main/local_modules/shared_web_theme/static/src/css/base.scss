@@ -1,11 +1,8 @@
 @import "../stylesheets/_bootstrap";
+@import "_responsive";
 @import "_colors";
 @import "_fonts";
 @import "_custom";
-@import "_homepage";
-
-
-
 
 // Has to be imported after everything.
 @import "_flatify";
