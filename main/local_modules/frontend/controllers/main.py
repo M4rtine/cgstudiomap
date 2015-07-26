@@ -63,7 +63,6 @@ class MainPage(Website):
         for country in country_pool.search([]):
             by_countries.update(self.get_partners_by_country(country))
 
-
         # https://github.com/cgstudiomap/cgstudiomap/issues/177
         # search return a recordset and we cannot do len() on it.
         partners = [p for p in self.partner_pool.search(filters)]
@@ -99,4 +98,3 @@ class MainPage(Website):
             return {country: number_partners}
 
         return {}
-
