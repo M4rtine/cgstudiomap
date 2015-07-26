@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <record id="dashboard" model="website.menu">
-            <field name="name">Dashboard</field>
+            <field name="name">Directory</field>
             <field name="url">/web</field>
             <field name="parent_id" ref="website.main_menu"/>
             <field name="sequence" type="int">20</field>
