@@ -148,10 +148,17 @@ iframe {
 	text-align: center;
 	border-color: transparent;
 	margin: 0 auto;
+	padding: 15px 0px;
+	
+	@media (max-width: $screen-xs-max) {
+		padding: 5px 0px;
+	}
 }
 
 .logo img {
 	max-width: 150px;
+	
+	@media (max-width: $screen-xs-max) {}
 }
 .navbar.navbar-static-top ul.nav > li.divider {
 	margin-top: 0;
@@ -407,15 +414,20 @@ iframe {
 	color: #f8f0fc;
 	background-color: #b05ae2;
 	padding: 10px 30px;
+	
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
+	
+	@media (max-width: $screen-xs-max) {
+		padding: 10px 140px;
+	}
 }
 
 .fun-fact-wrap-light .facts-in h4 {
 	color: #000;
 	font-family: 'cgsm-regular';
-	font-weight: 400;
+	font-weight: normal;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-style: normal;
@@ -428,6 +440,16 @@ iframe {
 
 .facts-in {
 	text-align: center;
+	
+	@media (max-width: $screen-xs-max) {
+		margin-bottom: 20px;
+	}
+	
+	@media (min-width: $screen-sm-min) {}
+
+	@media (min-width: $screen-md-min) {}
+	
+	@media (min-width: $screen-lg-min) {}
 }
 
 .facts-in h3 {
@@ -435,7 +457,20 @@ iframe {
 	font-size: 50px;
 	font-weight: 700;
 	color: #fff;
-	//  font-family: "Raleway", sans-serif
+	
+	@media (max-width: $screen-xs-max) {
+		font-size: 2em;
+	}
+	
+	@media (min-width: $screen-sm-min) {
+		font-size: 2.2em;
+	}
+
+	@media (min-width: $screen-md-min) {
+		font-size: 2.6em;
+	}
+	
+	@media (min-width: $screen-lg-min) {}
 }
 
 .facts-in h3 i {
@@ -452,11 +487,11 @@ iframe {
 	text-transform: uppercase;
 }
 
-@media (max-width: 992px) {
+/*@media (max-width: 992px) {
 	.facts-in {
 		margin-bottom: 70px;
 	}
-}
+}*/
 
 .border-left {
 	border-left: 1px solid;

@@ -263,25 +263,25 @@
                     <section class="fun-fact-wrap-light">
                         <div class="container">
                             <div class="row">
-                                <div class="col-xs-4 col-md-4 margin20 facts-in">
+								
+                                <div class="col-xs-12 col-sm-4 col-md-4 margin20 facts-in">
                                     <h3><span class="counter" t-esc="nbr_users"/></h3>
                                     <h4>Happy Users</h4>
-                                </div><!--facts in-->
-                                <div class="col-xs-4 col-md-4 margin20 facts-in">
+                                </div>
+								
+                                <div class="col-xs-12 col-sm-4 col-md-4 margin20 facts-in">
                                     <h3><span class="counter" t-esc="nbr_partners"/></h3>
                                     <h4>Companies</h4>
-                                </div><!--facts in-->
-                                <!--<div class="col-md-3 margin20 facts-in">-->
-                                    <!--<h3><span class="counter" t-esc="nbr_cities"/></h3>-->
-                                    <!--<h4>Cities</h4>-->
-                                <!--</div>&lt;!&ndash;facts in&ndash;&gt;-->
-                                <div class="col-md-4 margin20 facts-in">
+                                </div>
+								
+                                <div class="col-xs-12 col-sm-4 col-md-4 margin20 facts-in">
                                     <h3><span class="counter" t-esc="nbr_countries"/></h3>
                                     <h4>Countries</h4>
-                                </div><!--facts in-->
+                                </div>
+								
                             </div>
                         </div>
-                    </section><!--fun facts-->
+					</section>
 
                     <div class="container">
                         <div class="row studios">
