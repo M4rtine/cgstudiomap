@@ -65,7 +65,9 @@ class MainPage(Website):
 
         # https://github.com/cgstudiomap/cgstudiomap/issues/177
         # search return a recordset and we cannot do len() on it.
-        partners = [p for p in self.partner_pool.search(filters)]
+        partners = [
+            p for p in self.partner_pool.search(filters + [('image', '!=', False)])
+        ]
         sample_partners = random.sample(partners, min(len(partners), 8))
 
         values = {
