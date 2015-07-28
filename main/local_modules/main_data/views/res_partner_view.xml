@@ -32,6 +32,13 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
             <field name="arch" type="xml">
+                <h1 position="before">
+                    <div class="oe_edit_only">
+                        <em>tip: add a logo to be advertised on the front page!</em>
+                    </div>
+
+                </h1>
+
                 <field name="active" position="replace"/>
                 <field name="category_id" position="after">
                     <group>

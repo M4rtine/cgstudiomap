@@ -76,7 +76,6 @@ class ResPartner(geo_model.GeoModel):
     website = fields.Char(required=True)
     street = fields.Char(required=True)
     city = fields.Char(required=True)
-    image = fields.Binary(required=True)
 
     state = fields.Selection(
         selection='_states',
