@@ -3,7 +3,7 @@
     <data noupdate="0">
         <record id="base.main_company" model="res.company">
             <field name="logo" type="base64" file="main_data/static/cgstudiomap.png"/>
-            <field name="name">cgstudiomap alpha</field>
+            <field name="name">cg Studio Map beta</field>
             <field name="rml_header1">Where cg is</field>
             <!--Address fields-->
             <field name="street">7345 Boulevard Saint Laurent</field>

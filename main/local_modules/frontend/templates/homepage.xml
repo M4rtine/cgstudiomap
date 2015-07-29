@@ -15,7 +15,7 @@
 <html t-att-lang="lang and lang.replace('_', '-')" t-att-data-website-id="website.id if editable and website else None" t-att-data-editable="'1' if editable else None" t-att-data-translatable="'1' if translatable else None" t-att-data-view-xmlid="xmlid if editable else None" t-att-data-main-object="repr(main_object) if editable else None" t-att-data-oe-company-name="res_company.name">
         <head>
             <meta charset="utf-8" />
-            <title>cgstudiomap</title>
+            <title>cg Studio Map</title>
 
             <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
@@ -137,7 +137,7 @@
 							
 									<div class="infos-box">
 											<h3><b>Find a studio</b></h3>
-											<h4>Welcome to cgstudiomap <span class="label label-danger">Beta</span></h4>
+											<h4>Welcome to cg Studio Map <span class="label label-danger">Beta</span></h4>
 											<p class="small-text">
 												A map that allows you to find ANY studios worldwide<br/>
 												by city, contact, specialities and even more.</p>
@@ -173,7 +173,7 @@
                                         </h2>
                                         <span class="center-line"></span>
                                         <p class="sub-text margin40">
-                                            cgstudiomap is the premier open-data center of the computer graphic industry.<br/>
+                                            cg Studio Map is the premier open-data center of the computer graphic industry.<br/>
                                             Come in: update, share or simply read the content.
                                         </p>
                                     </div>
@@ -190,7 +190,7 @@
                                     <div class="text">
                                         <h3>Community</h3>
                                         <p>
-                                            cgstudiomap project is an initiative that promotes and celebrates open exchange,
+                                            cg Studio Map project is an initiative that promotes and celebrates open exchange,
                                             collaborative participation, transparency and community development.
                                             Anyone can freely update, edit and share the content.<br /><br />
                                             <a t-attf-href="/web/signup">Sign-up</a> today and be part of the community!
@@ -204,7 +204,7 @@
                                     <div class="text">
                                         <h3>Open source project</h3>
                                         <p>
-                                            cgstudiomap project is now open source,
+                                            cg Studio Map project is now open source,
                                             the source code is available for modification and/or enhancement
                                             by anyone. Programmers as well as other
                                             members can contribute by improving all the source code and
@@ -237,7 +237,7 @@
                                     <div class="text">
                                         <h3>Support</h3>
                                         <p>
-                                            cgstudiomap team is working on developping the website,
+                                            cg Studio Map team is working on developping the website,
                                             today is a map that allows you to find studios worldwide,
                                             tomorrow we would like to develop a job hunting tool…<br /><br />
                                             Together, let’s create a MOVEMENT!
@@ -355,7 +355,7 @@
                         <div class="row">
                             <div class="col-sm-8" >
                                 <p>
-								cgstudiomap <span class="label label-danger">Beta</span><br />
+								cg Studio Map <span class="label label-danger">Beta</span><br />
                                 powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a><br />
                                 maintained by volunteers hoping to make a difference.
 								</p>
