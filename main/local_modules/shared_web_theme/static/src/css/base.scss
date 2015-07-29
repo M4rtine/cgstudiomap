@@ -7,3 +7,7 @@
 // Has to be imported after everything.
 @import "_flatify";
 @import "_homepage";
+
+body {
+  overflow: scroll;
+}

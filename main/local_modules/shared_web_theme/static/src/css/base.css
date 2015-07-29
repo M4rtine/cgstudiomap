@@ -5736,11 +5736,9 @@ body, html {
   margin: 0; }
 
 body {
-  overflow-x: hidden;
   background-color: #f2f2f2; }
 
 body.home {
-  overflow-x: hidden;
   background-color: #ECF0F1; }
 
 #geochart_div {
@@ -6652,5 +6650,7 @@ iframe {
   100% {
     top: 25px;
     opacity: 0; } }
+body {
+  overflow: scroll; }
 
 /*# sourceMappingURL=base.css.map */
