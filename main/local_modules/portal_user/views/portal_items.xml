@@ -86,7 +86,7 @@
             <field name="view_mode">kanban,geoengine,tree,form</field>
             <field name="context" eval="{'search_default_siggraph':1, 'is_portal':True}"/>
             <field name="view_type">form</field>
-            <field name="domain">[('category_id.name','in', ['siggraph2015']),  ('state', '=', 'open'), ('is_company', '=', True)]</field>
+            <field name="domain">[('category_id.name','in', ['Siggraph2015']),  ('state', '=', 'open'), ('is_company', '=', True)]</field>
             <field name="search_view_id" ref="base.view_res_partner_filter"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
