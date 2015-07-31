@@ -48,6 +48,22 @@ class Memoized(object):
 class MainPage(Website):
     @http.route('/', type='http', auth="public", website=True)
     def index(self, **kw):
+
+        @Memoized
+        def get_partners_by_country(country):
+            """Method to be memorized that return the number of partner in a country.
+
+            :param instance country: record of a country
+            :return: dict {country instance: count of partners in the country}
+            """
+            number_partners = self.partner_pool.search_count(
+                filters + [('country_id', '=', country.id)],
+                )
+            if number_partners:
+                return {country: number_partners}
+
+            return {}
+
         _logger.debug('index')
         time1 = time.time()
         page = 'homepage'
@@ -61,7 +77,7 @@ class MainPage(Website):
 
         by_countries = defaultdict(int)
         for country in country_pool.search([]):
-            by_countries.update(self.get_partners_by_country(country))
+            by_countries.update(get_partners_by_country(country))
 
         # https://github.com/cgstudiomap/cgstudiomap/issues/177
         # search return a recordset and we cannot do len() on it.
@@ -87,18 +103,57 @@ class MainPage(Website):
         _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
         return request.render('frontend.homepage', values)
 
-    @Memoized
-    def get_partners_by_country(self, country):
-        """Method to be memorized that return the number of partner in a country.
+    @http.route(
+        '/events/siggraph2015', type='http', auth="public", website=True
+    )
+    def event_siggraph2015(self, **kw):
 
-        :param instance country: record of a country
-        :return: dict {country instance: count of partners in the country}
-        """
-        filters = [('active', '=', True), ('is_company', '=', True)]
-        number_partners = self.partner_pool.search_count(
-            filters + [('country_id', '=', country.id)],
-        )
-        if number_partners:
-            return {country: number_partners}
+        @Memoized
+        def get_partners_by_country(country):
+            """Method to be memorized that return the number of partner in a country.
 
-        return {}
+            :param instance country: record of a country
+            :return: dict {country instance: count of partners in the country}
+            """
+            number_partners = self.partner_pool.search_count(
+                filters + [('country_id', '=', country.id)],
+                )
+            if number_partners:
+                return {country: number_partners}
+
+            return {}
+
+        _logger.debug('event_siggraph2015')
+        time1 = time.time()
+        page = 'event_siggraph2015'
+        env = request.env
+        # optimisation as it is used in get_partners_by_country
+        self.partner_pool = env['res.partner']
+        country_pool = env['res.country']
+        ammap_homepage = env.ref('frontend.homepage_ammap_config')
+        filters = [
+            ('active', '=', True),
+            ('is_company', '=', True),
+            ('category_id.name', 'in', ['Siggraph2015'])
+        ]
+
+        by_countries = defaultdict(int)
+        for country in country_pool.search([]):
+            by_countries.update(get_partners_by_country(country))
+
+        # https://github.com/cgstudiomap/cgstudiomap/issues/177
+        # search return a recordset and we cannot do len() on it.
+        sample_partners = [p for p in self.partner_pool.search(filters)]
+
+        values = {
+            'page': page,
+            'geochart_data': by_countries,
+            'geochart_target': 'geochart_div',
+            'ammap_config': ammap_homepage,
+            'nbr_partners': self.partner_pool.search_count(filters),
+            'partners': sample_partners,
+            }
+
+        time2 = time.time()
+        _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
+        return request.render('frontend.event_siggraph2015', values)

@@ -21,7 +21,7 @@
 
 {
     'name': 'Frontend',
-    'version': '200',
+    'version': '234',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
@@ -41,6 +41,7 @@
         'templates/login_template.xml',
         'templates/contact_us_template.xml',
         'templates/homepage.xml',
+        'templates/events.xml',
     ],
     'installable': True,
 }
