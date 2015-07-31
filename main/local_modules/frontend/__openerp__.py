@@ -41,6 +41,7 @@
         'templates/login_template.xml',
         'templates/contact_us_template.xml',
         'templates/homepage.xml',
+        'templates/events.xml',
     ],
     'installable': True,
 }
