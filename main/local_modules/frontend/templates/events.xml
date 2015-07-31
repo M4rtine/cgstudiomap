@@ -142,12 +142,23 @@
 
 
                     </div>
-					
-					<div style="background:white" class="divide80" id="more"></div>
+
+                    <div style="background:white" class="divide80" id="more"></div>
 
 
                 <div style="background:white">
                     <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 margin30">
+                                <div class="text">
+                                    <h4>Here is a list of studios attending the SIGGRAPH 2015</h4>
+                                    <p>
+                                        Click on name or icon for more details on the studio. <br />
+                                        <a href="http://cgstudiomap.org/web#view_type=kanban&amp;model=res.partner&amp;menu_id=357&amp;action=424">Advanced searches</a><br />
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row studios">
                             <t t-foreach="partners" t-as="partner">
                                 <div class="col-xs-6 col-md-3">

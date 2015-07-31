@@ -253,11 +253,6 @@
                     <!--services container-->
 
 					
-					<div class="container full" style="background:#b05ae2">
-						<div class="logo">
-							<img class="img img-responsive" src="/main_data/static/cgsm-logo-colors.png" />
-						</div>
-					</div>
 					<div class="divide40"></div>
 					
 					
@@ -280,6 +275,12 @@
                                     <h4>Countries</h4>
                                 </div>
 								
+                            </div>
+                        </div>
+                        <div class="container full">
+                            <div class="col-xs-12 col-sm-12 col-md-12 margin20 facts-in">
+                                <!--<img class="img img-responsive" src="/main_data/static/cgsm-logo-colors.png" />-->
+                                <h2><a href="/events/siggraph2015">Listing of studios attending the SIGGRAPH 2015</a> </h2>
                             </div>
                         </div>
 					</section>
