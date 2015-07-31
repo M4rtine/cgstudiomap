@@ -128,10 +128,10 @@
                         <div class="row" style="background:#5e8ab4;padding-top:80px;">
                             <div class="col-sm-8 col-sm-offset-2">
                                 <div class="center-heading">
-                                <img class="img img-responsive" src="/main_data/static/src/img/S15_WLogo_L.png" />
-                                    <h2>
-                                        <strong>Xroads of Discovery</strong>
-                                    </h2>
+                                	
+                                <img class="img img-responsive" alt="SIGGRAPH 2015" src="/main_data/static/src/img/S15_WLogo_L.png" />
+                                    <h2>Xroads of Discovery</h2>
+                                    
                                     <span class="center-line"></span>
                                     <p class="sub-text margin40">
                                         Conference 9-13 August 2015 | Exhibition 11-13 August 2015
