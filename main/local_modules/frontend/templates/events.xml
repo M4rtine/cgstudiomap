@@ -73,7 +73,7 @@
             <link rel="stylesheet" href="/ammap/static/src/js/ammap_3.14.0/ammap.css" type="text/css"/>
 
         </head>
-        <body id="home" style="min-height:0">
+        <body id="home" style="min-height:0;background:#5e8ab4">
 
                     <div class="navbar navbar-default navbar-fixed-top sticky" role="navigation">
                         <div class="container">
@@ -125,11 +125,12 @@
 					
                     <div class="container">
 
-                        <div class="row" style="padding-top:80px;">
+                        <div class="row" style="background:#5e8ab4;padding-top:80px;">
                             <div class="col-sm-8 col-sm-offset-2">
-                                <div class="center-heading">
-                                    <h2>
-                                        <strong>SIGGRAPH 2015, Xroads of Discovery</strong>
+                                <div class="center-heading" style="color:white">
+                                    <h2 style="color:white">
+                                    <img class="img img-responsive" src="/frontend/static/src/img/S15_WLogo_L.png" />
+                                        <strong>Xroads of Discovery</strong>
                                     </h2>
                                     <span class="center-line"></span>
                                     <p class="sub-text margin40">
