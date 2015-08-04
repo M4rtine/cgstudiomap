@@ -184,7 +184,7 @@
                             <!--center heading end-->
                             <div class="divide50"></div>
                             <div class="row">
-                                <div class="col-md-6 col-sm-6 margin30">
+                                <div class="margin30 col-sm-6">
                                     <div class="colored-boxed">
 										<a t-attf-href="/web/signup"><i class="fa fa-group"></i></a>
                                     </div>
@@ -198,7 +198,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-sm-6 margin30">
+                                <div class="margin30 col-sm-6">
                                     <div class="colored-boxed">
 										<a t-att-href="website.social_github"><i class="fa fa-folder-open"></i></a>
                                     </div>
@@ -217,7 +217,7 @@
                             </div>
                             <div class="divide50"></div>
                             <div class="row">
-                                <div class="col-md-6 col-sm-6 margin30">
+                                <div class="margin30 col-sm-6">
                                     <div class="colored-boxed">
                                         <a t-attf-href="/web/signup"><i class="fa fa-cogs"></i></a>
                                     </div>
@@ -231,7 +231,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-sm-6 margin30">
+                                <div class="margin30 col-sm-6">
                                     <div class="colored-boxed inv">
                                         <i class="fa fa-heart"></i>
                                     </div>
@@ -260,17 +260,17 @@
                         <div class="container">
                             <div class="row">
 								
-                                <div class="col-xs-12 col-sm-4 col-md-4 margin20 facts-in">
+                                <div class="margin20 facts-in col-xs-12 col-sm-4">
                                     <h3><span class="counter" t-esc="nbr_users"/></h3>
                                     <h4>Happy Users</h4>
                                 </div>
 								
-                                <div class="col-xs-12 col-sm-4 col-md-4 margin20 facts-in">
+                                <div class="margin20 facts-in col-xs-12 col-sm-4">
                                     <h3><span class="counter" t-esc="nbr_partners"/></h3>
                                     <h4>Companies</h4>
                                 </div>
 								
-                                <div class="col-xs-12 col-sm-4 col-md-4 margin20 facts-in">
+                                <div class="margin20 facts-in col-xs-12 col-sm-4">
                                     <h3><span class="counter" t-esc="nbr_countries"/></h3>
                                     <h4>Countries</h4>
                                 </div>
@@ -278,7 +278,7 @@
                             </div>
                         </div>
                         <div class="container full">
-                            <div class="col-xs-12 col-sm-12 col-md-12 margin20 facts-in">
+                            <div class="margin20 facts-in col-xs-12">
                                 <!--<img class="img img-responsive" src="/main_data/static/cgsm-logo-colors.png" />-->
                                 <h2><a href="/events/siggraph2015">Listing of studios attending the SIGGRAPH 2015</a> </h2>
                             </div>

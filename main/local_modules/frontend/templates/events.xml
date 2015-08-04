@@ -150,7 +150,7 @@
                 <div style="background:white">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-12 col-sm-12 margin30">
+                            <div class="margin30 col-sm-12">
                                 <div class="text">
                                     <h4>Here is a list of studios attending the SIGGRAPH 2015</h4>
                                     <p>
