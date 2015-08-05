@@ -12,4 +12,4 @@ For more details, check our [wiki](https://github.com/cgstudiomap/cgstudiomap/wi
 
 ##### Resources:
 * [code quality](https://codeclimate.com/github/cgstudiomap/cgstudiomap)
-* [waffle.io](https://waffle.io/cgstudiomap/cgstudiomap) 
+* [backlog](https://trello.com/b/H6VhqMMU/backlog) 
