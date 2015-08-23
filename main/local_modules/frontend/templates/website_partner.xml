@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="website_public_partner_view.partner" name="Frontend: partner" page="True">
+        <template id="frontend.partner" name="Frontend: partner" page="True">
             <t t-call="website.layout">
                 <div class="modal-content" style="margin:30px">
                     <div id="wrap">
@@ -36,6 +36,37 @@
                                     <span>country:</span>
                                     <span t-esc="partner.country_id.name"/>
                                 </div>
+                                <div>
+                                <t t-foreach="partner.industry_ids" t-as="ind">
+                                    <a itemprop="name" t-att-href="'/directory?search=%s' % ind.name">
+                                        <span class="label label-default" t-esc="ind.name"/>
+                                    </a>
+                                </t>
+                                </div>
+                            </div>
+                            <div>
+                                <t t-if="same_name">
+                                <div>
+                                    <a itemprop="name" t-att-href="'/directory?search=%s' % partner.name">
+                                        <span t-esc="same_name"/> other <span t-esc="'company' if same_name == 1 else 'companies'"/> with the same name.
+
+                                    </a>
+                                </div>
+                                </t>
+                                <t t-if="same_country">
+                                <div>
+                                    <a itemprop="name" t-att-href="'/directory?search=%s' % partner.country_id.name">
+                                        <span t-esc="same_country"/> other <span t-esc="'company' if same_country == 1 else 'companies'"/> from the same country.
+                                    </a>
+                                </div>
+                                </t>
+                                <t t-if="same_city">
+                                    <div>
+                                        <a itemprop="name" t-att-href="'/directory?search=%s' % partner.city">
+                                            <span t-esc="same_city"/> other <span t-esc="'company' if same_city == 1 else 'companies'"/> from <span t-esc="partner.city"/>.
+                                        </a>
+                                    </div>
+                                </t>
                             </div>
                         </div>
                     </div>
@@ -43,7 +74,7 @@
             </t>
         </template>
 
-        <template id="search" name="Search hidden fields">
+        <template id="frontend.search" name="Search hidden fields">
             <form t-att-action="keep('/directory', search=0)" method="get" t-att-class="search_class">
 
                 <t t-if="attrib_values">
@@ -59,9 +90,10 @@
                 </div>
 
             </form>
+            <a href="/web/signup">Sign up for more options. It is free!</a>
         </template>
 
-        <template id="partners" name="Partners">
+        <template id="frontend.partners" name="Partners">
             <t t-call="website.layout">
                 <t t-set="additional_title">Directory</t>
                 <div id="wrap" class="js_sale">
@@ -69,7 +101,7 @@
                     <div class="container oe_website_sale">
                         <div class="products_pager">
                             <div class="row" style="width: 100%;">
-                                <t t-call="website_public_partner_view.search"><t t-set="search_class">pagination form-inline col-md-3</t></t>
+                                <t t-call="frontend.search"><t t-set="search_class">pagination form-inline col-md-3</t></t>
                                 <t t-call="website.pager"/>
                             </div>
                         </div>
@@ -90,18 +122,7 @@
                                                         t-attf-class="oe_product oe_grid oe-height-#{td_partner['y']*2} #{ td_partner['class'] }">
 
                                                         <div class="oe_product_cart">
-                                                            <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
-
-                                                            <a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
-                                                                <h4 t-esc="partner.name"/></a>
-                                                            <p>
-                                                                <em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
-                                                                <em>
-                                                                    <t t-foreach="partner.industry_ids" t-as="ind">
-                                                                        <span class="label label-default" t-esc="ind.name"/>
-                                                                    </t>
-                                                                </em>
-                                                            </p>
+                                                            <t t-call="frontend.partner_card"/>
                                                         </div>
 
                                                     </td>
