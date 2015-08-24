@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import logging
-import pprint
 import werkzeug
 
 from openerp.addons.web import http
@@ -45,11 +44,6 @@ class table_compute(object):
             pos = minpos
             while not self._check_place(pos % PPR, pos / PPR, x, y):
                 pos += 1
-            # if 21st products (index 20) and the last line is full (PPR products in it), break
-            # (pos + 1.0) / PPR is the line where the product would be inserted
-            # maxy is the number of existing lines
-            # + 1.0 is because pos begins at 0, thus pos 20 is actually the 21st block
-            # and to force python to not round the division operation
             if index >= PPG and ((pos + 1.0) / PPR) > maxy:
                 break
 
@@ -71,11 +65,13 @@ class table_compute(object):
         rows = self.table.items()
         rows.sort()
         rows = map(lambda x: x[1], rows)
-        for col in range(len(rows)):
+        for col in xrange(len(rows)):
             cols = rows[col].items()
             cols.sort()
             x += len(cols)
-            rows[col] = [c for c in map(lambda x: x[1], cols) if c != False]
+            rows[col] = [
+                c for c in map(lambda x: x[1], cols) if not c == False
+            ]
 
         return rows
 
@@ -111,12 +107,14 @@ class MainPage(Website):
 
         values = {
             'partner': partner,
-            'same_name': partner_pool.search_count([('name', '=', partner.name)]) - 1,
-            'same_city': partner_pool.search_count([('city', '=', partner.city)]) - 1,
-            'same_country': partner_pool.search_count([('country_id', '=', partner.country_id.id)]) - 1,
+            'same_name': partner_pool.search_count(
+                [('name', '=', partner.name)]) - 1,
+            'same_city': partner_pool.search_count(
+                [('city', '=', partner.city)]) - 1,
+            'same_country': partner_pool.search_count(
+                [('country_id', '=', partner.country_id.id)]) - 1,
         }
         return request.render('frontend.partner', values)
-
 
     @http.route(['/directory',
                  '/directory/page/<int:page>',
