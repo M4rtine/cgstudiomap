@@ -11,6 +11,7 @@
                                 <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
                                 <h1 t-esc="partner.name"/>
                             </div>
+                            <!--Basic details of companies-->
                             <div>
                                 <div>
                                     <span>Address:</span>
@@ -44,6 +45,8 @@
                                 </t>
                                 </div>
                             </div>
+                            <!--Links to the directory to help the user to find more studios-->
+                            <!--Also helps the SEO of the website-->
                             <div>
                                 <t t-if="same_name">
                                 <div>
@@ -66,6 +69,16 @@
                                             <span t-esc="same_city"/> other <span t-esc="'company' if same_city == 1 else 'companies'"/> from <span t-esc="partner.city"/>.
                                         </a>
                                     </div>
+                                </t>
+                            </div>
+                            <!--If user logged, tell him to go to the dashboard-->
+                            <!--If not login boy!-->
+                            <div>
+                                <t t-if="request.uid !=  %(base.public_user)d">
+                                    <p><a t-attf-href="/web" class="btn btn-warning sign-up pull-right"><strong>Go to dashboard</strong></a></p>
+                                </t>
+                                <t t-if="request.uid ==  %(base.public_user)d">
+                                    <p><a t-attf-href="/web/signup" class="btn btn-warning sign-up pull-right"><strong>Sign up Boy for more details!</strong></a></p>
                                 </t>
                             </div>
                         </div>
