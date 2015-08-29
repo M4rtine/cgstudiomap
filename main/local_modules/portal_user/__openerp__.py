@@ -21,7 +21,7 @@
 
 {
     'name': 'Portal User',
-    'version': '235',
+    'version': '256',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',

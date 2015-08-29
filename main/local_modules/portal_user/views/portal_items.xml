@@ -95,10 +95,10 @@
             </field>
         </record>
 
-        <menuitem id="menu_portal_siggraph2015"
-                  action="action_portal_siggraph2015"
-                  parent="portal_user.portal_listing"
-                  groups="base.group_portal"/>
+        <!--<menuitem id="menu_portal_siggraph2015"-->
+                  <!--action="action_portal_siggraph2015"-->
+                  <!--parent="portal_user.portal_listing"-->
+                  <!--groups="base.group_portal"/>-->
 
         <record id="action_portal_missing_details" model="ir.actions.act_window">
             <field name="name">More Details Wanted</field>
