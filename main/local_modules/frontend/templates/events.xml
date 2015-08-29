@@ -2,12 +2,13 @@
 <openerp>
     <data>
 
-        <record id="events_siggraph2015" model="website.menu">
-            <field name="name">SIGGRAPH 2015</field>
-            <field name="url">/events/siggraph2015</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence" type="int">20</field>
-        </record>
+        <!--[255] remove siggraph2015 as it is finished.-->
+        <!--<record id="events_siggraph2015" model="website.menu">-->
+            <!--<field name="name">SIGGRAPH 2015</field>-->
+            <!--<field name="url">/events/siggraph2015</field>-->
+            <!--<field name="parent_id" ref="website.main_menu"/>-->
+            <!--<field name="sequence" type="int">20</field>-->
+        <!--</record>-->
 
 <template id="event_siggraph2015" name="Event: SIGGRAPH2015" page="True" priority="29">
 &lt;!DOCTYPE html&gt;
