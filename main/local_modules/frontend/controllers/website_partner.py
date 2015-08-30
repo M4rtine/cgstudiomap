@@ -70,7 +70,7 @@ class table_compute(object):
             cols.sort()
             x += len(cols)
             rows[col] = [
-                c for c in map(lambda x: x[1], cols) if not c == False
+                c for c in map(lambda x: x[1], cols) if c
             ]
 
         return rows
