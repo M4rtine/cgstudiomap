@@ -21,7 +21,7 @@
 
 {
     'name': 'Frontend',
-    'version': '256',
+    'version': '257',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
