@@ -30,7 +30,6 @@
     'depends': [
         'web',
         'website',
-        'ammap',
         'portal',
         'auth_signup',
         'website_menu_by_user_status',

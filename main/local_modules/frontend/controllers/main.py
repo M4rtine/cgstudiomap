@@ -14,7 +14,7 @@ from openerp.addons.website.controllers.main import Website
 _logger = logging.getLogger(__name__)
 
 
-class Memoized(object):
+class Memorized(object):
     """Decorator. Caches a function's return value each time it is called.
     If called later with the same arguments, the cached value is returned
     (not reevaluated).
@@ -49,7 +49,7 @@ class MainPage(Website):
     @http.route('/', type='http', auth="public", website=True)
     def index(self, **kw):
 
-        @Memoized
+        @Memorized
         def get_partners_by_country(country):
             """Method to be memorized that return the number of partner in a country.
 
@@ -72,7 +72,6 @@ class MainPage(Website):
         # optimisation as it is used in get_partners_by_country
         self.partner_pool = env['res.partner']
         country_pool = env['res.country']
-        ammap_homepage = env.ref('frontend.homepage_ammap_config')
         filters = [('active', '=', True), ('is_company', '=', True)]
 
         by_countries = defaultdict(int)
@@ -92,7 +91,6 @@ class MainPage(Website):
             'page': page,
             'geochart_data': by_countries,
             'geochart_target': 'geochart_div',
-            'ammap_config': ammap_homepage,
             'nbr_partners': self.partner_pool.search_count(filters),
             'nbr_countries': len(by_countries.keys()),
             'nbr_users': user_pool.search_count([('active', '=', True)]),
@@ -108,7 +106,7 @@ class MainPage(Website):
     )
     def event_siggraph2015(self, **kw):
 
-        @Memoized
+        @Memorized
         def get_partners_by_country(country):
             """Method to be memorized that return the number of partner in a country.
 
@@ -130,7 +128,6 @@ class MainPage(Website):
         # optimisation as it is used in get_partners_by_country
         self.partner_pool = env['res.partner']
         country_pool = env['res.country']
-        ammap_homepage = env.ref('frontend.homepage_ammap_config')
         filters = [
             ('active', '=', True),
             ('is_company', '=', True),
@@ -147,7 +144,6 @@ class MainPage(Website):
             'page': page,
             'geochart_data': by_countries,
             'geochart_target': 'geochart_div',
-            'ammap_config': ammap_homepage,
             'nbr_partners': self.partner_pool.search_count(filters),
             'partners': sample_partners,
             }
