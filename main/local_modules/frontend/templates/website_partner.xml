@@ -7,6 +7,18 @@
             <field name="parent_id" ref="website.main_menu"/>
             <field name="sequence" type="int">20</field>
         </record>
+        <record id="directory_list" model="website.menu">
+            <field name="name">List</field>
+            <field name="url">/directory/list</field>
+            <field name="parent_id" ref="frontend.directory"/>
+            <field name="sequence" type="int">10</field>
+        </record>
+        <record id="directory_kanban" model="website.menu">
+            <field name="name">Kanban</field>
+            <field name="url">/directory/kanban</field>
+            <field name="parent_id" ref="frontend.directory"/>
+            <field name="sequence" type="int">20</field>
+        </record>
         <record id="dashboard" model="website.menu">
             <field name="name">Dashboard</field>
             <field name="url">/web</field>
@@ -15,6 +27,7 @@
             <field name="user_logged" eval="True"/>
             <field name="user_not_logged" eval="False"/>
         </record>
+
         <template id="frontend.partner" name="Frontend: partner" page="True">
             <t t-call="website.layout">
                 <div class="modal-content" style="margin:30px">
@@ -120,7 +133,7 @@
             <a href="/web/signup">Sign up for more options. It is free!</a>
         </template>
 
-        <template id="frontend.kanban_partners" name="Kanban Partners">
+        <template id="frontend.partners" name="Base for Partners">
             <t t-call="website.layout">
                 <t t-set="additional_title">Directory</t>
                 <div id="wrap" class="js_sale">
@@ -132,21 +145,75 @@
                                 <t t-call="website.pager"/>
                             </div>
                         </div>
-                        <div class="grid js-isotope"
-                             data-isotope-options='{ "itemSelector": ".item", "layoutMode": "packery" }'>
-                            <t t-foreach="partners" t-as="partner">
-                            <div t-att-class="'grid-item' if partner.image else 'grid-item mid-width'">
-                                <span t-esc="partner.name"/>
-                            </div>
-                            </t>
-                        </div>
+                        <t t-raw="0"/>
                     </div>
                     <div class="oe_structure mb32"/>
                 </div>
             </t>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
         </template>
 
+        <template id="frontend.kanban_partners" name="Kanban Partners">
+            <t t-call="frontend.partners">
+                <div class="grid js-isotope"
+                     data-isotope-options='{ "itemSelector": ".item", "layoutMode": "packery" }'>
+                    <t t-foreach="partners" t-as="partner">
+                    <div t-att-class="'grid-item' if partner.image else 'grid-item mid-width'">
+                        <div>
+                            <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
+                        </div>
+                        <div>
+                            <a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
+                                <h4 t-esc="partner.name"/>
+                            </a>
+                        </div>
+                    </div>
+                    </t>
+                </div>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+            </t>
+        </template>
+
+        <template id="frontend.list_partners" name="list Partners">
+            <t t-call="frontend.partners">
+                <table data-toggle="table">
+                    <thead>
+                        <tr>
+                            <th/>
+                            <th>Name</th>
+                            <th>City</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="partners" t-as="partner">
+                        <tr>
+                            <td>
+                                <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
+                            </td>
+                            <td>
+                            <a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
+                                <h4 t-esc="partner.name"/>
+                            </a>
+                            </td>
+                            <td><span t-esc="partner.city"/></td>
+                            <td><span t-esc="partner.country_id.name"/></td>
+                        </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+                <!-- Latest compiled and minified CSS -->
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css"/>
+
+                <!-- Latest compiled and minified JavaScript -->
+                <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>
+
+                <!-- Latest compiled and minified Locales -->
+                <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
+            </t>
+        </template>
 
 
     </data>

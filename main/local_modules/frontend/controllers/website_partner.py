@@ -7,13 +7,13 @@ from openerp.http import request
 from openerp.addons.website.controllers.main import Website
 
 _logger = logging.getLogger(__name__)
-PPG = 100  # Partner Per Page
 PPR = 4  # Products Per Row
 
 
 class table_compute(object):
-    def __init__(self):
+    def __init__(self, partner_per_page=20):
         self.table = {}
+        self.partner_per_page = partner_per_page
 
     def _check_place(self, posx, posy, sizex, sizey):
         res = True
@@ -38,13 +38,13 @@ class table_compute(object):
         for p in products:
             x = min(max(1, 1), PPR)
             y = min(max(1, 1), PPR)
-            if index >= PPG:
+            if index >= self.partner_per_page:
                 x = y = 1
 
             pos = minpos
             while not self._check_place(pos % PPR, pos / PPR, x, y):
                 pos += 1
-            if index >= PPG and ((pos + 1.0) / PPR) > maxy:
+            if index >= self.partner_per_page and ((pos + 1.0) / PPR) > maxy:
                 break
 
             if x == 1 and y == 1:  # simple heuristic for CPU optimization
@@ -57,7 +57,7 @@ class table_compute(object):
                 'product': p, 'x': x, 'y': y,
                 'class': " ",
             }
-            if index <= PPG:
+            if index <= self.partner_per_page:
                 maxy = max(maxy, y + (pos / PPR))
             index += 1
 
@@ -116,17 +116,14 @@ class MainPage(Website):
         }
         return request.render('frontend.partner', values)
 
-    @http.route(['/directory',
-                 '/directory/page/<int:page>',
-                 ], type='http', auth="public", website=True)
-    def partners(self, page=0, search='', **post):
+    def partners(self, url='directory', partner_per_page=20, page=0, search='', **post):
         env = request.env
         partner_pool = env['res.partner']
         domain = [
             ('active', '=', True),
             ('is_company', '=', True),
             ('state', '=', 'open'),
-        ]
+            ]
         if search:
             for srch in search.split(" "):
                 domain += [
@@ -135,25 +132,24 @@ class MainPage(Website):
                     ('city', 'ilike', srch),
                     ('country_id.name', 'ilike', srch),
                     ('industry_ids.name', 'ilike', srch),
-                ]
+                    ]
 
         keep = QueryURL('/shop', search=search)
         if search:
             post["search"] = search
-        url = "/directory"
         partner_count = partner_pool.search_count(domain)
         pager = request.website.pager(
             url=url,
             total=partner_count,
             page=page,
-            step=PPG,
+            step=partner_per_page,
             scope=7,
             url_args=post
         )
 
         partners = partner_pool.search(
             domain,
-            limit=PPG,
+            limit=partner_per_page,
             offset=pager['offset'],
         )
 
@@ -161,9 +157,23 @@ class MainPage(Website):
             'search': search,
             'pager': pager,
             'partners': partners,
-            'bins': table_compute().process(partners),
+            'bins': table_compute(partner_per_page=partner_per_page).process(partners),
             'rows': PPR,
             'keep': keep,
-        }
+            }
 
+        return values
+
+    @http.route(['/directory/list',
+                 '/directory/list/page/<int:page>',
+                 ], type='http', auth="public", website=True)
+    def directory_list(self, **post):
+        values = self.partners(url='/directory/list', **post)
+        return request.website.render("frontend.list_partners", values)
+
+    @http.route(['/directory/kanban',
+                 '/directory/kanban/page/<int:page>',
+                 ], type='http', auth="public", website=True)
+    def directory_kanban(self, **post):
+        values = self.partners(url='/directory/kanban', partner_per_page=50, **post)
         return request.website.render("frontend.kanban_partners", values)
