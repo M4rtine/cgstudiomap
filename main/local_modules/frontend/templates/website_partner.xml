@@ -120,7 +120,7 @@
             <a href="/web/signup">Sign up for more options. It is free!</a>
         </template>
 
-        <template id="frontend.partners" name="Partners">
+        <template id="frontend.kanban_partners" name="Kanban Partners">
             <t t-call="website.layout">
                 <t t-set="additional_title">Directory</t>
                 <div id="wrap" class="js_sale">
@@ -132,50 +132,19 @@
                                 <t t-call="website.pager"/>
                             </div>
                         </div>
-                        <div class='row'>
-                            <div class="hidden" id="products_grid_before"></div>
-                            <div class="col-md-12" id="products_grid">
-                                <table width="100%">
-                                    <tbody>
-                                        <tr t-ignore="true">
-                                            <td t-foreach="range(0,rows)" t-as="row" t-attf-width="#{100/rows}%"></td>
-                                        </tr>
-                                        <tr t-foreach="bins" t-as="tr_partner">
-                                            <t t-foreach="tr_partner" t-as="td_partner">
-                                                <t t-if="td_partner">
-                                                    <t t-set="partner" t-value="td_partner['product']"/>
-                                                    <td t-att-colspan="td_partner['x'] != 1 and td_partner['x']"
-                                                        t-att-rowspan="td_partner['y'] != 1 and td_partner['y']"
-                                                        t-attf-class="oe_product oe_grid oe-height-#{td_partner['y']*2} #{ td_partner['class'] }">
-
-                                                        <div class="oe_product_cart">
-                                                            <t t-call="frontend.partner_card"/>
-                                                        </div>
-
-                                                    </td>
-                                                </t>
-                                                <td t-if="not td_partner" class="oe-height-2"/>
-                                            </t>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <t t-if="not bins">
-                                    <div class="text-center text-muted">
-                                        <h3 class="css_editable_display">No product defined.</h3>
-                                        <t groups="base.group_website_publisher">
-                                            <p groups="base.group_sale_manager">Use the <i>'Content'</i> top menu to create a new product.</p>
-                                        </t>
-                                    </div>
-                                </t>
+                        <div class="grid js-isotope"
+                             data-isotope-options='{ "itemSelector": ".item", "layoutMode": "packery" }'>
+                            <t t-foreach="partners" t-as="partner">
+                            <div t-att-class="'grid-item' if partner.image else 'grid-item mid-width'">
+                                <span t-esc="partner.name"/>
                             </div>
-                        </div>
-                        <div class="products_pager">
-                            <t t-call="website.pager"/>
+                            </t>
                         </div>
                     </div>
                     <div class="oe_structure mb32"/>
                 </div>
             </t>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
         </template>
 
 

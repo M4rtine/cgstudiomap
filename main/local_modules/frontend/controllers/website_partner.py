@@ -7,7 +7,7 @@ from openerp.http import request
 from openerp.addons.website.controllers.main import Website
 
 _logger = logging.getLogger(__name__)
-PPG = 20  # Partner Per Page
+PPG = 100  # Partner Per Page
 PPR = 4  # Products Per Row
 
 
@@ -166,4 +166,4 @@ class MainPage(Website):
             'keep': keep,
         }
 
-        return request.website.render("frontend.partners", values)
+        return request.website.render("frontend.kanban_partners", values)
