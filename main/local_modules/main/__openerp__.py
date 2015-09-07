@@ -74,7 +74,6 @@ Contributors
         'main_data',
         'shared_web_theme',
         'frontend',
-        'ammap_portal',
         'website_blog_group_published_only',
         'cron',
         'res_group_archetype',

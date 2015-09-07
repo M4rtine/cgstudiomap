@@ -21,7 +21,7 @@
 
 {
     'name': 'Frontend',
-    'version': '257',
+    'version': '267',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
@@ -30,7 +30,6 @@
     'depends': [
         'web',
         'website',
-        'ammap',
         'portal',
         'auth_signup',
         'website_menu_by_user_status',
