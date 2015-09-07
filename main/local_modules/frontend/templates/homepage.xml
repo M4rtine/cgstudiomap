@@ -398,7 +398,8 @@
                 var data = google.visualization.arrayToDataTable(areas)
                 var options = {
                     colorAxis: {colors: ['#E8CFF7', '#B86BE5']},
-                backgroundColor: '#F2F2F2',
+                    backgroundColor: '#F2F2F2',
+                    width: '100%'
 
                 };
 
