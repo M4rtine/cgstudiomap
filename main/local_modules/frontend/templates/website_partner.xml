@@ -7,6 +7,12 @@
             <field name="parent_id" ref="website.main_menu"/>
             <field name="sequence" type="int">20</field>
         </record>
+        <record id="directory_map" model="website.menu">
+            <field name="name">Map</field>
+            <field name="url">/directory/map</field>
+            <field name="parent_id" ref="frontend.directory"/>
+            <field name="sequence" type="int">1</field>
+        </record>
         <record id="directory_list" model="website.menu">
             <field name="name">List</field>
             <field name="url">/directory/list</field>
@@ -170,6 +176,23 @@
                     </t>
                 </div>
                 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+            </t>
+        </template>
+
+        <template id="frontend.map_partners" name="map Partners">
+            <t t-call="frontend.partners">
+                <div id="map">MAP</div>
+
+
+<script>
+
+var map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: -34.397, lng: 150.644},
+  zoom: 8
+});
+
+    </script>
+
             </t>
         </template>
 

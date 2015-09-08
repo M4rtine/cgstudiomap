@@ -177,3 +177,9 @@ class MainPage(Website):
     def directory_kanban(self, **post):
         values = self.partners(url='/directory/kanban', partner_per_page=50, **post)
         return request.website.render("frontend.kanban_partners", values)
+
+    @http.route(['/directory/map',
+                 ], type='http', auth="public", website=True)
+    def directory_map(self, **post):
+        values = self.partners(url='/directory/map', **post)
+        return request.website.render("frontend.map_partners", values)
