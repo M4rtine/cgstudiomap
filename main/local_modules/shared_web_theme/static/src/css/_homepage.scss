@@ -11,6 +11,9 @@ body {
 h1, h2, h3, h4 {
 	font-family: 'cgsm-regular';
 }
+.label {
+	font-family: 'cgsm-bold';
+}
 a {
   color: #b05ae2;
 }
@@ -572,6 +575,20 @@ iframe {
 		font-family: 'cgsm-regular';
 		margin-top: 0;
 	}
+	.partner-item {
+		padding-bottom: 0.5em;
+		height: 240px;
+	}
+	img {
+		@media (max-width: $screen-xs-max) {
+			margin: 0 auto!important;
+			text-align: center!important;
+		}
+	}
+	@media (max-width: $screen-xs-max) {
+		margin: 0 auto!important;
+		text-align: center!important;
+	}
 }
 
 .person-v2 {
@@ -620,7 +637,7 @@ iframe {
 	display: inline;
 	padding: .2em .6em .3em;
 	font-size: 75%;
-	font-weight: bold;
+	font-weight: normal;
 	line-height: 1;
 	color: #fff;
 	text-align: center;
@@ -630,6 +647,7 @@ iframe {
 	-webkit-border-radius: .25em !important;
 	-moz-border-radius: .25em !important;
 }
+
 /* ---------------------------------------------- /*
  * Scroll to top
 /* ---------------------------------------------- */
