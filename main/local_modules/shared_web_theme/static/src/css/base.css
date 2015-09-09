@@ -6653,6 +6653,9 @@ iframe {
 body {
   overflow: scroll; }
 
+html, body, #wrapwrap {
+  height: 0 !important; }
+
 .grid-item {
   position: relative;
   float: left;
