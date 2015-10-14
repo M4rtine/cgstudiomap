@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="menu_reports" model="website.menu">
+            <field name="name">Reports</field>
+            <field name="url">/reports</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">100</field>
+            <field name="user_logged" eval="True"/>
+            <field name="user_not_logged" eval="False"/>
+        </record>
+        <record id="menu_reports_users" model="website.menu">
+            <field name="name">User Account Created</field>
+            <field name="url">/reports/users</field>
+            <field name="parent_id" ref="menu_reports"/>
+            <field name="sequence" type="int">100</field>
+            <field name="user_logged" eval="True"/>
+            <field name="user_not_logged" eval="False"/>
+        </record>
+
+        <record id="menu_reports_companies_created" model="website.menu">
+            <field name="name">Companies Created</field>
+            <field name="url">/reports/companies_created</field>
+            <field name="parent_id" ref="menu_reports"/>
+            <field name="sequence" type="int">100</field>
+            <field name="user_logged" eval="True"/>
+            <field name="user_not_logged" eval="False"/>
+        </record>
+
+        <record id="menu_reports_companies_updated" model="website.menu">
+            <field name="name">Companies Updated</field>
+            <field name="url">/reports/companies_updated</field>
+            <field name="parent_id" ref="menu_reports"/>
+            <field name="sequence" type="int">100</field>
+            <field name="user_logged" eval="True"/>
+            <field name="user_not_logged" eval="False"/>
+        </record>
+    </data>
+</openerp>

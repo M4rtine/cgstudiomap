@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="google_jsapi" name="Google Javascript Api" inherit_id="website.theme">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+            </xpath>
+        </template>
+
+        <template id="reports_line_chart_users" name="Reports: Line chart Users">
+            <t t-call="website.layout">
+                <div class="container modal-content">
+                    <h1>User account created last 7 days, last 30 days, from the beginning.</h1>
+                    Week
+                    <div id="chart_div_week" style="height:400px"></div>
+                    Month
+                    <div id="chart_div_month" style="height:400px"></div>
+                    Full
+                    <div id="chart_div_full" style="height:400px"></div>
+                </div>
+                <script type="text/javascript" src="/frontend_reports/static/js/line_chart_user.js"></script>
+                <script>
+                    line_chart_users(<t t-esc="data_week"/>, "chart_div_week")
+                    line_chart_users(<t t-esc="data_month"/>, "chart_div_month")
+                    line_chart_users(<t t-esc="data_full"/>, "chart_div_full")
+                </script>
+            </t>
+        </template>
+
+        <template id="reports_line_chart_companies_created" name="Reports: Line chart Companies">
+            <t t-call="website.layout">
+                <div class="container modal-content">
+                    <h1>Companies created last 7 days, last 30 days, from the beginning.</h1>
+                    Week
+                    <div id="chart_div_week" style="height:400px"></div>
+                    Month
+                    <div id="chart_div_month" style="height:400px"></div>
+                    Full
+                    <div id="chart_div_full" style="height:400px"></div>
+                </div>
+                <script type="text/javascript" src="/frontend_reports/static/js/line_chart_user.js"></script>
+                <script>
+                    line_chart_companies(<t t-esc="data_week"/>, "chart_div_week")
+                    line_chart_companies(<t t-esc="data_month"/>, "chart_div_month")
+                    line_chart_companies(<t t-esc="data_full"/>, "chart_div_full")
+                </script>
+            </t>
+        </template>
+
+        <template id="reports_line_chart_companies_updated" name="Reports: Line chart Companies">
+            <t t-call="website.layout">
+                <div class="container modal-content">
+                    <h1>Companies updated last 7 days, last 30 days, from the beginning.</h1>
+                    Week
+                    <div id="chart_div_week" style="height:400px"></div>
+                    Month
+                    <div id="chart_div_month" style="height:400px"></div>
+                    Full
+                    <div id="chart_div_full" style="height:400px"></div>
+                </div>
+                <script type="text/javascript" src="/frontend_reports/static/js/line_chart_user.js"></script>
+                <script>
+                    line_chart_companies(<t t-esc="data_week"/>, "chart_div_week")
+                    line_chart_companies(<t t-esc="data_month"/>, "chart_div_month")
+                    line_chart_companies(<t t-esc="data_full"/>, "chart_div_full")
+                </script>
+            </t>
+        </template>
+
+    </data>
+</openerp>
