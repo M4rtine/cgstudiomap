@@ -29,7 +29,12 @@ function line_chart(points, target, title) {
             vAxis: {
                 title: '# ' + title
             },
-            backgroundColor: '#f1f8e9'
+            backgroundColor: '#f1f8e9',
+            explorer: {
+                axis: 'horizontal',
+                keepInBounds: true,
+                actions: ['dragToZoom', 'rightClickToReset']
+            }
         };
 
         var chart = new google.visualization.LineChart(document.getElementById(target));
