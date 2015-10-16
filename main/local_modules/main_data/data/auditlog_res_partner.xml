@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="auditlog.rule" id="res_partner_write">
+            <field name="name">res.partner: Write</field>
+            <!--79 = res.partner-->
+            <field name="model_id">79</field>
+            <!--log_read spam too much the log. It even makes the -->
+            <!--instance too slow-->
+            <field name="log_read" eval="0"/>
+            <field name="log_write" eval="1"/>
+            <field name="log_unlink" eval="1"/>
+            <field name="log_create" eval="1"/>
+            <field name="state">subscribed</field>
+        </record>
+    </data>
+</openerp>

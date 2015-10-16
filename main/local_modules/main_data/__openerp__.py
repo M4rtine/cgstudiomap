@@ -39,6 +39,7 @@ Contributors
 """,
     'depends': [
         'crm',
+        'auditlog',
         'website',
         'website_blog',
         'website_crm',
@@ -56,6 +57,7 @@ Contributors
         'data/res_groups_data.xml',
         'data/res_users_data.xml',
         'data/website_menu.xml',
+        'data/auditlog_res_partner.xml',
         'security/ir_rules.xml',
         'security/ir.model.access.csv',
         'views/website_blog_view.xml',

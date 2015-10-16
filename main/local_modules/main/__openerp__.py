@@ -52,6 +52,7 @@ Contributors
         'web_widget_text_markdown',
         'web_m2x_options',
         # server-tools
+        'auditlog',
         'disable_openerp_online',
         'admin_technical_features',
         # geoengine
