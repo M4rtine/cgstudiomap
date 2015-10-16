@@ -11,7 +11,6 @@ from openerp.http import request
 from openerp.addons.website.controllers.main import Website
 
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
 
 
 class Memorized(object):
@@ -78,8 +77,9 @@ class MainPage(Website):
             for k in sorted(by_date.keys())
         ]
 
-    @http.route('/reports/users', type='http', auth="user", website=True)
-    def reports_users(self, **kw):
+
+    @http.route('/reports/all', type='http', auth="user", website=True)
+    def reports_all(self, **kw):
         time1 = time.time()
 
         @Memorized
@@ -106,40 +106,12 @@ class MainPage(Website):
                         by_date[str(date_object)] += 1
 
             return by_date
+        filters = [
+            ('is_company', '=', True),
+        ]
 
-        _logger.debug('reports users')
-        env = request.env
-        self.user_pool = env['res.users']
-        today = datetime.date.today()
-        first_day_str = str(first_day)
-        by_date_full = self.fill_dict_days(
-            get_users_by_date(str(today), first_day_str), first_day_str
-        )
-
-        by_date_month = self.fill_dict_days(
-            get_users_by_date(str(today), month), month
-        )
-
-        by_date_week = self.fill_dict_days(
-            get_users_by_date(str(today), week), week
-        )
-
-        values = {
-            'data_week': self.sort_dict(by_date_week),
-            'data_month': self.sort_dict(by_date_month),
-            'data_full': self.sort_dict(by_date_full),
-        }
-        time2 = time.time()
-        _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
-        return request.render(
-            'frontend_reports.reports_line_chart_users', values
-        )
-
-    @http.route('/reports/companies_updated', type='http', auth="user", website=True)
-    def report_companies_updated(self, **kw):
-        time1 = time.time()
         @Memorized
-        def get_partners_by_date(day, earliest_day):
+        def get_partners_by_updated_date(day, earliest_day):
             """Sort user by each days
 
             :param str day: stamp for the memorized so it is done once a day.
@@ -150,7 +122,7 @@ class MainPage(Website):
             earliest_day = datetime.datetime.strptime(earliest_day,
                                                       '%Y-%m-%d').date()
             by_date = defaultdict(int)
-            for partner in self.partner_pool.search([]):
+            for partner in self.partner_pool.search(filters):
                 created_time = partner.write_date
                 if created_time:
                     date_object = datetime.datetime.strptime(
@@ -162,33 +134,8 @@ class MainPage(Website):
 
             return by_date
 
-        _logger.debug('report_companies_updated')
-        env = request.env
-        self.partner_pool = env['res.partner']
-        today = datetime.date.today()
-        first_day_str = str(first_day)
-        by_date_full = self.fill_dict_days(
-            get_partners_by_date(today, first_day_str), first_day_str
-        )
-        by_date_week = self.fill_dict_days(get_partners_by_date(today, week), week)
-        by_date_month = self.fill_dict_days(get_partners_by_date(today, month), month)
-        time2 = time.time()
-        _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
-        values = {
-            'data_week': self.sort_dict(by_date_week),
-            'data_month': self.sort_dict(by_date_month),
-            'data_full': self.sort_dict(by_date_full),
-            }
-
-        return request.render(
-            'frontend_reports.reports_line_chart_companies_updated', values
-        )
-
-    @http.route('/reports/companies_created', type='http', auth="user", website=True)
-    def report_companies_created(self, **kw):
-        time1 = time.time()
         @Memorized
-        def get_partners_by_date(day, earliest_day):
+        def get_partners_by_created_date(day, earliest_day):
             """Sort user by each days
 
             :param str day: stamp for the memorized so it is done once a day.
@@ -199,7 +146,7 @@ class MainPage(Website):
             earliest_day = datetime.datetime.strptime(earliest_day,
                                                       '%Y-%m-%d').date()
             by_date = defaultdict(int)
-            for partner in self.partner_pool.search([]):
+            for partner in self.partner_pool.search(filters):
                 created_time = partner.create_date
                 if created_time:
                     date_object = datetime.datetime.strptime(
@@ -211,24 +158,30 @@ class MainPage(Website):
 
             return by_date
 
-        _logger.debug('report_companies_created')
+        _logger.debug('reports users')
         env = request.env
+        self.user_pool = env['res.users']
         self.partner_pool = env['res.partner']
         today = datetime.date.today()
         first_day_str = str(first_day)
-        by_date_full = self.fill_dict_days(
-            get_partners_by_date(today, first_day_str), first_day_str
+        by_date_users = self.fill_dict_days(
+            get_users_by_date(str(today), first_day_str), first_day_str
         )
-        by_date_week = self.fill_dict_days(get_partners_by_date(today, week), week)
-        by_date_month = self.fill_dict_days(get_partners_by_date(today, month), month)
+
+        by_date_created_companies = self.fill_dict_days(
+            get_partners_by_created_date(today, first_day_str), first_day_str
+        )
+        by_date_updated_companies = self.fill_dict_days(
+            get_partners_by_updated_date(today, first_day_str), first_day_str
+        )
+        values = {
+            'data_users': self.sort_dict(by_date_users),
+            'data_created_companies': self.sort_dict(by_date_created_companies),
+            'data_updated_companies': self.sort_dict(by_date_updated_companies),
+        }
         time2 = time.time()
         _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
-        values = {
-            'data_week': self.sort_dict(by_date_week),
-            'data_month': self.sort_dict(by_date_month),
-            'data_full': self.sort_dict(by_date_full),
-            }
-
         return request.render(
-            'frontend_reports.reports_line_chart_companies_created', values
+            'frontend_reports.reports_line_chart_all', values
         )
+

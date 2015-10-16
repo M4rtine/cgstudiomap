@@ -33,7 +33,8 @@
         'website_menu_by_user_status',
     ],
     'data': [
-        'data/website_menus.xml',
+        # Commented until there is a way to display that only to group of user
+        # 'data/website_menus.xml',
         'templates/template_reports.xml',
     ],
     'installable': True,

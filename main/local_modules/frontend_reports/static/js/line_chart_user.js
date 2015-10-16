@@ -12,7 +12,7 @@ function line_chart(points, target, title) {
     points = str_to_date(points);
 
     google.setOnLoadCallback(function () {
-        drawBackgroundColor(points, target);
+        drawBackgroundColor(points, target, title);
     });
 
     function drawBackgroundColor(points, target, title) {
@@ -46,6 +46,10 @@ function line_chart_users(points, target) {
     return line_chart(points, target, 'User Account Created')
 }
 
-function line_chart_companies(points, target) {
+function line_chart_companies_updated(points, target) {
+    return line_chart(points, target, 'Companies Updated')
+}
+
+function line_chart_companies_created(points, target) {
     return line_chart(points, target, 'Companies Added')
 }
