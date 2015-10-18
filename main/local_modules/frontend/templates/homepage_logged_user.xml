@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="homepage_logged_user" name="Homepage: Logged User" page="True" priority="29">
+            <t t-call="website.layout">
+                <div class="container modal-content">
+                <t t-foreach="companies" t-as="company">
+                    <h4 t-esc="company.name"/>
+                </a>
+            </t>
+        </div>
+    </t>
+</template>
+
+        </data>
+        </openerp>

@@ -2,17 +2,19 @@
 from collections import defaultdict
 import collections
 import functools
+import pprint
 import random
 
 import time
 import logging
 
 from openerp.addons.web import http
-from openerp.addons.web.controllers.main import login_and_redirect
-from openerp.http import request, werkzeug
+from datetime import datetime
+from openerp.http import request
 from openerp.addons.website.controllers.main import Website
 
 _logger = logging.getLogger(__name__)
+_logger.setLevel(logging.DEBUG)
 
 
 class Memorized(object):
@@ -54,7 +56,54 @@ class MainPage(Website):
 
     @http.route('/', type='http', auth="public", website=True)
     def index(self, **kw):
+        """Dispatch between homepage depending on the status of the user."""
+        uid = request.uid
+        public_user_id = request.website.user_id.id
+        is_public_user = uid == public_user_id
+        _logger.debug('user is public user? %s', is_public_user)
+        if is_public_user:
+            return self.index_public_user(**kw)
+        else:
+            return self.index_logged_user(**kw)
 
+    def index_logged_user(self, **kw):
+        """Build the home for a logged user.
+        The page is aimed to show the activity on the website.
+        """
+        time1 = time.time()
+        @Memorized
+        def get_companies(day, hour):
+            _logger.debug('day: %s, hour: %s', day, hour)
+            filters = [
+                ('is_company', '=', True),
+                ('active', '=', True)
+            ]
+            by_date = defaultdict(list)
+            for company in self.partner_pool.search(filters):
+                by_date[company.write_date].append(company)
+                by_date[company.create_date].append(company)
+
+            return by_date
+
+        env = request.env
+        # models = env['ir.model.data']
+        # res_partner_log = models.get_object('main_data', 'res_partner_write')
+        # we don't care about the timezone here as it is just for tokenize
+        now = datetime.now()
+        self.partner_pool = env['res.partner']
+        by_date =  get_companies(now.day, now.hour)
+        values = {
+            'sorted_keys': sorted(by_date.keys(), reverse=True)[:20],
+            'by_date': by_date,
+        }
+        time2 = time.time()
+        _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
+        return request.render('frontend.homepage_logged_user', values)
+
+    def index_public_user(self, **kw):
+        """Build the homepage for a public user.
+        This homepage is aimed to attract the user to login.
+        """
         @Memorized
         def get_partners_by_country(country):
             """Method to be memorized that return the number of partner in a country.
@@ -105,7 +154,7 @@ class MainPage(Website):
 
         time2 = time.time()
         _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
-        return request.render('frontend.homepage', values)
+        return request.render('frontend.homepage_public_user', values)
 
     @http.route(
         '/events/siggraph2015', type='http', auth="public", website=True
