@@ -8,7 +8,8 @@ import time
 import logging
 
 from openerp.addons.web import http
-from openerp.http import request
+from openerp.addons.web.controllers.main import login_and_redirect
+from openerp.http import request, werkzeug
 from openerp.addons.website.controllers.main import Website
 
 _logger = logging.getLogger(__name__)
@@ -46,6 +47,11 @@ class Memorized(object):
 
 
 class MainPage(Website):
+    @http.route('/web/login', type='http', auth="none")
+    def web_login(self, redirect='/', **kw):
+        """Redirect the user to homepage after he logged in."""
+        return super(MainPage, self).web_login(redirect=redirect, **kw)
+
     @http.route('/', type='http', auth="public", website=True)
     def index(self, **kw):
 
