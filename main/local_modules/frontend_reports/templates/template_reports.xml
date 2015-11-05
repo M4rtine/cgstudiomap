@@ -11,14 +11,10 @@
                 <div class="container modal-content">
                     <em>hightligh a period you want to zoom on. Right clic to reset the zooming.</em>
                     <div id="chart_div_users" style="height:400px"></div>
-                    <div id="chart_div_partners_created" style="height:400px"></div>
-                    <div id="chart_div_partners_updated" style="height:400px"></div>
                 </div>
                 <script type="text/javascript" src="/frontend_reports/static/js/line_chart_user.js"></script>
                 <script>
-                    line_chart_users(<t t-esc="data_users"/>, "chart_div_users")
-                    line_chart_companies_created(<t t-esc="data_created_companies"/>, "chart_div_partners_created")
-                    line_chart_companies_updated(<t t-esc="data_updated_companies"/>, "chart_div_partners_updated")
+                    line_chart(<t t-esc="data_users"/>, <t t-esc="data_created_companies"/>, <t t-esc="data_updated_companies"/>, "chart_div_users")
                 </script>
             </t>
         </template>
