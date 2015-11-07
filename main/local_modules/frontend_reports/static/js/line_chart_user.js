@@ -31,7 +31,7 @@ function line_chart(users, created_companies, updated_companies, target) {
                 title: 'Time'
             },
             vAxis: {
-                title: 'test'
+                title: 'Number'
             },
             backgroundColor: '#f1f8e9',
             explorer: {

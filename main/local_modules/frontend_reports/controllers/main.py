@@ -15,6 +15,7 @@ from cachetools import cached, TTLCache
 cache = TTLCache(100, 43200)
 
 _logger = logging.getLogger(__name__)
+_logger.setLevel(logging.DEBUG)
 
 
 # First day of the beta
@@ -25,7 +26,7 @@ week = str(datetime.date.today() - datetime.timedelta(days=7))
 
 class MainPage(Website):
     @staticmethod
-    def fill_dict_days(by_date, first_day):
+    def fill_dict_days(by_date):
         """Fill the missing dates with 0
 
         :param by_date: dict
@@ -33,13 +34,11 @@ class MainPage(Website):
         :return: dict
         """
         today = datetime.date.today()
-        first_day = datetime.datetime.strptime(first_day,
-                                               '%Y-%m-%d').date()
-        _logger.debug('today: %s, first day: %s', today, first_day)
-        while first_day <= today:
-            if str(first_day) not in by_date:
-                by_date[str(first_day)] = 0
-            first_day = first_day + datetime.timedelta(days=1)
+        current_day = first_day
+        while current_day <= today:
+            if str(current_day) not in by_date:
+                by_date[str(current_day)] = 0
+            current_day = current_day + datetime.timedelta(days=1)
 
         return by_date
 
@@ -57,16 +56,44 @@ class MainPage(Website):
         """Page showing reports on the activity of the website."""
         time1 = time.time()
 
-        def get_users_by_date(day, earliest_day):
-            """Sort user by each days
+        filters = [
+            ('is_company', '=', True),
+        ]
 
-            :param str day: stamp for the memorized so it is done once a day.
-            :param str earliest_day: the earliest day the user is created.
+        _logger.debug('reports users')
+        env = request.env
+        self.user_pool = env['res.users']
+        self.partner_pool = env['res.partner']
+
+        values = {
+            'data_users': self.sort_dict(
+                self.fill_dict_days(self.__get_users_by_date())
+            ),
+            'data_created_companies': self.sort_dict(
+                self.fill_dict_days(
+                    self.__get_partners_by_created_date(filters)
+                )
+            ),
+            'data_updated_companies': self.sort_dict(
+                self.fill_dict_days(
+                    self.__get_partners_by_updated_date(filters)
+                )
+            ),
+            'latest_refresh': '{0} (GMT)'.format(
+                datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            ),
+        }
+        time2 = time.time()
+        _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
+        return request.render(
+            'frontend_reports.reports_line_chart_all', values
+        )
+
+    def __get_users_by_date(self):
+            """Sort user by creation dates.
 
             :return: dict
             """
-            earliest_day = datetime.datetime.strptime(earliest_day,
-                                                      '%Y-%m-%d').date()
             by_date = defaultdict(int)
             for user in self.user_pool.search([]):
                 created_time = user.create_date
@@ -75,85 +102,41 @@ class MainPage(Website):
                     date_object = datetime.datetime.strptime(
                         created_time, '%Y-%m-%d %H:%M:%S'
                     ).date()
-                    if date_object >= earliest_day:
-                        # datetime pattern: 2015-04-14 15:47:03
-                        by_date[str(date_object)] += 1
-
-            return by_date
-        filters = [
-            ('is_company', '=', True),
-        ]
-
-        def get_partners_by_updated_date(day, earliest_day):
-            """Sort user by each days
-
-            :param str day: stamp for the memorized so it is done once a day.
-            :param str earliest_day: the earliest day the user is created.
-
-            :return: dict
-            """
-            earliest_day = datetime.datetime.strptime(earliest_day,
-                                                      '%Y-%m-%d').date()
-            by_date = defaultdict(int)
-            for partner in self.partner_pool.search(filters):
-                created_time = partner.write_date
-                if created_time:
-                    date_object = datetime.datetime.strptime(
-                        created_time, '%Y-%m-%d %H:%M:%S'
-                    ).date()
-                    if date_object >= earliest_day:
+                    if date_object >= first_day:
                         # datetime pattern: 2015-04-14 15:47:03
                         by_date[str(date_object)] += 1
 
             return by_date
 
-        def get_partners_by_created_date(day, earliest_day):
-            """Sort user by each days
+    def __get_partners_by_created_date(self, filters):
+        """Sort companies by create dates.
 
-            :param str day: stamp for the memorized so it is done once a day.
-            :param str earliest_day: the earliest day the user is created.
+        :return: dict
+        """
+        return self.__get_partners_field('create_date', filters)
 
-            :return: dict
-            """
-            earliest_day = datetime.datetime.strptime(earliest_day,
-                                                      '%Y-%m-%d').date()
-            by_date = defaultdict(int)
-            for partner in self.partner_pool.search(filters):
-                created_time = partner.create_date
-                if created_time:
-                    date_object = datetime.datetime.strptime(
-                        created_time, '%Y-%m-%d %H:%M:%S'
-                    ).date()
-                    if date_object >= earliest_day:
-                        # datetime pattern: 2015-04-14 15:47:03
-                        by_date[str(date_object)] += 1
+    def __get_partners_by_updated_date(self, filters):
+        """Sort companies by update dates.
 
-            return by_date
+        :return: dict
+        """
+        return self.__get_partners_field('write_date', filters)
 
-        _logger.debug('reports users')
-        env = request.env
-        self.user_pool = env['res.users']
-        self.partner_pool = env['res.partner']
-        today = datetime.date.today()
-        first_day_str = str(first_day)
-        by_date_users = self.fill_dict_days(
-            get_users_by_date(str(today), first_day_str), first_day_str
-        )
+    def __get_partners_field(self, date_field_name, filters):
+        """Sort companies by a date field.
 
-        by_date_created_companies = self.fill_dict_days(
-            get_partners_by_created_date(today, first_day_str), first_day_str
-        )
-        by_date_updated_companies = self.fill_dict_days(
-            get_partners_by_updated_date(today, first_day_str), first_day_str
-        )
-        values = {
-            'data_users': self.sort_dict(by_date_users),
-            'data_created_companies': self.sort_dict(by_date_created_companies),
-            'data_updated_companies': self.sort_dict(by_date_updated_companies),
-        }
-        time2 = time.time()
-        _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
-        return request.render(
-            'frontend_reports.reports_line_chart_all', values
-        )
+        :return: dict
+        """
+        by_date = defaultdict(int)
+        for partner in self.partner_pool.search(filters):
+            update_time = getattr(partner, date_field_name)
+            if update_time:
+                date_object = datetime.datetime.strptime(
+                    update_time, '%Y-%m-%d %H:%M:%S'
+                ).date()
+                if date_object >= first_day:
+                    # datetime pattern: 2015-04-14 15:47:03
+                    by_date[str(date_object)] += 1
+
+        return by_date
 
