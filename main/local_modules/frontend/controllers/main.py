@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 from collections import defaultdict
-import collections
-import functools
 import random
 import time
 import logging
@@ -10,40 +8,14 @@ from datetime import datetime
 from openerp.addons.web import http
 from openerp.http import request
 from openerp.addons.website.controllers.main import Website
+from cachetools import cached, TTLCache
 
+
+# Cache of 12hours
+# The decorated method are refreshed every 12hours.
+cache = TTLCache(100, 43200)
 
 _logger = logging.getLogger(__name__)
-
-
-class Memorized(object):
-    """Decorator. Caches a function's return value each time it is called.
-    If called later with the same arguments, the cached value is returned
-    (not reevaluated).
-    """
-
-    def __init__(self, func):
-        self.func = func
-        self.cache = {}
-
-    def __call__(self, *args):
-        if not isinstance(args, collections.Hashable):
-            # uncacheable. a list, for instance.
-            # better to not cache than blow up.
-            return self.func(*args)
-        if args in self.cache:
-            return self.cache[args]
-        else:
-            value = self.func(*args)
-            self.cache[args] = value
-            return value
-
-    def __repr__(self):
-        """Return the function's docstring."""
-        return self.func.__doc__
-
-    def __get__(self, obj, objtype):
-        """Support instance methods."""
-        return functools.partial(self.__call__, obj)
 
 
 class MainPage(Website):
@@ -64,13 +36,13 @@ class MainPage(Website):
         else:
             return self.index_logged_user(**kw)
 
+    @cached(cache)
     def index_logged_user(self, **kw):
         """Build the home for a logged user.
         The page is aimed to show the activity on the website.
         """
         time1 = time.time()
 
-        @Memorized
         def get_companies(day, hour):
             _logger.debug('day: %s, hour: %s', day, hour)
             filters = [
@@ -99,12 +71,12 @@ class MainPage(Website):
         _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
         return request.render('frontend.homepage_logged_user', values)
 
+    @cached(cache)
     def index_public_user(self, **kw):
         """Build the homepage for a public user.
         This homepage is aimed to attract the user to login.
         """
 
-        @Memorized
         def get_partners_by_country(country):
             """Method to be memorized that return the number of partner in a country.
 
