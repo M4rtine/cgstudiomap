@@ -7,7 +7,7 @@ function str_to_date(list0, list1, list2) {
     return with_date
 }
 
-function line_chart(users, created_companies, updated_companies, target) {
+function linechart_users_companies(users, created_companies, updated_companies, target) {
     google.load('visualization', '1', {packages: ['corechart', 'line']});
     points = str_to_date(users, created_companies, updated_companies);
 
