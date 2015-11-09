@@ -2,19 +2,17 @@
 from collections import defaultdict
 import collections
 import functools
-import pprint
 import random
-
 import time
 import logging
+from datetime import datetime
 
 from openerp.addons.web import http
-from datetime import datetime
 from openerp.http import request
 from openerp.addons.website.controllers.main import Website
 
+
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
 
 
 class Memorized(object):
@@ -71,6 +69,7 @@ class MainPage(Website):
         The page is aimed to show the activity on the website.
         """
         time1 = time.time()
+
         @Memorized
         def get_companies(day, hour):
             _logger.debug('day: %s, hour: %s', day, hour)
@@ -91,7 +90,7 @@ class MainPage(Website):
         # we don't care about the timezone here as it is just for tokenize
         now = datetime.now()
         self.partner_pool = env['res.partner']
-        by_date =  get_companies(now.day, now.hour)
+        by_date = get_companies(now.day, now.hour)
         values = {
             'sorted_keys': sorted(by_date.keys(), reverse=True)[:20],
             'by_date': by_date,
@@ -104,6 +103,7 @@ class MainPage(Website):
         """Build the homepage for a public user.
         This homepage is aimed to attract the user to login.
         """
+
         @Memorized
         def get_partners_by_country(country):
             """Method to be memorized that return the number of partner in a country.
@@ -113,7 +113,7 @@ class MainPage(Website):
             """
             number_partners = self.partner_pool.search_count(
                 filters + [('country_id', '=', country.id)],
-                )
+            )
             if number_partners:
                 return {country: number_partners}
 
@@ -144,15 +144,18 @@ class MainPage(Website):
 
         values = {
             'page': page,
-            'geochart_data': by_countries,
-            'geochart_target': 'geochart_div',
+            'geochart_data': [['Country', 'Popularity']] + [
+                [str(country.name), int(value)]
+                for country, value in by_countries.items()
+            ],
             'nbr_partners': self.partner_pool.search_count(filters),
             'nbr_countries': len(by_countries.keys()),
             'nbr_users': user_pool.search_count([('active', '=', True)]),
             'partners': sample_partners,
         }
-
+        _logger.debug('geochart_data: %s', values['geochart_data'])
         time2 = time.time()
+
         _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
         return request.render('frontend.homepage_public_user', values)
 
@@ -170,7 +173,7 @@ class MainPage(Website):
             """
             number_partners = self.partner_pool.search_count(
                 filters + [('country_id', '=', country.id)],
-                )
+            )
             if number_partners:
                 return {country: number_partners}
 
@@ -201,7 +204,7 @@ class MainPage(Website):
             'geochart_target': 'geochart_div',
             'nbr_partners': self.partner_pool.search_count(filters),
             'partners': sample_partners,
-            }
+        }
 
         time2 = time.time()
         _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
