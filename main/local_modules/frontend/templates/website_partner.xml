@@ -164,7 +164,7 @@
                      data-isotope-options='{ "itemSelector": ".item", "layoutMode": "packery" }'>
                     <t t-foreach="partners" t-as="partner">
                     <div t-att-class="'grid-item' if partner.image else 'grid-item mid-width'">
-                        <div>
+                        <div t-att-class="'' if partner.image else 'hidden'">
                             <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
                         </div>
                         <div>

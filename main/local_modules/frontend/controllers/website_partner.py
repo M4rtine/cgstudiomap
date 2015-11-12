@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 import logging
-import werkzeug
 
+import werkzeug
 from openerp.addons.web import http
 from openerp.http import request
 from openerp.addons.website.controllers.main import Website
+
 
 _logger = logging.getLogger(__name__)
 PPR = 4  # Products Per Row
@@ -116,14 +117,15 @@ class MainPage(Website):
         }
         return request.render('frontend.partner', values)
 
-    def partners(self, url='directory', partner_per_page=20, page=0, search='', **post):
+    def partners(self, url='directory', partner_per_page=20, page=0, search='',
+                 **post):
         env = request.env
         partner_pool = env['res.partner']
         domain = [
             ('active', '=', True),
             ('is_company', '=', True),
             ('state', '=', 'open'),
-            ]
+        ]
         if search:
             for srch in search.split(" "):
                 domain += [
@@ -132,7 +134,7 @@ class MainPage(Website):
                     ('city', 'ilike', srch),
                     ('country_id.name', 'ilike', srch),
                     ('industry_ids.name', 'ilike', srch),
-                    ]
+                ]
 
         keep = QueryURL('/shop', search=search)
         if search:
@@ -157,10 +159,11 @@ class MainPage(Website):
             'search': search,
             'pager': pager,
             'partners': partners,
-            'bins': table_compute(partner_per_page=partner_per_page).process(partners),
+            'bins': table_compute(partner_per_page=partner_per_page).process(
+                partners),
             'rows': PPR,
             'keep': keep,
-            }
+        }
 
         return values
 
@@ -175,7 +178,8 @@ class MainPage(Website):
                  '/directory/kanban/page/<int:page>',
                  ], type='http', auth="public", website=True)
     def directory_kanban(self, **post):
-        values = self.partners(url='/directory/kanban', partner_per_page=50, **post)
+        values = self.partners(url='/directory/kanban', partner_per_page=50,
+                               **post)
         return request.website.render("frontend.kanban_partners", values)
 
     @http.route(['/directory/map',
