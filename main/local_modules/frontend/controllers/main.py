@@ -126,7 +126,7 @@ class MainPage(Website):
                     ('active', '=', True),
                     ('is_company', '=', True),
                     ('id', '!=', company.partner_id.id),
-                    [('image', '!=', False)]
+                    ('image', '!=', False)
                 ]
             )
         ]
