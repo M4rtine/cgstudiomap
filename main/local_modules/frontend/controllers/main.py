@@ -133,7 +133,7 @@ class MainPage(Website):
 
         # doing kind of unittest in here as I do not know how to
         # do unittest with request :(
-        assert company.partner_id.id not in partners, (
+        assert company.partner_id.id not in [p.id for p in partners], (
             'cgstudiomap is in the most popular studio list'
         )
         return random.sample(partners, min(len(partners), sample))
