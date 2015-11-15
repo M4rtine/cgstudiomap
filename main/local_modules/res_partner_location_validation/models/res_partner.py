@@ -168,21 +168,18 @@ class ResPartner(models.Model):
         # the data in the record (in case of write ie)
         geocode = self._build_geocode(vals)
 
-        # The location values might not be in the vals.
         if geocode is None:
+            _logger.debug('The location values might not be in the vals.')
             return vals
 
         if geocode.route is None:
+            _logger.debug('The route values might not be in the vals.')
             return vals
-
-        # if geocode.route is None:
-        #     _logger.debug('Route is None, skipping.')
-        #     return vals
 
         # then the cleaned data are reinjected to the values the
         # record will be created/written with.
         street_number = geocode.street_number
-
+        _logger.debug('Checking if there is a street number.')
         if street_number is not None:
             vals['street'] = ' '.join(
                 [geocode.street_number, geocode.route]
@@ -190,10 +187,12 @@ class ResPartner(models.Model):
         else:
             vals['street'] = geocode.route.encode(__codec__)
 
+        _logger.debug('val["street"]: %s', vals['street'])
         # https://github.com/cgstudiomap/cgstudiomap/issues/145
         # avoid zip code to be nonetype.
         zip_code = geocode.postal_code or vals['zip'] or self.zip or 0
         vals['zip'] = zip_code.encode(__codec__)
+        _logger.debug('val["zip"]: %s', vals['zip'])
         # https://github.com/cgstudiomap/cgstudiomap/issues/139
         # it seems sometimes geocode can't define a city value
         # we then takes the sublocality value to avoid to have a None value.
@@ -203,6 +202,7 @@ class ResPartner(models.Model):
             or geocode.administrative_area_level_1
         )
         vals['city'] = city.encode(__codec__)
+        _logger.debug('val["city"]: %s', vals['city'])
 
         # Getting the country of the location
         # Normally all the countries are registered to odoo by default.
@@ -213,18 +213,24 @@ class ResPartner(models.Model):
 
         if country:
             vals['country_id'] = country.id
+            _logger.debug('val["country_id"]: %s', vals['country_id'])
 
         # the case of state is a bit more tricky.
         # all the countries don't have state.
+        _logger.debug('Checking states.')
         if geocode.state:
             # Even tho, all the states are not registered by default to odoo.
             # We have first to check if there is a record for the given state
             # code (state__short__name)
             state_pool = self.env['res.country.state']
-            state = state_pool.search([
-                ('code', '=', geocode.state__short_name),
-                ('country_id', '=', country.id)
-            ])
+            state = state_pool.search(
+                [
+                    ('code', '=', geocode.state__short_name),
+                    ('country_id', '=', country.id)
+                ],
+                limit=1
+            )
+            _logger.debug('state: %s', state)
             # Checking the search returned something
             # otherwise that means it needs to be created.
             if not state:
@@ -235,6 +241,8 @@ class ResPartner(models.Model):
                 })
 
             vals['state_id'] = state.id
+            _logger.debug('val["state_id"]: %s', vals['state_id'])
+
         _logger.debug('vals: {}'.format(vals))
         return vals
 
