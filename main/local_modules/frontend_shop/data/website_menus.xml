@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="menu_shop" model="website.menu">
+            <field name="name">Shop</field>
+            <field name="new_window">True</field>
+            <field name="url">https://society6.com/cgstudiomap</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">100</field>
+            <field name="user_logged" eval="True"/>
+            <field name="user_not_logged" eval="True"/>
+        </record>
+
+    </data>
+</openerp>

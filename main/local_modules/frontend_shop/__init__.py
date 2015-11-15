@@ -18,30 +18,3 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': 'Frontend',
-    'version': '267',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Web',
-    'summary': 'Frontend pages',
-    'depends': [
-        'web',
-        'website',
-        'portal',
-        'auth_signup',
-        'website_menu_by_user_status',
-        'res_partner_industry',
-        'frontend_shop',
-    ],
-    'data': [
-        'data/website_menus.xml',
-        'templates/login_template.xml',
-        'templates/contact_us_template.xml',
-        'templates/homepage.xml',
-        'templates/events.xml',
-    ],
-    'installable': True,
-}
