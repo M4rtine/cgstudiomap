@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="frontend_shop.shop" name="Shop" page="True">
+            <head>
+                <meta charset="UTF-8"/>
+                <meta http-equiv="refresh" content="6; url=https://society6.com/cgstudiomap"/>
+                <script type="text/javascript">
+                    window.location.href = "https://society6.com/cgstudiomap"
+                </script>
+                <title>Page Redirection</title>
+            </head>
+            <body>
+                <!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
+                If you are not redirected automatically,
+                follow the <a href='https://society6.com/cgstudiomap'>link to the shop</a>
+            </body>
+        </template>
+
+    </data>
+</openerp>
