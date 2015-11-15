@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
+#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,21 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Frontend Shop',
-    'version': '302',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Web',
-    'summary': 'Shop Modules',
-    'depends': [
-        'website',
-        'website_menu_by_user_status',
-    ],
-    'data': [
-        'templates/template_shop.xml',
-        'data/website_menus.xml',
-    ],
-    'installable': True,
-}
+from . import main
