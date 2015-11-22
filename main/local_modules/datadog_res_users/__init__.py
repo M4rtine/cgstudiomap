@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-# OpenERP, Open Source Management Solution
+#    OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,33 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Datadog',
-    'version': 'beta',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Gather module that add tracker to datadog',
-    'description': """
-Datadog
-=======
-This module contains the dependencies to install all datadog related modules.
-
-Contributors
-------------
-* Jordi Riera <kender.jr@gmail.com>
-
-""",
-    # Keep main as dependency so this module is loaded after all the other
-    'depends': [
-        # odoo
-        'main',
-        # datadog modules
-        'datadog_res_partner',
-        'datadog_res_users',
-    ],
-    'data': [],
-    'installable': True,
-    'application': True,
-}
+from . import res_users

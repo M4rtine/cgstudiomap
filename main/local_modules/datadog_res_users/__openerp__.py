@@ -20,32 +20,25 @@
 ##############################################################################
 
 {
-    'name': 'Datadog',
+    'name': 'Datadog res users',
     'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Main',
-    'summary': 'Gather module that add tracker to datadog',
+    'summary': 'Track activity around res.users',
     'description': """
-Datadog
-=======
-This module contains the dependencies to install all datadog related modules.
+Datadog res.users
+==================
+Track activity of res.users model with datadog.
 
 Contributors
 ------------
 * Jordi Riera <kender.jr@gmail.com>
 
 """,
-    # Keep main as dependency so this module is loaded after all the other
     'depends': [
-        # odoo
-        'main',
-        # datadog modules
-        'datadog_res_partner',
-        'datadog_res_users',
     ],
     'data': [],
     'installable': True,
-    'application': True,
 }
