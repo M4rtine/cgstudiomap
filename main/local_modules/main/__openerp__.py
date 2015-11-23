@@ -59,6 +59,8 @@ Contributors
         'geoengine_base_geolocalize',
         # website
         'website_blog_mgmt',
+        # odoo sentry
+        'odoo_sentry',
         # local modules
         'res_partner_email_validation',
         'res_partner_email_validation_missing_details',
