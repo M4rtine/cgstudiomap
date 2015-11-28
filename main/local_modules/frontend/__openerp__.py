@@ -21,7 +21,7 @@
 
 {
     'name': 'Frontend',
-    'version': '267',
+    'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
@@ -32,8 +32,10 @@
         'website',
         'portal',
         'auth_signup',
+        'auditlog',
         'website_menu_by_user_status',
         'res_partner_industry',
+        'main_data',
         'frontend_shop',
     ],
     'data': [
@@ -42,6 +44,7 @@
         'templates/contact_us_template.xml',
         'templates/homepage.xml',
         'templates/events.xml',
+        'templates/website_partner.xml',
     ],
     'installable': True,
 }

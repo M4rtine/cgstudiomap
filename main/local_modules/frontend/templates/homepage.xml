@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <!--<record id="homepage_ammap_config" model="ammap.config">-->
-            <!--<field name="name">homepage</field>-->
-            <!--<field name="color">#E8CFF7</field>-->
-            <!--<field name="color_solid">#B86BE5</field>-->
-            <!--<field name="unlisted_areas_color">#E2E2E4</field>-->
-            <!--<field name="roll_over_outline_color">#190623</field>-->
 
-            <!--<field name="description">Config of the map on the homepage.</field>-->
-        <!--</record>-->
-
-<template id="homepage" name="Homepage" page="True" priority="29">
+<template id="homepage_public_user" name="Homepage: public user" page="True" priority="29">
 &lt;!DOCTYPE html&gt;
 <html t-att-lang="lang and lang.replace('_', '-')" t-att-data-website-id="website.id if editable and website else None" t-att-data-editable="'1' if editable else None" t-att-data-translatable="'1' if translatable else None" t-att-data-view-xmlid="xmlid if editable else None" t-att-data-main-object="repr(main_object) if editable else None" t-att-data-oe-company-name="res_company.name">
         <head>
@@ -133,7 +124,7 @@
                         <div class="container">
 
 									
-                            <div class="hidden-xs" t-att-id="geochart_target"></div>
+                            <div class="hidden-xs" id="geochart_target"></div>
                             <t t-if="request.uid == 3" >
 
                             <div class="infos-box">
@@ -389,29 +380,9 @@
 			
 			<script src="/shared_web_theme/static/src/js/custom.js" type="text/javascript"></script>
             <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+            <script type="text/javascript" src="/frontend/static/js/geocharts.js"></script>
             <script type="text/javascript">
-              google.load("visualization", "1", {packages:["geochart"]});
-              google.setOnLoadCallback(drawRegionsMap);
-
-              function drawRegionsMap() {
-                var areas = new Array()
-                areas[areas.length] = ['Country', 'Popularity']
-                <t t-foreach="geochart_data" t-as="country">
-                areas[areas.length] = ["<t t-esc="country.code"/>",<t t-esc="geochart_data[country]"/>]
-                </t>
-                var data = google.visualization.arrayToDataTable(areas)
-                var options = {
-                    colorAxis: {colors: ['#E8CFF7', '#B86BE5']},
-                    backgroundColor: '#F2F2F2',
-                    width: '100%'
-
-                };
-
-
-                var chart = new google.visualization.GeoChart(document.getElementById('<t t-esc="geochart_target"/>'));
-
-                chart.draw(data, options);
-              }
+                geo_chart(<t t-esc="geochart_data"/>, 'geochart_target');
             </script>
 
             <script t-if="website and website.google_analytics_key">
@@ -427,5 +398,54 @@
     </html>
 </template>
 
-    </data>
-</openerp>
+<template id="partner_card" name="Partner Card">
+    <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
+
+    <a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
+        <h4 t-esc="partner.name"/></a>
+    <p>
+        <em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
+        <em>
+            <t t-foreach="partner.industry_ids" t-as="ind">
+                <a itemprop="name" t-att-href="'/directory?search=%s' % ind.name">
+                <span class="label label-default" t-esc="ind.name"/>
+                </a>
+            </t>
+        </em>
+    </p>
+</template>
+
+
+<template id="homepage_logged_user" name="Homepage: Logged User" page="True" priority="29">
+    <t t-call="website.layout">
+        <div class="container modal-content">
+            <t t-foreach="sorted_keys" t-as="key">
+                <t t-foreach="by_date[key]" t-as="partner">
+                    <div>
+                        <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
+
+                        <a itemprop="name" t-att-href="'/directory/company/%s' % slug(partner)">
+                            <h4>
+                                <span t-esc="partner.name"/> has been <span t-esc="'updated' if key == partner.write_date else 'created'"/>
+                            </h4>
+                        </a>
+                        (<span t-esc="key"/>)
+                        <p>
+                            <em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
+                            <em>
+                                <t t-foreach="partner.industry_ids" t-as="ind">
+                                    <a itemprop="name" t-att-href="'/directory?search=%s' % ind.name">
+                                        <span class="label label-default" t-esc="ind.name"/>
+                                    </a>
+                                </t>
+                            </em>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </div>
+    </t>
+</template>
+
+
+</data></openerp>
