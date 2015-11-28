@@ -21,7 +21,7 @@
 
 {
     'name': 'Frontend Shop',
-    'version': '302',
+    'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',

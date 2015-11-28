@@ -7,7 +7,7 @@
             <field name="url">/shop</field>
             <!--<field name="url">https://society6.com/cgstudiomap</field>-->
             <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence" type="int">100</field>
+            <field name="sequence" type="int">61</field>
             <field name="user_logged" eval="True"/>
             <field name="user_not_logged" eval="True"/>
         </record>
