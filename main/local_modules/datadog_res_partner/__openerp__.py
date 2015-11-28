@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,31 +20,25 @@
 ##############################################################################
 
 {
-    'name': 'Frontend',
-    'version': '267',
+    'name': 'Datadog res partner',
+    'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
-    'category': 'Web',
-    'summary': 'Frontend pages',
+    'category': 'Main',
+    'summary': 'Track activity around res.partner',
+    'description': """
+Datadog res.partner
+===================
+Track activity of res.partner model with datadog.
+
+Contributors
+------------
+* Jordi Riera <kender.jr@gmail.com>
+
+""",
     'depends': [
-        'web',
-        'website',
-        'portal',
-        'auth_signup',
-        'auditlog',
-        'website_menu_by_user_status',
-        'res_partner_industry',
-        'main_data',
-        'frontend_shop',
     ],
-    'data': [
-        'data/website_menus.xml',
-        'templates/login_template.xml',
-        'templates/contact_us_template.xml',
-        'templates/homepage.xml',
-        'templates/events.xml',
-        'templates/website_partner.xml',
-    ],
+    'data': [],
     'installable': True,
 }
