@@ -36,6 +36,8 @@ class MainPage(Website):
         if is_public_user:
             return self.index_public_user(**kw)
         else:
+            return self.index_public_user(**kw)
+            # disabled for now
             return self.index_logged_user(**kw)
 
     @cached(cache)
@@ -122,7 +124,7 @@ class MainPage(Website):
         }
         _logger.debug('geochart_data: %s', values['geochart_data'])
         time2 = time.time()
-
+        return request.render('frontend.homepage_public_user', values)
 
     @staticmethod
     def get_most_popular_studios(sample):
