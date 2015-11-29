@@ -27,10 +27,10 @@
             <field name="sequence" type="int">10</field>
         </record>
         <record id="dashboard" model="website.menu">
-            <field name="name">Dashboard</field>
+            <field name="name">Directory</field>
             <field name="url">/web</field>
             <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence" type="int">100</field>
+            <field name="sequence" type="int">10</field>
             <field name="user_logged" eval="True"/>
             <field name="user_not_logged" eval="False"/>
         </record>

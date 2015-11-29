@@ -11,6 +11,22 @@
             </xpath>
         </template>
 
+        <template id="frontend.web_login_temp_page" name="Web login temp page" page="True">
+            <head>
+                <meta charset="UTF-8"/>
+                <meta http-equiv="refresh" content="6; url=/"/>
+                <script type="text/javascript">
+                    window.location.href = "/"
+                </script>
+                <title>Page Redirection</title>
+            </head>
+            <body>
+                <!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
+                If you are not redirected automatically,
+                follow the <a href='/'>link to the shop</a>
+            </body>
+        </template>
+
         <template id="web.login" name="Login Container">
             <t t-call="web.login_layout">
                 <!--Add a container to center the view and the modal-content to -->

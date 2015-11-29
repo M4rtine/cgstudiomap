@@ -56,7 +56,6 @@ Contributors
         'data/company_details.xml',
         'data/res_groups_data.xml',
         'data/res_users_data.xml',
-        'data/website_menu.xml',
         'data/auditlog_res_partner.xml',
         'security/ir_rules.xml',
         'security/ir.model.access.csv',
