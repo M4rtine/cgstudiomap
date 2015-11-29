@@ -18,20 +18,32 @@ _logger = logging.getLogger(__name__)
 cache = TTLCache(100, 43200)
 
 _logger = logging.getLogger(__name__)
+_logger.setLevel(logging.DEBUG)
 
 
 class MainPage(Website):
+    LOGIN_REDIRECTION = '/web/login/processing'
+
     @http.route('/web/login', type='http', auth="none")
-    def web_login(self, redirect='/', **kw):
+    def web_login(self, redirect=LOGIN_REDIRECTION, **kw):
         """Redirect the user to homepage after he logged in."""
+        _logger.debug('web_login redirection.')
         return super(MainPage, self).web_login(redirect=redirect, **kw)
+
+    @http.route(LOGIN_REDIRECTION, type='http', auth="none")
+    def web_login_temp_page(self, redirect=LOGIN_REDIRECTION, **kw):
+        """Redirect the user to homepage after he logged in."""
+        _logger.debug('web_login_temp_page redirection.')
+        return request.render('frontend.web_login_temp_page')
 
     @http.route('/', type='http', auth="public", website=True)
     def index(self, **kw):
         """Dispatch between homepage depending on the status of the user."""
+        _logger.debug('index')
         uid = request.uid
         public_user_id = request.website.user_id.id
         is_public_user = uid == public_user_id
+        _logger.debug('uid: %s', uid)
         _logger.debug('user is public user? %s', is_public_user)
         if is_public_user:
             return self.index_public_user(**kw)
@@ -40,13 +52,13 @@ class MainPage(Website):
             # disabled for now
             return self.index_logged_user(**kw)
 
-    @cached(cache)
     def index_logged_user(self, **kw):
         """Build the home for a logged user.
         The page is aimed to show the activity on the website.
         """
         time1 = time.time()
 
+        @cached(cache)
         def get_companies(day, hour):
             _logger.debug('day: %s, hour: %s', day, hour)
             filters = [
@@ -75,27 +87,32 @@ class MainPage(Website):
         _logger.debug('function took %0.3f ms' % ((time2 - time1) * 1000.0))
         return request.render('frontend.homepage_logged_user', values)
 
-    @cached(cache)
     def index_public_user(self, **kw):
         """Build the homepage for a public user.
         This homepage is aimed to attract the user to login.
         """
 
-        def get_partners_by_country(country):
+        @cached(cache)
+        def get_partners_by_country(countries):
             """Method to be memorized that return the number of partner in a country.
 
             :param instance country: record of a country
             :return: dict {country instance: count of partners in the country}
+
             """
-            number_partners = self.partner_pool.search_count(
-                filters + [('country_id', '=', country.id)],
-            )
-            if number_partners:
-                return {country: number_partners}
+            by_countries_ = defaultdict(int)
 
-            return {}
+            for country_ in countries:
+                # by_countries.update(get_partners_by_country(country_))
+                number_partners = self.partner_pool.search_count(
+                    filters + [('country_id', '=', country_.id)],
+                )
+                if number_partners:
+                    by_countries_[country_] = number_partners
 
-        _logger.debug('index')
+            return by_countries_
+
+        _logger.debug('index_public_user')
         time1 = time.time()
         page = 'homepage'
         env = request.env
@@ -107,9 +124,7 @@ class MainPage(Website):
             ('active', '=', True),
             ('is_company', '=', True),
         ]
-        by_countries = defaultdict(int)
-        for country in country_pool.search([]):
-            by_countries.update(get_partners_by_country(country))
+        by_countries = get_partners_by_country(country_pool.search([]))
 
         values = {
             'page': page,
@@ -122,12 +137,12 @@ class MainPage(Website):
             'nbr_users': user_pool.search_count([('active', '=', True)]),
             'partners': self.get_most_popular_studios(8),
         }
-        _logger.debug('geochart_data: %s', values['geochart_data'])
+        # _logger.debug('geochart_data: %s', values['geochart_data'])
         time2 = time.time()
         return request.render('frontend.homepage_public_user', values)
 
     @staticmethod
-    def get_most_popular_studios(sample):
+    def get_most_popular_studios(sample_):
         """Return a list of partners that have a logo.
 
         The list is filtered to just returns partner that match:
@@ -135,8 +150,6 @@ class MainPage(Website):
         - is a company
         - is not the partner related to cgstudiomap
         - has an image.
-        :param partner_pool: pool of partners
-        :param list filters: domains to apply on top of the domain about images.
         :return: list of partner records.
         """
         env = request.env
@@ -167,4 +180,4 @@ class MainPage(Website):
         assert company.partner_id.id not in [p.id for p in partners], (
             'cgstudiomap is in the most popular studio list'
         )
-        return random.sample(partners, min(len(partners), sample))
+        return random.sample(partners, min(len(partners), sample_))
