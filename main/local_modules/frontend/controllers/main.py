@@ -17,9 +17,6 @@ _logger = logging.getLogger(__name__)
 # The decorated method are refreshed every 12hours.
 cache = TTLCache(100, 43200)
 
-_logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
-
 
 class MainPage(Website):
     LOGIN_REDIRECTION = '/web/login/processing'
