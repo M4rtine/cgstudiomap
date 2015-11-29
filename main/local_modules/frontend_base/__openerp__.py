@@ -20,32 +20,18 @@
 ##############################################################################
 
 {
-    'name': 'Frontend',
+    'name': 'Frontend Base',
     'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Web',
-    'summary': 'Frontend pages',
+    'summary': 'Base for frontend pages.',
     'depends': [
-        'web',
         'website',
-        'portal',
-        'auth_signup',
-        'auditlog',
-        'website_menu_by_user_status',
-        'res_partner_industry',
-        'main_data',
-        'frontend_shop',
-        'frontend_base',
     ],
     'data': [
-        'data/website_menus.xml',
-        'templates/login_template.xml',
-        'templates/contact_us_template.xml',
-        'templates/homepage.xml',
-        'templates/events.xml',
-        'templates/website_partner.xml',
+        'templates/template_head.xml',
     ],
     'installable': True,
 }

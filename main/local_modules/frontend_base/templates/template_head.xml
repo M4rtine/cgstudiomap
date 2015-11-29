@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--template that embed all the details for twitter to understand the website-->
+        <template id="frontend_base.meta_twitter" name="Base: Meta Twitter">
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@CGStudioMap"/>
+            <meta name="twitter:title" content="Where cg is"/>
+            <meta name="twitter:description" content="Premier directory of Computer Graphics Industry."/>
+            <meta name="twitter:image" content="http://www.cgstudiomap.org/main_data/static/src/img/cgsm-share-twitter.jpg"/>
+        </template>
+
+        <!--template that embed all the favicon details.-->
+        <template id="frontend_base.meta_icon" name="Base: Meta Icon">
+            <link rel="apple-touch-icon" sizes="57x57" href="/main_data/static/src/fav/apple-touch-icon-57x57.png"/>
+            <link rel="apple-touch-icon" sizes="60x60" href="/main_data/static/src/fav/apple-touch-icon-60x60.png"/>
+            <link rel="apple-touch-icon" sizes="72x72" href="/main_data/static/src/fav/apple-touch-icon-72x72.png"/>
+            <link rel="apple-touch-icon" sizes="76x76" href="/main_data/static/src/fav/apple-touch-icon-76x76.png"/>
+            <link rel="apple-touch-icon" sizes="114x114" href="/main_data/static/src/fav/apple-touch-icon-114x114.png"/>
+            <link rel="apple-touch-icon" sizes="120x120" href="/main_data/static/src/fav/apple-touch-icon-120x120.png"/>
+            <link rel="apple-touch-icon" sizes="144x144" href="/main_data/static/src/fav/apple-touch-icon-144x144.png"/>
+            <link rel="apple-touch-icon" sizes="152x152" href="/main_data/static/src/fav/apple-touch-icon-152x152.png"/>
+            <link rel="apple-touch-icon" sizes="180x180" href="/main_data/static/src/fav/apple-touch-icon-180x180.png"/>
+            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-32x32.png" sizes="32x32"/>
+            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-194x194.png" sizes="194x194"/>
+            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-96x96.png" sizes="96x96"/>
+            <link rel="icon" type="image/png" href="/main_data/static/src/fav/android-chrome-192x192.png" sizes="192x192"/>
+            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-16x16.png" sizes="16x16"/>
+            <link rel="manifest" href="/main_data/static/src/fav/manifest.json"/>
+            <link rel="shortcut icon" href="/main_data/static/src/fav/favicon.ico"/>
+            <meta name="msapplication-TileColor" content="#ffffff"/>
+            <meta name="msapplication-TileImage" content="/main_data/static/src/fav/mstile-144x144.png"/>
+            <meta name="msapplication-config" content="/main_data/static/src/fav/browserconfig.xml"/>
+            <meta name="theme-color" content="#ffffff"/>
+        </template>
+
+        <!--Shared javascript scripts-->
+        <template id="frontend_base.meta_js" name="Base: Meta Javascript">
+            <script async="" src="//www.google-analytics.com/analytics.js"></script>
+        </template>
+
+        <!--Shared css files needed by all the website-->
+        <template id="frontend_base.meta_css" name="Base: Meta CSS">
+            <link rel="stylesheet" href="/web/static/lib/fontawesome/css/font-awesome.css" type="text/css"/>
+            <link rel="stylesheet" href="/shared_web_theme/static/src/css/base.css" type="text/css"/>
+            <link rel="stylesheet" href="/website/static/src/css/website.css" type="text/css"/>
+            <link rel="stylesheet" href="/website_mail/static/src/css/website_mail.css" type="text/css"/>
+            <link rel="stylesheet" href="/website_blog/static/src/css/website_blog.css" type="text/css"/>
+        </template>
+
+        <!--Base head builder template-->
+        <template id="frontend_base.head" name="Base: Head" page="True">
+            <head>
+                <meta charset="utf-8" />
+
+                <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+                <meta name="description" t-att-content="main_object and 'website_meta_description' in main_object
+                and main_object.website_meta_description or website_meta_description"/>
+                <meta name="keywords" t-att-content="main_object and 'website_meta_keywords' in main_object
+                and main_object.website_meta_keywords or website_meta_keywords"/>
+                <meta name="generator" content="Odoo"/>
+
+                <link rel="canonical" href="http://www.cgstudiomap.org/" />
+
+                <t t-set="languages" t-value="website.get_languages() if website else None"/>
+                <t t-if="request and request.website_multilang and website">
+                    <t t-foreach="website.get_alternate_languages(request.httprequest)" t-as="lang">
+                        <link rel="alternate" t-att-hreflang="lang['hreflang']" t-att-href="lang['href']"/>
+                    </t>
+                </t>
+
+                <t t-raw="0"/>
+
+            </head>
+        </template>
+
+        <!--Template that complete head template with:-->
+            <!--* meta twitter-->
+            <!--* meta icon-->
+            <!--* meta javascript-->
+            <!--* meta css-->
+        <template id="frontend_base.full_head" name="Base: Full Head" page="True">
+            <t t-call="frontend_base.head">
+                <t t-call="frontend_base.meta_twitter"/>
+                <t t-call="frontend_base.meta_icon"/>
+                <t t-call="frontend_base.meta_js"/>
+                <t t-call="frontend_base.meta_css"/>
+
+                <t t-raw="0"/>
+            </t>
+        </template>
+
+    </data>
+</openerp>

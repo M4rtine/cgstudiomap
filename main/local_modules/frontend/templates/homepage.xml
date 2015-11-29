@@ -3,73 +3,11 @@
     <data>
 
 <template id="homepage_public_user" name="Homepage: public user" page="True" priority="29">
-&lt;!DOCTYPE html&gt;
-<html t-att-lang="lang and lang.replace('_', '-')" t-att-data-website-id="website.id if editable and website else None" t-att-data-editable="'1' if editable else None" t-att-data-translatable="'1' if translatable else None" t-att-data-view-xmlid="xmlid if editable else None" t-att-data-main-object="repr(main_object) if editable else None" t-att-data-oe-company-name="res_company.name">
-        <head>
-            <meta charset="utf-8" />
-            <title>cg Studio Map</title>
+    <t t-call="frontend_base.doctype_html"/>
+    <t t-call="frontend_base.html">
+        <t t-call="frontend_base.full_head">
+        </t>
 
-            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-
-            <meta name="description" t-att-content="main_object and 'website_meta_description' in main_object
-                and main_object.website_meta_description or website_meta_description"/>
-            <meta name="keywords" t-att-content="main_object and 'website_meta_keywords' in main_object
-                and main_object.website_meta_keywords or website_meta_keywords"/>
-            <meta name="generator" content="Odoo"/>
-
-            <link rel="canonical" href="http://www.cgstudiomap.org/" />
-
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:site" content="@CGStudioMap"/>
-            <meta name="twitter:title" content="Where cg is"/>
-            <meta name="twitter:description" content="Premier directory of Computer Graphics Industry."/>
-            <meta name="twitter:image" content="http://www.cgstudiomap.org/main_data/static/src/img/cgsm-share-twitter.jpg"/>
-
-            <link rel="apple-touch-icon" sizes="57x57" href="/main_data/static/src/fav/apple-touch-icon-57x57.png"/>
-            <link rel="apple-touch-icon" sizes="60x60" href="/main_data/static/src/fav/apple-touch-icon-60x60.png"/>
-            <link rel="apple-touch-icon" sizes="72x72" href="/main_data/static/src/fav/apple-touch-icon-72x72.png"/>
-            <link rel="apple-touch-icon" sizes="76x76" href="/main_data/static/src/fav/apple-touch-icon-76x76.png"/>
-            <link rel="apple-touch-icon" sizes="114x114" href="/main_data/static/src/fav/apple-touch-icon-114x114.png"/>
-            <link rel="apple-touch-icon" sizes="120x120" href="/main_data/static/src/fav/apple-touch-icon-120x120.png"/>
-            <link rel="apple-touch-icon" sizes="144x144" href="/main_data/static/src/fav/apple-touch-icon-144x144.png"/>
-            <link rel="apple-touch-icon" sizes="152x152" href="/main_data/static/src/fav/apple-touch-icon-152x152.png"/>
-            <link rel="apple-touch-icon" sizes="180x180" href="/main_data/static/src/fav/apple-touch-icon-180x180.png"/>
-            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-32x32.png" sizes="32x32"/>
-            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-194x194.png" sizes="194x194"/>
-            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-96x96.png" sizes="96x96"/>
-            <link rel="icon" type="image/png" href="/main_data/static/src/fav/android-chrome-192x192.png" sizes="192x192"/>
-            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-16x16.png" sizes="16x16"/>
-            <link rel="manifest" href="/main_data/static/src/fav/manifest.json"/>
-            <link rel="shortcut icon" href="/main_data/static/src/fav/favicon.ico"/>
-            <meta name="msapplication-TileColor" content="#ffffff"/>
-            <meta name="msapplication-TileImage" content="/main_data/static/src/fav/mstile-144x144.png"/>
-            <meta name="msapplication-config" content="/main_data/static/src/fav/browserconfig.xml"/>
-            <meta name="theme-color" content="#ffffff"/>
-
-            <t t-set="title"><t t-if="additional_title"><t t-raw="additional_title"/> | </t><t t-esc="res_company.name"/></t>
-
-
-            <t t-set="languages" t-value="website.get_languages() if website else None"/>
-            <t t-if="request and request.website_multilang and website">
-                <t t-foreach="website.get_alternate_languages(request.httprequest)" t-as="lang">
-                    <link rel="alternate" t-att-hreflang="lang['hreflang']" t-att-href="lang['href']"/>
-                </t>
-            </t>
-            <!--links form web.asset_common-->
-            <link rel="stylesheet" href="/web/static/lib/fontawesome/css/font-awesome.css" type="text/css"/>
-            <script async="" src="//www.google-analytics.com/analytics.js"></script>
-
-            <!--bootstrap is imported in base.css anyway-->
-            <link rel="stylesheet" href="/shared_web_theme/static/src/css/base.css" type="text/css"/>
-            <link rel="stylesheet" href="/website/static/src/css/website.css" type="text/css"/>
-            <link rel="stylesheet" href="/website_mail/static/src/css/website_mail.css" type="text/css"/>
-            <link rel="stylesheet" href="/website_blog/static/src/css/website_blog.css" type="text/css"/>
-
-            
-            <link rel="stylesheet" href="/ammap/static/src/js/ammap_3.14.0/ammap.css" type="text/css"/>
-
-        </head>
         <body id="home">
 
                     <div class="navbar navbar-default navbar-fixed-top sticky" role="navigation">
@@ -395,7 +333,8 @@
                 ga('send','pageview');
             </script>
         </body>
-    </html>
+
+    </t> <!-- closing html -->
 </template>
 
 <template id="partner_card" name="Partner Card">
