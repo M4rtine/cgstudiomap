@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="frontend_base.navbar" name="Base: body navbar">
+            <div class="navbar navbar-default navbar-fixed-top sticky" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-top-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"/>
+                            <span class="icon-bar"/>
+                            <span class="icon-bar"/>
+                        </button>
+                        <a class="navbar-brand" href="/">
+                            <img src="/logo.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+                            <span t-field="res_company.name"/><!--  <span class="label label-danger">B</span>-->
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-top-collapse">
+                        <ul class="nav navbar-nav navbar-right" id="top_menu">
+                            <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                                <t t-if="(submenu.user_logged and request.uid !=  3) or (submenu.user_not_logged and request.uid == 3)">
+                                    <t t-call="website.submenu"/>
+                                </t>
+                            </t>
+                            <li class="divider" groups="base.group_public"/>
+                            <li groups="base.group_public">
+                                <a t-attf-href="/web/login">
+                                    <b>Sign in</b>
+                                </a>
+                            </li>
+                            <li class="divider" t-ignore="true" t-if="website.user_id != user_id"/>
+                            <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <b>
+                                        <span t-esc="user_id.name"/>
+                                        <span class="caret"/>
+                                    </b>
+                                </a>
+                                <ul class="dropdown-menu js_usermenu" role="menu">
+                                    <li><a href="/web" role="menuitem">My Account</a></li>
+                                    <li class="divider"/>
+                                    <li><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </template>
+
+        <template id="frontend_base.body" name="Base: body">
+            <body id="home">
+                <t t-call="frontend_base.navbar"/>
+                <t t-raw="0"/>
+                <div id="wrapwrap"></div>
+
+                <div class="scroll-up hidden-xs">
+                    <a href="#home"><i class="fa fa-angle-up"></i></a>
+                </div>
+
+            </body>
+        </template>
+
+        <!--Template about the footer of the website-->
+        <template id="frontend_base.footer" name="Base: Footer">
+            <div id="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8" >
+                            <p>
+                                cg Studio Map <span class="label label-danger">Beta</span><br />
+                                powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a><br />
+                                maintained by volunteers hoping to make a difference.
+                            </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>Connect with us:</p>
+                            <p>
+                                <a t-attf-href="/page/website.contactus"><i class="fa fa-envelope fa-3x"/></a><!--news link-->
+                                <a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-3x"/></a><!--news link-->
+                                <a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-3x"/></a><!--news link-->
+                                <a t-att-href="website.social_github"><i class="fa fa-github fa-3x"/></a><!--news link-->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </data>
+</openerp>

@@ -32,6 +32,8 @@
     ],
     'data': [
         'templates/template_head.xml',
+        'templates/template_html.xml',
+        'templates/template_body.xml',
     ],
     'installable': True,
 }
