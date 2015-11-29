@@ -18,35 +18,20 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import logging
 
-{
-    'name': 'Datadog',
-    'version': 'beta',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Gather module that add tracker to datadog',
-    'description': """
-Datadog
-=======
-This module contains the dependencies to install all datadog related modules.
+from openerp.addons.web import http
+from datadog import statsd
+from openerp.addons.frontend.controllers.main import MainPage
 
-Contributors
-------------
-* Jordi Riera <kender.jr@gmail.com>
 
-""",
-    # Keep main as dependency so this module is loaded after all the other
-    'depends': [
-        # odoo
-        'main',
-        # datadog modules
-        'datadog_res_partner',
-        'datadog_res_users',
-        'datadog_frontend',
-    ],
-    'data': [],
-    'installable': True,
-    'application': True,
-}
+_logger = logging.getLogger(__name__)
+
+
+class MainPage(MainPage):
+    @statsd.timed('odoo.frontend.index.time')
+    @http.route('/', type='http', auth="public", website=True)
+    def index(self, *args, **kwargs):
+        """Track the time of execution for the main page"""
+
+        return super(MainPage, self).index(*args, **kwargs)
