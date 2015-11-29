@@ -31,9 +31,10 @@
         'website',
     ],
     'data': [
+        'templates/template_body.xml',
+        'templates/template_engine.xml',
         'templates/template_head.xml',
         'templates/template_html.xml',
-        'templates/template_body.xml',
     ],
     'installable': True,
 }
