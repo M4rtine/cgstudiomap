@@ -1,289 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <!--<record id="homepage_ammap_config" model="ammap.config">-->
-            <!--<field name="name">homepage</field>-->
-            <!--<field name="color">#E8CFF7</field>-->
-            <!--<field name="color_solid">#B86BE5</field>-->
-            <!--<field name="unlisted_areas_color">#E2E2E4</field>-->
-            <!--<field name="roll_over_outline_color">#190623</field>-->
-
-            <!--<field name="description">Config of the map on the homepage.</field>-->
-        <!--</record>-->
-
-<template id="homepage" name="Homepage" page="True" priority="29">
-&lt;!DOCTYPE html&gt;
-<html t-att-lang="lang and lang.replace('_', '-')" t-att-data-website-id="website.id if editable and website else None" t-att-data-editable="'1' if editable else None" t-att-data-translatable="'1' if translatable else None" t-att-data-view-xmlid="xmlid if editable else None" t-att-data-main-object="repr(main_object) if editable else None" t-att-data-oe-company-name="res_company.name">
-        <head>
-            <meta charset="utf-8" />
-            <title>cg Studio Map</title>
-
-            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-
-            <meta name="description" t-att-content="main_object and 'website_meta_description' in main_object
-                and main_object.website_meta_description or website_meta_description"/>
-            <meta name="keywords" t-att-content="main_object and 'website_meta_keywords' in main_object
-                and main_object.website_meta_keywords or website_meta_keywords"/>
-            <meta name="generator" content="Odoo"/>
-
-            <link rel="canonical" href="http://www.cgstudiomap.org/" />
-
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:site" content="@CGStudioMap"/>
-            <meta name="twitter:title" content="Where cg is"/>
-            <meta name="twitter:description" content="Premier directory of Computer Graphics Industry."/>
-            <meta name="twitter:image" content="http://www.cgstudiomap.org/main_data/static/src/img/cgsm-share-twitter.jpg"/>
-
-            <link rel="apple-touch-icon" sizes="57x57" href="/main_data/static/src/fav/apple-touch-icon-57x57.png"/>
-            <link rel="apple-touch-icon" sizes="60x60" href="/main_data/static/src/fav/apple-touch-icon-60x60.png"/>
-            <link rel="apple-touch-icon" sizes="72x72" href="/main_data/static/src/fav/apple-touch-icon-72x72.png"/>
-            <link rel="apple-touch-icon" sizes="76x76" href="/main_data/static/src/fav/apple-touch-icon-76x76.png"/>
-            <link rel="apple-touch-icon" sizes="114x114" href="/main_data/static/src/fav/apple-touch-icon-114x114.png"/>
-            <link rel="apple-touch-icon" sizes="120x120" href="/main_data/static/src/fav/apple-touch-icon-120x120.png"/>
-            <link rel="apple-touch-icon" sizes="144x144" href="/main_data/static/src/fav/apple-touch-icon-144x144.png"/>
-            <link rel="apple-touch-icon" sizes="152x152" href="/main_data/static/src/fav/apple-touch-icon-152x152.png"/>
-            <link rel="apple-touch-icon" sizes="180x180" href="/main_data/static/src/fav/apple-touch-icon-180x180.png"/>
-            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-32x32.png" sizes="32x32"/>
-            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-194x194.png" sizes="194x194"/>
-            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-96x96.png" sizes="96x96"/>
-            <link rel="icon" type="image/png" href="/main_data/static/src/fav/android-chrome-192x192.png" sizes="192x192"/>
-            <link rel="icon" type="image/png" href="/main_data/static/src/fav/favicon-16x16.png" sizes="16x16"/>
-            <link rel="manifest" href="/main_data/static/src/fav/manifest.json"/>
-            <link rel="shortcut icon" href="/main_data/static/src/fav/favicon.ico"/>
-            <meta name="msapplication-TileColor" content="#ffffff"/>
-            <meta name="msapplication-TileImage" content="/main_data/static/src/fav/mstile-144x144.png"/>
-            <meta name="msapplication-config" content="/main_data/static/src/fav/browserconfig.xml"/>
-            <meta name="theme-color" content="#ffffff"/>
-
-            <t t-set="title"><t t-if="additional_title"><t t-raw="additional_title"/> | </t><t t-esc="res_company.name"/></t>
-
-
-            <t t-set="languages" t-value="website.get_languages() if website else None"/>
-            <t t-if="request and request.website_multilang and website">
-                <t t-foreach="website.get_alternate_languages(request.httprequest)" t-as="lang">
-                    <link rel="alternate" t-att-hreflang="lang['hreflang']" t-att-href="lang['href']"/>
-                </t>
-            </t>
-            <!--links form web.asset_common-->
-            <link rel="stylesheet" href="/web/static/lib/fontawesome/css/font-awesome.css" type="text/css"/>
-            <script async="" src="//www.google-analytics.com/analytics.js"></script>
-
-            <!--bootstrap is imported in base.css anyway-->
-            <link rel="stylesheet" href="/shared_web_theme/static/src/css/base.css" type="text/css"/>
-            <link rel="stylesheet" href="/website/static/src/css/website.css" type="text/css"/>
-            <link rel="stylesheet" href="/website_mail/static/src/css/website_mail.css" type="text/css"/>
-            <link rel="stylesheet" href="/website_blog/static/src/css/website_blog.css" type="text/css"/>
-
-            
-            <link rel="stylesheet" href="/ammap/static/src/js/ammap_3.14.0/ammap.css" type="text/css"/>
-
-        </head>
-        <body id="home">
-
-                    <div class="navbar navbar-default navbar-fixed-top sticky" role="navigation">
-                        <div class="container">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-top-collapse">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"/>
-                                    <span class="icon-bar"/>
-                                    <span class="icon-bar"/>
-                                </button>
-								<a class="navbar-brand" href="/">
-									<img src="/logo.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
-									<span t-field="res_company.name"/><!--  <span class="label label-danger">B</span>-->
-                                </a>
-                            </div>
-                            <div class="collapse navbar-collapse navbar-top-collapse">
-                                <ul class="nav navbar-nav navbar-right" id="top_menu">
-                                    <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                                        <t t-if="(submenu.user_logged and request.uid !=  3) or (submenu.user_not_logged and request.uid == 3)">
-                                            <t t-call="website.submenu"/>
-                                        </t>
-                                    </t>
-                                    <li class="divider" groups="base.group_public"/>
-                                    <li groups="base.group_public">
-                                        <a t-attf-href="/web/login">
-                                            <b>Sign in</b>
-                                        </a>
-                                    </li>
-                                    <li class="divider" t-ignore="true" t-if="website.user_id != user_id"/>
-                                    <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <b>
-                                                <span t-esc="user_id.name"/>
-                                                <span class="caret"/>
-                                            </b>
-                                        </a>
-                                        <ul class="dropdown-menu js_usermenu" role="menu">
-                                            <li><a href="/web" role="menuitem">My Account</a></li>
-                                            <li class="divider"/>
-                                            <li><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+<template id="frontend.signup_box" name="Signup box">
+    <t t-if="request.uid == 3" >
+        <div class="infos-box">
+            <h3><b>Find a studio</b></h3>
+            <h4>Welcome to cg Studio Map <span class="label label-danger">Beta</span></h4>
+            <p class="small-text">
+                A map that allows you to find ANY studios worldwide<br/>
+                by city, contact, specialities and even more.</p>
+            <p>Sign up, it is free!</p>
+            <p><a t-attf-href="/web/signup" class="btn btn-warning sign-up pull-right"><strong>Sign up</strong></a></p>
+        </div>
+    </t>
+</template>
+<template id="frontend.signup_button" name="Signup button">
+    <t t-if="request.uid == 3" >
+        <div class="sign-up-text" style="background:white">
+            <div class="divide40"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a t-attf-href="/web/signup" class="btn sign-up btn-warning" style="margin-top:25px">
+                            <strong>Sign up</strong>
+                        </a>
                     </div>
+                </div>
+            </div>
+            <div class="divide40"></div>
+        </div> <!--sign up end-->
+    </t>
+</template>
+<template id="homepage_public_user" name="Homepage: public user" page="True" priority="29">
+    <t t-call="frontend_base.doctype_html"/>
 
-                <div id="wrap" class="oe_structure oe_empty">
-					
-					
+    <t t-call="frontend_base.html">
+
+        <t t-call="frontend_base.full_head"/>
+
+        <t t-call="frontend_base.body">
+            <div id="wrap" class="oe_structure oe_empty">
+                <div class="container">
+                    <div class="hidden-xs" id="geochart_target"></div>
+                    <t t-call="frontend.signup_box"/>
+                </div>
+
+                <div class="divide60"></div>
+
+                    <div style="background:white">
                         <div class="container">
+                                                  <div class="row hidden-xs">
+                                                  <div class="col-sm-1 col-sm-offset-5">
+                                                  <a href="#more">
+                                                  <div class="scroll-down">
+                                                  <span><i class="fa fa-angle-down fa-3x"></i></span>
+                                                  </div>
+                                                  </a>
+                                                  </div>
+                                                  </div>
+                                                  <div class="divide50" id="more"></div>
+                                                  <div  class="row">
+                                                  <div class="col-sm-8 col-sm-offset-2">
+                                                  <div class="center-heading">
+                                                  <h2>
+                                                  <strong>Because everyone should be familiar with the cg industry</strong>
+                                                  </h2>
+                                                  <span class="center-line"></span>
+                                                  <p class="sub-text margin40">
+                                                  cg Studio Map is the premier open-data center of the computer graphic industry.<br/>
+                                                  Come in: update, share or simply read the content.
+                                                  </p>
+                                                  </div>
+                                                  </div>
 
-									
-                            <div class="hidden-xs" t-att-id="geochart_target"></div>
-                            <t t-if="request.uid == 3" >
-
-                            <div class="infos-box">
-                                    <h3><b>Find a studio</b></h3>
-                                    <h4>Welcome to cg Studio Map <span class="label label-danger">Beta</span></h4>
-                                    <p class="small-text">
-                                        A map that allows you to find ANY studios worldwide<br/>
-                                        by city, contact, specialities and even more.</p>
-                                    <p>Sign up, it is free!</p>
-                                    <p><a t-attf-href="/web/signup" class="btn btn-warning sign-up pull-right"><strong>Sign up</strong></a></p>
-                            </div>
-                            </t>
-
-
-
-						</div>
-					
-		
-					
-					
-                    <div class="divide60"></div>
-					<div style="background:white">
-                        <div class="container">
-							<div class="row hidden-xs">
-								<div class="col-sm-1 col-sm-offset-5">
-									<a href="#more">
-									<div class="scroll-down">
-										<span><i class="fa fa-angle-down fa-3x"></i></span>
-									</div>
-									</a>
-								</div>
-							</div>
-                          <div class="divide50" id="more"></div>
-                            <div  class="row">
-                                <div class="col-sm-8 col-sm-offset-2">
-                                    <div class="center-heading">
-                                        <h2>
-                                            <strong>Because everyone should be familiar with the cg industry</strong>
-                                        </h2>
-                                        <span class="center-line"></span>
-                                        <p class="sub-text margin40">
-                                            cg Studio Map is the premier open-data center of the computer graphic industry.<br/>
-                                            Come in: update, share or simply read the content.
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!--center heading end-->
-                            <div class="divide50"></div>
-                            <div class="row">
-                                <div class="margin30 col-sm-6">
-                                    <div class="colored-boxed">
-										<a t-attf-href="/web/signup"><i class="fa fa-group"></i></a>
-                                    </div>
-                                    <div class="text">
-                                        <h3>Community</h3>
-                                        <p>
-                                            cg Studio Map project is an initiative that promotes and celebrates open exchange,
-                                            collaborative participation, transparency and community development.
-                                            Anyone can freely update, edit and share the content.<br /><br />
-                                            <a t-attf-href="/web/signup">Sign-up</a> today and be part of the community!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="margin30 col-sm-6">
-                                    <div class="colored-boxed">
-										<a t-att-href="website.social_github"><i class="fa fa-folder-open"></i></a>
-                                    </div>
-                                    <div class="text">
-                                        <h3>Open source project</h3>
-                                        <p>
-                                            cg Studio Map project is now open source,
-                                            the source code is available for modification and/or enhancement
-                                            by anyone. Programmers as well as other
-                                            members can contribute by improving all the source code and
-                                            by sharing the changes within the community. <br /><br />
-                                            Join us on <a t-att-href="website.social_github">Github</a> today!
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="divide50"></div>
-                            <div class="row">
-                                <div class="margin30 col-sm-6">
-                                    <div class="colored-boxed">
-                                        <a t-attf-href="/web/signup"><i class="fa fa-cogs"></i></a>
-                                    </div>
-                                    <div class="text">
-                                        <h3>Open Data</h3>
-                                        <p>
-                                            As an Open data website, our data are freely available to everyone
-                                            to use and republish as you wish, without restrictions in the
-                                            only purpose of developing the community.<br /><br />
-                                            Start <a t-attf-href="/web/signup">contributing</a> today!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="margin30 col-sm-6">
-                                    <div class="colored-boxed inv">
-                                        <i class="fa fa-heart"></i>
-                                    </div>
-                                    <div class="text">
-                                        <h3>Support</h3>
-                                        <p>
-                                            cg Studio Map team is working on developing the website,
-                                            today is a map that allows you to find studios worldwide,
-                                            tomorrow we would like to develop a job hunting tool…<br /><br />
-                                            Support the project <a href="/shop">here!</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="divide80"></div>
-                        </div>
-						</div>
+                                                  </div>
+                                                  <!--center heading end-->
+                                                  <div class="divide50"></div>
+                                                  <div class="row">
+                                                  <div class="margin30 col-sm-6">
+                                                  <div class="colored-boxed">
+                                                  <a t-attf-href="/web/signup"><i class="fa fa-group"></i></a>
+                                                  </div>
+                                                  <div class="text">
+                                                  <h3>Community</h3>
+                                                  <p>
+                                                  cg Studio Map project is an initiative that promotes and celebrates open exchange,
+                                                  collaborative participation, transparency and community development.
+                                                  Anyone can freely update, edit and share the content.<br /><br />
+                                                  <a t-attf-href="/web/signup">Sign-up</a> today and be part of the community!
+                                                  </p>
+                                                  </div>
+                                                  </div>
+                                                  <div class="margin30 col-sm-6">
+                                                  <div class="colored-boxed">
+                                                  <a t-att-href="website.social_github"><i class="fa fa-folder-open"></i></a>
+                                                  </div>
+                                                  <div class="text">
+                                                  <h3>Open source project</h3>
+                                                  <p>
+                                                  cg Studio Map project is now open source,
+                                                  the source code is available for modification and/or enhancement
+                                                  by anyone. Programmers as well as other
+                                                  members can contribute by improving all the source code and
+                                                  by sharing the changes within the community. <br /><br />
+                                                  Join us on <a t-att-href="website.social_github">Github</a> today!
+                                                  </p>
+                                                  </div>
+                                                  </div>
+                                                  </div>
+                                                  <div class="divide50"></div>
+                                                  <div class="row">
+                                                  <div class="margin30 col-sm-6">
+                                                  <div class="colored-boxed">
+                                                  <a t-attf-href="/web/signup"><i class="fa fa-cogs"></i></a>
+                                                  </div>
+                                                  <div class="text">
+                                                  <h3>Open Data</h3>
+                                                  <p>
+                                                  As an Open data website, our data are freely available to everyone
+                                                  to use and republish as you wish, without restrictions in the
+                                                  only purpose of developing the community.<br /><br />
+                                                  Start <a t-attf-href="/web/signup">contributing</a> today!
+                                                  </p>
+                                                  </div>
+                                                  </div>
+                                                  <div class="margin30 col-sm-6">
+                                                  <div class="colored-boxed inv">
+                                                  <i class="fa fa-heart"></i>
+                                                  </div>
+                                                  <div class="text">
+                                                  <h3>Support</h3>
+                                                  <p>
+                                                  cg Studio Map team is working on developing the website,
+                                                  today is a map that allows you to find studios worldwide,
+                                                  tomorrow we would like to develop a job hunting tool…<br /><br />
+                                                  Support the project <a href="/shop">here!</a>
+                                                  </p>
+                                                  </div>
+                                                  </div>
+                                                  </div>
+                                                  <div class="divide80"></div>
+                                                  </div>
+                    </div>
 
                     <!--services container-->
 
-					
-					<div class="divide40"></div>
-					
-					
+                    <div class="divide40"></div>
                     <section class="fun-fact-wrap-light">
                         <div class="container">
-                            <div class="row">
-								
-                                <div class="margin20 facts-in col-xs-12 col-sm-4">
-                                    <h3><span class="counter" t-esc="nbr_users"/></h3>
-                                    <h4>Happy Users</h4>
-                                </div>
-								
-                                <div class="margin20 facts-in col-xs-12 col-sm-4">
-                                    <h3><span class="counter" t-esc="nbr_partners"/></h3>
-                                    <h4>Companies</h4>
-                                </div>
-								
-                                <div class="margin20 facts-in col-xs-12 col-sm-4">
-                                    <h3><span class="counter" t-esc="nbr_countries"/></h3>
-                                    <h4>Countries</h4>
-                                </div>
-								
-                            </div>
-                        </div>
-					</section>
+                                                  <div class="row">
 
+                                                  <div class="margin20 facts-in col-xs-12 col-sm-4">
+                                                  <h3><span class="counter" t-esc="nbr_users"/></h3>
+                                                  <h4>Happy Users</h4>
+                                                  </div>
 
+                                                  <div class="margin20 facts-in col-xs-12 col-sm-4">
+                                                  <h3><span class="counter" t-esc="nbr_partners"/></h3>
+                                                  <h4>Companies</h4>
+                                                  </div>
+
+                                                  <div class="margin20 facts-in col-xs-12 col-sm-4">
+                                                  <h3><span class="counter" t-esc="nbr_countries"/></h3>
+                                                  <h4>Countries</h4>
+                                                  </div>
+
+                                                  </div>
+                                                  </div>
+                    </section>
 
                 </div>
-
                     <div class="container">
                         <div class="row studios">
                             <t t-foreach="partners[4:]" t-as="partner">
@@ -332,100 +218,69 @@
                     </div>			
 			
                 <div class="divide40"></div>
-                <t t-if="request.uid == 3" >
-                <div class="sign-up-text" style="background:white">
-                    <div class="divide40"></div>
-                    <div class="container">
-                        <div class="row">
-                            <!--<div class="col-sm-7">-->
-                                <!--<h2>Sign in</h2>-->
-                                <!--<p>Join the force and help us to change cg industry</p>-->
-                            <!--</div>-->
-                            <div class="col-sm-12">
-                                <a t-attf-href="/web/signup" class="btn sign-up btn-warning" style="margin-top:25px">
-                                    <strong>Sign up</strong>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="divide40"></div>
-                </div> <!--sign up end-->
-                </t>
 
+                <t t-call="frontend.signup_button"/>
+            <t t-call="frontend_base.footer"/>
+            <t t-call="frontend_base.engine">
+                <script type="text/javascript" src="/frontend/static/js/geocharts.js"></script>
+                <script type="text/javascript">
+                    geo_chart(<t t-esc="geochart_data"/>, 'geochart_target');
+                </script>
+            </t>
 
-                <div id="footer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-8" >
-                                <p>
-								cg Studio Map <span class="label label-danger">Beta</span><br />
-                                powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a><br />
-                                maintained by volunteers hoping to make a difference.
-								</p>
-                            </div>
-                            <div class="col-sm-4">
-                                <p>Connect with us:</p>
-                                <p>
-                                    <a t-attf-href="/page/website.contactus"><i class="fa fa-envelope fa-3x"/></a><!--news link-->
-                                    <a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-3x"/></a><!--news link-->
-                                    <a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-3x"/></a><!--news link-->
-                                    <a t-att-href="website.social_github"><i class="fa fa-github fa-3x"/></a><!--news link-->
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </t> <!-- closing body -->
 
-			<div class="scroll-up hidden-xs">
-				<a href="#home"><i class="fa fa-angle-up"></i></a>
-			</div>
-			<div id="wrapwrap"></div>
-
-            <!--block loading the css/javascript files -->
-            <!--coming from website.assets_frontend and website.assets_editor-->
-            <script type="text/javascript" src="/web/static/lib/es5-shim/es5-shim.min.js"></script>
-			<script src="/web/static/lib/jquery/jquery.js" type="text/javascript"></script>
-			<script src="/web/static/lib/bootstrap/js/bootstrap.js" type="text/javascript"></script>
-			
-			<script src="/shared_web_theme/static/src/js/custom.js" type="text/javascript"></script>
-            <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-            <script type="text/javascript">
-              google.load("visualization", "1", {packages:["geochart"]});
-              google.setOnLoadCallback(drawRegionsMap);
-
-              function drawRegionsMap() {
-                var areas = new Array()
-                areas[areas.length] = ['Country', 'Popularity']
-                <t t-foreach="geochart_data" t-as="country">
-                areas[areas.length] = ["<t t-esc="country.code"/>",<t t-esc="geochart_data[country]"/>]
-                </t>
-                var data = google.visualization.arrayToDataTable(areas)
-                var options = {
-                    colorAxis: {colors: ['#E8CFF7', '#B86BE5']},
-                    backgroundColor: '#F2F2F2',
-                    width: '100%'
-
-                };
-
-
-                var chart = new google.visualization.GeoChart(document.getElementById('<t t-esc="geochart_target"/>'));
-
-                chart.draw(data, options);
-              }
-            </script>
-
-            <script t-if="website and website.google_analytics_key">
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-                ga('create', _.str.trim('<t t-esc="website.google_analytics_key"/>'), 'auto');
-                ga('send','pageview');
-            </script>
-        </body>
-    </html>
+    </t> <!-- closing html -->
 </template>
 
-    </data>
-</openerp>
+<template id="partner_card" name="Partner Card">
+    <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
+
+    <a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
+        <h4 t-esc="partner.name"/></a>
+    <p>
+        <em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
+        <em>
+            <t t-foreach="partner.industry_ids" t-as="ind">
+                <a itemprop="name" t-att-href="'/directory?search=%s' % ind.name">
+                <span class="label label-default" t-esc="ind.name"/>
+                </a>
+            </t>
+        </em>
+    </p>
+</template>
+
+
+<template id="homepage_logged_user" name="Homepage: Logged User" page="True" priority="29">
+    <t t-call="website.layout">
+        <div class="container modal-content">
+            <t t-foreach="sorted_keys" t-as="key">
+                <t t-foreach="by_date[key]" t-as="partner">
+                    <div>
+                        <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
+
+                        <a itemprop="name" t-att-href="'/directory/company/%s' % slug(partner)">
+                            <h4>
+                                <span t-esc="partner.name"/> has been <span t-esc="'updated' if key == partner.write_date else 'created'"/>
+                            </h4>
+                        </a>
+                        (<span t-esc="key"/>)
+                        <p>
+                            <em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
+                            <em>
+                                <t t-foreach="partner.industry_ids" t-as="ind">
+                                    <a itemprop="name" t-att-href="'/directory?search=%s' % ind.name">
+                                        <span class="label label-default" t-esc="ind.name"/>
+                                    </a>
+                                </t>
+                            </em>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </div>
+    </t>
+</template>
+
+
+</data></openerp>

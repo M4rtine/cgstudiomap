@@ -1,0 +1,5 @@
+javascript:
+  config_file: .hound_javascript_style.json
+
+scss:
+  config_file: .hound_scss_style.yml

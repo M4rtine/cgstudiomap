@@ -20,51 +20,21 @@
 ##############################################################################
 
 {
-    'name': 'Main Data Module',
-    'version': '226',
+    'name': 'Frontend Base',
+    'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Main Module, that install data, views etc.',
-    'description': """
-Main Data Module
-================
-This module contains the data, views, models.
-
-Contributors
-------------
-* Jordi Riera <kender.jr@gmail.com>
-* David Mazeau <d.mazeau@gmail.com>
-""",
+    'category': 'Web',
+    'summary': 'Base for frontend pages.',
     'depends': [
-        'crm',
-        'auditlog',
         'website',
-        'website_blog',
-        'website_crm',
-        'base_geolocalize',
-        'geoengine_partner',
-        'base_geoengine',
-        'geoengine_base_geolocalize',
-        'auth_signup',
-        'web_tree_image',
-        'web_widget_text_markdown',
-        'res_group_archetype',
     ],
     'data': [
-        'data/company_details.xml',
-        'data/res_groups_data.xml',
-        'data/res_users_data.xml',
-        'data/auditlog_res_partner.xml',
-        'security/ir_rules.xml',
-        'security/ir.model.access.csv',
-        'views/website_blog_view.xml',
-        'views/res_partner_view.xml',
-        'views/geo_partner_view.xml',
-        'views/base_partner_merge_view.xml',
-        'templates/web_layout.xml',
-        'report/account_report.xml',
+        'templates/template_body.xml',
+        'templates/template_engine.xml',
+        'templates/template_head.xml',
+        'templates/template_html.xml',
     ],
     'installable': True,
 }

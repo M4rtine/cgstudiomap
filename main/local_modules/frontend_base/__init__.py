@@ -19,21 +19,3 @@
 #
 ##############################################################################
 
-{
-    'name': 'Frontend Shop',
-    'version': 'beta',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Web',
-    'summary': 'Shop Modules',
-    'depends': [
-        'website',
-        'website_menu_by_user_status',
-    ],
-    'data': [
-        'templates/template_shop.xml',
-        'data/website_menus.xml',
-    ],
-    'installable': True,
-}
