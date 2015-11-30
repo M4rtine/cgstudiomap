@@ -15,18 +15,18 @@ body {
 html, body, #wrapwrap {
   height: 0 !important;
 }
-//.grid-item { width: 25%; }
 
 .grid-item {
   position: relative;
   float: left;
-  width: 200px;
-  height: 200px;
   margin: 5px;
   padding: 10px;
   background: #784388;
+  height: 200px;
+  width: 200px;
   color: #262524;
 }
+
 .mid-width {
   width: 50px;
   height: 50px;
@@ -34,5 +34,5 @@ html, body, #wrapwrap {
 }
 
 #map {
-        height: 500px;
-      }
+  height: 500px;
+}

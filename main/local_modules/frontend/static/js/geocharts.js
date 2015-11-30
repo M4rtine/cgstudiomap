@@ -1,6 +1,6 @@
 function geo_chart(companies, target) {
 
-    google.load("visualization", "1", {packages: ["geochart"]});
+    google.load('visualization', '1', {packages: ['geochart']});
     google.setOnLoadCallback(drawRegionsMap);
 
     function drawRegionsMap() {
@@ -10,7 +10,9 @@ function geo_chart(companies, target) {
             backgroundColor: '#F2F2F2',
             width: '100%'
         };
-        var chart = new google.visualization.GeoChart(document.getElementById(target));
+        var chart = new google.visualization.GeoChart(
+            document.getElementById(target)
+        );
         chart.draw(data, options);
     }
 }
