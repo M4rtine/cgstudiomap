@@ -39,8 +39,10 @@
 
         <!--block loading the css/javascript files -->
         <template id="frontend_base.engine" name="Base: Engine">
-            <t t-call="frontend_base.engine_js"/>
-            <t t-call="frontend_base.engine_css"/>
+            <!--t-call-assets allow to compress the js and the css!-->
+            <t t-call-assets="frontend_base.engine_js"/>
+            <t t-call-assets="frontend_base.engine_css"/>
+            <!--Analytics should not be compress has it is load async + there is a function call-->
             <t t-call="frontend_base.engine_google_analytics"/>
             <t t-raw="0"/>
 
