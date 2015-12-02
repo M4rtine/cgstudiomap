@@ -15,7 +15,7 @@
         </template>
 
         <!--Shared javascript scripts-->
-        <template id="frontend_base.engine_js" name="Base: Meta Javascript">
+        <template id="frontend_base.js" name="Base: Meta Javascript">
             <!--coming from website.assets_frontend and website.assets_editor-->
             <script type="text/javascript" src="/web/static/lib/es5-shim/es5-shim.min.js"></script>
             <script src="/web/static/lib/jquery/jquery.js" type="text/javascript"></script>
@@ -25,23 +25,11 @@
             <t t-raw="0"/>
         </template>
 
-        <!--Shared css files needed by all the website-->
-        <template id="frontend_base.engine_css" name="Base: Meta CSS">
-            <link rel="stylesheet" href="/web/static/lib/fontawesome/css/font-awesome.css" type="text/css"/>
-            <link rel="stylesheet" href="/shared_web_theme/static/src/css/base.css" type="text/css"/>
-            <link rel="stylesheet" href="/website/static/src/css/website.css" type="text/css"/>
-            <link rel="stylesheet" href="/website_mail/static/src/css/website_mail.css" type="text/css"/>
-            <link rel="stylesheet" href="/website_blog/static/src/css/website_blog.css" type="text/css"/>
-            <t t-raw="0"/>
-
-        </template>
-
 
         <!--block loading the css/javascript files -->
         <template id="frontend_base.engine" name="Base: Engine">
-            <!--t-call-assets allow to compress the js and the css!-->
-            <t t-call-assets="frontend_base.engine_js"/>
-            <t t-call-assets="frontend_base.engine_css"/>
+            <!--t-call-assets allow to compress the js!-->
+            <t t-call-assets="frontend_base.js"/>
             <!--Analytics should not be compress has it is load async + there is a function call-->
             <t t-call="frontend_base.engine_google_analytics"/>
             <t t-raw="0"/>
