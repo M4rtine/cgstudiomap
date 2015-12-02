@@ -34,20 +34,6 @@
             <meta name="theme-color" content="#ffffff"/>
         </template>
 
-        <!--Shared javascript scripts-->
-        <template id="frontend_base.meta_js" name="Base: Meta Javascript">
-            <script async="" src="//www.google-analytics.com/analytics.js"></script>
-        </template>
-
-        <!--Shared css files needed by all the website-->
-        <template id="frontend_base.meta_css" name="Base: Meta CSS">
-            <link rel="stylesheet" href="/web/static/lib/fontawesome/css/font-awesome.css" type="text/css"/>
-            <link rel="stylesheet" href="/shared_web_theme/static/src/css/base.css" type="text/css"/>
-            <link rel="stylesheet" href="/website/static/src/css/website.css" type="text/css"/>
-            <link rel="stylesheet" href="/website_mail/static/src/css/website_mail.css" type="text/css"/>
-            <link rel="stylesheet" href="/website_blog/static/src/css/website_blog.css" type="text/css"/>
-        </template>
-
         <!--Base head builder template-->
         <template id="frontend_base.head" name="Base: Head" page="True">
             <head>
@@ -86,9 +72,6 @@
             <t t-call="frontend_base.head">
                 <t t-call="frontend_base.meta_twitter"/>
                 <t t-call="frontend_base.meta_icon"/>
-                <t t-call="frontend_base.meta_js"/>
-                <t t-call="frontend_base.meta_css"/>
-
                 <t t-raw="0"/>
             </t>
         </template>

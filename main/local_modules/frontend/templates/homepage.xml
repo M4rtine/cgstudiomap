@@ -182,15 +182,15 @@
                                         <h4 t-esc="partner.name"/></a>
                                         <p>
                                             <em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
-                                            
+
                                                 <t t-foreach="partner.industry_ids" t-as="ind">
                                                     <span class="label label-info" t-esc="ind.name"/>
                                                 </t>
-                                            
+
                                         </p>
                                     </a>
                                 </div>
-								
+
                             </t>
                         </div>
 						<div class="clearfix visible-xs"></div>
@@ -204,25 +204,24 @@
                                         <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
                                             <h4 t-esc="partner.name"/></a>
                                         <p><em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
-                                            
+
                                                 <t t-foreach="partner.industry_ids" t-as="ind">
                                                     <span class="label label-info" t-esc="ind.name"/>
                                                 </t>
-                                            
+
                                         </p>
                                     </a>
                                 </div>
                             </t>
                         </div>
 						<div class="clearfix visible-xs"></div>
-                    </div>			
-			
+                    </div>
+
                 <div class="divide40"></div>
 
                 <t t-call="frontend.signup_button"/>
             <t t-call="frontend_base.footer"/>
             <t t-call="frontend_base.engine">
-                <script type="text/javascript" src="/frontend/static/js/geocharts.js"></script>
                 <script type="text/javascript">
                     geo_chart(<t t-esc="geochart_data"/>, 'geochart_target');
                 </script>
@@ -232,6 +231,12 @@
 
     </t> <!-- closing html -->
 </template>
+<template id="frontend.engine_js" name="Frontend: JS" inherit_id="frontend_base.engine_js">
+    <xpath expr="." position="inside">
+        <script type="text/javascript" src="/frontend/static/js/geocharts.js"></script>
+    </xpath>
+</template>
+
 
 <template id="partner_card" name="Partner Card">
     <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
