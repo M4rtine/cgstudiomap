@@ -28,7 +28,7 @@
         </record>
         <record id="dashboard" model="website.menu">
             <field name="name">Directory</field>
-            <field name="url">/web</field>
+            <field name="url">/web/</field>
             <field name="parent_id" ref="website.main_menu"/>
             <field name="sequence" type="int">10</field>
             <field name="user_logged" eval="True"/>
