@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-# OpenERP, Open Source Management Solution
+#    OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -18,20 +18,25 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import logging
 
-from openerp.addons.web import http
-from datadog import statsd
-from openerp.addons.frontend.controllers.main import MainPage
-
-
-_logger = logging.getLogger(__name__)
-
-
-class MainPage(MainPage):
-    @statsd.timed('odoo.frontend.index.time')
-    @http.route('/', type='http', auth="public", website=True)
-    def index(self, *args, **kwargs):
-        """Track the time of execution for the main page"""
-
-        return super(MainPage, self).index(*args, **kwargs)
+{
+    'name': 'Frontend Homepage',
+    'version': 'beta',
+    'author': 'cgstudiomap',
+    'maintainer': 'cgstudiomap',
+    'license': 'AGPL-3',
+    'category': 'Web',
+    'summary': 'Module that build the homepage.',
+    'depends': [
+        'website',
+        'frontend_base',
+    ],
+    'data': [
+        'templates/template_body.xml',
+        'templates/template_engine.xml',
+        # 'templates/template_head.xml',
+        # 'templates/template_html.xml',
+        'data/website_menus.xml'
+    ],
+    'installable': True,
+}
