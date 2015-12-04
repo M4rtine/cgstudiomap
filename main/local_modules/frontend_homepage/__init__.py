@@ -17,35 +17,6 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+############################################################################
 
-{
-    'name': 'Frontend',
-    'version': 'beta',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Web',
-    'summary': 'Frontend pages',
-    'depends': [
-        'web',
-        'website',
-        'portal',
-        'auth_signup',
-        'auditlog',
-        'website_menu_by_user_status',
-        'res_partner_industry',
-        'main_data',
-        'frontend_shop',
-        'frontend_base',
-        'frontend_homepage',
-    ],
-    'data': [
-        'data/website_menus.xml',
-        'templates/login_template.xml',
-        'templates/contact_us_template.xml',
-        'templates/events.xml',
-        'templates/website_partner.xml',
-    ],
-    'installable': True,
-}
+from . import controllers

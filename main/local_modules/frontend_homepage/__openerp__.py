@@ -20,32 +20,23 @@
 ##############################################################################
 
 {
-    'name': 'Frontend',
+    'name': 'Frontend Homepage',
     'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Web',
-    'summary': 'Frontend pages',
+    'summary': 'Module that build the homepage.',
     'depends': [
-        'web',
         'website',
-        'portal',
-        'auth_signup',
-        'auditlog',
-        'website_menu_by_user_status',
-        'res_partner_industry',
-        'main_data',
-        'frontend_shop',
         'frontend_base',
-        'frontend_homepage',
     ],
     'data': [
-        'data/website_menus.xml',
-        'templates/login_template.xml',
-        'templates/contact_us_template.xml',
-        'templates/events.xml',
-        'templates/website_partner.xml',
+        'templates/template_body.xml',
+        'templates/template_engine.xml',
+        # 'templates/template_head.xml',
+        # 'templates/template_html.xml',
+        'data/website_menus.xml'
     ],
     'installable': True,
 }
