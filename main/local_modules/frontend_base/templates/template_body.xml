@@ -88,5 +88,49 @@
                 </div>
             </div>
         </template>
+
+        <!--template for the counter.-->
+        <!--Requirements:-->
+        <!--    * nbr-->
+        <!--    * type-->
+        <!---->
+        <!--How To:-->
+        <!--=======-->
+        <!--<t t-set="nbr" t-value="{value_for_nbr}"/>-->
+        <!--<t t-set="type" t-value="{value_for_type}"/>-->
+        <!--<t t-call="frontend_base.counter"/>-->
+        <!---->
+        <!--To pass a constant value like a string: <t t-set="type">My Type</t>-->
+        <!--This way, odoo won't consider the given value as a variable.-->
+        <template id="frontend_base.counter" name="Counter">
+            <h3><span class="counter" t-esc="nbr"/></h3>
+            <h4 t-esc="type"/>
+        </template>
+
+
+        <!--Template for the counter of companies-->
+        <!--requieres:-->
+        <!--* nbr-->
+        <!--How To:-->
+        <!--=======-->
+        <!--<t t-set="nbr" t-value="{value_for_nbr}"/>-->
+        <!--<t t-call="frontend_base.company_counter"/>-->
+        <template id="frontend_base.company_counter" name="Company Counter">
+            <t t-set="type">Companies</t>
+            <t t-call="frontend_base.counter"/>
+        </template>
+
+        <!--Template for the counter of users-->
+        <!--requieres:-->
+            <!--* nbr-->
+        <!--How To:-->
+        <!--=======-->
+        <!--<t t-set="nbr" t-value="{value_for_nbr}"/>-->
+        <!--<t t-call="frontend_base.user_counter"/>-->
+        <template id="frontend_base.user_counter" name="User Counter">
+            <t t-set="type">Happy Users</t>
+            <t t-call="frontend_base.counter"/>
+        </template>
+
     </data>
 </openerp>
