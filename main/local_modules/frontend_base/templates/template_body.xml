@@ -109,7 +109,7 @@
 
 
         <!--Template for the counter of companies-->
-        <!--requieres:-->
+        <!--Requirements:-->
         <!--* nbr-->
         <!--How To:-->
         <!--=======-->
@@ -121,7 +121,7 @@
         </template>
 
         <!--Template for the counter of users-->
-        <!--requieres:-->
+        <!--Requirements:-->
             <!--* nbr-->
         <!--How To:-->
         <!--=======-->
@@ -130,6 +130,53 @@
         <template id="frontend_base.user_counter" name="User Counter">
             <t t-set="type">Happy Users</t>
             <t t-call="frontend_base.counter"/>
+        </template>
+
+        <!--Represent an industry tag for companies.-->
+        <!--Requirements:-->
+        <!--* ind: industry object-->
+        <!--How To:-->
+        <!--=======-->
+        <!--<t t-set="ind" t-value="{value_for_ind}"/>-->
+        <!--<t t-call="frontend_base.industry_tag"/>-->
+        <template id="frontend_base.industry_tag" name="Industry Tag">
+            <!--Uncomment this part when the directory is released!-->
+            <!--<a itemprop="name" t-att-href="'/directory?search=%s' % ind.name">-->
+            <em>
+                <span class="label label-info" t-esc="ind.name"/>
+            </em>
+            <!--</a>-->
+        </template>
+
+        <!--Represent the link to the company's form -->
+        <!--Requirements:-->
+        <!--* ind: partner object-->
+        <!--How To:-->
+        <!--=======-->
+        <!--<t t-set="partner" t-value="{value_for_partner}"/>-->
+        <!--<t t-call="frontend_base.company_form_link">-->
+        <!--    something that will be the link.-->
+        <!--</t>-->
+        <template id="frontend_base.company_form_link" name="Commpany Form Link">
+            <!--Uncomment this part when the directory is released!-->
+            <!--<a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner), page=(pager['page']['num'] if pager['page']['num']>1 else None))">-->
+            <a t-attf-href="/web#return_label=Website&amp;view_type=form&amp;model=#{partner._name}&amp;id=#{partner.id}&amp;action=#{action}">
+                <t t-raw="0"/>
+            </a>
+        </template>
+
+        <!--Represent the logo to a company-->
+        <!--Requirements:-->
+        <!--* ind: partner object-->
+        <!--How To:-->
+        <!--=======-->
+        <!--<t t-set="partner" t-value="{value_for_partner}"/>-->
+        <!--<t t-call="frontend_base.company_logo"/>-->
+        <template id="frontend_base.company_logo" name="Company Logo">
+            <img itemprop="image"
+                 class="img img-responsive"
+                 t-att-src="website.image_url(partner, 'image_small')"
+            />
         </template>
 
     </data>

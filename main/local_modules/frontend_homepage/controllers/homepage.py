@@ -74,7 +74,7 @@ class Homepage(Website):
                 [str(country.name), int(value)]
                 for country, value in by_countries.items()
             ],
-            'nbr_partners': partner_pool.get_number_active_companies(),
+            'nbr_companies': partner_pool.get_number_active_companies(),
             'nbr_users': user_pool.get_number_active_users(),
             'partners': partner_pool.get_most_popular_studios(8),
         }
