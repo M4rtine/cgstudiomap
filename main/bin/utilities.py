@@ -7,13 +7,15 @@ import sys
 logger = logging.getLogger(__name__)
 logging.basicConfig()
 
+def get_root():
+    """Root of the project: "main" folder."""
+    return os.path.dirname(os.path.dirname(__file__))
 
 def set_sys_path():
     """Find all the packages that should be added to make the instance run
     properly.
     """
-    # Root of the project
-    root = os.path.dirname(os.path.dirname(__file__))
+    root = get_root()
 
     # where python eggs are
     eggs = glob.glob(os.path.join(root, 'eggs', '*'))
