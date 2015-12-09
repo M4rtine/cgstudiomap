@@ -1,13 +1,18 @@
 @import "../stylesheets/_bootstrap";
+
 @import "_responsive";
-@import "_colors";
 @import "_fonts";
-@import "_custom";
+@import "_bootstraper";
+@import "_colors";
+@import "_main";
+@import "_z-index";
+/*@import "_custom";*/
 
 // Has to be imported after everything.
-@import "_flatify";
-@import "_homepage";
+/*@import "_flatify";
+@import "_homepage";*/
 
+/*
 body {
   overflow: scroll;
 }
@@ -36,3 +41,4 @@ html, body, #wrapwrap {
 #map {
   height: 500px;
 }
+*/

@@ -20,7 +20,9 @@
             <script type="text/javascript" src="/web/static/lib/es5-shim/es5-shim.min.js"></script>
             <script src="/web/static/lib/jquery/jquery.js" type="text/javascript"></script>
             <script src="/web/static/lib/bootstrap/js/bootstrap.js" type="text/javascript"></script>
-            <script src="/shared_web_theme/static/src/js/custom.js" type="text/javascript"></script>
+            <!--<script src="/shared_web_theme/static/src/js/custom.js" type="text/javascript"></script>-->
+			<script src="/shared_web_theme/static/src/js/lib/snap.svg.js" type="text/javascript"></script>
+			<script src="/shared_web_theme/static/src/js/main.js" type="text/javascript"></script>
             <script type="text/javascript" src="https://www.google.com/jsapi"></script>
             <t t-raw="0"/>
         </template>

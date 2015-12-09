@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="150px" height="150px" viewBox="0 0 150 150" enable-background="new 0 0 150 150" xml:space="preserve">
+<g>
+	<defs>
+		<path id="SVGID_1_" d="M150,145.9224c0,2.252-1.8257,4.0776-4.0776,4.0776H4.0776C1.8257,150,0,148.1743,0,145.9224V4.0776
+			C0,1.8257,1.8257,0,4.0776,0h141.8447C148.1743,0,150,1.8257,150,4.0776V145.9224z"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	<rect x="0.1401" y="-0.7026" clip-path="url(#SVGID_2_)" fill="#B05AE2" width="150.8652" height="76.2959"/>
+	<rect x="0.1401" y="75.4102" clip-path="url(#SVGID_2_)" fill="#F1F1F3" width="150.8652" height="74.0024"/>
+	<g clip-path="url(#SVGID_2_)">
+		<path fill="#B05AE2" d="M145.9224,1C147.6191,1,149,2.3809,149,4.0776v141.8447c0,1.6968-1.3809,3.0776-3.0776,3.0776H4.0776
+			C2.3809,149,1,147.6191,1,145.9224V4.0776C1,2.3809,2.3809,1,4.0776,1H145.9224 M145.9224,0H4.0776C1.8257,0,0,1.8257,0,4.0776
+			v141.8447C0,148.1743,1.8257,150,4.0776,150h141.8447c2.252,0,4.0776-1.8257,4.0776-4.0776V4.0776
+			C150,1.8257,148.1743,0,145.9224,0L145.9224,0z"/>
+	</g>
+</g>
+</svg>

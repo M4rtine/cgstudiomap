@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+	border: 0px solid transparent;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	max-height: 48px;
+	
+	@media (max-width: $screen-xs-max) {
+		max-height: 240px;
+	}
+}
+
+
+.navbar-nav>li>a {
+	padding-left: 6em;
+	padding-right: 6em;
+	font-weight: normal;
+	font-size: 1.2em;
+	line-height: 1.4em;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+	
+	@media (max-width: $screen-md-max) {
+		padding-left: 3em;
+		padding-right: 3em;
+		font-size: 1em;
+	}
+}
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 0 0;
+    margin-top: 0;
+    margin-right: 1.4em;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.navbar-text {
+    margin-top: 1px;
+    margin-bottom: 0;
+	
+	@media (min-width: $screen-sm-min) {
+		margin-right: 0;
+        margin-left: 0;
+	}
+}
+
+.navbar-right {
+    margin-right: 4em;
+	
+	@media (min-width: $screen-lg-min) {
+		margin-right: 10em;
+	}
+}
+.navbar-left {
+    margin-left: 4em;
+	
+	@media (max-width: $screen-xs-max) {
+		margin-left: 1.4em;
+	}
+	@media (min-width: $screen-lg-min) {
+		margin-left: 10em;
+	}
+}
+
+.row {
+    margin: 2.5em 0;
+}
