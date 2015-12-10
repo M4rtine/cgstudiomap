@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="directory" model="website.menu">
+            <field name="name">Directory</field>
+            <field name="url">/web</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">10</field>
+            <field name="user_logged" eval="True"/>
+            <field name="user_not_logged" eval="False"/>
+        </record>
+
+        <record id="directory_map" model="website.menu">
+            <field name="name">Map</field>
+            <field name="url">/directory/map</field>
+            <field name="user_logged" eval="False"/>
+            <field name="user_not_logged" eval="False"/>
+            <field name="parent_id" ref="frontend_homepage.directory"/>
+            <field name="sequence" type="int">1</field>
+        </record>
+        <record id="directory_list" model="website.menu">
+            <field name="name">List</field>
+            <field name="url">/directory/list</field>
+            <field name="user_logged" eval="False"/>
+            <field name="user_not_logged" eval="False"/>
+            <field name="parent_id" ref="frontend_homepage.directory"/>
+            <field name="sequence" type="int">10</field>
+        </record>
+    </data>
+</openerp>

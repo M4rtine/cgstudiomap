@@ -20,13 +20,13 @@
 ##############################################################################
 
 {
-    'name': 'Frontend Homepage',
+    'name': 'Frontend Listing',
     'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Web',
-    'summary': 'Module that build the homepage.',
+    'summary': 'Module that build the page that list companies.',
     'depends': [
         'website',
         'frontend_base',
@@ -34,7 +34,7 @@
     'data': [
         'templates/template_body.xml',
         'templates/template_engine.xml',
-        # 'templates/template_head.xml',
+        'templates/template_head.xml',
         # 'templates/template_html.xml',
     ],
     'installable': True,

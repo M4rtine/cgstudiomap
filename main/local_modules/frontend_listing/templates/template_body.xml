@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="frontend_listing.search" name="Search hidden fields">
+            <form t-att-action="keep('/directory', search=0)" method="get" t-att-class="search_class">
+
+                <t t-if="attrib_values">
+                    <t t-foreach="attrib_values" t-as="a">
+                        <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])"/>
+                    </t>
+                </t>
+                <div class="input-group">
+                    <input type="text" name="search" class="search-query form-control" placeholder="Search..." t-att-value="search"/>
+                    <span class="input-group-btn">
+                        <a class="btn btn-default a-submit"><i class="fa fa-search"/></a>
+                    </span>
+                </div>
+
+            </form>
+            <a href="/web/signup">Sign up for more options. It is free!</a>
+        </template>
+
+        <template id="frontend_listing.listing" name="Base for listing of companies">
+            <t t-call="frontend_base.doctype_html"/>
+            <t t-call="frontend_base.html">
+
+                <t t-call="frontend_base.full_head"/>
+
+                <t t-call="frontend_base.body">
+                    <t t-raw="0"/>
+                    <t t-call="frontend_base.footer"/>
+                    <t t-call="frontend_base.engine"/>
+                </t> <!-- closing body -->
+
+            </t> <!-- closing html -->
+        </template>
+
+
+        <template id="frontend_listing.map" name="Listing: Map">
+            <t t-call="frontend_listing.listing">
+                <div id="map">MAP</div>
+            </t>
+            <script type="text/javascript" src="/frontend_listing/static/src/js/google_map.js"></script>
+        </template>
+
+    </data>
+</openerp>
