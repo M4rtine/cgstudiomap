@@ -41,7 +41,10 @@ body {
 .navbar-default .navbar-nav > .open > a:focus {
     color: $color-cgsm-light;
 }
-
+.navbar-inverse .navbar-nav > li > a {
+    color: $color-cgsm-light;
+}
+.navbar-inverse .navbar-nav > a,
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus,
@@ -52,7 +55,9 @@ body {
 	background-color: transparent;
 }
 
-
+.jumbotron {
+    background-color: transparent;
+}
 
 // MAIN
 
@@ -106,7 +111,17 @@ body {
 		color: $color-cgsm-light;
 	}
 }
-
+.scroll-up {
+	
+	a {
+		background-color: rgba($color-cgsm, 0.5);
+		color: $color-cgsm-light;
+	}
+	a:hover, a:active {
+		background-color: rgba($color-cgsm, .8);
+		color: $color-cgsm-light;
+	}
+}
 // BASE color
 
 /*$c-cg: #6C7A89;

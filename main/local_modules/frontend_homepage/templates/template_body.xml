@@ -77,6 +77,7 @@
 
 
         <template id="promotional_text_box" name="Promotional Text Box">
+			
 			<div id="present" class="container">
 				<div class="row txt-present fontCGSM">
 					<div class="col-md-6 col-md-offset-3">
@@ -90,7 +91,7 @@
 			</div>
 			
             <!--center heading end-->
-			<div class="container"  style="background:white">
+			<div class="container">
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="colored-boxed">
@@ -162,24 +163,31 @@
 
                 <t t-call="frontend_base.body">
 									
-				<div id="txt-map" class="jumbotron analytic-map">
+				<div id="container-map">
 					<div id="geochart_target"></div>
-					
-					<div class="txt-map fontCGSMlight">
-						<h1>CG Studio Map</h1>
-						<p>where cg is</p>
-						<p>
-							<a href="#present"><span id="arrow-down"></span></a>
-						</p>
-						<t t-call="frontend_base.user_counter"/>
-						<t t-call="frontend_base.company_counter"/>
-						<div class="clearfix"></div>
-					</div>
-
 				</div>
+				<div class="clearfix"></div>
+					
 					
 
+				<div id="TXT_map" class="jumbotron">
+					<div class="txt-map fontCGSMlight">
+
+							<h1>CG Studio Map</h1>
+							<p>where cg is</p>
+							<p>
+								<a href="#present"><span id="arrow-down"></span></a>
+							</p>
+							<t t-call="frontend_base.user_counter" />
+							<t t-call="frontend_base.company_counter" />
+							<!--<div class="clearfix"></div>-->
+
+					</div>
+				</div>
+
+				<div style="background:white">
 				<t t-call="frontend_homepage.promotional_text_box"/>
+				</div>
 
 					
 <!--                    <div id="wrap" class="oe_structure oe_empty">

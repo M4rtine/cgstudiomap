@@ -9,11 +9,12 @@
 	
 	$(document).ready(function() {
 
+
 		// Nav
         loadSVG("#arrow-down", "/shared_web_theme/static/src/svg/__arrow-down.svg");
         loadSVG("#logo-nav", "/shared_web_theme/static/src/svg/__logo-nav.svg");
         loadSVG("#user-login", "/shared_web_theme/static/src/svg/__user-login.svg");
-        loadSVG("#toggle", "/shared_web_theme/static/src/svg/sk-toggle.svg");
+        loadSVG("#toggle", "/shared_web_theme/static/src/svg/__toggle.svg");
         
         // Stats
         $(".stats div").each(function( index ) {
@@ -21,11 +22,11 @@
          });
         
         // Socials
-        loadSVG("#gitub-svg", "/shared_web_theme/static/src/svg/__social-git.svg");
+/*        loadSVG("#gitub-svg", "/shared_web_theme/static/src/svg/__social-git.svg");
         loadSVG("#twitter-svg", "/shared_web_theme/static/src/svg/__social-twitter.svg");
-        loadSVG("#linkedin-svg", "/shared_web_theme/static/src/svg/__social-li.svg");
+        loadSVG("#linkedin-svg", "/shared_web_theme/static/src/svg/__social-li.svg");*/
 
-        
+        $('.dropdown-toggle').dropdown();
 
 		/* ---------------------------------------------- /*
 		 * Smooth scroll / Scroll To Top

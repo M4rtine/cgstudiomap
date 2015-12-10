@@ -15,7 +15,7 @@ body {
 }
 
 
-.navbar-nav>li>a {
+.navbar-nav>li>a{
 	padding-left: 6em;
 	padding-right: 6em;
 	font-weight: normal;
@@ -28,6 +28,11 @@ body {
 		padding-left: 3em;
 		padding-right: 3em;
 		font-size: 1em;
+	}
+	@media (min-width: $screen-lg-min) {
+		padding-left: 8em;
+		padding-right: 8em;
+		font-size: 1.2em;
 	}
 }
 

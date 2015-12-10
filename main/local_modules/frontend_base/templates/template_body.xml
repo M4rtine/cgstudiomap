@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <template id="frontend_base.navbar" name="Base: body navbar">
-            <nav class="navbar navbar-default navbar-fixed-top fontCGSM" role="navigation">
+            <nav class="navbar navbar-inverse navbar-fixed-top fontCGSM" role="navigation">
                     <div class="navbar-header">
 						
 						<span class="navbar-text navbar-left"><a href="/" class="navbar-link"><span id="logo-nav"></span></a></span>
@@ -22,8 +22,8 @@
 					<div class="navbar-collapse collapse">
 						
 						<div class="dropdown">
-							<p class="navbar-text navbar-right dropdown-toggle hidden-xs" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								<a href="#" class="navbar-link"><span id="user-login"></span></a>
+							<p class="navbar-text navbar-right hidden-xs">
+								<a href="#" class="navbar-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span id="user-login"></span></a>
 							</p>
 
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -32,6 +32,9 @@
 										<b>Sign in</b>
 									</a>
 								</li>
+                                <li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>
+                                <li t-ignore="true" t-if="website.user_id != user_id" class="divider"/>
+                                <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
 							</ul>
 						</div>						
 						
@@ -143,8 +146,8 @@
         <!--To pass a constant value like a string: <t t-set="type">My Type</t>-->
         <!--This way, odoo won't consider the given value as a variable.-->
         <template id="frontend_base.counter" name="Counter">
-            <h3><span class="counter" t-esc="nbr"/></h3>
-            <h4 t-esc="type"/>
+            <t t-esc="nbr"/>
+            <t t-esc="type"/>
         </template>
 
 
@@ -159,8 +162,9 @@
 			<div class="stats stat-left fontCGSM">
 				<div id="stats-bg-svg"></div>
 				<span id="stats-txt">
-					<p><t t-set="type">Companies</t></p>
 					<p><t t-call="frontend_base.counter"/></p>
+					<p><t t-set="type">Companies</t></p>
+					
 				</span>
 			</div>
         </template>
@@ -173,11 +177,12 @@
         <!--<t t-set="nbr" t-value="{value_for_nbr}"/>-->
         <!--<t t-call="frontend_base.user_counter"/>-->
         <template id="frontend_base.user_counter" name="User Counter">
-			<div class="stats stat-left fontCGSM">
+			<div class="stats stat-right fontCGSM">
 				<div id="stats-bg-svg"></div>
 				<span id="stats-txt">
-					<p><t t-set="type">Happy Users</t></p>
 					<p><t t-call="frontend_base.counter"/></p>
+					<p><t t-set="type">Happy Users</t></p>
+					
 				</span>
 			</div>
         </template>
