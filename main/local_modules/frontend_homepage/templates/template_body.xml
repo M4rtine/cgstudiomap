@@ -173,14 +173,18 @@
 				<div id="TXT_map" class="jumbotron">
 					<div class="txt-map fontCGSMlight">
 
-							<h1>CG Studio Map</h1>
-							<p>where cg is</p>
-							<p>
-								<a href="#present"><span id="arrow-down"></span></a>
-							</p>
-							<t t-call="frontend_base.user_counter" />
-							<t t-call="frontend_base.company_counter" />
-							<!--<div class="clearfix"></div>-->
+                        <h1>CG Studio Map</h1>
+                        <p>where cg is</p>
+                        <p>
+                            <a href="#present"><span id="arrow-down"></span></a>
+                        </p>
+
+                        <t t-set="nbr" t-value="nbr_users"/>
+                        <t t-call="frontend_base.user_counter" />
+
+                        <t t-set="nbr" t-value="nbr_companies"/>
+                        <t t-call="frontend_base.company_counter" />
+                        <!--<div class="clearfix"></div>-->
 
 					</div>
 				</div>

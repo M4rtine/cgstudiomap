@@ -146,8 +146,15 @@
         <!--To pass a constant value like a string: <t t-set="type">My Type</t>-->
         <!--This way, odoo won't consider the given value as a variable.-->
         <template id="frontend_base.counter" name="Counter">
-            <t t-esc="nbr"/>
-            <t t-esc="type"/>
+            <div class="stats stat-left fontCGSM">
+                <div id="stats-bg-svg"></div>
+                <span id="stats-txt">
+                    <p><t t-esc="nbr"/></p>
+                    <p><t t-esc="type"/></p>
+                </span>
+            </div>
+
+
         </template>
 
 
@@ -159,14 +166,8 @@
         <!--<t t-set="nbr" t-value="{value_for_nbr}"/>-->
         <!--<t t-call="frontend_base.company_counter"/>-->
         <template id="frontend_base.company_counter" name="Company Counter">
-			<div class="stats stat-left fontCGSM">
-				<div id="stats-bg-svg"></div>
-				<span id="stats-txt">
-					<p><t t-call="frontend_base.counter"/></p>
-					<p><t t-set="type">Companies</t></p>
-					
-				</span>
-			</div>
+            <t t-set="type">Companies</t>
+            <t t-call="frontend_base.counter"/>
         </template>
 
         <!--Template for the counter of users-->
@@ -177,14 +178,8 @@
         <!--<t t-set="nbr" t-value="{value_for_nbr}"/>-->
         <!--<t t-call="frontend_base.user_counter"/>-->
         <template id="frontend_base.user_counter" name="User Counter">
-			<div class="stats stat-right fontCGSM">
-				<div id="stats-bg-svg"></div>
-				<span id="stats-txt">
-					<p><t t-call="frontend_base.counter"/></p>
-					<p><t t-set="type">Happy Users</t></p>
-					
-				</span>
-			</div>
+            <t t-set="type">Happy Users</t>
+            <t t-call="frontend_base.counter"/>
         </template>
 
         <!--Represent an industry tag for companies.-->
