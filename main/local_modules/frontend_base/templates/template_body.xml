@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <template id="frontend_base.submenu" name="Submenu">
+            <li t-if="not submenu.child_id" t-att-class="
+        'active' if submenu.url and submenu.url != '/' and request.httprequest.path == submenu.url.replace('/page/website.', '/page/') else None
+        ">
+                <a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url"
+                   t-ignore="true"
+                   t-att-target="'_blank' if submenu.new_window else None"
+                   t-field="submenu.name"
+                >
+                </a>
+            </li>
+            <li t-if="submenu.child_id" t-attf-class="dropdown #{
+        (submenu.url and submenu.url != '/' and any([request.httprequest.path == child.url.replace('/page/website.', '/page/') for child in submenu.child_id if child.url]) or
+         (submenu.url and request.httprequest.path == submenu.url.replace('/page/website.', '/page/'))) and 'active'
+        }">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <t t-field="submenu.name"/> <span class="caret" t-ignore="true"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <t t-foreach="submenu.child_id" t-as="submenu">
+                        <t t-call="website.submenu"/>
+                    </t>
+                </ul>
+            </li>
+        </template>
+
         <template id="frontend_base.navbar" name="Base: body navbar">
             <nav class="navbar navbar-inverse navbar-fixed-top fontCGSM" role="navigation">
                     <div class="navbar-header">
@@ -11,12 +37,6 @@
 							<span id="toggle"></span>
                         </button>
 						
-<!--                        
-						<a class="navbar-brand" href="/">
-                            <img src="/logo.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
-                            <span t-field="res_company.name"/>
-                        </a>
--->
                     </div>
 				
 					<div class="navbar-collapse collapse">
@@ -44,51 +64,13 @@
 							
                             <t t-foreach="website.menu_id.child_id" t-as="submenu">
                                 <t t-if="(submenu.user_logged and request.uid !=  3) or (submenu.user_not_logged and request.uid == 3)">
-                                    <t t-call="website.submenu"/>
+                                    <t t-call="frontend_base.submenu"/>
                                 </t>
                             </t>
-							<!--							
-							<li><a href="#">Directory</a></li>
-							<li><a href="#">Shop</a></li>
-							<li><a href="#">About</a></li>
-							-->
-							
 							<li role="separator" class="divider visible-xs-inline"></li>
 							<li class="visible-xs-inline"><a href="#">Sign in</a></li>
 						</ul>
 					</div>
-				
-
-<!--                    <div class="collapse navbar-collapse navbar-top-collapse">
-                        <ul class="nav navbar-nav navbar-right" id="top_menu">
-                            <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                                <t t-if="(submenu.user_logged and request.uid !=  3) or (submenu.user_not_logged and request.uid == 3)">
-                                    <t t-call="website.submenu"/>
-                                </t>
-                            </t>
-                            <li class="divider" groups="base.group_public"/>
-                            <li groups="base.group_public">
-                                <a t-attf-href="/web/login">
-                                    <b>Sign in</b>
-                                </a>
-                            </li>
-                            <li class="divider" t-ignore="true" t-if="website.user_id != user_id"/>
-                            <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <b>
-                                        <span t-esc="user_id.name"/>
-                                        <span class="caret"/>
-                                    </b>
-                                </a>
-                                <ul class="dropdown-menu js_usermenu" role="menu">
-                                    <li><a href="/web" role="menuitem">My Account</a></li>
-                                    <li class="divider"/>
-                                    <li><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>-->
-
 			</nav>
 
         </template>
