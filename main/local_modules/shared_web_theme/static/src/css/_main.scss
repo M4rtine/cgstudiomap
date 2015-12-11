@@ -55,6 +55,7 @@ fontCGSM {
 }
 
 .txt-map {
+	padding-bottom: -2em;
 
 }
 .txt-map h1, .txt-map p{
@@ -118,7 +119,7 @@ fontCGSM {
 		margin-top: 580px;
 	}
 	@media (min-width: $screen-big) {
-		margin-top: 730px;
+		margin-top: 700px;
 	}
 }
 #present {
@@ -150,7 +151,7 @@ fontCGSM {
 		line-height: 2.3em;
 	}
 	@media (min-width: $screen-big) {
-		top: -140px;
+		top: -180px;
 	}
 }
 

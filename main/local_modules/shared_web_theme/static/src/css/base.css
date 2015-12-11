@@ -5777,6 +5777,9 @@ body {
 .jumbotron {
   background-color: transparent; }
 
+#geochart_target {
+  background-color: #f2f2f2; }
+
 .dropdown-menu .divider {
   background-color: #f1f1f3; }
 
@@ -5915,6 +5918,9 @@ fontCGSM {
     #container-map {
       height: 800px; } }
 
+.txt-map {
+  padding-bottom: -2em; }
+
 .txt-map h1, .txt-map p {
   text-align: center; }
 
@@ -5966,7 +5972,7 @@ fontCGSM {
     margin-top: 580px; } }
 @media (min-width: 1900px) {
   #TXT_map {
-    margin-top: 730px; } }
+    margin-top: 700px; } }
 
 .txt-present {
   text-align: center; }
@@ -5988,7 +5994,7 @@ fontCGSM {
     line-height: 2.3em; }
   @media (min-width: 1900px) {
     .stats {
-      top: -140px; } }
+      top: -180px; } }
 
 #stats-txt {
   position: absolute;

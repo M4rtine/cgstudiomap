@@ -60,7 +60,9 @@ body {
 }
 
 // MAIN
-
+#geochart_target {
+	background-color: $bg;
+}
 .dropdown-menu .divider {
     background-color: $color-cgsm-light;
 }

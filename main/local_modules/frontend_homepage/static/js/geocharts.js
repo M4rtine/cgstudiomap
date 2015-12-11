@@ -8,7 +8,7 @@ function geo_chart(companies, target) {
         var options = {
 			legend: 'none',
             colorAxis: {colors: ['#E8CFF7', '#B86BE5']},
-            backgroundColor: '#F2F2F2',
+            backgroundColor: 'transparent',
             keepAspectRatio: true,
  			width:100 + "%",
  			height:100 + '%',
