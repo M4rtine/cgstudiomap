@@ -5931,6 +5931,30 @@ fontCGSM {
       height: 800px;
       max-height: 800px; } }
 
+.google-visualization-tooltip {
+  border: solid 0px #000 !important;
+  -webkit-border-radius: 2px !important;
+  -moz-border-radius: 2px !important;
+  border-radius: 2px !important;
+  box-shadow: 0px 0px 0px #323133 !important;
+  background-color: #323133 !important;
+  position: absolute;
+  padding: 2em;
+  margin: 0 !important; }
+
+.google-visualization-tooltip-item-list {
+  list-style-type: none;
+  margin: 0 !important;
+  padding: 2em !important; }
+
+.google-visualization-tooltip-item:first-child {
+  margin: 0 !important; }
+
+.google-visualization-tooltip-item {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #f1f1f3 !important; }
+
 @media (min-width: 768px) {
   #TXT_map {
     margin-top: 280px; } }
@@ -5962,10 +5986,15 @@ fontCGSM {
   .stats p:nth-child(2) {
     font-size: 1.6em;
     line-height: 2.3em; }
+  @media (min-width: 1900px) {
+    .stats {
+      top: -140px; } }
 
 #stats-txt {
   position: absolute;
-  left: 17%; }
+  top: 0;
+  left: 20%;
+  right: 20%; }
 
 .stat-left {
   float: left;
@@ -5973,7 +6002,7 @@ fontCGSM {
 
 .stat-right {
   float: right;
-  right: 60px; }
+  right: 90px; }
 
 .colored-boxed {
   text-align: left; }

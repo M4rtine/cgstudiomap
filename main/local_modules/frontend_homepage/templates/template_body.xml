@@ -165,6 +165,7 @@
 									
 				<div id="container-map">
 					<div id="geochart_target"></div>
+					<div id='google-visualization-tooltip'></div>
 				</div>
 				<div class="clearfix"></div>
 					
@@ -178,12 +179,16 @@
                         <p>
                             <a href="#present"><span id="arrow-down"></span></a>
                         </p>
-
-                        <t t-set="nbr" t-value="nbr_users"/>
-                        <t t-call="frontend_base.user_counter" />
-
-                        <t t-set="nbr" t-value="nbr_companies"/>
-                        <t t-call="frontend_base.company_counter" />
+						
+						<div class="stats stat-left fontCGSM">
+							<t t-set="nbr" t-value="nbr_users"/>
+							<t t-call="frontend_base.user_counter" />
+						</div>
+						
+						<div class="stats stat-right fontCGSM">
+							<t t-set="nbr" t-value="nbr_companies"/>
+							<t t-call="frontend_base.company_counter" />
+						</div>
                         <!--<div class="clearfix"></div>-->
 
 					</div>
@@ -192,52 +197,6 @@
 				<div style="background:white">
 				<t t-call="frontend_homepage.promotional_text_box"/>
 				</div>
-
-					
-<!--                    <div id="wrap" class="oe_structure oe_empty">
-                        <div class="container">
-                            <div class="hidden-xs" id="geochart_target"></div>
-                            <t t-call="frontend_homepage.signup_box"/>
-                        </div>
-
-                        <div class="divide60"></div>
-
-                        <div style="background:white">
-                            <div class="container">
-                                <div class="row hidden-xs">
-                                    <div class="col-sm-1 col-sm-offset-5">
-                                        <a href="#more">
-                                            <div class="scroll-down">
-                                                <span><i class="fa fa-angle-down fa-3x"></i></span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="divide50" id="more"></div>
-                                <t t-call="frontend_homepage.promotional_text_box"/>
-                            </div>
-                        </div>
-
-                        <div class="divide40"></div>
-                        <section class="fun-fact-wrap-light">
-                            <div class="container">
-                                <div class="row">
-
-                                    <div class="margin20 facts-in col-xs-12 col-sm-4">
-                                        <t t-set="nbr" t-value="nbr_users"/>
-                                        <t t-call="frontend_base.user_counter"/>
-                                    </div>
-
-                                    <div class="margin20 facts-in col-xs-12 col-sm-4">
-                                        <t t-set="nbr" t-value="nbr_companies"/>
-                                        <t t-call="frontend_base.company_counter"/>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </section>
-
-                    </div>-->
                     <div class="container">
                         <t t-call="frontend_homepage.partner_box"/>
                     </div>

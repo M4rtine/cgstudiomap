@@ -12,7 +12,10 @@ function geo_chart(companies, target) {
             keepAspectRatio: true,
  			width:100 + "%",
  			height:100 + '%',
- 			tooltip: {textStyle: {color: '#444444'}, trigger:'focus'}
+ 			tooltip: { 
+				isHtml: true,
+				textStyle: { fontName: 'cgsm-regular',fontSize: 16}
+			}
         };
         var chart = new google.visualization.GeoChart(
             document.getElementById(target)

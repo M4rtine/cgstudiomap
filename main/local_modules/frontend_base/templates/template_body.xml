@@ -127,16 +127,14 @@
         <!---->
         <!--To pass a constant value like a string: <t t-set="type">My Type</t>-->
         <!--This way, odoo won't consider the given value as a variable.-->
+		
+		
         <template id="frontend_base.counter" name="Counter">
-            <div class="stats stat-left fontCGSM">
                 <div id="stats-bg-svg"></div>
                 <span id="stats-txt">
                     <p><t t-esc="nbr"/></p>
                     <p><t t-esc="type"/></p>
                 </span>
-            </div>
-
-
         </template>
 
 
