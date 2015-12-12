@@ -7,9 +7,15 @@
 #stats-bg-svg {
     z-index: 100;
 }
-#container-map {
-	z-index: -100;
+#container-map, #geochart_target {
+	z-index: 10;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=99)";
+	filter: alpha(opacity=99);
+	-moz-opacity:0.99;
+	-khtml-opacity: 0.99;
+	opacity: .99; 
 }
 #TXT-map {
-	z-index: 150;
+	pointer-events: none;
+	z-index: 20;
 }

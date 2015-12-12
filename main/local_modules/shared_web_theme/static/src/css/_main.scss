@@ -33,12 +33,12 @@ fontCGSM {
 }
 
 #container-map {
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	padding-top: 100px;
+	padding-top: 55px;
 
 	@media (min-width: $screen-sm-min) {
 		height: 500px;
@@ -57,21 +57,24 @@ fontCGSM {
 
 #TXT_map {
 	max-height: 270px;
-	@media (min-width: $screen-sm-min) {
+	position: relative;
+	margin-top: -20px;
+/*	@media (min-width: $screen-sm-min) {
 		margin-top: 400px;
 	}
 	@media (min-width: $screen-md-min) {
 		margin-top: 480px;
 	}
 	@media (min-width: $screen-lg-min) {
-		margin-top: 580px;
+		margin-top: -20px;
 	}
 	@media (min-width: $screen-big) {
 		margin-top: 700px;
-	}
+	}*/
 }
 .txt-map {
 	padding: 0;
+	padding-bottom: -0.1em;
 
 }
 .txt-map h1, .txt-map p{
@@ -125,9 +128,28 @@ fontCGSM {
 
 .txt-present {
     text-align: center;
+	@media (max-width: $screen-xs-max) {
+		padding-top: 1em;
+		font-size: 1em;
+	}
+	@media (min-width: $screen-md-min) {
+
+	}
+	@media (min-width: $screen-lg-min) {
+
+	}
+	@media (min-width: $screen-big) {
+
+	}
+	p {
+		
+	}
 	
 	h2 {
 		text-transform: uppercase;
+		@media (max-width: $screen-xs-max) {
+			font-size: 1.25em;
+		}
 	}
 }
 
@@ -162,10 +184,16 @@ fontCGSM {
 .stat-left {
 	float: left;
 	left: 60px;
+	@media (max-width: $screen-xs-max) {
+		left: 0;
+	}
 }
 .stat-right {
 	float: right;
 	right: 90px;
+	@media (max-width: $screen-xs-max) {
+		right: 0;
+	}
 }
 
 .colored-boxed {

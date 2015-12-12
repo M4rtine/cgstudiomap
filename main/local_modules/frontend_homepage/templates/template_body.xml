@@ -67,10 +67,10 @@
 			
 			<div id="present" class="container">
 				<div class="row txt-present fontCGSM">
-					<div class="col-md-6 col-md-offset-3">
+					<div class="col-xs-12 col-md-6 col-md-offset-3">
                         <h2>Because everyone should be familiar with the cg industry</h2>
 					</div>
-					<div class="col-md-12">
+					<div class="col-xs-12 col-md-12">
 						<p>CG Studio Map is the premier open-data center of the computer graphic industry.
 		Come in: update, share or simply read the content.</p>
 					</div>

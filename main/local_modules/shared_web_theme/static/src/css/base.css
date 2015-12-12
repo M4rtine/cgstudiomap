@@ -5778,7 +5778,7 @@ body {
   background-color: transparent; }
 
 #geochart_target {
-  background-color: #f2f2f2; }
+  background-color: transparent; }
 
 .google-visualization-tooltip {
   border: solid 0px #000 !important;
@@ -5908,12 +5908,12 @@ fontCGSM {
   overflow: hidden; }
 
 #container-map {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  padding-top: 100px; }
+  padding-top: 55px; }
   @media (min-width: 768px) {
     #container-map {
       height: 500px; } }
@@ -5928,22 +5928,25 @@ fontCGSM {
       height: 800px; } }
 
 #TXT_map {
-  max-height: 270px; }
-  @media (min-width: 768px) {
-    #TXT_map {
-      margin-top: 400px; } }
-  @media (min-width: 992px) {
-    #TXT_map {
-      margin-top: 480px; } }
-  @media (min-width: 1200px) {
-    #TXT_map {
-      margin-top: 580px; } }
-  @media (min-width: 1900px) {
-    #TXT_map {
-      margin-top: 700px; } }
+  max-height: 270px;
+  position: relative;
+  margin-top: -20px;
+  /*	@media (min-width: $screen-sm-min) {
+  		margin-top: 400px;
+  	}
+  	@media (min-width: $screen-md-min) {
+  		margin-top: 480px;
+  	}
+  	@media (min-width: $screen-lg-min) {
+  		margin-top: -20px;
+  	}
+  	@media (min-width: $screen-big) {
+  		margin-top: 700px;
+  	}*/ }
 
 .txt-map {
-  padding: 0; }
+  padding: 0;
+  padding-bottom: -0.1em; }
 
 .txt-map h1, .txt-map p {
   text-align: center; }
@@ -5983,8 +5986,15 @@ fontCGSM {
 
 .txt-present {
   text-align: center; }
+  @media (max-width: 767px) {
+    .txt-present {
+      padding-top: 1em;
+      font-size: 1em; } }
   .txt-present h2 {
     text-transform: uppercase; }
+    @media (max-width: 767px) {
+      .txt-present h2 {
+        font-size: 1.25em; } }
 
 .stats {
   position: relative;
@@ -6012,10 +6022,16 @@ fontCGSM {
 .stat-left {
   float: left;
   left: 60px; }
+  @media (max-width: 767px) {
+    .stat-left {
+      left: 0; } }
 
 .stat-right {
   float: right;
   right: 90px; }
+  @media (max-width: 767px) {
+    .stat-right {
+      right: 0; } }
 
 .colored-boxed {
   text-align: left; }
@@ -6107,11 +6123,17 @@ fontCGSM {
 #stats-bg-svg {
   z-index: 100; }
 
-#container-map {
-  z-index: -100; }
+#container-map, #geochart_target {
+  z-index: 10;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=99)";
+  filter: alpha(opacity=99);
+  -moz-opacity: 0.99;
+  -khtml-opacity: 0.99;
+  opacity: .99; }
 
 #TXT-map {
-  z-index: 150; }
+  pointer-events: none;
+  z-index: 20; }
 
 /*@import "_custom";*/
 /*@import "_flatify";
