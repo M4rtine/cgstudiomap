@@ -272,6 +272,17 @@ fontCGSM {
 	i, i > a {
 		margin: 0 5px;
 	}
+	a {
+		background-color: transparent;
+		color: $color-cgsm-light;
+		text-decoration: none;
+		padding: 2px;
+
+	}
+	a:hover, a:active {
+		background-color: $color-cgsm;
+		color: $color-cgsm-light;
+	}
 }
 
 /* ---------------------------------------------- /*

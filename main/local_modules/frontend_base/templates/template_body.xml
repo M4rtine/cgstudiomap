@@ -41,12 +41,11 @@
 				
 					<div class="navbar-collapse collapse">
 						
-						<div class="dropdown">
-							<p class="navbar-text navbar-right hidden-xs">
-								<a href="#" class="navbar-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span id="user-login"></span></a>
-							</p>
+						
+						<div class="dropdown navbar-text navbar-right hidden-xs">
+							<a id="dLabel" data-target="#" href="http://cgstudiomap.org" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="user-login"></span></a>
 
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						  <ul class="dropdown-menu" aria-labelledby="dLabel">
 								<li groups="base.group_public">
 									<a t-attf-href="/web/login">
 										<b>Sign in</b>
@@ -55,8 +54,15 @@
                                 <li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>
                                 <li t-ignore="true" t-if="website.user_id != user_id" class="divider"/>
                                 <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
-							</ul>
+							  
+<!--							
+								<li role="separator" class="divider"></li>
+							<li class="dropdown-header">Nav header</li>
+-->
+
+						  </ul>
 						</div>						
+				
 						
 						<p class="navbar-text navbar-right hidden-xs"><a href="#" class="navbar-link"><span id="user-login"></span></a></p>
 						
@@ -68,7 +74,18 @@
                                 </t>
                             </t>
 							<li role="separator" class="divider visible-xs-inline"></li>
-							<li class="visible-xs-inline"><a href="#">Sign in</a></li>
+							<div class="visible-xs-inline">
+								<li groups="base.group_public">
+									<a t-attf-href="/web/login">
+										<b>Sign in</b>
+									</a>
+								</li>
+                                <li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>
+                                <li t-ignore="true" t-if="website.user_id != user_id" class="divider"/>
+                                <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
+							</div>
+							
+							<!--<li class="visible-xs-inline"><a href="#">Sign in</a></li>-->
 						</ul>
 					</div>
 			</nav>

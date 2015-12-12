@@ -6091,6 +6091,14 @@ fontCGSM {
   padding-bottom: 2em; }
   .footer i, .footer i > a {
     margin: 0 5px; }
+  .footer a {
+    background-color: transparent;
+    color: #f1f1f3;
+    text-decoration: none;
+    padding: 2px; }
+  .footer a:hover, .footer a:active {
+    background-color: #b05ae2;
+    color: #f1f1f3; }
 
 /* ---------------------------------------------- /*
  * Scroll to top
