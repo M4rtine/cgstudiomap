@@ -76,7 +76,6 @@ Contributors
         'shared_web_theme',
         'frontend',
         'website_blog_group_published_only',
-        'cron',
         'res_group_archetype',
     ],
     'data': [],
