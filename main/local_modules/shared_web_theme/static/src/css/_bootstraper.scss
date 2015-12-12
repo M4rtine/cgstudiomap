@@ -14,6 +14,16 @@ body {
 	}
 }
 
+.navbar .navbar-nav {
+	display: inline-block;
+	float: none;
+	
+	@media (min-width: $screen-xs-min) {
+	max-height: 240px;
+	}
+}
+
+
 
 .navbar-nav>li>a{
 	padding-left: 6em;
@@ -73,7 +83,17 @@ body {
 		margin-left: 10em;
 	}
 }
-
+.navbar .navbar-nav {
+	@media (min-width: $screen-xs-min) {
+		display: inline-block;
+		float: none;
+	}
+}
+.navbar .navbar-collapse {
+	@media (min-width: $screen-xs-min) {
+		text-align: center;
+	}
+}
 .row {
     margin: 2.5em 0;
 }

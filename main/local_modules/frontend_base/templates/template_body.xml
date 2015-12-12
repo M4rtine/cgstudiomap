@@ -42,6 +42,11 @@
 					<div class="navbar-collapse collapse">
 						
 						
+	
+				
+						
+						<p class="navbar-text navbar-right hidden-xs"><a href="#" class="navbar-link"><span id="user-login"></span></a></p>
+						
 						<div class="dropdown navbar-text navbar-right hidden-xs">
 							<a id="dLabel" data-target="#" href="http://cgstudiomap.org" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="user-login"></span></a>
 
@@ -54,25 +59,23 @@
                                 <li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>
                                 <li t-ignore="true" t-if="website.user_id != user_id" class="divider"/>
                                 <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
-							  
-<!--							
-								<li role="separator" class="divider"></li>
-							<li class="dropdown-header">Nav header</li>
--->
-
 						  </ul>
-						</div>						
-				
+						</div>	
 						
-						<p class="navbar-text navbar-right hidden-xs"><a href="#" class="navbar-link"><span id="user-login"></span></a></p>
 						
 						<ul class="nav navbar-nav navbar-center">
 							
-                            <t t-foreach="website.menu_id.child_id" t-as="submenu">
+<!--                            
+							<t t-foreach="website.menu_id.child_id" t-as="submenu">
                                 <t t-if="(submenu.user_logged and request.uid !=  3) or (submenu.user_not_logged and request.uid == 3)">
                                     <t t-call="frontend_base.submenu"/>
                                 </t>
                             </t>
+-->
+							<li><a href="/web/directory">Directory</a></li>
+                			<li><a href="#">Shop</a></li>
+							<li><a href="/web/about">About</a></li>
+							
 							<li role="separator" class="divider visible-xs-inline"></li>
 							<div class="visible-xs-inline">
 								<li groups="base.group_public">
