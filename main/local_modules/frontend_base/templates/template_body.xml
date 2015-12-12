@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="frontend_base.submenu" name="Submenu">
-            <li t-if="not submenu.child_id" t-att-class="
-        'active' if submenu.url and submenu.url != '/' and request.httprequest.path == submenu.url.replace('/page/website.', '/page/') else None
-        ">
-                <a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url"
-                   t-ignore="true"
-                   t-att-target="'_blank' if submenu.new_window else None"
-                   t-field="submenu.name"
-                >
-                </a>
-            </li>
-            <li t-if="submenu.child_id" t-attf-class="dropdown #{
-        (submenu.url and submenu.url != '/' and any([request.httprequest.path == child.url.replace('/page/website.', '/page/') for child in submenu.child_id if child.url]) or
-         (submenu.url and request.httprequest.path == submenu.url.replace('/page/website.', '/page/'))) and 'active'
-        }">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" t-field="submenu.name">
-                    <span class="caret" t-ignore="true"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <t t-foreach="submenu.child_id" t-as="submenu">
-                        <t t-call="website.submenu"/>
-                    </t>
-                </ul>
-            </li>
-        </template>
 
         <template id="frontend_base.navbar" name="Base: body navbar">
             <nav class="navbar navbar-inverse navbar-fixed-top fontCGSM" role="navigation">
@@ -41,10 +16,7 @@
 				
 					<div class="navbar-collapse collapse">
 						
-						
-	
-				
-						
+
 						<p class="navbar-text navbar-right hidden-xs"><a href="#" class="navbar-link"><span id="user-login"></span></a></p>
 						
 						<div class="dropdown navbar-text navbar-right hidden-xs">
@@ -61,20 +33,12 @@
                                 <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
 						  </ul>
 						</div>	
-						
-						
+
 						<ul class="nav navbar-nav navbar-center">
 							
-<!--                            
-							<t t-foreach="website.menu_id.child_id" t-as="submenu">
-                                <t t-if="(submenu.user_logged and request.uid !=  3) or (submenu.user_not_logged and request.uid == 3)">
-                                    <t t-call="frontend_base.submenu"/>
-                                </t>
-                            </t>
--->
-							<li><a href="/web/directory">Directory</a></li>
-                			<li><a href="#">Shop</a></li>
-							<li><a href="/web/about">About</a></li>
+							<li><a t-att-href="directory_menu">Directory</a></li>
+                			<li><a t-att-href="shop_menu">Shop</a></li>
+							<li><a t-att-href="about_menu">About</a></li>
 							
 							<li role="separator" class="divider visible-xs-inline"></li>
 							<div class="visible-xs-inline">
@@ -83,12 +47,11 @@
 										<b>Sign in</b>
 									</a>
 								</li>
-                                <li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>
+                                <li t-ignore="true" t-if="website.user_id != user_id"><a t-att-href="user_menu" role="menuitem">My Account</a></li>
                                 <li t-ignore="true" t-if="website.user_id != user_id" class="divider"/>
                                 <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
 							</div>
 							
-							<!--<li class="visible-xs-inline"><a href="#">Sign in</a></li>-->
 						</ul>
 					</div>
 			</nav>
@@ -134,6 +97,20 @@
             </div>
         </template>
 
+        <template id="frontend_base.base" name="frontend base">
+            <t t-call="frontend_base.doctype_html"/>
+            <t t-call="frontend_base.html">
+                <t t-call="frontend_base.full_head"/>
+                <t t-call="frontend_base.body">
+                    <t t-raw="0"/>
+                    <t t-call="frontend_base.footer"/>
+                    <t t-call="frontend_base.engine"/>
+                </t> <!-- closing body -->
+
+            </t> <!-- closing html -->
+
+        </template>
+
         <!--template for the counter.-->
         <!--Requirements:-->
         <!--    * nbr-->
@@ -147,8 +124,6 @@
         <!---->
         <!--To pass a constant value like a string: <t t-set="type">My Type</t>-->
         <!--This way, odoo won't consider the given value as a variable.-->
-		
-		
         <template id="frontend_base.counter" name="Counter">
                 <div id="stats-bg-svg"></div>
                 <span id="stats-txt">

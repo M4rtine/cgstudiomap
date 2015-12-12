@@ -28,7 +28,7 @@
         </template>
 
         <template id="web.login" name="Login Container">
-            <t t-call="web.login_layout">
+            <t t-call="frontend_base.base">
                 <!--Add a container to center the view and the modal-content to -->
                 <!--add border around the content-->
                 <div class="oe_single_form_container modal-content">
@@ -79,7 +79,7 @@
         </template>
 
         <template id="auth_signup.signup" name="Sign up Container">
-            <t t-call="web.login_layout">
+            <t t-call="frontend_base.base">
                 <!--Add a container to center the view and the modal-content to -->
                 <!--add border around the content-->
                 <div class="oe_single_form_container modal-content">
@@ -143,7 +143,7 @@
 
         <template id="auth_signup.reset_password"
                   name="Reset password Containter">
-            <t t-call="web.login_layout">
+            <t t-call="frontend_base.base">
                 <!--Add a container to center the view and the modal-content to -->
                 <!--add border around the content-->
                 <div class="oe_single_form_container modal-content">

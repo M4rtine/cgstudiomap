@@ -4,7 +4,7 @@ from collections import defaultdict
 
 from cachetools import cached, TTLCache
 from openerp.addons.web import http
-from openerp.addons.website.controllers.main import Website
+from openerp.addons.frontend_base.controllers.base import Base
 
 from openerp.http import request
 
@@ -15,7 +15,7 @@ _logger = logging.getLogger(__name__)
 cache = TTLCache(100, 10800)
 
 
-class Homepage(Website):
+class Homepage(Base):
     """Representation of the homepage of the website."""
 
     @http.route('/', type='http', auth="public", website=True)
@@ -78,5 +78,5 @@ class Homepage(Website):
             'nbr_users': user_pool.get_number_active_users(),
             'partners': partner_pool.get_most_popular_studios(8),
         }
-        return request.render('frontend_homepage.homepage', values)
+        return self.render('frontend_homepage.homepage', values)
 
