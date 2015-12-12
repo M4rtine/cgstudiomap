@@ -1,4 +1,11 @@
 function geo_chart(companies, target) {
+	window.onresize = function () {
+		drawRegionsMap();
+	};
+
+	window.onload = function () {
+		drawRegionsMap();
+	};
 
     google.load('visualization', '1', {packages: ['geochart']});
     google.setOnLoadCallback(drawRegionsMap);
@@ -14,7 +21,7 @@ function geo_chart(companies, target) {
  			height:100 + '%',
  			tooltip: { 
 				isHtml: true,
-				textStyle: { fontName: 'cgsm-regular',fontSize: 16}
+				textStyle: { fontName: 'cgsm-regular',fontSize: 16,color: '#ffffff',showColorCode: true}
 			}
         };
         var chart = new google.visualization.GeoChart(
@@ -23,13 +30,6 @@ function geo_chart(companies, target) {
         chart.draw(data, options);
     }
 
-  go();
-
-  window.addEventListener('resize', go);
-
-  function go() {
-  	chart.draw(data, options);
-  }
 }
 
 

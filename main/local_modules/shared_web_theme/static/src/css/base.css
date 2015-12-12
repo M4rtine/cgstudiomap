@@ -5780,6 +5780,14 @@ body {
 #geochart_target {
   background-color: #f2f2f2; }
 
+.google-visualization-tooltip {
+  border: solid 0px #000 !important;
+  box-shadow: 0px 0px 0px #323133 !important;
+  background-color: #323133 !important; }
+
+.google-visualization-tooltip-item {
+  color: #f1f1f3 !important; }
+
 .dropdown-menu .divider {
   background-color: #f1f1f3; }
 
@@ -5904,10 +5912,11 @@ fontCGSM {
   top: 0;
   left: 0;
   bottom: 0;
-  right: 0; }
+  right: 0;
+  padding-top: 100px; }
   @media (min-width: 768px) {
     #container-map {
-      height: 350px; } }
+      height: 500px; } }
   @media (min-width: 992px) {
     #container-map {
       height: 550px; } }
@@ -5918,8 +5927,23 @@ fontCGSM {
     #container-map {
       height: 800px; } }
 
+#TXT_map {
+  max-height: 270px; }
+  @media (min-width: 768px) {
+    #TXT_map {
+      margin-top: 400px; } }
+  @media (min-width: 992px) {
+    #TXT_map {
+      margin-top: 480px; } }
+  @media (min-width: 1200px) {
+    #TXT_map {
+      margin-top: 580px; } }
+  @media (min-width: 1900px) {
+    #TXT_map {
+      margin-top: 700px; } }
+
 .txt-map {
-  padding-bottom: -2em; }
+  padding: 0; }
 
 .txt-map h1, .txt-map p {
   text-align: center; }
@@ -5938,12 +5962,9 @@ fontCGSM {
       max-height: 800px; } }
 
 .google-visualization-tooltip {
-  border: solid 0px #000 !important;
   -webkit-border-radius: 2px !important;
   -moz-border-radius: 2px !important;
   border-radius: 2px !important;
-  box-shadow: 0px 0px 0px #323133 !important;
-  background-color: #323133 !important;
   position: absolute;
   padding: 2em;
   margin: 0 !important; }
@@ -5958,21 +5979,7 @@ fontCGSM {
 
 .google-visualization-tooltip-item {
   margin: 0 !important;
-  padding: 0 !important;
-  color: #f1f1f3 !important; }
-
-@media (min-width: 768px) {
-  #TXT_map {
-    margin-top: 280px; } }
-@media (min-width: 992px) {
-  #TXT_map {
-    margin-top: 480px; } }
-@media (min-width: 1200px) {
-  #TXT_map {
-    margin-top: 580px; } }
-@media (min-width: 1900px) {
-  #TXT_map {
-    margin-top: 700px; } }
+  padding: 0 !important; }
 
 .txt-present {
   text-align: center; }
@@ -5982,7 +5989,7 @@ fontCGSM {
 .stats {
   position: relative;
   display: inline-block;
-  top: -45px;
+  top: -60px;
   width: 200px;
   max-height: 150px;
   text-align: center; }
@@ -6100,11 +6107,11 @@ fontCGSM {
 #stats-bg-svg {
   z-index: 100; }
 
-#geochart_div {
+#container-map {
   z-index: -100; }
 
 #TXT-map {
-  z-index: 50; }
+  z-index: 150; }
 
 /*@import "_custom";*/
 /*@import "_flatify";

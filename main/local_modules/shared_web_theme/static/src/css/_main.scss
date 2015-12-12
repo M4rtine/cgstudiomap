@@ -38,9 +38,10 @@ fontCGSM {
 	left: 0;
 	bottom: 0;
 	right: 0;
+	padding-top: 100px;
 
 	@media (min-width: $screen-sm-min) {
-		height: 350px;
+		height: 500px;
 	}
 	@media (min-width: $screen-md-min) {
 		height: 550px;
@@ -54,8 +55,23 @@ fontCGSM {
 
 }
 
+#TXT_map {
+	max-height: 270px;
+	@media (min-width: $screen-sm-min) {
+		margin-top: 400px;
+	}
+	@media (min-width: $screen-md-min) {
+		margin-top: 480px;
+	}
+	@media (min-width: $screen-lg-min) {
+		margin-top: 580px;
+	}
+	@media (min-width: $screen-big) {
+		margin-top: 700px;
+	}
+}
 .txt-map {
-	padding-bottom: -2em;
+	padding: 0;
 
 }
 .txt-map h1, .txt-map p{
@@ -77,14 +93,10 @@ fontCGSM {
 
 
 .google-visualization-tooltip {
-	border: solid 0px #000!important;
-	
 	-webkit-border-radius: 2px !important;
 	-moz-border-radius: 2px !important;
 	border-radius: 2px !important;
-	box-shadow: 0px 0px 0px $color-cgsm-dark!important;
-	
-	background-color: $color-cgsm-dark!important;
+
 	position: absolute;
 	padding: 2em;
 	margin: 0!important;
@@ -104,24 +116,9 @@ fontCGSM {
 .google-visualization-tooltip-item {
 	margin: 0!important;
 	padding: 0!important;
-	color: $color-cgsm-light!important;
 }
 
 
-#TXT_map {
-	@media (min-width: $screen-sm-min) {
-		margin-top: 280px;
-	}
-	@media (min-width: $screen-md-min) {
-		margin-top: 480px;
-	}
-	@media (min-width: $screen-lg-min) {
-		margin-top: 580px;
-	}
-	@media (min-width: $screen-big) {
-		margin-top: 700px;
-	}
-}
 #present {
 
 }
@@ -137,7 +134,7 @@ fontCGSM {
 .stats {
 	position: relative;
 	display: inline-block;
-    top: -45px;
+    top: -60px;
 	width: 200px;
     max-height: 150px;
     text-align: center;
