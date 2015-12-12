@@ -108,38 +108,55 @@ class Listing(Website):
     """Representation of the page listing companies."""
 
     @http.route('/directory/map', type='http', auth="public", website=True)
-    def map(self, **post):
-        """Dispatch between homepage depending on the status of the user."""
-        values = self.partners(url='/directory/map', **post)
-        return request.render('frontend_listing.map', values)
-
-    @http.route(['/directory/list',
-                 '/directory/list/page/<int:page>',
-                 ], type='http', auth="public", website=True)
-    def list(self, **post):
-        values = self.partners(url='/directory/list', **post)
-        return request.website.render("frontend_listing.list", values)
-
-    def partners(self,
-                 url='/directory/list',
-                 partner_per_page=20,
-                 page=0,
-                 search='',
-                 **post):
+    def map(self, search='', **post):
+        """Render the list of studio under a map."""
+        url = '/directory/map'
         env = request.env
         partner_pool = env['res.partner']
         domain = partner_pool.active_companies_domain
 
         if search:
-            for srch in search.split(" "):
-                domain += [
-                    '|', '|', '|',
-                    ('name', 'ilike', srch),
-                    ('city', 'ilike', srch),
-                    ('country_id.name', 'ilike', srch),
-                    ('industry_ids.name', 'ilike', srch),
-                ]
+            domain.extend(partner_pool.search_domain(search))
 
+        _logger.debug('Domain: %s', domain)
+        keep = QueryURL(url, search=search)
+
+        if search:
+            post["search"] = search
+
+        partners = partner_pool.search(domain)
+        geoloc = {
+            partner.name: [
+                partner.partner_latitude,
+                partner.partner_longitude,
+                partner.name
+            ]
+            for partner in partners
+        }
+        _logger.debug(geoloc)
+        values = {
+            'search': search,
+            'partners': partners,
+            'keep': keep,
+        }
+
+        return request.website.render("frontend_listing.map", values)
+
+    @http.route(['/directory/list',
+                 '/directory/list/page/<int:page>',
+                 ], type='http', auth="public", website=True)
+    def list(self, page=0, search='', **post):
+        """Render the list of studio under a table."""
+        url = '/directory/list'
+        partner_per_page = 20
+        env = request.env
+        partner_pool = env['res.partner']
+        domain = partner_pool.active_companies_domain
+
+        if search:
+            domain.extend(partner_pool.search_domain(search))
+
+        _logger.debug('Domain: %s', domain)
         keep = QueryURL(url, search=search)
 
         if search:
@@ -160,16 +177,13 @@ class Listing(Website):
             limit=partner_per_page,
             offset=pager['offset'],
         )
-
         values = {
             'search': search,
             'pager': pager,
             'partners': partners,
-            # 'bins': TableCompute(partner_per_page=partner_per_page).process(
-            #     partners),
             'rows': PPR,
             'keep': keep,
         }
 
-        return values
+        return request.website.render("frontend_listing.list", values)
 

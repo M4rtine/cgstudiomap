@@ -29,6 +29,7 @@
     'summary': 'Module that build the page that list companies.',
     'depends': [
         'website',
+        'crm_partner_assign',
         'frontend_base',
     ],
     'data': [
