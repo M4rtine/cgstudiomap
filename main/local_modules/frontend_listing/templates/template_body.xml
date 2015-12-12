@@ -60,13 +60,14 @@
 
         <template id="frontend_listing.list" name="Listing: List">
             <t t-call="frontend_listing.base">
-               <table data-toggle="table">
+               <table data-toggle="table" class="table">
                     <thead>
                         <tr>
-                            <th/>
+                            <th>Logo</th>
                             <th>Name</th>
-                            <th>City</th>
-                            <th>Country</th>
+                            <th>Email</th>
+                            <th>Industries</th>
+                            <th>Localtion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,8 +81,19 @@
                                 <h4 t-esc="partner.name"/>
                             </a>
                             </td>
-                            <td><span t-esc="partner.city"/></td>
-                            <td><span t-esc="partner.country_id.name"/></td>
+                            <td><span t-esc="partner.email"/></td>
+                            <td>
+                                <t t-foreach="partner.industry_ids" t-as="ind">
+                                    <t t-call="frontend_base.industry_tag"/>
+                                </t>
+                            </td>
+                            <td>
+                                <span t-esc="partner.city"/>,
+                                <t t-if="partner.state_id">
+                                    <span t-esc="partner.state_id.name"/>,
+                                </t>
+                                <span t-esc="partner.country_id.name"/>
+                            </td>
                         </tr>
                         </t>
                     </tbody>
