@@ -6,7 +6,7 @@
             <t t-if="request.uid == 3" >
                 <div class="infos-box">
                     <h3><b>Find a studio</b></h3>
-                    <h4>Welcome to cg Studio Map <span class="label label-danger">Beta</span></h4>
+                    <h4>Welcome to CG Studio Map <span class="label label-danger">Beta</span></h4>
                     <p class="small-text">
                         A map that allows you to find ANY studios worldwide<br/>
                         by city, contact, specialities and even more.</p>
@@ -22,19 +22,6 @@
 				<div class="jumbotron bloc-signup fontCGSMbold">
 					<h1><a t-attf-href="/web/signup">Sign-up</a></h1>
 				</div>
-<!--                <div class="sign-up-text" style="background:white">
-                    <div class="divide40"></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <a t-attf-href="/web/signup" class="btn sign-up btn-warning" style="margin-top:25px">
-                                    <strong>Sign up</strong>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="divide40"></div>
-                </div>-->
             </t>
         </template>
 
@@ -84,7 +71,7 @@
                         <h2>Because everyone should be familiar with the cg industry</h2>
 					</div>
 					<div class="col-md-12">
-						<p>cg Studio Map is the premier open-data center of the computer graphic industry.
+						<p>CG Studio Map is the premier open-data center of the computer graphic industry.
 		Come in: update, share or simply read the content.</p>
 					</div>
 				</div>
@@ -100,7 +87,7 @@
 						<div class="text">
 							<h3>Community</h3>
 							<p>
-								cg Studio Map project is an initiative that promotes and celebrates open exchange, collaborative participation, transparency and community development. Anyone can freely update, edit and share the content.
+								CG Studio Map project is an initiative that promotes and celebrates open exchange, collaborative participation, transparency and community development. Anyone can freely update, edit and share the content.
 								<br />
 								<br />
 								<a t-attf-href="/web/signup">Sign-up</a> today and be part of the community!
@@ -114,7 +101,7 @@
 						<div class="text">
 							<h3>Open source project</h3>
 							<p>
-								cg Studio Map project is now open source, the source code is available for modification and/or enhancement by anyone. Programmers as well as other members can contribute by improving all the source code and by sharing the changes within the community.
+								CG Studio Map project is now open source, the source code is available for modification and/or enhancement by anyone. Programmers as well as other members can contribute by improving all the source code and by sharing the changes within the community.
 								<br />
 								<br /> Join us on <a t-att-href="website.social_github">Github</a> today!
 							</p>
@@ -143,7 +130,7 @@
 						<div class="text">
 							<h3>Support</h3>
 							<p>
-								cg Studio Map team is working on developing the website, today is a map that allows you to find studios worldwide, tomorrow we would like to develop a job hunting tool…
+								CG Studio Map team is working on developing the website, today is a map that allows you to find studios worldwide, tomorrow we would like to develop a job hunting tool…
 								<br />
 								<br /> Support the project <a href="/shop">here!</a>
 							</p>
