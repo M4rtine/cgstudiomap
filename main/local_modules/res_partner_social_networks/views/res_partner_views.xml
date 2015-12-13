@@ -9,6 +9,8 @@
             <field name="arch" type="xml">
                 <field name="email" position="after">
                     <field name="twitter" widget="url"/>
+                    <field name="youtube" widget="url"/>
+                    <field name="vimeo" widget="url"/>
                 </field>
                 <xpath expr="//page[last()]" position="after">
                     <page string="Additional Social Networks">
