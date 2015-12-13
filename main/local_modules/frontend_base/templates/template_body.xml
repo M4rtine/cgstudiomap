@@ -36,9 +36,9 @@
 
 						<ul class="nav navbar-nav navbar-center">
 							
-							<li><a t-att-href="directory_menu">Directory</a></li>
-                			<li><a t-att-href="shop_menu">Shop</a></li>
-							<li><a t-att-href="about_menu">About</a></li>
+							<li><a t-att-href="website.directory_menu">Directory</a></li>
+                			<li><a t-att-href="website.shop_menu">Shop</a></li>
+							<li><a t-att-href="website.about_menu">About</a></li>
 							
 							<li role="separator" class="divider visible-xs-inline"></li>
 							<div class="visible-xs-inline">

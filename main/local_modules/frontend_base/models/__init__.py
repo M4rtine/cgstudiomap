@@ -21,5 +21,6 @@
 
 from . import (
     res_partner,
-    res_users
+    res_users,
+    website
 )
