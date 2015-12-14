@@ -74,22 +74,34 @@
         <!--Template about the footer of the website-->
         <template id="frontend_base.footer" name="Base: Footer">
             <div class="footer">
+
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8" >
+                    <div class="row fontCGSMlight">
+                        <div class="col-xs-8 col-md-5 col-lg-5" >
                             <p>
-                                CG Studio Map <span class="label label-danger">Beta</span><br />
+                                <span class="footer-name fontCGSM">CG Studio Map</span> <br />
                                 powered by <a href="http://www.odoo.com/page/website-builder" target="_blank">odoo.com</a><br />
                                 maintained by volunteers hoping to make a difference.
                             </p>
                         </div>
-                        <div class="col-sm-4">
-                            <p>Connect with us:</p>
-                            <p>
-                                <a t-attf-href="/page/website.contactus"><i class="fa fa-envelope fa-3x"/></a><!--news link-->
-                                <a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-3x"/></a><!--news link-->
-                                <a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-3x"/></a><!--news link-->
-                                <a t-att-href="website.social_github"><i class="fa fa-github fa-3x"/></a><!--news link-->
+
+					<div class="col-lg-3 hidden-xs">
+						<li><a t-att-href="website.directory_menu">Directory</a></li>
+						<li><a t-att-href="website.shop_menu">Shop</a></li>
+						<li><a t-att-href="website.about_menu">About</a></li>
+					</div>
+
+                        <div class="col-xs-4 col-md-4 col-lg-4">
+                            <p class="social-txt">Connect with us:</p><br />
+							<p class="visible-xs-inline">
+                                <a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-lg"/></a>
+                                <a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-lg"/></a>
+                                <a t-att-href="website.social_github"><i class="fa fa-github fa-lg"/></a>
+							</p>
+                            <p class="hidden-xs">
+                                <a t-att-href="website.social_twitter"><span id="twitter-svg"></span></a>
+                                <a t-att-href="website.social_linkedin"><span id="linkedin-svg"></span></a>
+                                <a t-att-href="website.social_github"><span id="github-svg"></span></a>
                             </p>
                         </div>
                     </div>

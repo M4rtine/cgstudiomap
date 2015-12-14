@@ -5845,14 +5845,20 @@ body {
 .footer {
   background-color: #323133;
   color: #f1f1f3; }
+  .footer .footer-name {
+    color: #b05ae2; }
   .footer i, .footer i > a {
+    color: #f1f1f3; }
+  .footer a {
+    color: #f1f1f3; }
+  .footer a:hover, .footer a:active {
     color: #f1f1f3; }
 
 .scroll-up a {
-  background-color: rgba(176, 90, 226, 0.5);
+  background-color: rgba(176, 90, 226, 0.65);
   color: #f1f1f3; }
 .scroll-up a:hover, .scroll-up a:active {
-  background-color: rgba(176, 90, 226, 0.8);
+  background-color: rgba(176, 90, 226, 0.9);
   color: #f1f1f3; }
 
 /*$c-cg: #6C7A89;
@@ -6104,17 +6110,30 @@ fontCGSM {
   margin: 0;
   padding: 0;
   height: 180px;
-  padding-bottom: 2em; }
-  .footer i, .footer i > a {
-    margin: 0 5px; }
+  padding-bottom: 2em;
+  font-size: 1.24em;
+  line-height: 1.3em;
+  /*	i, i > a {
+  		margin: 0;
+  	}*/ }
+  .footer .footer-name {
+    font-size: 1.6em; }
+  .footer .social-txt {
+    text-align: right; }
+  .footer p {
+    display: inline-block; }
+  .footer li > a {
+    font-size: 0.8em;
+    line-height: 0.6em;
+    margin-top: 0.5em; }
+  .footer a > span {
+    margin: 0 0.5em;
+    text-align: right;
+    display: inline-block; }
   .footer a {
-    background-color: transparent;
-    color: #f1f1f3;
-    text-decoration: none;
-    padding: 2px; }
+    text-decoration: none; }
   .footer a:hover, .footer a:active {
-    background-color: #b05ae2;
-    color: #f1f1f3; }
+    text-decoration: underline; }
 
 /* ---------------------------------------------- /*
  * Scroll to top
@@ -6126,17 +6145,41 @@ fontCGSM {
   bottom: 2em;
   right: 2em; }
   .scroll-up a {
-    background-color: rgba(176, 90, 226, 0.5);
     display: block;
     width: 35px;
     height: 35px;
     text-align: center;
-    color: #f8f0fc;
     font-size: 30px;
     line-height: 20px; }
-  .scroll-up a:hover, .scroll-up a:active {
-    background-color: rgba(176, 90, 226, 0.8);
-    color: #f8f0fc; }
+
+/* ---------------------------------------------- /*
+ * SVG
+/* ---------------------------------------------- */
+#social-icon .anim-github,
+#social-icon .anim-twitter,
+#social-icon .anim-linkedin {
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
+  transition: 0.2s linear;
+  text-decoration: none;
+  fill: #F1F1F3; }
+
+#social-icon:hover .anim-github,
+#social-icon:hover .anim-twitter,
+#social-icon:hover .anim-linkedin {
+  cursor: pointer;
+  text-decoration: none;
+  border: 0; }
+
+#social-icon:hover .anim-github {
+  fill: #B05AE2; }
+
+#social-icon:hover .anim-twitter {
+  fill: #55ACEE; }
+
+#social-icon:hover .anim-linkedin {
+  fill: #0077B5; }
 
 #navbar {
   z-index: 999; }

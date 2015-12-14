@@ -130,21 +130,34 @@ body {
 .footer {
 	background-color: $color-cgsm-dark;
 	color: $color-cgsm-light;
+	
+	.footer-name {
+		color: $color-cgsm;
+	}
 	i, i > a {
+		color: $color-cgsm-light;
+	}
+	a {
+		color: $color-cgsm-light;
+
+	}
+	a:hover, a:active {
 		color: $color-cgsm-light;
 	}
 }
 .scroll-up {
 	
 	a {
-		background-color: rgba($color-cgsm, 0.5);
+		background-color: rgba($color-cgsm, 0.65);
 		color: $color-cgsm-light;
 	}
 	a:hover, a:active {
-		background-color: rgba($color-cgsm, .8);
+		background-color: rgba($color-cgsm, .9);
 		color: $color-cgsm-light;
 	}
 }
+
+
 // BASE color
 
 /*$c-cg: #6C7A89;

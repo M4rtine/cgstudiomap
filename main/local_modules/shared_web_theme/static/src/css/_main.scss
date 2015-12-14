@@ -268,20 +268,39 @@ fontCGSM {
     padding: 0;
     height: 180px;
     padding-bottom: 2em;
+	font-size: 1.24em;
+	line-height: 1.3em;
+	
+	.footer-name {
+		font-size: 1.6em;
+	}
+	.social-txt {
+		text-align: right;
+	}
+	p {
+		display: inline-block;
+	}
+	li > a {
+		font-size: 0.8em;
+		line-height: 0.6em;
+		margin-top: 0.5em;
+	}
 
-	i, i > a {
-		margin: 0 5px;
+/*	i, i > a {
+		margin: 0;
+	}*/
+	
+	a >span {
+		margin: 0 0.5em;
+		text-align: right;
+		display: inline-block;
 	}
 	a {
-		background-color: transparent;
-		color: $color-cgsm-light;
 		text-decoration: none;
-		padding: 2px;
 
 	}
 	a:hover, a:active {
-		background-color: $color-cgsm;
-		color: $color-cgsm-light;
+		text-decoration: underline;
 	}
 }
 
@@ -297,17 +316,15 @@ fontCGSM {
 	right: 2em;
 	
 	a {
-		background-color: rgba(176, 90, 226, 0.5);
 		display: block;
 		width: 35px;
 		height: 35px;
 		text-align: center;
-		color: #f8f0fc;
+
 		font-size: 30px;
 		line-height: 20px;
 	}
 	a:hover, a:active {
-		background-color: rgba(176, 90, 226, .8);
-		color: #f8f0fc;
+
 	}
 }
