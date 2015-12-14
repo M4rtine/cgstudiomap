@@ -6153,6 +6153,44 @@ fontCGSM {
     line-height: 20px; }
 
 /* ---------------------------------------------- /*
+ *Scroll Down
+/* ---------------------------------------------- */
+#arrow-down {
+  position: relative;
+  -webkit-animation-name: drop;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-play-state: running;
+  animation-name: drop;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-play-state: running; }
+
+@-webkit-keyframes drop {
+  0% {
+    top: 0px;
+    opacity: 0; }
+  30% {
+    top: 5px;
+    opacity: 1; }
+  100% {
+    top: 10px;
+    opacity: 0; } }
+@keyframes drop {
+  0% {
+    top: 0px;
+    opacity: 0; }
+  30% {
+    top: 5px;
+    opacity: 1; }
+  100% {
+    top: 10px;
+    opacity: 0; } }
+/* ---------------------------------------------- /*
  * SVG
 /* ---------------------------------------------- */
 #social-icon .anim-github,
