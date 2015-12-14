@@ -227,8 +227,36 @@ fontCGSM {
 		margin-top: 10px;
 	}
 }
+.bloc-studios-title::after {
+	content: "";
+	border-top-color: $color-cgsm;
+	border-top-style: solid;
+    border-top-width: 1px;
+	margin-left: 7%;
+	margin-right: 0;
+	float: right;
+	padding-bottom: 2em;
+	display:block;
+	width: 90%;
+	
+}
+.bloc-studios-title {
+	color: $color-cgsm;
 
+	h2, p, a {
+		color: $color-cgsm;
+		text-decoration: none;
+	}
+	a:hover, a:active {
+		text-decoration: none;
+		color: $color-cgsm;
+	}
 
+	p {
+		text-align: right;
+		line-height: 5.5em;
+	}
+}
 
 .studios {
 	h4 {

@@ -19,7 +19,7 @@
         <!--template used to go to the sign up page.-->
         <template id="frontend_homepage.signup_button" name="Homepage: Signup button">
             <t t-if="request.uid == 3" >
-				<div class="jumbotron bloc-signup">
+				<div class="jumbotron bloc-signup fontCGSM">
 					<h1 class="fontCGSMbold"><a t-attf-href="/web/signup">Sign-up</a></h1>
 					<p>It's free</p>
 				</div>
@@ -44,6 +44,15 @@
         </template>
 
         <template id="partner_box" name="Partner Box">
+			<div class="row bloc-studios-title fontCGSM">
+				<div class="col-md-6">
+					<h2>Most Popular Studios</h2>
+				</div>
+				<div class="col-md-6">
+					<p><a t-att-href="website.directory_menu">See all <i class="fa fa-angle-right fa-2x"></i></a></p>
+				</div>
+			
+			</div>
             <div class="row studios">
                 <t t-foreach="partners[4:]" t-as="partner">
                     <div class="col-xs-6 col-sm-3 partner-item">
@@ -177,7 +186,6 @@
 							<t t-set="nbr" t-value="nbr_companies"/>
 							<t t-call="frontend_base.company_counter" />
 						</div>
-                        <!--<div class="clearfix"></div>-->
 
 					</div>
 				</div>
