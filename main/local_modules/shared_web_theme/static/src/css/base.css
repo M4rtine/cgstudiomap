@@ -6158,13 +6158,13 @@ fontCGSM {
 #arrow-down {
   position: relative;
   -webkit-animation-name: drop;
-  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 1.25s;
   -webkit-animation-timing-function: linear;
   -webkit-animation-delay: 0s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-play-state: running;
   animation-name: drop;
-  animation-duration: 2s;
+  animation-duration: 1.25s;
   animation-timing-function: linear;
   animation-delay: 0s;
   animation-iteration-count: infinite;
