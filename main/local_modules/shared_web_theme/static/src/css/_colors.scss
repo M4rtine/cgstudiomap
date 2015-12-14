@@ -1,34 +1,191 @@
+// OFFICIAL colors
+$color-cgsm-light: rgb(241,241,243);
+$color-cgsm-dark: rgb(50,49,51);
+$color-cgsm: rgb(176,90,226);
 
+$color-tonic: rgb(90,226,176);
+$color-fill: rgb(226,176,90);
+
+$color-grey-light: rgb(203,202,204);
+$color-grey: rgb(151,150,153);
+$color-grey-dark: rgb(76,76,76);
+
+$bg : #f2f2f2;
+
+// BOOTSTRAP upgrade
+body {
+	background-color: $bg;
+}
+.navbar-default, .navbar-inverse {
+    background-color: $color-cgsm;
+}
+.navbar-nav>li>a {
+	color: $color-cgsm-light;
+}
+.navbar-toggle {
+    background-color: transparent;
+    background-image: none;
+    border: 0px solid transparent;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: transparent;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: $color-cgsm-light;
+}
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: $color-cgsm-light;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: $color-cgsm-light;
+}
+.navbar-inverse .navbar-nav > a,
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+	color: $color-cgsm-light;
+	background-color: transparent;
+}
+navbar-right {
+
+	
+	#dLabel {
+		color: $color-cgsm;
+	}
+	
+	@media (min-width: $screen-lg-min) {
+
+	}
+}
+.jumbotron {
+    background-color: transparent;
+}
+
+// MAIN
+#geochart_target {
+	background-color: transparent;
+}
+
+.google-visualization-tooltip {
+	border: solid 0px #000!important;
+
+	box-shadow: 0px 0px 0px $color-cgsm-dark!important;
+	
+	background-color: $color-cgsm-dark!important;
+}
+
+.google-visualization-tooltip-item-list {
+
+}
+
+.google-visualization-tooltip-item:first-child {
+	
+}
+
+.google-visualization-tooltip-item {
+	color: $color-cgsm-light!important;
+}
+
+.dropdown-menu .divider {
+    background-color: $color-cgsm-light;
+}
+.analytic-map {
+    background: #fff;
+}
+
+.analytic-map h1, .analytic-map p{
+    color: $color-cgsm-dark;
+}
+.stats {
+	p {
+    color: $color-cgsm-light;
+	}
+	p:nth-child(2) {
+		color: $color-cgsm;
+	}
+}
+.colored-boxed i {
+	background-color: transparent;
+	color: $color-cgsm;
+	border-color: $color-cgsm;
+}
+.colored-boxed i > a {
+	background-color: $color-cgsm;
+	color: $color-cgsm-light;
+	border-color: $color-cgsm;
+}
+.colored-boxed.inv i {
+	background-color: $color-cgsm;
+	color: $color-cgsm-light;
+	border-color: $color-cgsm-light;
+}
+.bloc-signup {
+	background-color: $color-tonic;
+	color: $color-cgsm-light;
+	p {
+		color: $color-cgsm-dark;
+	}
+}
+
+.bloc-signup h1 a,
+.bloc-signup h1 a:hover,
+.bloc-signup h1 a:active {
+	color: $color-cgsm-light;
+}
+.footer {
+	background-color: $color-cgsm-dark;
+	color: $color-cgsm-light;
+	
+	.footer-name {
+		color: $color-cgsm;
+	}
+	i, i > a {
+		color: $color-cgsm-light;
+	}
+	a {
+		color: $color-cgsm-light;
+
+	}
+	a:hover, a:active {
+		color: $color-cgsm-light;
+	}
+}
+.scroll-up {
+	
+	a {
+		background-color: rgba($color-cgsm, 0.65);
+		color: $color-cgsm-light;
+	}
+	a:hover, a:active {
+		background-color: rgba($color-cgsm, .9);
+		color: $color-cgsm-light;
+	}
+}
+
+///////////////// old SUPER backoffice
 // BASE color
-//Colors from http://bootflat.github.io/color-picker-gray.html
-//$c-cg: rgb(176,90,226);
-//LYNCH
-$c-cg: #6C7A89;
-//$c-map: rgb(0,192,237);
-//EDWARD
-$c-map: #ABB7B7;
-//$c-studios: rgb(162,219,25);
-//CASCADE
-$c-studios: #95A5A6;
+
+$c-cg: $color-tonic;
+$c-map: $color-fill;
+$c-studios: $color-cgsm;
 $c-cg-80opa: rgba($c-cg, 0.8);
 $c-studios-light: #EEEEEE;
-// BACKGROUND color
-//$c-bg-light: rgb(241,241,243);
-//PORCELAIN
-$c-bg-light: #ECF0F1;
-//$c-bg-dark: rgb(94,94,94);
-//Harbor rat
-$c-bg-dark: #757D75;
-$c-bg-logo: #434A54;
+$c-bg-light: $color-cgsm-light;
+$c-bg-dark: $color-cgsm-dark;
+$c-bg-logo: $color-cgsm;
 
 // TEXT color
 $c-txt-dark: $c-bg-dark;
 $c-txt-light: $c-bg-light;
 $c-txt-link: $c-studios;
-
-// $main_orange: #E67C2F;
-// $main_white: #ffffff;
-// $light_orange: #d9752e;
 
 
 $breadcrumb_title: $c-studios;

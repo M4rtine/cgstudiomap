@@ -1,0 +1,34 @@
+/* ---------------------------------------------- /*
+ * SVG
+/* ---------------------------------------------- */
+
+#social-icon .anim-github,
+#social-icon .anim-twitter,
+#social-icon .anim-linkedin{
+	-webkit-transition: 0.2s linear;
+	-moz-transition: 0.2s linear;
+	-o-transition: 0.2s linear;
+	transition: 0.2s linear;
+	text-decoration: none;
+	fill: #F1F1F3;
+}
+#social-icon:hover .anim-github,
+#social-icon:hover .anim-twitter,
+#social-icon:hover .anim-linkedin{
+	cursor: pointer;
+	text-decoration: none;
+	border: 0;
+}
+#social-icon:hover .anim-github{
+	fill: #B05AE2;
+}
+#social-icon:hover .anim-twitter{
+	fill: #55ACEE;
+}
+#social-icon:hover .anim-linkedin{
+	fill: #0077B5;
+}
+#user-login {
+	width: 40px;
+	height: 40px;
+}

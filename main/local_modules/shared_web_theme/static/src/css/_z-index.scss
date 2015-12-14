@@ -1,0 +1,24 @@
+#navbar {
+    z-index: 999;
+}
+#stats-txt {
+    z-index: 200;
+}
+#stats-bg-svg {
+    z-index: 100;
+}
+#container-map, #geochart_target {
+	z-index: 10;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=99)";
+	filter: alpha(opacity=99);
+	-moz-opacity:0.99;
+	-khtml-opacity: 0.99;
+	opacity: .99; 
+}
+#TXT-map {
+	pointer-events: none;
+	z-index: 20;
+}
+#bt-user {
+	z-index: 10000;
+}

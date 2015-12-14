@@ -6,7 +6,7 @@
             <t t-if="request.uid == 3" >
                 <div class="infos-box">
                     <h3><b>Find a studio</b></h3>
-                    <h4>Welcome to cg Studio Map <span class="label label-danger">Beta</span></h4>
+                    <h4>Welcome to CG Studio Map <span class="label label-danger">Beta</span></h4>
                     <p class="small-text">
                         A map that allows you to find ANY studios worldwide<br/>
                         by city, contact, specialities and even more.</p>
@@ -19,19 +19,10 @@
         <!--template used to go to the sign up page.-->
         <template id="frontend_homepage.signup_button" name="Homepage: Signup button">
             <t t-if="request.uid == 3" >
-                <div class="sign-up-text" style="background:white">
-                    <div class="divide40"></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <a t-attf-href="/web/signup" class="btn sign-up btn-warning" style="margin-top:25px">
-                                    <strong>Sign up</strong>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="divide40"></div>
-                </div> <!--sign up end-->
+				<div class="jumbotron bloc-signup fontCGSM">
+					<h1 class="fontCGSMbold"><a t-attf-href="/web/signup">Sign-up</a></h1>
+					<p>It's free</p>
+				</div>
             </t>
         </template>
 
@@ -53,6 +44,15 @@
         </template>
 
         <template id="partner_box" name="Partner Box">
+			<div class="row bloc-studios-title fontCGSM">
+				<div class="col-md-6">
+					<h2>Most Popular Studios</h2>
+				</div>
+				<div class="col-md-6">
+					<p><a t-att-href="website.directory_menu">See all <i class="fa fa-angle-right fa-2x"></i></a></p>
+				</div>
+			
+			</div>
             <div class="row studios">
                 <t t-foreach="partners[4:]" t-as="partner">
                     <div class="col-xs-6 col-sm-3 partner-item">
@@ -74,87 +74,81 @@
 
 
         <template id="promotional_text_box" name="Promotional Text Box">
-            <div  class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <div class="center-heading">
-                        <h2>
-                            <strong>Because everyone should be familiar with the cg industry</strong>
-                        </h2>
-                        <span class="center-line"></span>
-                        <p class="sub-text margin40">
-                            cg Studio Map is the premier open-data center of the computer graphic industry.<br/>
-                            Come in: update, share or simply read the content.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
+			
+			<div id="present" class="container">
+				<div class="row txt-present fontCGSM">
+					<div class="col-xs-12 col-sm-12">
+                        <h2>Because everyone should be familiar with the cg industry</h2>
+					</div>
+					<div class="col-xs-12 col-md-12">
+						<p>CG Studio Map is the premier open-data center of the computer graphic industry.
+		Come in: update, share or simply read the content.</p>
+					</div>
+				</div>
+			</div>
+			
             <!--center heading end-->
-            <div class="divide50"></div>
-            <div class="row">
-                <div class="margin30 col-sm-6">
-                    <div class="colored-boxed">
-                        <a t-attf-href="/web/signup"><i class="fa fa-group"></i></a>
-                    </div>
-                    <div class="text">
-                        <h3>Community</h3>
-                        <p>
-                            cg Studio Map project is an initiative that promotes and celebrates open exchange,
-                            collaborative participation, transparency and community development.
-                            Anyone can freely update, edit and share the content.<br /><br />
-                            <a t-attf-href="/web/signup">Sign-up</a> today and be part of the community!
-                        </p>
-                    </div>
-                </div>
-                <div class="margin30 col-sm-6">
-                    <div class="colored-boxed">
-                        <a t-att-href="website.social_github"><i class="fa fa-folder-open"></i></a>
-                    </div>
-                    <div class="text">
-                        <h3>Open source project</h3>
-                        <p>
-                            cg Studio Map project is now open source,
-                            the source code is available for modification and/or enhancement
-                            by anyone. Programmers as well as other
-                            members can contribute by improving all the source code and
-                            by sharing the changes within the community. <br /><br />
-                            Join us on <a t-att-href="website.social_github">Github</a> today!
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="divide50"></div>
-            <div class="row">
-                <div class="margin30 col-sm-6">
-                    <div class="colored-boxed">
-                        <a t-attf-href="/web/signup"><i class="fa fa-cogs"></i></a>
-                    </div>
-                    <div class="text">
-                        <h3>Open Data</h3>
-                        <p>
-                            As an Open data website, our data are freely available to everyone
-                            to use and republish as you wish, without restrictions in the
-                            only purpose of developing the community.<br /><br />
-                            Start <a t-attf-href="/web/signup">contributing</a> today!
-                        </p>
-                    </div>
-                </div>
-                <div class="margin30 col-sm-6">
-                    <div class="colored-boxed inv">
-                        <i class="fa fa-heart"></i>
-                    </div>
-                    <div class="text">
-                        <h3>Support</h3>
-                        <p>
-                            cg Studio Map team is working on developing the website,
-                            today is a map that allows you to find studios worldwide,
-                            tomorrow we would like to develop a job hunting tool…<br /><br />
-                            Support the project <a href="/shop">here!</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="divide80"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="colored-boxed">
+							<a t-attf-href="/web/signup"><i class="fa fa-group"></i></a>
+						</div>
+						<div class="text">
+							<h3>Community</h3>
+							<p>
+								CG Studio Map project is an initiative that promotes and celebrates open exchange, collaborative participation, transparency and community development. Anyone can freely update, edit and share the content.
+								<br />
+								<br />
+								<a t-attf-href="/web/signup">Sign-up</a> today and be part of the community!
+							</p>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="colored-boxed">
+							<a t-att-href="website.social_github"><i class="fa fa-folder-open"></i></a>
+						</div>
+						<div class="text">
+							<h3>Open source project</h3>
+							<p>
+								CG Studio Map project is now open source, the source code is available for modification and/or enhancement by anyone. Programmers as well as other members can contribute by improving all the source code and by sharing the changes within the community.
+								<br />
+								<br /> Join us on <a t-att-href="website.social_github">Github</a> today!
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="colored-boxed">
+							<a t-attf-href="/web/signup"><i class="fa fa-cogs"></i></a>
+						</div>
+						<div class="text">
+							<h3>Open Data</h3>
+							<p>
+								As an Open data website, our data are freely available to everyone to use and republish as you wish, without restrictions in the only purpose of developing the community.
+								<br />
+								<br /> Start <a t-attf-href="/web/signup">contributing</a> today!
+							</p>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="colored-boxed inv">
+							<i class="fa fa-heart"></i>
+						</div>
+						<div class="text">
+							<h3>Support</h3>
+							<p>
+								CG Studio Map team is working on developing the website, today is a map that allows you to find studios worldwide, tomorrow we would like to develop a job hunting tool…
+								<br />
+								<br /> Support the project <a href="/shop">here!</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
         </template>
 
         <!--Main template that build the page.-->
@@ -165,55 +159,43 @@
                 <t t-call="frontend_base.full_head"/>
 
                 <t t-call="frontend_base.body">
-                    <div id="wrap" class="oe_structure oe_empty">
-                        <div class="container">
-                            <div class="hidden-xs" id="geochart_target"></div>
-                            <t t-call="frontend_homepage.signup_box"/>
-                        </div>
+									
+				<div id="container-map">
+					<div id="geochart_target"></div>
+					<div id='google-visualization-tooltip'></div>
+				</div>
+				<div class="clearfix"></div>
+					
+					
 
-                        <div class="divide60"></div>
+				<div id="TXT_map" class="jumbotron txt-map">
+					<div class="txt-map fontCGSMlight">
 
-                        <div style="background:white">
-                            <div class="container">
-                                <div class="row hidden-xs">
-                                    <div class="col-sm-1 col-sm-offset-5">
-                                        <a href="#more">
-                                            <div class="scroll-down">
-                                                <span><i class="fa fa-angle-down fa-3x"></i></span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="divide50" id="more"></div>
-                                <t t-call="frontend_homepage.promotional_text_box"/>
-                            </div>
-                        </div>
+                        <h1>CG Studio Map</h1>
+                        <p>where cg is</p>
+                        <p>
+                            <a href="#present"><span id="arrow-down"></span></a>
+                        </p>
+						
+						<div class="stats stat-left fontCGSM">
+							<t t-set="nbr" t-value="nbr_users"/>
+							<t t-call="frontend_base.user_counter" />
+						</div>
+						
+						<div class="stats stat-right fontCGSM">
+							<t t-set="nbr" t-value="nbr_companies"/>
+							<t t-call="frontend_base.company_counter" />
+						</div>
 
-                        <div class="divide40"></div>
-                        <section class="fun-fact-wrap-light">
-                            <div class="container">
-                                <div class="row">
+					</div>
+				</div>
 
-                                    <div class="margin20 facts-in col-xs-12 col-sm-4">
-                                        <t t-set="nbr" t-value="nbr_users"/>
-                                        <t t-call="frontend_base.user_counter"/>
-                                    </div>
-
-                                    <div class="margin20 facts-in col-xs-12 col-sm-4">
-                                        <t t-set="nbr" t-value="nbr_companies"/>
-                                        <t t-call="frontend_base.company_counter"/>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </section>
-
-                    </div>
+				<div style="background:white">
+				<t t-call="frontend_homepage.promotional_text_box"/>
+				</div>
                     <div class="container">
                         <t t-call="frontend_homepage.partner_box"/>
                     </div>
-
-                    <div class="divide40"></div>
 
                     <t t-call="frontend_homepage.signup_button"/>
                     <t t-call="frontend_base.footer"/>
