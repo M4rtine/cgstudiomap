@@ -59,8 +59,6 @@ Contributors
         'geoengine_base_geolocalize',
         # website
         'website_blog_mgmt',
-        # odoo sentry
-        'odoo_sentry',
         # local modules
         'res_partner_email_validation',
         'res_partner_email_validation_missing_details',
@@ -78,7 +76,6 @@ Contributors
         'shared_web_theme',
         'frontend',
         'website_blog_group_published_only',
-        'cron',
         'res_group_archetype',
     ],
     'data': [],

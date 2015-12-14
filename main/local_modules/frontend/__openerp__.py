@@ -38,12 +38,12 @@
         'main_data',
         'frontend_shop',
         'frontend_base',
+        'frontend_homepage',
     ],
     'data': [
         'data/website_menus.xml',
         'templates/login_template.xml',
         'templates/contact_us_template.xml',
-        'templates/homepage.xml',
         'templates/events.xml',
         'templates/website_partner.xml',
     ],

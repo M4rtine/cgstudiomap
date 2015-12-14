@@ -32,13 +32,16 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     twitter = fields.Char('Twitter')
+    youtube = fields.Char('Youtube')
+    vimeo = fields.Char('Vimeo')
+
     linkedin = fields.Char('Linkedin')
     facebook = fields.Char('Facebook')
     wikipedia = fields.Char('Wikipedia')
     # art_of_vfx = fields.Char('Art of VFX')
 
     @api.model
-    def _validate_social_network_url(self, url, regex):
+    def _validate_social_network_url(self, url, regex, err_msg):
         _logger.debug('_validate_social_network_url')
         _logger.debug('url: {}'.format(url))
         _logger.debug('regex: {}'.format(regex))
@@ -55,6 +58,8 @@ class ResPartner(models.Model):
         fields = super(ResPartner, self)._url_fields
         fields.extend([
             'twitter',
+            'youtube',
+            'vimeo',
             'facebook',
             'linkedin',
             'wikipedia',
@@ -66,10 +71,19 @@ class ResPartner(models.Model):
     @api.constrains('twitter')
     def _validate_twitter_url(self):
         """Test against the given url against RFC requirements"""
-        if self.twitter:
-            self._validate_social_network_url(
-                self.twitter, r'^https?://(www\.)?twitter\.com/\w+$'
-            )
+        url = self.twitter.strip()
+        regex = r'https?://(www\.)?twitter\.com/\w+'
+        if url:
+            self._url_validation(url)
+            if not re.match(regex, url):
+                err_msg = _(
+                    (
+                        '"{}" seems not to be an twitter account.'
+                        '\nA twitter account should be something '
+                        'like https://www.twitter.com/cgstudiomap'.format(url)
+                    )
+                )
+                raise ValidationError(err_msg)
 
     @api.one
     @api.constrains('linkedin')
@@ -77,7 +91,7 @@ class ResPartner(models.Model):
         """Test against the given url against RFC requirements"""
         if self.linkedin:
             self._validate_social_network_url(
-                self.linkedin,
+                self.linkedin.strip(),
                 # Linkedin got its page tracking system embed in the url
                 # then the url can be followed by ?trk...
                 r'https?://(www\.)?linkedin\.com/company/[\w-]+'
@@ -89,11 +103,49 @@ class ResPartner(models.Model):
         """Test against the given url against RFC requirements"""
         if self.facebook:
             self._validate_social_network_url(
-                self.facebook,
+                self.facebook.strip(),
                 # Facebook got its page tracking system embed in the url
                 # then the url can be followed by ?fref...
                 r'https?://(www\.)?facebook\.com/[\w-]+'
             )
+
+
+    @api.one
+    @api.constrains('youtube')
+    def _validate_youtube_url(self):
+        """Check the youtube url."""
+        url = self.youtube.strip()
+        regex = r'https?://(www\.)?youtube\.com'
+        if url:
+            self._url_validation(url)
+            if not re.match(regex, url):
+                err_msg = _(
+                    (
+                        '"{}" seems not to be an youtube account.'
+                        '\nA youtube account should start by '
+                        'https://www.youtube.com'.format(url)
+                    )
+                )
+                raise ValidationError(err_msg)
+
+
+    @api.one
+    @api.constrains('vimeo')
+    def _validate_vimeo_url(self):
+        """Check the vimeo url."""
+        url = self.vimeo.strip()
+        regex = r'https?://(www\.)?vimeo\.com'
+        if url:
+            self._url_validation(url)
+            if not re.match(regex, url):
+                err_msg = _(
+                    (
+                        '"{}" seems not to be an vimeo account.'
+                        '\nA vimeo account should start by '
+                        'https://www.vimeo.com'.format(url)
+                    )
+                )
+                raise ValidationError(err_msg)
 
     @api.one
     @api.constrains('wikipedia')
@@ -101,7 +153,7 @@ class ResPartner(models.Model):
         """Test against the given url against RFC requirements"""
         if self.wikipedia:
             self._validate_social_network_url(
-                self.wikipedia,
+                self.wikipedia.strip(),
                 # Facebook got its page tracking system embed in the url
                 # then the url can be followed by ?fref...
                 r'https?://\w*\.?wikipedia.org/wiki/[\w-]+'

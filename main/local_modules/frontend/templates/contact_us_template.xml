@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <template id="website.contactus" name="Contact us single form" page="True">
-            <t t-call="website.layout">
+            <t t-call="frontend_base.base">
 
                 <!--oe_single_form_container is avoid as it centers the view. It is -->
                 <!--not the result wanted.-->

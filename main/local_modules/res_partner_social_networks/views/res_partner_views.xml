@@ -9,14 +9,16 @@
             <field name="arch" type="xml">
                 <field name="email" position="after">
                     <field name="twitter" widget="url"/>
-                    <field name="linkedin" widget="url"/>
-                    <field name="facebook" widget="url"/>
+                    <field name="youtube" widget="url"/>
+                    <field name="vimeo" widget="url"/>
                 </field>
                 <xpath expr="//page[last()]" position="after">
                     <page string="Additional Social Networks">
                         <group>
                             <field name="wikipedia" widget="url"/>
                             <!--<field name="art_of_fx" widget="url"/>-->
+                            <field name="linkedin" widget="url"/>
+                            <field name="facebook" widget="url"/>
                         </group>
                     </page>
                 </xpath>
