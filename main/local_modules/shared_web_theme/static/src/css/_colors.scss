@@ -170,20 +170,20 @@ navbar-right {
 	}
 }
 
-
+///////////////// old SUPER backoffice
 // BASE color
 
-/*$c-cg: #6C7A89;
-$c-map: #ABB7B7;
-$c-studios: #95A5A6;
+$c-cg: $color-fill;
+$c-map: $color-tonic;
+$c-studios: $color-cgsm;
 $c-cg-80opa: rgba($c-cg, 0.8);
 $c-studios-light: #EEEEEE;
-$c-bg-light: #ECF0F1;
-$c-bg-dark: #757D75;
-$c-bg-logo: #434A54;*/
+$c-bg-light: $color-cgsm-light;
+$c-bg-dark: $color-cgsm-dark;
+$c-bg-logo: $color-cgsm;
 
 // TEXT color
-/*$c-txt-dark: $c-bg-dark;
+$c-txt-dark: $c-bg-dark;
 $c-txt-light: $c-bg-light;
 $c-txt-link: $c-studios;
 
@@ -213,5 +213,5 @@ $stat_button_fa_hover: $c-cg;
 $badge_color: $c-txt-light;
 $badge_backgroung_color: $c-cg;
 $active_badge_background_color: $c-cg;
-$active_badge_color: c-txt-light;*/
+$active_badge_color: c-txt-light;
 
