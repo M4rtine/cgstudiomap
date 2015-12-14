@@ -28,6 +28,7 @@
     'category': 'Web',
     'summary': 'Module that build the page that list companies.',
     'depends': [
+        'web',
         'website',
         'crm_partner_assign',
         'frontend_base',

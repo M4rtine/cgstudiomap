@@ -15,6 +15,22 @@
 
         <!--Requirements:-->
         <!--* url-->
+        <template id="frontend_listing.switch" name="Listing: switch">
+            <form t-att-action="keep(url, search=0)" method="get" t-att-class="search_class">
+                <div class="input-group">
+                    <a t-att-class=" 'active' if map_url else 'disabled' " t-att-href="map_url">Map</a>
+                    <a t-att-class=" 'active' if list_url else 'disabled' " t-att-href="list_url">List</a>
+                    <!--<input type="text" name="search" class="search-query form-control" placeholder="Search..." t-att-value="search"/>-->
+                    <!--<span class="input-group-btn">-->
+                        <!--<a class="btn btn-default a-submit"><i class="fa fa-search"/></a>-->
+                    <!--</span>-->
+                </div>
+
+            </form>
+        </template>
+
+        <!--Requirements:-->
+        <!--* url-->
         <template id="frontend_listing.search" name="Listing: search">
             <form t-att-action="keep(url, search=0)" method="get" t-att-class="search_class">
                 <div class="input-group">
@@ -55,7 +71,15 @@
             <t t-call="frontend_listing.base">
                 <div id="map"></div>
             </t>
+            <script type="text/javascript" src="/frontend_listing/static/src/lib/markerclusterer.js"></script>
             <script type="text/javascript" src="/frontend_listing/static/src/js/google_map.js"></script>
+            <script>
+                google.maps.event.addDomListener(
+                window,
+                'load',
+                function () { initialize(<t t-raw="geoloc"/>); }
+                );
+            </script>
         </template>
 
         <template id="frontend_listing.list" name="Listing: List">
@@ -103,6 +127,7 @@
                     <t t-set="search_class">pagination form-inline col-md-3</t>
                 </t>
                 <t t-call="website.pager"/>
+                <t t-call="frontend_listing.switch"/>
             </t>
         </template>
     </data>

@@ -3,7 +3,7 @@ import logging
 from cachetools import cached, TTLCache
 from openerp.addons.web import http
 from openerp.addons.website.controllers.main import Website
-
+import simplejson
 from openerp.http import request, werkzeug
 
 _logger = logging.getLogger(__name__)
@@ -107,10 +107,13 @@ class QueryURL(object):
 class Listing(Website):
     """Representation of the page listing companies."""
 
-    @http.route('/directory/map', type='http', auth="public", website=True)
+    map_url = '/directory/map'
+    list_url = '/directory/list'
+
+    @http.route(map_url, type='http', auth="public", website=True)
     def map(self, search='', **post):
         """Render the list of studio under a map."""
-        url = '/directory/map'
+        url = self.map_url
         env = request.env
         partner_pool = env['res.partner']
         domain = partner_pool.active_companies_domain
@@ -125,29 +128,33 @@ class Listing(Website):
             post["search"] = search
 
         partners = partner_pool.search(domain)
-        geoloc = {
+        geoloc = simplejson.dumps({
             partner.name: [
                 partner.partner_latitude,
                 partner.partner_longitude,
                 partner.name
             ]
             for partner in partners
-        }
+        })
+        safe_search = search.replace(' ', '+')
         _logger.debug(geoloc)
         values = {
+            'geoloc': geoloc,
             'search': search,
             'partners': partners,
             'keep': keep,
+            'list_url': '{}{}'.format(
+                self.list_url, safe_search and '?search={}'.format(safe_search) or ''
+            )
         }
 
         return request.website.render("frontend_listing.map", values)
 
-    @http.route(['/directory/list',
-                 '/directory/list/page/<int:page>',
+    @http.route([list_url, '{}/page/<int:page>'.format(list_url),
                  ], type='http', auth="public", website=True)
     def list(self, page=0, search='', **post):
         """Render the list of studio under a table."""
-        url = '/directory/list'
+        url = self.list_url
         partner_per_page = 20
         env = request.env
         partner_pool = env['res.partner']
@@ -177,12 +184,17 @@ class Listing(Website):
             limit=partner_per_page,
             offset=pager['offset'],
         )
+        _logger.debug('search: %s', search)
+        safe_search = search.replace(' ', '+')
         values = {
             'search': search,
             'pager': pager,
             'partners': partners,
             'rows': PPR,
             'keep': keep,
+            'map_url': '{}{}'.format(
+                self.map_url, safe_search and '?search={}'.format(safe_search) or ''
+            )
         }
 
         return request.website.render("frontend_listing.list", values)
