@@ -255,15 +255,25 @@ fontCGSM {
 
 
 .bloc-signup {
-    margin-bottom: -1em;
+    margin-bottom: -1.4em;
 	text-align: center;
+	
+	h1 {
+		width: 100%;
+		height: 100%;
+		font-size: 4em;
+		text-transform: uppercase;
+	}
+	h1 a,
+	h1 a:hover,
+	h1 a:active {
+		text-decoration: none;
+	}
+	p {
+		font-size: 2em;
+	}
 }
-.bloc-signup h1 {
-	width: 100%;
-	height: 100%;
-	font-size: 3em;
-	text-transform: uppercase;
-}
+
 .bloc-signup h1 a,
 .bloc-signup h1 a:hover,
 .bloc-signup h1 a:active {

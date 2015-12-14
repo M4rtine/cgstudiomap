@@ -19,8 +19,9 @@
         <!--template used to go to the sign up page.-->
         <template id="frontend_homepage.signup_button" name="Homepage: Signup button">
             <t t-if="request.uid == 3" >
-				<div class="jumbotron bloc-signup fontCGSMbold">
-					<h1><a t-attf-href="/web/signup">Sign-up</a></h1>
+				<div class="jumbotron bloc-signup">
+					<h1 class="fontCGSMbold"><a t-attf-href="/web/signup">Sign-up</a></h1>
+					<p>It's free</p>
 				</div>
             </t>
         </template>

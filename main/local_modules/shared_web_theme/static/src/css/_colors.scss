@@ -120,6 +120,9 @@ body {
 .bloc-signup {
 	background-color: $color-tonic;
 	color: $color-cgsm-light;
+	p {
+		color: $color-cgsm-dark;
+	}
 }
 
 .bloc-signup h1 a,
