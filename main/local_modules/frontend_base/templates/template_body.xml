@@ -8,7 +8,7 @@
 						
 						<span class="navbar-text navbar-left"><a href="/" class="navbar-link"><span id="logo-nav"></span></a></span>
 						
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-top-collapse">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 							<span id="toggle"></span>
                         </button>
 						
@@ -20,7 +20,7 @@
 						<p class="navbar-text navbar-right hidden-xs"><a href="#" class="navbar-link"><span id="user-login"></span></a></p>
 						
 						<div class="dropdown navbar-text navbar-right hidden-xs">
-							<a id="dLabel" data-target="#" href="http://cgstudiomap.org" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="user-login"></span></a>
+							<a id="dLabel" data-target=".dropdown-menu" href="http://cgstudiomap.org" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="user-login"></span></a>
 
 						  <ul class="dropdown-menu" aria-labelledby="dLabel">
 								<li groups="base.group_public">
@@ -29,7 +29,7 @@
 									</a>
 								</li>
                                 <li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>
-                                <li t-ignore="true" t-if="website.user_id != user_id" class="divider"/>
+							  	<li t-ignore="true" t-if="website.user_id != user_id" role="separator" class="divider"></li>
                                 <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
 						  </ul>
 						</div>	
