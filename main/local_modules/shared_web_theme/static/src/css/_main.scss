@@ -147,6 +147,12 @@ fontCGSM {
 	
 	h2 {
 		text-transform: uppercase;
+		@media (max-width: $screen-lg-min) {
+			font-size: 1.85em;
+		}
+		@media (max-width: $screen-md-min) {
+			font-size: 1.45em;
+		}
 		@media (max-width: $screen-xs-max) {
 			font-size: 1.25em;
 		}

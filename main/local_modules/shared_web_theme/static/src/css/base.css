@@ -6014,6 +6014,12 @@ fontCGSM {
       font-size: 1em; } }
   .txt-present h2 {
     text-transform: uppercase; }
+    @media (max-width: 1200px) {
+      .txt-present h2 {
+        font-size: 1.85em; } }
+    @media (max-width: 992px) {
+      .txt-present h2 {
+        font-size: 1.45em; } }
     @media (max-width: 767px) {
       .txt-present h2 {
         font-size: 1.25em; } }
