@@ -54,7 +54,17 @@ body {
 	color: $color-cgsm-light;
 	background-color: transparent;
 }
+navbar-right {
 
+	
+	#dLabel {
+		color: $color-cgsm;
+	}
+	
+	@media (min-width: $screen-lg-min) {
+
+	}
+}
 .jumbotron {
     background-color: transparent;
 }

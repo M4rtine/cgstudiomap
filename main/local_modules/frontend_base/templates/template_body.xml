@@ -15,16 +15,13 @@
                     </div>
 				
 					<div class="navbar-collapse collapse">
-						
 
-						<p class="navbar-text navbar-right hidden-xs"><a href="#" class="navbar-link"><span id="user-login"></span></a></p>
-						
 						<div class="dropdown navbar-text navbar-right hidden-xs">
-							<a id="dLabel" data-target=".dropdown-menu" href="http://cgstudiomap.org" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="user-login"></span></a>
+							<!--<p class="navbar-text navbar-right hidden-xs"><a id="dLabel" data-target="#" href="http://cgstudiomap.org" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="navbar-link"><span id="user-login"></span></a></p>-->
+							<button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">JOIN</button>
 
 						  <ul class="dropdown-menu" aria-labelledby="dLabel">
-								<li groups="base.group_public"><a t-attf-href="/web/login">Sign in</a>
-								</li>
+								<li groups="base.group_public"><a t-attf-href="/web/login">Sign in</a></li>
                                 <li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>
                                 <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
 						  </ul>

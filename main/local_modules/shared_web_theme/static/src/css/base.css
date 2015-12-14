@@ -5635,6 +5635,31 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+html {
+  font-family: sans-serif !important;
+  -ms-text-size-adjust: 100% !important;
+  -webkit-text-size-adjust: 100% !important; }
+
+* {
+  border: 0;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+  moz-box-shadow: 0 0 0 transparent !important;
+  -webkit-box-shadow: 0 0 0 transparent !important;
+  box-shadow: 0 0 0 transparent !important;
+  text-shadow: 0 0 0 transparent;
+  moz-box-shadow: 0 0 0 transparent !important;
+  -webkit-box-shadow: 0 0 0 transparent !important;
+  box-shadow: 0 0 0 transparent !important; }
+
+a:active,
+a:hover {
+  outline: 0 !important; }
+
+img {
+  border: 0 !important; }
+
 /* BOOTSTRAP media queries
 -------------------------------------------------- */
 /* CUSTOMIZE HOME MAP
@@ -5724,6 +5749,12 @@ body {
 
 .navbar-right {
   margin-right: 4em; }
+  .navbar-right #dLabel {
+    font-size: 1.1em;
+    vertical-align: middle;
+    padding: 1.8em;
+    margin-top: -0.4em;
+    height: 40px; }
   @media (min-width: 1200px) {
     .navbar-right {
       margin-right: 10em; } }
@@ -5789,6 +5820,9 @@ body {
 .navbar-inverse .navbar-nav > .open > a:focus {
   color: #f1f1f3;
   background-color: transparent; }
+
+navbar-right #dLabel {
+  color: #b05ae2; }
 
 .jumbotron {
   background-color: transparent; }
@@ -6256,6 +6290,10 @@ fontCGSM {
 #social-icon:hover .anim-linkedin {
   fill: #0077B5; }
 
+#user-login {
+  width: 40px;
+  height: 40px; }
+
 #navbar {
   z-index: 999; }
 
@@ -6276,6 +6314,9 @@ fontCGSM {
 #TXT-map {
   pointer-events: none;
   z-index: 20; }
+
+#bt-user {
+  z-index: 10000; }
 
 /*@import "_custom";*/
 /*@import "_flatify";

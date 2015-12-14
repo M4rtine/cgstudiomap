@@ -69,6 +69,14 @@ body {
 .navbar-right {
     margin-right: 4em;
 	
+	#dLabel {
+		font-size: 1.1em;
+		vertical-align: middle;
+		padding: 1.8em;
+		margin-top: -0.4em;
+		height: 40px;
+	}
+	
 	@media (min-width: $screen-lg-min) {
 		margin-right: 10em;
 	}
