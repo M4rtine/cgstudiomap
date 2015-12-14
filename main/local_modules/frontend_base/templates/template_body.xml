@@ -59,7 +59,7 @@
         </template>
 
         <template id="frontend_base.body" name="Base: body">
-            <body>
+            <body id="home">
                 <t t-call="frontend_base.navbar"/>
                 <t t-raw="0"/>
                 <div id="wrapwrap"></div>
