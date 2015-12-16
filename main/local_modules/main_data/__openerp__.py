@@ -58,7 +58,6 @@ Contributors
         'data/res_users_data.xml',
         'data/auditlog_res_partner.xml',
         'security/ir_rules.xml',
-        'security/ir.model.access.csv',
         'views/website_blog_view.xml',
         'views/res_partner_view.xml',
         'views/geo_partner_view.xml',
