@@ -84,44 +84,47 @@
 
         <template id="frontend_listing.list" name="Listing: List">
             <t t-call="frontend_listing.base">
-               <table data-toggle="table" class="table">
-                    <thead>
-                        <tr>
-                            <th>Logo</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Industries</th>
-                            <th>Localtion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <t t-foreach="partners" t-as="partner">
-                        <tr>
-                            <td>
-                                <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
-                            </td>
-                            <td>
-                            <a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
-                                <h4 t-esc="partner.name"/>
-                            </a>
-                            </td>
-                            <td><span t-esc="partner.email"/></td>
-                            <td>
-                                <t t-foreach="partner.industry_ids" t-as="ind">
-                                    <t t-call="frontend_base.industry_tag"/>
-                                </t>
-                            </td>
-                            <td>
-                                <span t-esc="partner.city"/>,
-                                <t t-if="partner.state_id">
-                                    <span t-esc="partner.state_id.name"/>,
-                                </t>
-                                <span t-esc="partner.country_id.name"/>
-                            </td>
-                        </tr>
-                        </t>
-                    </tbody>
-                </table>
+				<div class="container">
+				   <table id="table" data-toggle="table" data-toggle="table" data-classes="table table-no-bordered" class="table">
+
+						<thead>
+							<tr>
+								<th>Logo</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Industries</th>
+								<th>Localtion</th>
+							</tr>
+						</thead>
+						<tbody>
+							<t t-foreach="partners" t-as="partner">
+							<tr>
+								<td>
+									<img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
+								</td>
+								<td>
+								<a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
+									<h4 t-esc="partner.name"/>
+								</a>
+								</td>
+								<td><span t-esc="partner.email"/></td>
+								<td>
+									<t t-foreach="partner.industry_ids" t-as="ind">
+										<t t-call="frontend_base.industry_tag"/>
+									</t>
+								</td>
+								<td>
+									<span t-esc="partner.city"/>,
+									<t t-if="partner.state_id">
+										<span t-esc="partner.state_id.name"/>,
+									</t>
+									<span t-esc="partner.country_id.name"/>
+								</td>
+							</tr>
+							</t>
+						</tbody>
+					</table>			
+				</div>
 
                 <t t-call="frontend_listing.pagination">
                     <t t-set="search_class">pagination form-inline col-md-3</t>
