@@ -22,6 +22,22 @@ class ResPartner(models.Model):
             ('is_company', '=', True),
         ]
 
+    @property
+    def closed_companies_domain(self):
+        """Return the domain that should be used to filter for companies out of business.
+
+        :return: list
+        """
+        return self.active_companies_domain + [('state', '=', 'closed')]
+
+    @property
+    def open_companies_domain(self):
+        """Return the domain that should be used to filter for open companies.
+
+        :return: list
+        """
+        return self.active_companies_domain + [('state', '=', 'open')]
+
     @api.model
     def get_active_companies(self):
         """Return recordsets of all the active companies.
@@ -44,9 +60,7 @@ class ResPartner(models.Model):
 
         :return: recordset.
         """
-        return self.search(
-            self.active_companies_domain + [('state', '=', 'closed')]
-        )
+        return self.search(self.open_companies_domain)
 
     @api.model
     def get_open_commpanies(self):
@@ -54,9 +68,7 @@ class ResPartner(models.Model):
 
         :return: recordset.
         """
-        return self.search(
-            self.active_companies_domain + [('state', '=', 'open')]
-        )
+        return self.search(self.open_companies_domain)
 
     @api.model
     def get_most_popular_studios(self, sample_):

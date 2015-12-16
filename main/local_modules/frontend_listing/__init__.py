@@ -17,25 +17,6 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+############################################################################
 
-{
-    'name': 'Frontend Homepage',
-    'version': 'beta',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Web',
-    'summary': 'Module that build the homepage.',
-    'depends': [
-        'website',
-        'frontend_base',
-    ],
-    'data': [
-        'templates/template_body.xml',
-        'templates/template_engine.xml',
-        # 'templates/template_head.xml',
-        # 'templates/template_html.xml',
-    ],
-    'installable': True,
-}
+from . import controllers, models
