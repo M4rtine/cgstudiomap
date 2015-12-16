@@ -85,8 +85,14 @@
         <template id="frontend_listing.list" name="Listing: List">
             <t t-call="frontend_listing.base">
 				<div class="container">
-				   <table id="table" data-toggle="table" data-toggle="table" data-classes="table table-no-bordered" class="table">
-
+					
+					<h1>Bootstrap Table Examples</h1>
+					<div id="toolbar">
+					</div>					
+					
+					
+					
+				   <table id="table" data-toggle="table" data-toolbar="#toolbar" data-search="true" data-show-pagination-switch="true" data-pagination="true" data-show-footer="false" data-response-handler="responseHandler">
 						<thead>
 							<tr>
 								<th>Logo</th>
@@ -125,13 +131,13 @@
 						</tbody>
 					</table>			
 				</div>
-
+ 				</t>
                 <t t-call="frontend_listing.pagination">
                     <t t-set="search_class">pagination form-inline col-md-3</t>
                 </t>
                 <t t-call="website.pager"/>
                 <t t-call="frontend_listing.switch"/>
-            </t>
+            
         </template>
     </data>
 </openerp>
