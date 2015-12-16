@@ -7,7 +7,6 @@ import simplejson
 from openerp.http import request, werkzeug
 
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
 
 # Cache of 3hours
 # The decorated method are refreshed every 1hour.
