@@ -1,11 +1,7 @@
 import glob
-import logging
 import os
-import pprint
 import sys
 
-logger = logging.getLogger(__name__)
-logging.basicConfig()
 
 def get_root():
     """Root of the project: "main" folder."""
@@ -36,4 +32,3 @@ def set_sys_path():
     paths = eggs + parts + main
 
     sys.path.extend(paths)
-    logger.debug('paths: %s', pprint.pformat(sys.path))
