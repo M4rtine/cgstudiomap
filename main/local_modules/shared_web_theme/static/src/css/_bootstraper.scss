@@ -26,20 +26,24 @@ body {
 
 
 .navbar-nav>li>a{
-	padding-left: 6em;
-	padding-right: 6em;
+
 	font-weight: normal;
-	font-size: 1.2em;
+	
 	line-height: 1.4em;
 	letter-spacing: 0px;
 	text-transform: uppercase;
 	
-	@media (max-width: $screen-md-max) {
+	@media (min-width: $screen-md-min) {
 		padding-left: 3em;
 		padding-right: 3em;
 		font-size: 1em;
 	}
 	@media (min-width: $screen-lg-min) {
+		padding-left: 6em;
+		padding-right: 6em;
+		font-size: 1.2em;
+	}
+	@media (min-width: $screen-big) {
 		padding-left: 8em;
 		padding-right: 8em;
 		font-size: 1.2em;

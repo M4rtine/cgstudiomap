@@ -5777,19 +5777,21 @@ body {
       max-height: 240px; } }
 
 .navbar-nav > li > a {
-  padding-left: 6em;
-  padding-right: 6em;
   font-weight: normal;
-  font-size: 1.2em;
   line-height: 1.4em;
   letter-spacing: 0px;
   text-transform: uppercase; }
-  @media (max-width: 991px) {
+  @media (min-width: 992px) {
     .navbar-nav > li > a {
       padding-left: 3em;
       padding-right: 3em;
       font-size: 1em; } }
   @media (min-width: 1200px) {
+    .navbar-nav > li > a {
+      padding-left: 6em;
+      padding-right: 6em;
+      font-size: 1.2em; } }
+  @media (min-width: 1900px) {
     .navbar-nav > li > a {
       padding-left: 8em;
       padding-right: 8em;
