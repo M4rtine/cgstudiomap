@@ -6367,26 +6367,17 @@ fontCGSM {
   @media (min-width: 1200px) {
     #container-map {
       height: 650px; } }
-  @media (min-width: 1900px) {
+  @media (max-width: 1900px) {
     #container-map {
-      height: 800px; } }
+      height: 750px; } }
+  @media (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    #container-map {
+      height: 384px; } }
 
 #TXT_map {
   max-height: 270px;
   position: relative;
-  margin-top: -20px;
-  /*	@media (min-width: $screen-sm-min) {
-  		margin-top: 400px;
-  	}
-  	@media (min-width: $screen-md-min) {
-  		margin-top: 480px;
-  	}
-  	@media (min-width: $screen-lg-min) {
-  		margin-top: -20px;
-  	}
-  	@media (min-width: $screen-big) {
-  		margin-top: 700px;
-  	}*/ }
+  margin-top: -20px; }
 
 .txt-map {
   padding: 0;
@@ -6459,9 +6450,12 @@ fontCGSM {
   .stats p:nth-child(2) {
     font-size: 1.6em;
     line-height: 2.3em; }
-  @media (min-width: 1900px) {
+  @media (min-width: 1200px) and (max-width: 1900px) {
     .stats {
-      top: -180px; } }
+      top: -60px; } }
+  @media (max-width: 767px) {
+    .stats {
+      top: -60px; } }
 
 #stats-txt {
   position: absolute;

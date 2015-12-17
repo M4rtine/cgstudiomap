@@ -49,28 +49,18 @@ fontCGSM {
 	@media (min-width: $screen-lg-min) {
 		height: 650px;
 	}
-	@media (min-width: $screen-big) {
-		height: 800px;
+	@media (max-width: $screen-big) {
+		height: 750px;
 	}
-
+	@media (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+		height: 384px;
+	}
 }
 
 #TXT_map {
 	max-height: 270px;
 	position: relative;
 	margin-top: -20px;
-/*	@media (min-width: $screen-sm-min) {
-		margin-top: 400px;
-	}
-	@media (min-width: $screen-md-min) {
-		margin-top: 480px;
-	}
-	@media (min-width: $screen-lg-min) {
-		margin-top: -20px;
-	}
-	@media (min-width: $screen-big) {
-		margin-top: 700px;
-	}*/
 }
 .txt-map {
 	padding: 0;
@@ -175,8 +165,11 @@ fontCGSM {
 		font-size: 1.6em;
 		line-height: 2.3em;
 	}
-	@media (min-width: $screen-big) {
-		top: -180px;
+	@media (min-width: $screen-lg-min) and (max-width: $screen-big) {
+		top: -60px;
+	}
+	@media (max-width: $screen-xs-max){
+		top: -60px;
 	}
 }
 
