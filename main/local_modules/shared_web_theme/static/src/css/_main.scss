@@ -52,8 +52,14 @@ fontCGSM {
 	@media (max-width: $screen-big) {
 		height: 750px;
 	}
-	@media (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+	@media (min-width: $screen-sm-min) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
 		height: 384px;
+	}
+	@media (max-width: $screen-sm-max) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {
+		height: 204px;
+	}
+	@media (max-width: $screen-sm-max) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+		height: 144px;
 	}
 }
 
@@ -113,13 +119,15 @@ fontCGSM {
 
 
 #present {
-
+	@media (max-width: $screen-xs-max) {
+		padding-top: 0;
+	}
 }
 
 .txt-present {
     text-align: center;
 	@media (max-width: $screen-xs-max) {
-		padding-top: 1em;
+		padding-top: 0;
 		font-size: 1em;
 	}
 	@media (min-width: $screen-md-min) {
@@ -132,7 +140,6 @@ fontCGSM {
 
 	}
 	p {
-		
 	}
 	
 	h2 {
@@ -158,18 +165,30 @@ fontCGSM {
     text-align: center;
 	
 	p {
-    font-size: 2.4em;
-    line-height: 2em;
+    	font-size: 2.4em;
+    	line-height: 2em;
+		@media (max-width: $screen-xs-max){
+			font-size: 2em;
+    		line-height: 2.5em;
+		}
+
 	}
 	p:nth-child(2) {
 		font-size: 1.6em;
 		line-height: 2.3em;
+		
+		@media (max-width: $screen-xs-max){
+		font-size: 1.2em;
+    	line-height: 2.9em;
+		}
 	}
 	@media (min-width: $screen-lg-min) and (max-width: $screen-big) {
 		top: -60px;
 	}
 	@media (max-width: $screen-xs-max){
 		top: -60px;
+		padding: 0;
+		width: 160px;
 	}
 }
 

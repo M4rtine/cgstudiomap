@@ -108,4 +108,15 @@ body {
 }
 .row {
     margin: 2.5em 0;
+	@media (max-width: $screen-xs-max) {
+		margin: 0.5em 0;
+	}
+}
+.jumbotron {
+	@media (max-width: $screen-xs-max) {
+		padding: 0;
+		margin: 0;
+		margin-bottom: 0;
+	}
+
 }

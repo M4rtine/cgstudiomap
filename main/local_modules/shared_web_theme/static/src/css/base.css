@@ -5846,6 +5846,15 @@ body {
 
 .row {
   margin: 2.5em 0; }
+  @media (max-width: 767px) {
+    .row {
+      margin: 0.5em 0; } }
+
+@media (max-width: 767px) {
+  .jumbotron {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0; } }
 
 body {
   background-color: #f2f2f2; }
@@ -6370,9 +6379,15 @@ fontCGSM {
   @media (max-width: 1900px) {
     #container-map {
       height: 750px; } }
-  @media (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  @media (min-width: 768px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
     #container-map {
       height: 384px; } }
+  @media (max-width: 991px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    #container-map {
+      height: 204px; } }
+  @media (max-width: 991px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    #container-map {
+      height: 144px; } }
 
 #TXT_map {
   max-height: 270px;
@@ -6419,11 +6434,15 @@ fontCGSM {
   margin: 0 !important;
   padding: 0 !important; }
 
+@media (max-width: 767px) {
+  #present {
+    padding-top: 0; } }
+
 .txt-present {
   text-align: center; }
   @media (max-width: 767px) {
     .txt-present {
-      padding-top: 1em;
+      padding-top: 0;
       font-size: 1em; } }
   .txt-present h2 {
     text-transform: uppercase; }
@@ -6447,15 +6466,25 @@ fontCGSM {
   .stats p {
     font-size: 2.4em;
     line-height: 2em; }
+    @media (max-width: 767px) {
+      .stats p {
+        font-size: 2em;
+        line-height: 2.5em; } }
   .stats p:nth-child(2) {
     font-size: 1.6em;
     line-height: 2.3em; }
+    @media (max-width: 767px) {
+      .stats p:nth-child(2) {
+        font-size: 1.2em;
+        line-height: 2.9em; } }
   @media (min-width: 1200px) and (max-width: 1900px) {
     .stats {
       top: -60px; } }
   @media (max-width: 767px) {
     .stats {
-      top: -60px; } }
+      top: -60px;
+      padding: 0;
+      width: 160px; } }
 
 #stats-txt {
   position: absolute;
