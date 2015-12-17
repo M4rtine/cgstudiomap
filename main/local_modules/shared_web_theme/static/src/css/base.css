@@ -5817,11 +5817,11 @@ body {
 .navbar-right {
   margin-right: 4em; }
   .navbar-right #dLabel {
-    font-size: 1.1em;
-    vertical-align: middle;
-    padding: 1.8em;
-    margin-top: -0.4em;
-    height: 40px; }
+    /*		font-size: 1.1em;
+    		vertical-align: middle;
+    		padding: 1.8em;
+    		margin-top: -0.4em;
+    		height: 40px;*/ }
   @media (min-width: 1200px) {
     .navbar-right {
       margin-right: 10em; } }
@@ -5888,11 +5888,25 @@ body {
   color: #f1f1f3;
   background-color: transparent; }
 
-navbar-right #dLabel {
-  color: #b05ae2; }
-
 .jumbotron {
   background-color: transparent; }
+
+.dropdown-menu {
+  font-family: 'cgsm-regular';
+  background-color: white;
+  color: #323133;
+  margin: 0;
+  border: 1px solid #b05ae2;
+  -webkit-box-shadow: 0 0 0 transparent;
+  box-shadow: 0 0 0 transparent;
+  background-clip: padding-box; }
+
+.dropdown-menu > li > a {
+  color: #323133; }
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:active {
+  color: #b05ae2; }
 
 #geochart_target {
   background-color: transparent; }
@@ -5964,6 +5978,72 @@ navbar-right #dLabel {
   background-color: rgba(176, 90, 226, 0.9);
   color: #f1f1f3; }
 
+.navbar-right .btn, .navbar-right .openerp button, .openerp .navbar-right button, .navbar-right .openerp .oe_button, .openerp .navbar-right .oe_button {
+  font-family: 'cgsm-regular';
+  font-size: 1.04em;
+  padding: 14px 24px;
+  border: 0 none;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  -webkit-border-radius: 2px !important;
+  -moz-border-radius: 2px !important;
+  border-radius: 2px !important; }
+.navbar-right .btn:focus, .navbar-right .openerp button:focus, .openerp .navbar-right button:focus, .navbar-right .openerp .oe_button:focus, .openerp .navbar-right .oe_button:focus,
+.navbar-right .btn:active:focus,
+.navbar-right .openerp button:active:focus,
+.openerp .navbar-right button:active:focus,
+.navbar-right .openerp .oe_button:active:focus,
+.openerp .navbar-right .oe_button:active:focus,
+.navbar-right .btn.active:focus,
+.navbar-right .openerp button.active:focus,
+.openerp .navbar-right button.active:focus,
+.navbar-right .openerp .active.oe_button:focus,
+.openerp .navbar-right .active.oe_button:focus {
+  outline: 0 none; }
+.navbar-right .btn-default, .navbar-right .openerp button, .openerp .navbar-right button, .navbar-right .openerp .oe_button, .openerp .navbar-right .oe_button {
+  border: 2px solid #f2f2f2;
+  color: #f1f1f3;
+  padding: 12px 22px; }
+.navbar-right .btn-default:hover, .navbar-right .openerp button:hover, .openerp .navbar-right button:hover, .navbar-right .openerp .oe_button:hover, .openerp .navbar-right .oe_button:hover,
+.navbar-right .btn-default:focus,
+.navbar-right .openerp button:focus,
+.openerp .navbar-right button:focus,
+.navbar-right .openerp .oe_button:focus,
+.openerp .navbar-right .oe_button:focus,
+.navbar-right .btn-default:active,
+.navbar-right .openerp button:active,
+.openerp .navbar-right button:active,
+.navbar-right .openerp .oe_button:active,
+.openerp .navbar-right .oe_button:active,
+.navbar-right .btn-default.active,
+.navbar-right .openerp button.active,
+.openerp .navbar-right button.active,
+.navbar-right .openerp .active.oe_button,
+.openerp .navbar-right .active.oe_button,
+.navbar-right .open > .dropdown-toggle.btn-default,
+.navbar-right .openerp .open > button.dropdown-toggle,
+.openerp .navbar-right .open > button.dropdown-toggle,
+.navbar-right .openerp .open > .dropdown-toggle.oe_button,
+.openerp .navbar-right .open > .dropdown-toggle.oe_button {
+  background: #f1f1f3;
+  border-color: #f1f1f3;
+  color: #f1f1f3; }
+.navbar-right .btn.outline, .navbar-right .openerp button.outline, .openerp .navbar-right button.outline, .navbar-right .openerp .outline.oe_button, .openerp .navbar-right .outline.oe_button {
+  background: none;
+  padding: 12px 22px; }
+.navbar-right #dLabel {
+  /*		font-size: 1.1em;
+  vertical-align: middle;
+  padding: 1.8em;
+  margin-top: -0.4em;
+  height: 40px;*/ }
+
+/******************************************************
+	https://github.com/codingd0g/push-bootstrap-button-pack/blob/master/assets/css/buttons.css
+
+	A voir
+******************************************************/
 .geoengine_view {
   margin: 0;
   padding: 0;
