@@ -58,8 +58,8 @@ navbar-right {
 
 	
 	#dLabel {
-		color: $color-cgsm;
 	}
+
 	
 	@media (min-width: $screen-lg-min) {
 
@@ -68,6 +68,25 @@ navbar-right {
 .jumbotron {
     background-color: transparent;
 }
+.dropdown-menu {
+	font-family: 'cgsm-regular';
+    background-color: white;
+	color: $color-cgsm-dark;
+	margin: 0;
+    border: 1px solid $color-cgsm;
+    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+}
+
+.dropdown-menu > li > a {
+    color: $color-cgsm-dark;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:active{
+    color: $color-cgsm;
+}
+
 
 // MAIN
 #geochart_target {

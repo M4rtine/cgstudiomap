@@ -5777,19 +5777,21 @@ body {
       max-height: 240px; } }
 
 .navbar-nav > li > a {
-  padding-left: 6em;
-  padding-right: 6em;
   font-weight: normal;
-  font-size: 1.2em;
   line-height: 1.4em;
   letter-spacing: 0px;
   text-transform: uppercase; }
-  @media (max-width: 991px) {
+  @media (min-width: 992px) {
     .navbar-nav > li > a {
       padding-left: 3em;
       padding-right: 3em;
       font-size: 1em; } }
   @media (min-width: 1200px) {
+    .navbar-nav > li > a {
+      padding-left: 6em;
+      padding-right: 6em;
+      font-size: 1.2em; } }
+  @media (min-width: 1900px) {
     .navbar-nav > li > a {
       padding-left: 8em;
       padding-right: 8em;
@@ -5815,11 +5817,11 @@ body {
 .navbar-right {
   margin-right: 4em; }
   .navbar-right #dLabel {
-    font-size: 1.1em;
-    vertical-align: middle;
-    padding: 1.8em;
-    margin-top: -0.4em;
-    height: 40px; }
+    /*		font-size: 1.1em;
+    		vertical-align: middle;
+    		padding: 1.8em;
+    		margin-top: -0.4em;
+    		height: 40px;*/ }
   @media (min-width: 1200px) {
     .navbar-right {
       margin-right: 10em; } }
@@ -5844,6 +5846,15 @@ body {
 
 .row {
   margin: 2.5em 0; }
+  @media (max-width: 767px) {
+    .row {
+      margin: 0.5em 0; } }
+
+@media (max-width: 767px) {
+  .jumbotron {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0; } }
 
 body {
   background-color: #f2f2f2; }
@@ -5886,11 +5897,25 @@ body {
   color: #f1f1f3;
   background-color: transparent; }
 
-navbar-right #dLabel {
-  color: #b05ae2; }
-
 .jumbotron {
   background-color: transparent; }
+
+.dropdown-menu {
+  font-family: 'cgsm-regular';
+  background-color: white;
+  color: #323133;
+  margin: 0;
+  border: 1px solid #b05ae2;
+  -webkit-box-shadow: 0 0 0 transparent;
+  box-shadow: 0 0 0 transparent;
+  background-clip: padding-box; }
+
+.dropdown-menu > li > a {
+  color: #323133; }
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:active {
+  color: #b05ae2; }
 
 #geochart_target {
   background-color: transparent; }
@@ -5962,6 +5987,72 @@ navbar-right #dLabel {
   background-color: rgba(176, 90, 226, 0.9);
   color: #f1f1f3; }
 
+.navbar-right .btn, .navbar-right .openerp button, .openerp .navbar-right button, .navbar-right .openerp .oe_button, .openerp .navbar-right .oe_button {
+  font-family: 'cgsm-regular';
+  font-size: 1.04em;
+  padding: 14px 24px;
+  border: 0 none;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  -webkit-border-radius: 2px !important;
+  -moz-border-radius: 2px !important;
+  border-radius: 2px !important; }
+.navbar-right .btn:focus, .navbar-right .openerp button:focus, .openerp .navbar-right button:focus, .navbar-right .openerp .oe_button:focus, .openerp .navbar-right .oe_button:focus,
+.navbar-right .btn:active:focus,
+.navbar-right .openerp button:active:focus,
+.openerp .navbar-right button:active:focus,
+.navbar-right .openerp .oe_button:active:focus,
+.openerp .navbar-right .oe_button:active:focus,
+.navbar-right .btn.active:focus,
+.navbar-right .openerp button.active:focus,
+.openerp .navbar-right button.active:focus,
+.navbar-right .openerp .active.oe_button:focus,
+.openerp .navbar-right .active.oe_button:focus {
+  outline: 0 none; }
+.navbar-right .btn-default, .navbar-right .openerp button, .openerp .navbar-right button, .navbar-right .openerp .oe_button, .openerp .navbar-right .oe_button {
+  border: 2px solid #f2f2f2;
+  color: #f1f1f3;
+  padding: 12px 22px; }
+.navbar-right .btn-default:hover, .navbar-right .openerp button:hover, .openerp .navbar-right button:hover, .navbar-right .openerp .oe_button:hover, .openerp .navbar-right .oe_button:hover,
+.navbar-right .btn-default:focus,
+.navbar-right .openerp button:focus,
+.openerp .navbar-right button:focus,
+.navbar-right .openerp .oe_button:focus,
+.openerp .navbar-right .oe_button:focus,
+.navbar-right .btn-default:active,
+.navbar-right .openerp button:active,
+.openerp .navbar-right button:active,
+.navbar-right .openerp .oe_button:active,
+.openerp .navbar-right .oe_button:active,
+.navbar-right .btn-default.active,
+.navbar-right .openerp button.active,
+.openerp .navbar-right button.active,
+.navbar-right .openerp .active.oe_button,
+.openerp .navbar-right .active.oe_button,
+.navbar-right .open > .dropdown-toggle.btn-default,
+.navbar-right .openerp .open > button.dropdown-toggle,
+.openerp .navbar-right .open > button.dropdown-toggle,
+.navbar-right .openerp .open > .dropdown-toggle.oe_button,
+.openerp .navbar-right .open > .dropdown-toggle.oe_button {
+  background: #f1f1f3;
+  border-color: #f1f1f3;
+  color: #f1f1f3; }
+.navbar-right .btn.outline, .navbar-right .openerp button.outline, .openerp .navbar-right button.outline, .navbar-right .openerp .outline.oe_button, .openerp .navbar-right .outline.oe_button {
+  background: none;
+  padding: 12px 22px; }
+.navbar-right #dLabel {
+  /*		font-size: 1.1em;
+  vertical-align: middle;
+  padding: 1.8em;
+  margin-top: -0.4em;
+  height: 40px;*/ }
+
+/******************************************************
+	https://github.com/codingd0g/push-bootstrap-button-pack/blob/master/assets/css/buttons.css
+
+	A voir
+******************************************************/
 .geoengine_view {
   margin: 0;
   padding: 0;
@@ -6285,26 +6376,23 @@ fontCGSM {
   @media (min-width: 1200px) {
     #container-map {
       height: 650px; } }
-  @media (min-width: 1900px) {
+  @media (max-width: 1900px) {
     #container-map {
-      height: 800px; } }
+      height: 750px; } }
+  @media (min-width: 768px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    #container-map {
+      height: 384px; } }
+  @media (max-width: 991px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    #container-map {
+      height: 204px; } }
+  @media (max-width: 991px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    #container-map {
+      height: 144px; } }
 
 #TXT_map {
   max-height: 270px;
   position: relative;
-  margin-top: -20px;
-  /*	@media (min-width: $screen-sm-min) {
-  		margin-top: 400px;
-  	}
-  	@media (min-width: $screen-md-min) {
-  		margin-top: 480px;
-  	}
-  	@media (min-width: $screen-lg-min) {
-  		margin-top: -20px;
-  	}
-  	@media (min-width: $screen-big) {
-  		margin-top: 700px;
-  	}*/ }
+  margin-top: -20px; }
 
 .txt-map {
   padding: 0;
@@ -6346,11 +6434,15 @@ fontCGSM {
   margin: 0 !important;
   padding: 0 !important; }
 
+@media (max-width: 767px) {
+  #present {
+    padding-top: 0; } }
+
 .txt-present {
   text-align: center; }
   @media (max-width: 767px) {
     .txt-present {
-      padding-top: 1em;
+      padding-top: 0;
       font-size: 1em; } }
   .txt-present h2 {
     text-transform: uppercase; }
@@ -6374,12 +6466,25 @@ fontCGSM {
   .stats p {
     font-size: 2.4em;
     line-height: 2em; }
+    @media (max-width: 767px) {
+      .stats p {
+        font-size: 2em;
+        line-height: 2.5em; } }
   .stats p:nth-child(2) {
     font-size: 1.6em;
     line-height: 2.3em; }
-  @media (min-width: 1900px) {
+    @media (max-width: 767px) {
+      .stats p:nth-child(2) {
+        font-size: 1.2em;
+        line-height: 2.9em; } }
+  @media (min-width: 1200px) and (max-width: 1900px) {
     .stats {
-      top: -180px; } }
+      top: -60px; } }
+  @media (max-width: 767px) {
+    .stats {
+      top: -60px;
+      padding: 0;
+      width: 160px; } }
 
 #stats-txt {
   position: absolute;
