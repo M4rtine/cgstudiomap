@@ -156,7 +156,8 @@ class ResPartner(models.Model):
         # ```
         except DjangoValidationError:
             err_msg = _(
-                'The given url ("{}") is not correct.'.format(url)
+                'The given url ("{}") is not correct.'
+                '\nDoes it starts with "http://"?'.format(url)
             )
             raise ValidationError(err_msg)
 
