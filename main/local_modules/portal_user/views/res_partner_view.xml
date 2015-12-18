@@ -71,9 +71,9 @@
                 <button name="schedule_meeting" position="attributes">
                     <attribute name="groups">base.group_system</attribute>
                 </button>
-                <button name="%(crm.crm_case_categ_phone_incoming0)d" position="attributes">
-                    <attribute name="groups">base.group_system</attribute>
-                </button>
+                <!--<button name="%(crm.crm_case_categ_phone_incoming0)d" position="attributes">-->
+                    <!--<attribute name="groups">base.group_system</attribute>-->
+                <!--</button>-->
                 <field name="partner_latitude" position="attributes">
                     <attribute name="groups">base.group_system</attribute>
                 </field>
