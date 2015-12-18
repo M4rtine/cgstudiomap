@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <!--Disbaled to be able to release code online for now.-->
-        <record id="directory" model="website.menu">
-            <field name="name">Directory</field>
-            <field name="url">/directory</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="user_logged" eval="False"/>
-            <field name="user_not_logged" eval="False"/>
-            <field name="sequence" type="int">20</field>
-        </record>
-        <record id="directory_map" model="website.menu">
-            <field name="name">Map</field>
-            <field name="url">/directory/map</field>
-            <field name="user_logged" eval="False"/>
-            <field name="user_not_logged" eval="False"/>
-            <field name="parent_id" ref="frontend.directory"/>
-            <field name="sequence" type="int">1</field>
-        </record>
-        <record id="directory_list" model="website.menu">
-            <field name="name">List</field>
-            <field name="url">/directory/list</field>
-            <field name="user_logged" eval="False"/>
-            <field name="user_not_logged" eval="False"/>
-            <field name="parent_id" ref="frontend.directory"/>
-            <field name="sequence" type="int">10</field>
-        </record>
-
         <template id="frontend.partner" name="Frontend: partner" page="True">
             <t t-call="website.layout">
                 <div class="modal-content" style="margin:30px">
@@ -113,43 +87,7 @@
             </t>
         </template>
 
-        <template id="frontend.search" name="Search hidden fields">
-            <form t-att-action="keep('/directory', search=0)" method="get" t-att-class="search_class">
 
-                <t t-if="attrib_values">
-                    <t t-foreach="attrib_values" t-as="a">
-                        <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])"/>
-                    </t>
-                </t>
-                <div class="input-group">
-                    <input type="text" name="search" class="search-query form-control" placeholder="Search..." t-att-value="search"/>
-                    <span class="input-group-btn">
-                        <a class="btn btn-default a-submit"><i class="fa fa-search"/></a>
-                    </span>
-                </div>
-
-            </form>
-            <a href="/web/signup">Sign up for more options. It is free!</a>
-        </template>
-
-        <template id="frontend.partners" name="Base for Partners">
-            <t t-call="website.layout">
-                <t t-set="additional_title">Directory</t>
-                <div id="wrap" class="js_sale">
-                    <div class="oe_structure"/>
-                    <div class="container oe_website_sale">
-                        <div class="products_pager">
-                            <div class="row" style="width: 100%;">
-                                <t t-call="frontend.search"><t t-set="search_class">pagination form-inline col-md-3</t></t>
-                                <t t-call="website.pager"/>
-                            </div>
-                        </div>
-                        <t t-raw="0"/>
-                    </div>
-                    <div class="oe_structure mb32"/>
-                </div>
-            </t>
-        </template>
 
         <template id="frontend.kanban_partners" name="Kanban Partners">
             <t t-call="frontend.partners">
@@ -172,22 +110,6 @@
             </t>
         </template>
 
-        <template id="frontend.map_partners" name="map Partners">
-            <t t-call="frontend.partners">
-                <div id="map">MAP</div>
-
-
-<script>
-
-var map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: -34.397, lng: 150.644},
-  zoom: 8
-});
-
-    </script>
-
-            </t>
-        </template>
 
         <template id="frontend.list_partners" name="list Partners">
             <t t-call="frontend.partners">

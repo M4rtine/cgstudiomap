@@ -71,7 +71,7 @@ class ResPartner(models.Model):
     @api.constrains('twitter')
     def _validate_twitter_url(self):
         """Test against the given url against RFC requirements"""
-        url = self.twitter.strip()
+        url = self.__strip_value(self.twitter)
         regex = r'https?://(www\.)?twitter\.com/\w+'
         if url:
             self._url_validation(url)
@@ -91,7 +91,7 @@ class ResPartner(models.Model):
         """Test against the given url against RFC requirements"""
         if self.linkedin:
             self._validate_social_network_url(
-                self.linkedin.strip(),
+                self.__strip_value(self.linkedin),
                 # Linkedin got its page tracking system embed in the url
                 # then the url can be followed by ?trk...
                 r'https?://(www\.)?linkedin\.com/company/[\w-]+'
@@ -103,7 +103,7 @@ class ResPartner(models.Model):
         """Test against the given url against RFC requirements"""
         if self.facebook:
             self._validate_social_network_url(
-                self.facebook.strip(),
+                self.__strip_value(self.facebook),
                 # Facebook got its page tracking system embed in the url
                 # then the url can be followed by ?fref...
                 r'https?://(www\.)?facebook\.com/[\w-]+'
@@ -114,7 +114,7 @@ class ResPartner(models.Model):
     @api.constrains('youtube')
     def _validate_youtube_url(self):
         """Check the youtube url."""
-        url = self.youtube.strip()
+        url = self.__strip_value(self.youtube)
         regex = r'https?://(www\.)?youtube\.com'
         if url:
             self._url_validation(url)
@@ -133,7 +133,7 @@ class ResPartner(models.Model):
     @api.constrains('vimeo')
     def _validate_vimeo_url(self):
         """Check the vimeo url."""
-        url = self.vimeo.strip()
+        url = self.__strip_value(self.vimeo)
         regex = r'https?://(www\.)?vimeo\.com'
         if url:
             self._url_validation(url)
@@ -153,8 +153,16 @@ class ResPartner(models.Model):
         """Test against the given url against RFC requirements"""
         if self.wikipedia:
             self._validate_social_network_url(
-                self.wikipedia.strip(),
+                self.__strip_value(self.wikipedia),
                 # Facebook got its page tracking system embed in the url
                 # then the url can be followed by ?fref...
                 r'https?://\w*\.?wikipedia.org/wiki/[\w-]+'
             )
+
+
+    def __strip_value(self, value):
+        """strip if the value is a string."""
+        if isinstance(value, basestring):
+            return value.strip()
+
+        return value

@@ -1,0 +1,52 @@
+.navbar-right {
+	.btn {
+		font-family: 'cgsm-regular';
+		font-size: 1.04em;
+		padding: 14px 24px;
+		border: 0 none;
+		font-weight: normal;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		
+		-webkit-border-radius: 2px !important;
+		-moz-border-radius: 2px !important;
+		border-radius: 2px !important;
+	}
+	.btn:focus,
+	.btn:active:focus,
+	.btn.active:focus {
+		outline: 0 none;
+	}
+	.btn-default {
+		border: 2px solid $bg;
+		color: $color-cgsm-light;
+		padding: 12px 22px;
+	}
+	.btn-default:hover,
+	.btn-default:focus,
+	.btn-default:active,
+	.btn-default.active,
+	.open > .dropdown-toggle.btn-default {
+		background: $color-cgsm-light;
+		border-color: $color-cgsm-light;
+		color: $color-cgsm-light;
+	}
+	.btn.outline {
+		background: none;
+		padding: 12px 22px;
+	}
+	#dLabel {
+		/*		font-size: 1.1em;
+		vertical-align: middle;
+		padding: 1.8em;
+		margin-top: -0.4em;
+		height: 40px;*/
+	}
+	@media (min-width: $screen-lg-min) {}
+}
+
+/******************************************************
+	https://github.com/codingd0g/push-bootstrap-button-pack/blob/master/assets/css/buttons.css
+
+	A voir
+******************************************************/

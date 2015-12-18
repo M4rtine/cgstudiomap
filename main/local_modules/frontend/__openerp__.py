@@ -39,6 +39,7 @@
         'frontend_shop',
         'frontend_base',
         'frontend_homepage',
+        'frontend_listing',
     ],
     'data': [
         'data/website_menus.xml',

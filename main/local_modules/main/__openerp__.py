@@ -51,6 +51,8 @@ Contributors
         'web_tree_image',
         'web_widget_text_markdown',
         'web_m2x_options',
+        # odoo_sentry
+        'odoo_sentry',
         # server-tools
         'auditlog',
         'disable_openerp_online',

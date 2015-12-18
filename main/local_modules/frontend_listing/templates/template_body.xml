@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--Requirements:-->
+        <!--* url-->
+        <template id="frontend_listing.pagination" name="Listing: Pagination">
+            <form t-att-action="keep(url, search=0)" method="get" t-att-class="search_class">
+                <t t-if="attrib_values">
+                    <t t-foreach="attrib_values" t-as="a">
+                        <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])"/>
+                    </t>
+                </t>
+            </form>
+        </template>
+
+        <!--Requirements:-->
+        <!--* url-->
+        <template id="frontend_listing.switch" name="Listing: switch">
+            <form t-att-action="keep(url, search=0)" method="get" t-att-class="search_class">
+                <div class="input-group">
+                    <a t-att-class=" 'active' if map_url else 'disabled' " t-att-href="map_url">Map</a>
+                    <a t-att-class=" 'active' if list_url else 'disabled' " t-att-href="list_url">List</a>
+                    <!--<input type="text" name="search" class="search-query form-control" placeholder="Search..." t-att-value="search"/>-->
+                    <!--<span class="input-group-btn">-->
+                        <!--<a class="btn btn-default a-submit"><i class="fa fa-search"/></a>-->
+                    <!--</span>-->
+                </div>
+
+            </form>
+        </template>
+
+        <!--Requirements:-->
+        <!--* url-->
+        <template id="frontend_listing.search" name="Listing: search">
+            <form t-att-action="keep(url, search=0)" method="get" t-att-class="search_class">
+                <div class="input-group">
+                    <input type="text" name="search" class="search-query form-control" placeholder="Search..." t-att-value="search"/>
+                    <span class="input-group-btn">
+                        <a class="btn btn-default a-submit"><i class="fa fa-search"/></a>
+                    </span>
+                </div>
+
+            </form>
+         </template>
+
+        <template id="frontend_listing.base" name="Base for listing of companies">
+            <t t-call="frontend_base.doctype_html"/>
+            <t t-call="frontend_base.html">
+
+                <t t-call="frontend_base.full_head"/>
+
+                <t t-call="frontend_base.body">
+                    <div class="products_pager">
+                        <div class="row" style="width: 100%;">
+                            <t t-call="frontend_listing.search">
+                                <t t-set="search_class">pagination form-inline col-md-3</t>
+                            </t>
+                        </div>
+                    </div>
+
+                    <t t-raw="0"/>
+                    <t t-call="frontend_base.footer"/>
+                    <t t-call="frontend_base.engine"/>
+                </t> <!-- closing body -->
+
+            </t> <!-- closing html -->
+        </template>
+
+
+        <template id="frontend_listing.map" name="Listing: Map">
+            <t t-call="frontend_listing.base">
+                <div id="map"></div>
+            </t>
+            <script type="text/javascript" src="/frontend_listing/static/src/lib/markerclusterer.js"></script>
+            <script type="text/javascript" src="/frontend_listing/static/src/js/google_map.js"></script>
+            <script>
+                google.maps.event.addDomListener(
+                window,
+                'load',
+                function () { initialize(<t t-raw="geoloc"/>); }
+                );
+            </script>
+        </template>
+
+        <template id="frontend_listing.list" name="Listing: List">
+            <t t-call="frontend_listing.base">
+               <table data-toggle="table" class="table">
+                    <thead>
+                        <tr>
+                            <th>Logo</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Industries</th>
+                            <th>Localtion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="partners" t-as="partner">
+                        <tr>
+                            <td>
+                                <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
+                            </td>
+                            <td>
+                            <a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
+                                <h4 t-esc="partner.name"/>
+                            </a>
+                            </td>
+                            <td><span t-esc="partner.email"/></td>
+                            <td>
+                                <t t-foreach="partner.industry_ids" t-as="ind">
+                                    <t t-call="frontend_base.industry_tag"/>
+                                </t>
+                            </td>
+                            <td>
+                                <span t-esc="partner.city"/>,
+                                <t t-if="partner.state_id">
+                                    <span t-esc="partner.state_id.name"/>,
+                                </t>
+                                <span t-esc="partner.country_id.name"/>
+                            </td>
+                        </tr>
+                        </t>
+                    </tbody>
+                </table>
+
+                <t t-call="frontend_listing.pagination">
+                    <t t-set="search_class">pagination form-inline col-md-3</t>
+                </t>
+                <t t-call="website.pager"/>
+                <t t-call="frontend_listing.switch"/>
+            </t>
+        </template>
+    </data>
+</openerp>
