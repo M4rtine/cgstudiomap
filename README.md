@@ -12,4 +12,6 @@ For more details, check our [wiki](https://github.com/cgstudiomap/cgstudiomap/wi
 
 ##### Resources:
 * [code quality](https://codeclimate.com/github/cgstudiomap/cgstudiomap)
-* [backlog](https://trello.com/b/H6VhqMMU/backlog) 
+* [codacy](https://www.codacy.com/app/kender-jr/cgstudiomap/dashboard)
+* [backlog](https://huboard.com/cgstudiomap/cgstudiomap) 
+* [Sentry](https://app.getsentry.com/cgstudiomap)
