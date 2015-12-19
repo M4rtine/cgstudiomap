@@ -154,7 +154,7 @@ class Listing(Website):
     def list(self, page=0, search='', **post):
         """Render the list of studio under a table."""
         url = self.list_url
-        partner_per_page = 20
+        partner_per_page = 100
         env = request.env
         partner_pool = env['res.partner']
         domain = partner_pool.active_companies_domain

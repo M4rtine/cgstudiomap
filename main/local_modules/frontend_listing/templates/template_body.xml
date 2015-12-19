@@ -132,10 +132,13 @@
 					</table>			
 				</div>
  				</t>
-                <t t-call="frontend_listing.pagination">
+			
+<!-- A CONFIRMER la suppression           
+					<t t-call="frontend_listing.pagination">
                     <t t-set="search_class">pagination form-inline col-md-3</t>
                 </t>
                 <t t-call="website.pager"/>
+-->
                 <t t-call="frontend_listing.switch"/>
             
         </template>
