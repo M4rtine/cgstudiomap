@@ -2,6 +2,7 @@
 import logging
 from collections import defaultdict
 
+from datadog import statsd
 from cachetools import cached, TTLCache
 from openerp.addons.web import http
 from openerp.addons.website.controllers.main import Website
@@ -18,6 +19,8 @@ cache = TTLCache(100, 10800)
 class Homepage(Website):
     """Representation of the homepage of the website."""
 
+    @statsd.timed('odoo.frontend.index.time',
+                  tags=['frontend', 'frontend:homepage'])
     @http.route('/', type='http', auth="public", website=True)
     def index(self, **kw):
         """Dispatch between homepage depending on the status of the user."""
