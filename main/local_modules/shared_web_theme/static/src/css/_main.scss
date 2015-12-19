@@ -49,8 +49,8 @@ fontCGSM {
 	@media (min-width: $screen-lg-min) {
 		height: 650px;
 	}
-	@media (max-width: $screen-big) {
-		height: 750px;
+	@media (min-width: $screen-big) {
+		height: 660px;
 	}
 	@media (min-width: $screen-sm-min) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
 		height: 384px;
