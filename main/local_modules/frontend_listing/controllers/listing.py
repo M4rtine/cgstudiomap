@@ -149,12 +149,10 @@ class Listing(Website):
 
         return request.website.render("frontend_listing.map", values)
 
-    @http.route([list_url, '{}/page/<int:page>'.format(list_url),
-                 ], type='http', auth="public", website=True)
+    @http.route(list_url, type='http', auth="public", website=True)
     def list(self, page=0, search='', **post):
         """Render the list of studio under a table."""
         url = self.list_url
-        partner_per_page = 100
         env = request.env
         partner_pool = env['res.partner']
         domain = partner_pool.active_companies_domain
@@ -168,31 +166,17 @@ class Listing(Website):
         if search:
             post["search"] = search
 
-        partner_count = partner_pool.search_count(domain)
-        pager = request.website.pager(
-            url=url,
-            total=partner_count,
-            page=page,
-            step=partner_per_page,
-            scope=7,
-            url_args=post
-        )
-
-        partners = partner_pool.search(
-            domain,
-            limit=partner_per_page,
-            offset=pager['offset'],
-        )
+        partners = partner_pool.search(domain)
         _logger.debug('search: %s', search)
         safe_search = search.replace(' ', '+')
         values = {
             'search': search,
-            'pager': pager,
             'partners': partners,
             'rows': PPR,
             'keep': keep,
             'map_url': '{}{}'.format(
-                self.map_url, safe_search and '?search={}'.format(safe_search) or ''
+                self.map_url,
+                safe_search and '?search={}'.format(safe_search) or ''
             )
         }
 

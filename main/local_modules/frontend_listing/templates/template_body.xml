@@ -3,18 +3,6 @@
     <data>
         <!--Requirements:-->
         <!--* url-->
-        <template id="frontend_listing.pagination" name="Listing: Pagination">
-            <form t-att-action="keep(url, search=0)" method="get" t-att-class="search_class">
-                <t t-if="attrib_values">
-                    <t t-foreach="attrib_values" t-as="a">
-                        <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])"/>
-                    </t>
-                </t>
-            </form>
-        </template>
-
-        <!--Requirements:-->
-        <!--* url-->
         <template id="frontend_listing.switch" name="Listing: switch">
             <form t-att-action="keep(url, search=0)" method="get" t-att-class="search_class">
                 <div class="input-group">
@@ -92,14 +80,21 @@
 					
 					
 					
-				   <table id="table" data-toggle="table" data-toolbar="#toolbar" data-search="true" data-show-pagination-switch="true" data-pagination="true" data-show-footer="false" data-response-handler="responseHandler">
+				   <table id="table"
+                          data-toggle="table"
+                          data-toolbar="#toolbar"
+                          data-search="true"
+                          data-show-pagination-switch="true"
+                          data-pagination="true"
+                          data-show-footer="false"
+                          data-response-handler="responseHandler">
 						<thead>
 							<tr>
 								<th>Logo</th>
 								<th>Name</th>
 								<th>Email</th>
 								<th>Industries</th>
-								<th>Localtion</th>
+								<th>Location</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -109,7 +104,7 @@
 									<img itemprop="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image_small')" />
 								</td>
 								<td>
-								<a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
+								<a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner))">
 									<h4 t-esc="partner.name"/>
 								</a>
 								</td>
@@ -133,12 +128,6 @@
 				</div>
  				</t>
 			
-<!-- A CONFIRMER la suppression           
-					<t t-call="frontend_listing.pagination">
-                    <t t-set="search_class">pagination form-inline col-md-3</t>
-                </t>
-                <t t-call="website.pager"/>
--->
                 <t t-call="frontend_listing.switch"/>
             
         </template>
