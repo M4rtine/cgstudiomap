@@ -6386,9 +6386,9 @@ fontCGSM {
   @media (min-width: 1200px) {
     #container-map {
       height: 650px; } }
-  @media (max-width: 1900px) {
+  @media (min-width: 1900px) {
     #container-map {
-      height: 750px; } }
+      height: 660px; } }
   @media (min-width: 768px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
     #container-map {
       height: 384px; } }
