@@ -6731,9 +6731,6 @@ fontCGSM {
   pointer-events: none;
   z-index: 20; }
 
-/**/
-/*@import "_flatify";
-@import "_homepage";*/
 /*
 body {
   overflow: scroll;
