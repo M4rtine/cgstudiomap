@@ -21,9 +21,13 @@
 							<button id="dLabel" class="btn btn-default outline" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">JOIN</button>
 
 						  <ul class="dropdown-menu" aria-labelledby="dLabel">
-								<li groups="base.group_public"><a t-attf-href="/web/login">Sign in</a></li>
-                                <li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>
-                                <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
+                              <li groups="base.group_public"><a t-attf-href="/web/signup"><h4>Sign up</h4></a></li>
+                              <li groups="base.group_public" class="divider"/>
+                              <!--<li groups="base.group_public">Already have an account?</li>-->
+                              <li groups="base.group_public"><a t-attf-href="/web/login">or <b>Sign in</b></a></li>
+
+                              <li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>
+                              <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
 						  </ul>
 						</div>	
 
@@ -35,11 +39,9 @@
 							
 							<li role="separator" class="divider visible-xs-inline"></li>
 							<div class="visible-xs-inline">
-								<li groups="base.group_public">
-									<a t-attf-href="/web/login">
-										<b>Sign in</b>
-									</a>
-								</li>
+								<li groups="base.group_public"><a t-attf-href="/web/signup"><h2>Sign up</h2></a></li>
+                                <li groups="base.group_public" class="divider"/>
+                                <li groups="base.group_public"><a t-attf-href="/web/login"><b>Sign in</b></a></li>
                                 <li t-ignore="true" t-if="website.user_id != user_id"><a t-att-href="user_menu" role="menuitem">My Account</a></li>
                                 <li t-ignore="true" t-if="website.user_id != user_id" class="divider"/>
                                 <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
