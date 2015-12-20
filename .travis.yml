@@ -31,10 +31,11 @@ virtualenv:
 
 install:
   - pip install coveralls
-
+  - pip install pylint
 
 script:
   - ./main/bin/start_odoo --stop-after-init -d travis -r travis -i main --test-enable
+
 
 after_success:
   - coveralls
