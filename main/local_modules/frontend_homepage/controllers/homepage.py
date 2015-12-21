@@ -2,7 +2,8 @@
 import logging
 from collections import defaultdict
 
-from cachetools import cached, TTLCache
+from cachetools import cached
+from openerp.addons.frontend_base.models.caches import caches
 from openerp.addons.web import http
 from openerp.addons.website.controllers.main import Website
 
@@ -10,9 +11,7 @@ from openerp.http import request
 
 _logger = logging.getLogger(__name__)
 
-# Cache of 3hours
-# The decorated method are refreshed every 3hours.
-cache = TTLCache(100, 10800)
+cache = caches.get('cache_3h')
 
 
 class Homepage(Website):

@@ -2,15 +2,14 @@
 import logging
 from cachetools import cached, TTLCache
 from openerp.addons.web import http
+from openerp.addons.frontend_base.models.caches import caches
 from openerp.addons.website.controllers.main import Website
 import simplejson
 from openerp.http import request, werkzeug
 
 _logger = logging.getLogger(__name__)
 
-# Cache of 3hours
-# The decorated method are refreshed every 1hour.
-cache = TTLCache(100, 3600)
+cache = caches.get('cache_1h')
 
 PPR = 4  # Products Per Row
 

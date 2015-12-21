@@ -3,10 +3,11 @@
 import logging
 import random
 
+from caches import clear_caches
 from openerp import api, models
 
 _logger = logging.getLogger(__name__)
-
+_logger.setLevel(logging.DEBUG)
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
@@ -107,3 +108,16 @@ class ResPartner(models.Model):
             'cgstudiomap is in the most popular studio list'
         )
         return random.sample(partners, min(len(partners), sample_))
+
+    @api.multi
+    def write(self, vals):
+        """Force to clear caches when a partner is updated."""
+        clear_caches()
+        return super(ResPartner, self).write(vals)
+
+    @api.model
+    def create(self, vals):
+        """Force to clear caches when a new partner is created."""
+        clear_caches()
+        return super(ResPartner, self).create(vals)
+
