@@ -49,7 +49,7 @@ class Listing(Website):
         """Wrapper to be able to cache the result of a search in the
         partner_pool
         """
-        domain = partner_pool.active_companies_domain
+        domain = partner_pool.open_companies_domain
         if search:
             domain.extend(partner_pool.search_domain(search))
         _logger.debug('Domain: %s', domain)
