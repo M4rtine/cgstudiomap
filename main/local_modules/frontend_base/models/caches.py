@@ -3,7 +3,6 @@ import logging
 from cachetools import TTLCache
 
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
 
 # caches are named after the length of their cycle.
 # cache_1h is automatically cleared every hour, etc.
