@@ -6,6 +6,7 @@
 				<script src="/frontend_listing/static/src/lib/bootstrap-table.js"></script>
 				<script src="/frontend_listing/static/src/lib/bootstrap-table-locale-all.js"></script>
 				<script src="/frontend_listing/static/src/lib/bootstrap-table-mobile.js"></script>
+                <script src="/frontend_listing/static/src/js/snazzy_theme.js"></script>
 				<script src="/frontend_listing/static/src/js/directory.js"></script>
                 <script src="https://maps.googleapis.com/maps/api/js"></script>
 				
