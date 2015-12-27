@@ -1,8 +1,8 @@
 /**
  * Script to manage the map displayed to list companies
  * Created by foutoucour on 12/10/15.
+ * The theme of the map is loaded from `snazzy_theme.py` file.
  */
-
 
 function initialize(geoloc) {
     //To center map on markers
@@ -39,145 +39,6 @@ function initialize(geoloc) {
     var mc = new MarkerClusterer(map, markers);
     //now fit the map to the newly inclusive bounds
     map.fitBounds(bounds);
-
-    //https://snazzymaps.com/style/13113/custom-applesque-theme
-    var styles_applesque = [
-        {
-            "featureType": "landscape.man_made",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "color": "#f7f1df"
-                }
-            ]
-        },
-        {
-            "featureType": "landscape.natural",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "color": "#f7f1df"
-                }
-            ]
-        },
-        {
-            "featureType": "landscape.natural.terrain",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.business",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.medical",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "color": "#fbd3da"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.park",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "color": "#bde6ab"
-                }
-            ]
-        },
-        {
-            "featureType": "road",
-            "elementType": "geometry.stroke",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "color": "#ffe15f"
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "geometry.stroke",
-            "stylers": [
-                {
-                    "color": "#efd151"
-                }
-            ]
-        },
-        {
-            "featureType": "road.arterial",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "color": "#ffffff"
-                }
-            ]
-        },
-        {
-            "featureType": "road.local",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "color": "black"
-                }
-            ]
-        },
-        {
-            "featureType": "transit.station.airport",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "color": "#cfb2db"
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "color": "#a2daf2"
-                }
-            ]
-        }
-    ];
-    map.setOptions({styles: styles_applesque});
+    map.setOptions({styles: snazzy_theme()});
 }
 
