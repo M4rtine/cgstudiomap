@@ -2,11 +2,11 @@
 import logging
 
 import simplejson
-from cachetools import cached, TTLCache
 from datadog import statsd
-from openerp.addons.web import http
 from openerp.addons.frontend_base.models.caches import caches
+from openerp.addons.web import http
 from openerp.addons.website.controllers.main import Website
+from openerp.addons.website.models.website import slug, hashlib
 
 from openerp.http import request, werkzeug
 
@@ -37,13 +37,25 @@ class QueryURL(object):
         return path
 
 
+def image_url(record, field, size=None):
+    """Returns a local url that points to the image field of a given browse record."""
+    model = record._name
+    sudo_record = record.sudo()
+    id_ = '%s_%s' % (
+        record.id,
+        hashlib.sha1(
+            sudo_record.write_date or sudo_record.create_date or ''
+        ).hexdigest()[0:7]
+    )
+    size = '' if size is None else '/%s' % size
+    return '/website/image/%s/%s/%s%s' % (model, id_, field, size)
+
 class Listing(Website):
     """Representation of the page listing companies."""
 
     map_url = '/directory/map'
     list_url = '/directory/list'
 
-    @cached(cache)
     def get_partners(self, partner_pool, search=''):
         """Wrapper to be able to cache the result of a search in the
         partner_pool
@@ -53,6 +65,47 @@ class Listing(Website):
             domain.extend(partner_pool.search_domain(search))
         _logger.debug('Domain: %s', domain)
         return partner_pool.search(domain)
+
+    @statsd.timed('odoo.frontend.ajax.get_partner',
+                  tags=['frontend', 'frontend:listing', 'ajax'])
+    @http.route('/directory/get_partners',
+                type='http', auth="public", methods=['POST'], website=True)
+    def get_partner_json(self, search=''):
+        """Return a json with the partner matching the search
+
+        :param str search: search to filter with
+        :return: json dumps
+        """
+        partners = self.get_partners(request.env['res.partner'], search=search)
+        details = simplejson.dumps(
+            [
+                {
+                    'logo': '<img itemprop="image" '
+                            'class="img img-responsive" '
+                            'src="{0}"'
+                            '/>'.format(image_url(partner, 'image_small')),
+                    'name': '<a href="/directory/company/{0}">'
+                            '{1}</a>'.format(
+                        slug(partner), partner.name.encode('utf-8')
+                    ),
+                    'email': partner.email or '',
+                    'industries': ' '.join([
+                        '<span class="label '
+                        'label-info">{0}</span>'.format(ind.name)
+                        for ind in partner.industry_ids
+                    ]),
+                    'location': ''.join([
+                        partner.city and '{0}, '.format(
+                            partner.city.encode('utf-8')) or '',
+                        partner.state_id and '{0}, '.format(
+                            partner.state_id.name.encode('utf-8')) or '',
+                        '{0}'.format(partner.country_id.name.encode('utf-8')),
+                    ])
+                }
+                for partner in partners
+            ],
+        )
+        return details
 
     @statsd.timed('odoo.frontend.list.time',
                   tags=['frontend', 'frontend:listing'])
@@ -74,7 +127,7 @@ class Listing(Website):
                     partner.name
                 ]
                 for partner in partners
-            }
+                }
         )
         safe_search = search.replace(' ', '+')
         _logger.debug(geoloc)
@@ -91,7 +144,8 @@ class Listing(Website):
 
         return request.website.render("frontend_listing.map", values)
 
-    @statsd.timed('odoo.frontend.map.time', tags=['frontend', 'frontend:listing'])
+    @statsd.timed('odoo.frontend.map.time',
+                  tags=['frontend', 'frontend:listing'])
     @http.route(list_url, type='http', auth="public", website=True)
     def list(self, page=0, search='', **post):
         """Render the list of studio under a table."""
@@ -102,12 +156,12 @@ class Listing(Website):
         if search:
             post["search"] = search
 
-        partners = self.get_partners(request.env['res.partner'], search=search)
+        # partners = self.get_partners(request.env['res.partner'], search=search)
         _logger.debug('search: %s', search)
         safe_search = search.replace(' ', '+')
         values = {
             'search': search,
-            'partners': partners,
+            # 'partners': partners,
             'keep': keep,
             'map_url': '{}{}'.format(
                 self.map_url,

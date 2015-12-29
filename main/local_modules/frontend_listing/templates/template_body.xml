@@ -102,54 +102,24 @@
         <template id="frontend_listing.list" name="Listing: List">
             <t t-call="frontend_listing.base">
 				<div class="jumbotron fontCGSM">
-					
-					<h1>Bootstrap Table Examples</h1>
 					<div id="toolbar">
-					</div>					
-					
-				   <table  id="table" data-toggle="table" data-toolbar="#toolbar" data-mobile-responsive="true" data-check-on-init="true">
-						<thead>
-							<tr>
-								<th><span class="hidden-xs">Logo</span></th>
-								<th data-sortable="true"><span class="hidden-xs">Name</span></th>
-								<th>Email</th>
-								<th>Industries</th>
-								<th data-sortable="true">Location</th>
-							</tr>
-						</thead>
-						<tbody>
-							<t t-foreach="partners" t-as="partner">
-							<tr>
-								<td>
-									<img itemprop="image" class="img img-responsive hidden-xs" t-att-src="website.image_url(partner, 'image_small')" />
-								</td>
-								<td>
-								<a itemprop="name" t-att-href="keep('/directory/company/%s' % slug(partner))">
-									<h4 t-esc="partner.name"/>
-								</a>
-								</td>
-								<td><span t-esc="partner.email"/></td>
-								<td>
-									<t t-foreach="partner.industry_ids" t-as="ind">
-										<t t-call="frontend_base.industry_tag"/>
-									</t>
-								</td>
-								<td>
-									<span t-esc="partner.city"/>,
-									<t t-if="partner.state_id">
-										<span t-esc="partner.state_id.name"/>,
-									</t>
-									<span t-esc="partner.country_id.name"/>
-								</td>
-							</tr>
-							</t>
-						</tbody>
-					</table>			
+					</div>
+
+                    <table id="table"
+                           data-toolbar="#toolbar"
+                           data-mobile-responsive="true"
+                           data-check-on-init="true">
+                    </table>
 				</div>
- 				</t>
-			
-                <t t-call="frontend_listing.switch"/>
-            
+            </t>
+            <t t-call="frontend_listing.switch"/>
+
+            <script type="text/javascript">
+                bootstrap_table_ajax('<t t-esc="search"/>')
+            </script>
+
+
+
         </template>
     </data>
 </openerp>
