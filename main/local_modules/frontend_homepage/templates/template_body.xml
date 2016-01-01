@@ -203,6 +203,8 @@
                         <script type="text/javascript">
                             geo_chart(<t t-esc="geochart_data"/>, 'geochart_target');
                         </script>
+						<t t-call="frontend_base.company_counter_js"/>
+						<t t-call="frontend_base.user_counter_js"/>
                     </t>
 
                 </t> <!-- closing body -->

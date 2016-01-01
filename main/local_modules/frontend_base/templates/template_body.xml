@@ -132,11 +132,11 @@
         <!--To pass a constant value like a string: <t t-set="type">My Type</t>-->
         <!--This way, odoo won't consider the given value as a variable.-->
         <template id="frontend_base.counter" name="Counter">
-                <div id="stats-bg-svg"></div>
-                <span id="stats-txt">
-                    <p><t t-esc="nbr"/></p>
-                    <p><t t-esc="type"/></p>
-                </span>
+            <div id="stats-bg-svg"></div>
+            <span id="stats-txt">
+                <p t-att-id="target"/>
+                <p><t t-esc="type"/></p>
+            </span>
         </template>
 
 
@@ -149,7 +149,14 @@
         <!--<t t-call="frontend_base.company_counter"/>-->
         <template id="frontend_base.company_counter" name="Company Counter">
             <t t-set="type">Companies</t>
+            <t t-set="target">count_partners</t>
             <t t-call="frontend_base.counter"/>
+        </template>
+
+        <template id="frontend_base.company_counter_js" name="Company Counter JS">
+            <script>
+                get_company_count_ajax("<t t-raw="search"/>", "<t t-raw="company_status"/>", '#count_partners')
+            </script>
         </template>
 
         <!--Template for the counter of users-->
@@ -161,7 +168,14 @@
         <!--<t t-call="frontend_base.user_counter"/>-->
         <template id="frontend_base.user_counter" name="User Counter">
             <t t-set="type">Happy Users</t>
+            <t t-set="target">count_users</t>
             <t t-call="frontend_base.counter"/>
+        </template>
+
+        <template id="frontend_base.user_counter_js" name="User Counter JS">
+            <script>
+                get_user_count_ajax('#count_users')
+            </script>
         </template>
 
         <!--Represent an industry tag for companies.-->
