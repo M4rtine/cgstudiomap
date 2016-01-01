@@ -5,7 +5,7 @@ import simplejson
 from datadog import statsd
 from openerp.addons.frontend_base.models.caches import caches
 from openerp.addons.web import http
-from openerp.addons.website.controllers.main import Website
+from openerp.addons.frontend_base.controllers.base import Base
 from openerp.addons.website.models.website import slug, hashlib
 
 from openerp.http import request, werkzeug
@@ -50,33 +50,35 @@ def image_url(record, field, size=None):
     size = '' if size is None else '/%s' % size
     return '/website/image/%s/%s/%s%s' % (model, id_, field, size)
 
-class Listing(Website):
+class Listing(Base):
     """Representation of the page listing companies."""
 
     map_url = '/directory/map'
     list_url = '/directory/list'
 
-    def get_partners(self, partner_pool, search=''):
+    def get_partners(self, partner_pool, search='', company_status='open'):
         """Wrapper to be able to cache the result of a search in the
         partner_pool
         """
-        domain = partner_pool.open_companies_domain
-        if search:
-            domain.extend(partner_pool.search_domain(search))
-        _logger.debug('Domain: %s', domain)
-        return partner_pool.search(domain)
+        return partner_pool.search(
+            self.get_company_domain(search, company_status)
+        )
 
     @statsd.timed('odoo.frontend.ajax.get_partner',
                   tags=['frontend', 'frontend:listing', 'ajax'])
     @http.route('/directory/get_partners',
                 type='http', auth="public", methods=['POST'], website=True)
-    def get_partner_json(self, search=''):
+    def get_partner_json(self, search='', company_status='open'):
         """Return a json with the partner matching the search
 
         :param str search: search to filter with
         :return: json dumps
         """
-        partners = self.get_partners(request.env['res.partner'], search=search)
+        partners = self.get_partners(
+            request.env['res.partner'],
+            search=search,
+            company_status=company_status
+        )
         details = simplejson.dumps(
             [
                 {
@@ -110,7 +112,7 @@ class Listing(Website):
     @statsd.timed('odoo.frontend.list.time',
                   tags=['frontend', 'frontend:listing'])
     @http.route(map_url, type='http', auth="public", website=True)
-    def map(self, search='', **post):
+    def map(self, company_status='open', search='', **post):
         """Render the list of studio under a map."""
         url = self.map_url
         keep = QueryURL(url, search=search)
@@ -134,6 +136,7 @@ class Listing(Website):
         values = {
             'geoloc': geoloc,
             'search': search,
+            'company_status': company_status,
             'partners': partners,
             'keep': keep,
             'list_url': '{}{}'.format(
@@ -147,7 +150,7 @@ class Listing(Website):
     @statsd.timed('odoo.frontend.map.time',
                   tags=['frontend', 'frontend:listing'])
     @http.route(list_url, type='http', auth="public", website=True)
-    def list(self, page=0, search='', **post):
+    def list(self, company_status='open', page=0, search='', **post):
         """Render the list of studio under a table."""
         url = self.list_url
 
@@ -161,7 +164,7 @@ class Listing(Website):
         safe_search = search.replace(' ', '+')
         values = {
             'search': search,
-            # 'partners': partners,
+            'company_status': company_status,
             'keep': keep,
             'map_url': '{}{}'.format(
                 self.map_url,

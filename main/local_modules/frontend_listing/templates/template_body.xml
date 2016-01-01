@@ -74,10 +74,17 @@
                             </t>
                         </div>
                     </div>
+                    <t t-call="frontend_listing.switch"/>
+                    <div class="stats stat-right fontCGSM">
+                        <t t-set="nbr" t-value="nbr_companies"/>
+                        <t t-call="frontend_base.company_counter" />
+                    </div>
 
                     <t t-raw="0"/>
                     <t t-call="frontend_listing.footer"/>
-                    <t t-call="frontend_base.engine"/>
+                    <t t-call="frontend_base.engine">
+                        <t t-call="frontend_base.company_counter_js"/>
+                    </t>
                 </t> <!-- closing body -->
 
             </t> <!-- closing html -->
@@ -112,10 +119,9 @@
                     </table>
 				</div>
             </t>
-            <t t-call="frontend_listing.switch"/>
 
             <script type="text/javascript">
-                bootstrap_table_ajax('<t t-esc="search"/>')
+                bootstrap_table_ajax('<t t-esc="search"/>', '<t t-raw="company_status"/>')
             </script>
 
 
