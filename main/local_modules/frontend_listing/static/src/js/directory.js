@@ -1,8 +1,8 @@
-function bootstrap_table_ajax(search) {
+function bootstrap_table_ajax(search, status) {
     $.ajax({
         type: "post",
         url: "/directory/get_partners",
-        data: {search: search},
+        data: {search: search, company_status: status},
         success: function (response) {
             var data = JSON.parse(response);
             $('table').bootstrapTable({
