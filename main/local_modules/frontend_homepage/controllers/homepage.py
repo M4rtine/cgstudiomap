@@ -64,7 +64,6 @@ class Homepage(Website):
         _logger.debug('index_public_user')
         page = 'homepage'
         env = request.env
-        user_pool = env['res.users']
         partner_pool = env['res.partner']
         # optimisation as it is used in get_partners_by_country
         by_countries = get_partners_by_country(
@@ -72,12 +71,12 @@ class Homepage(Website):
 
         values = {
             'page': page,
+            'search': '',
+            'company_status': 'active',
             'geochart_data': [['Country', 'Popularity']] + [
                 [str(country.name), int(value)]
                 for country, value in by_countries.items()
             ],
-            'nbr_companies': partner_pool.get_number_active_companies(),
-            'nbr_users': user_pool.get_number_active_users(),
             'partners': partner_pool.get_most_popular_studios(8),
         }
         return request.render('frontend_homepage.homepage', values)
