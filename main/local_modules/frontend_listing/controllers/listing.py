@@ -87,15 +87,12 @@ class Listing(Base):
                             'src="{0}"'
                             '/>'.format(image_url(partner, 'image_small')),
 
-                    'name': '<a href="/web#id={0.id}&view_type=form'
-                            '&model=res.partner">{1}</a>'.format(
-                        partner, partner.name.encode('utf-8')
+                    'name': '<a href="{0}">{1}</a>'.format(
+                        partner.partner_url, partner.name.encode('utf-8')
                     ),
                     'email': partner.email or '',
                     'industries': ' '.join([
-                        '<span class="label '
-                        'label-info">{0}</span>'.format(ind.name)
-                        for ind in partner.industry_ids
+                        ind.tag_url for ind in partner.industry_ids
                     ]),
                     'location': ''.join([
                         partner.city and '{0}, '.format(
