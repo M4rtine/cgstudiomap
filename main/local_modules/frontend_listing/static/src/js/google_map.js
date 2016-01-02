@@ -16,7 +16,7 @@ function initialize(geoloc) {
 
     var markers = [];
     jQuery.each(geoloc, function (i, val) {
-        var contentString = '<div id="content">' + i + '</div>';
+        var contentString = '<div id="content">' + val[2] + '</div>';
 
         var infowindow = new google.maps.InfoWindow({
             content: contentString

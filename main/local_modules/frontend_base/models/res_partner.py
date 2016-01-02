@@ -125,7 +125,34 @@ class ResPartner(models.Model):
 
     @api.one
     def partner_url_link(self):
+        """Return the link to the page of the current partner."""
         self.partner_url = (
             '/web#id={0}&view_type=form&model=res.partner'.format(self.id)
         )
 
+    info_window = fields.Char('Info Window', compute='info_window_code')
+
+    @api.one
+    def info_window_code(self):
+        title = '<div id="map_info_header"><h4>{0.name}</h4></div>'
+        body = '<div id="map_info_content">'
+        body += '<p>{0.location}</p>'
+        body += ' '.join([ind.tag_url for ind in self.industry_ids])
+        body += '</div>'
+        footer = '<div id="map_info_footer"><a href="{0.partner_url}">More ...</a></div>'
+        msg = (title + body + footer).format(
+            self
+        )
+        self.info_window = msg.encode('utf-8')
+
+    location = fields.Char('Location', compute='location_code')
+
+    @api.one
+    def location_code(self):
+        """Return the concatenation of city, state and country."""
+        self.location = ''.join([
+            self.city and '{0}, '.format(self.city.encode('utf-8')) or '',
+            self.state_id and '{0}, '.format(
+                self.state_id.name.encode('utf-8')) or '',
+            '{0}'.format(self.country_id.name.encode('utf-8')),
+        ])

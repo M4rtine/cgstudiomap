@@ -6309,7 +6309,9 @@ a {
   position: absolute;
   bottom: 0;
   width: 100%; }
-  #map_info_footer button, #map_info_footer .openerp .oe_button, .openerp #map_info_footer .oe_button {
+  #map_info_footer button,
+  #map_info_footer a,
+  #map_info_footer .openerp .oe_button, .openerp #map_info_footer .oe_button {
     border: 0;
     background-color: #5ae2b0;
     color: #f1f1f3;
