@@ -4,10 +4,10 @@ import logging
 import random
 
 from caches import clear_caches
-from openerp import api, models
+from openerp import api, models, fields
 
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
+
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
@@ -120,4 +120,12 @@ class ResPartner(models.Model):
         """Force to clear caches when a new partner is created."""
         clear_caches()
         return super(ResPartner, self).create(vals)
+
+    partner_url = fields.Char('Partner url', compute='partner_url_link')
+
+    @api.one
+    def partner_url_link(self):
+        self.partner_url = (
+            '/web#id={0}&view_type=form&model=res.partner'.format(self.id)
+        )
 
