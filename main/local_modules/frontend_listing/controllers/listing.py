@@ -53,7 +53,7 @@ def image_url(record, field, size=None):
 class Listing(Base):
     """Representation of the page listing companies."""
 
-    map_url = '/directory/map'
+    map_url = '/directory'
     list_url = '/directory/list'
 
     def get_partners(self, partner_pool, search='', company_status='open'):
@@ -86,9 +86,10 @@ class Listing(Base):
                             'class="img img-responsive" '
                             'src="{0}"'
                             '/>'.format(image_url(partner, 'image_small')),
-                    'name': '<a href="/directory/company/{0}">'
-                            '{1}</a>'.format(
-                        slug(partner), partner.name.encode('utf-8')
+
+                    'name': '<a href="/web#id={0.id}&view_type=form'
+                            '&model=res.partner">{1}</a>'.format(
+                        partner, partner.name.encode('utf-8')
                     ),
                     'email': partner.email or '',
                     'industries': ' '.join([
