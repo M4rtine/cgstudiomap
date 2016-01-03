@@ -3,6 +3,11 @@ function bootstrap_table_ajax(search, status) {
         type: "post",
         url: "/directory/get_partners",
         data: {search: search, company_status: status},
+
+        complete: function(){
+            $('#loading-image').hide();
+        },
+
         success: function (response) {
             var data = JSON.parse(response);
             $('table').bootstrapTable({

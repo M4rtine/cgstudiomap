@@ -111,7 +111,10 @@
 				<div class="jumbotron fontCGSM">
 					<div id="toolbar">
 					</div>
-
+                    <div id="loading-image">
+                        <img src="/frontend_base/static/ajax-loader.gif"
+                             alt="Loading... please wait"/>
+                    </div>
                     <table id="table"
                            data-toolbar="#toolbar"
                            data-mobile-responsive="true"
