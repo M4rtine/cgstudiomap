@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 import logging
+import pprint
 
 import simplejson
 from datadog import statsd
+from openerp.addons.frontend_base.controllers.base import Base
 from openerp.addons.frontend_base.models.caches import caches
 from openerp.addons.web import http
-from openerp.addons.frontend_base.controllers.base import Base
-from openerp.addons.website.models.website import slug, hashlib
+from openerp.addons.website.models.website import hashlib
 
 from openerp.http import request, werkzeug
 
 _logger = logging.getLogger(__name__)
-
 cache = caches.get('cache_1h')
 
 
@@ -50,6 +50,7 @@ def image_url(record, field, size=None):
     size = '' if size is None else '/%s' % size
     return '/website/image/%s/%s/%s%s' % (model, id_, field, size)
 
+
 class Listing(Base):
     """Representation of the page listing companies."""
 
@@ -74,11 +75,15 @@ class Listing(Base):
         :param str search: search to filter with
         :return: json dumps
         """
+        _logger.debug('search: %s', search)
+        _logger.debug('company_status: %s', company_status)
         partners = self.get_partners(
             request.env['res.partner'],
             search=search,
             company_status=company_status
         )
+        _logger.debug('partners: %s', pprint.pformat(partners))
+
         details = simplejson.dumps(
             [
                 {
@@ -86,28 +91,19 @@ class Listing(Base):
                             'class="img img-responsive" '
                             'src="{0}"'
                             '/>'.format(image_url(partner, 'image_small')),
-
-                    'name': '<a href="/web#id={0.id}&view_type=form'
-                            '&model=res.partner">{1}</a>'.format(
+                    'name': '<a href="{0.partner_url}">{1}</a>'.format(
                         partner, partner.name.encode('utf-8')
                     ),
                     'email': partner.email or '',
-                    'industries': ' '.join([
-                        '<span class="label '
-                        'label-info">{0}</span>'.format(ind.name)
-                        for ind in partner.industry_ids
-                    ]),
-                    'location': ''.join([
-                        partner.city and '{0}, '.format(
-                            partner.city.encode('utf-8')) or '',
-                        partner.state_id and '{0}, '.format(
-                            partner.state_id.name.encode('utf-8')) or '',
-                        '{0}'.format(partner.country_id.name.encode('utf-8')),
-                    ])
+                    'industries': ' '.join(
+                        [ind.tag_url for ind in partner.industry_ids]
+                    ),
+                    'location': partner.location,
                 }
                 for partner in partners
             ],
         )
+        _logger.debug('details: %s', details)
         return details
 
     @statsd.timed('odoo.frontend.list.time',
@@ -122,12 +118,13 @@ class Listing(Base):
             post["search"] = search
 
         partners = self.get_partners(request.env['res.partner'], search=search)
+
         geoloc = simplejson.dumps(
             {
-                partner.name: [
+                partner.id: [
                     partner.partner_latitude,
                     partner.partner_longitude,
-                    partner.name
+                    partner.info_window,
                 ]
                 for partner in partners
                 }
