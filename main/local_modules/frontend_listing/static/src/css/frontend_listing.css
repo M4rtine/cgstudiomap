@@ -10,7 +10,6 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 80px;
-  overflow-y: hidden;
   background-color: #F2F2F2;
   color: #323133; }
 
