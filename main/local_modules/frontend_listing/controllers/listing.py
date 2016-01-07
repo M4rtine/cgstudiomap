@@ -117,7 +117,11 @@ class Listing(Base):
         if search:
             post["search"] = search
 
-        partners = self.get_partners(request.env['res.partner'], search=search)
+        partners = self.get_partners(
+            request.env['res.partner'],
+            search=search,
+            company_status=company_status
+        )
 
         geoloc = simplejson.dumps(
             {
