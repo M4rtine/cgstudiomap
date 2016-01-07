@@ -20,9 +20,14 @@
         <!--Requirements:-->
         <!--* url-->
         <template id="frontend_listing.search" name="Listing: search">
-            <form t-att-action="keep(url, search=0)" method="get" t-att-class="search_class">
+            <form t-att-action="keep(url, search=0, company_status=company_status)" method="get" t-att-class="search_class">
                 <div class="input-group">
-                    <input type="text" name="search" class="search-query form-control" placeholder="Search..." t-att-value="search"/>
+                    <input type="text"
+                           name="search"
+                           class="search-query form-control"
+                           placeholder="Search..."
+                           t-att-value="search"/>
+                    <input type="hidden" name='company_status' t-att-value='company_status'/>
                     <span class="input-group-btn">
                         <a class="btn btn-default a-submit"><i class="fa fa-search"/></a>
                     </span>
@@ -59,6 +64,37 @@
 				</div>
 			</footer>
         </template>
+
+        <template id="frontend_listing.filters" name="Listing: Filters">
+            <div>
+                <form t-att-action="keep(url, search=search, company_status='open')" method="get" >
+                    <div class="input-group">
+                        <input type="hidden" name='company_status' value="open"/>
+                        <input type="hidden" name='search' t-att-value="search"/>
+                        <input type='submit' class="btn btn-default a-submit" value="open"/>
+                    </div>
+                </form>
+
+                <form t-att-action="keep(url, search=search, company_status=company_status)" method="get" >
+                    <div class="input-group">
+                        <input type="hidden" name='company_status' value="closed"/>
+                        <input type="hidden" name='search' t-att-value="search"/>
+                        <input type='submit' class="btn btn-default a-submit" value="closed"/>
+                    </div>
+                </form>
+
+                <form t-att-action="keep(url, search=search, company_status=company_status)" method="get" >
+                    <div class="input-group">
+                        <input type="hidden" name='company_status' value="active"/>
+                        <input type="hidden" name='search' t-att-value="search"/>
+                        <input type='submit' class="btn btn-default a-submit" value="all together"/>
+                    </div>
+                </form>
+
+
+            </div>
+        </template>
+
 	
         <template id="frontend_listing.base" name="Base for listing of companies">
             <t t-call="frontend_base.doctype_html"/>
@@ -79,6 +115,7 @@
                         <t t-set="nbr" t-value="nbr_companies"/>
                         <t t-call="frontend_base.company_counter" />
                     </div>
+                    <t t-call="frontend_listing.filters"/>
 
                     <t t-raw="0"/>
                     <t t-call="frontend_listing.footer"/>

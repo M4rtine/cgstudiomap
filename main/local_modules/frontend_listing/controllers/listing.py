@@ -112,7 +112,7 @@ class Listing(Base):
     def map(self, company_status='open', search='', **post):
         """Render the list of studio under a map."""
         url = self.map_url
-        keep = QueryURL(url, search=search)
+        keep = QueryURL(url, search=search, company_status=company_status)
 
         if search:
             post["search"] = search
@@ -152,12 +152,11 @@ class Listing(Base):
         """Render the list of studio under a table."""
         url = self.list_url
 
-        keep = QueryURL(url, search=search)
+        keep = QueryURL(url, search=search, company_status=company_status)
 
         if search:
             post["search"] = search
 
-        # partners = self.get_partners(request.env['res.partner'], search=search)
         _logger.debug('search: %s', search)
         safe_search = search.replace(' ', '+')
         values = {
