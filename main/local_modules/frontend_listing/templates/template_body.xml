@@ -64,7 +64,10 @@
             <t t-call="frontend_base.doctype_html"/>
             <t t-call="frontend_base.html">
 
-                <t t-call="frontend_base.full_head"/>
+                <t t-call="frontend_base.full_head">
+				<link rel="stylesheet" href="/frontend_listing/static/src/css/bootstrap-table.css" type="text/css"/>
+                <link rel="stylesheet" href="/frontend_listing/static/src/css/frontend_listing.css" type="text/css"/>
+                </t>
 
                 <t t-call="frontend_base.body">
                     <div class="products_pager">
