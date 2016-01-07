@@ -4,16 +4,24 @@
         <!--Requirements:-->
         <!--* url-->
         <template id="frontend_listing.switch" name="Listing: switch">
-            <form t-att-action="keep(url, search=0)" method="get" t-att-class="search_class">
+            <form t-att-action="keep(map_url, search=search, company_status=company_status)" method="get" >
                 <div class="input-group">
-                    <a t-att-class=" 'active' if map_url else 'disabled' " t-att-href="map_url">Map</a>
-                    <a t-att-class=" 'active' if list_url else 'disabled' " t-att-href="list_url">List</a>
-                    <!--<input type="text" name="search" class="search-query form-control" placeholder="Search..." t-att-value="search"/>-->
-                    <!--<span class="input-group-btn">-->
-                        <!--<a class="btn btn-default a-submit"><i class="fa fa-search"/></a>-->
-                    <!--</span>-->
+                    <input type="hidden" name='company_status' t-att-value="company_status"/>
+                    <input type="hidden" name='search' t-att-value="search"/>
+                    <input type='submit'
+                           t-att-class="'btn btn-default a-submit' if (url == list_url) else 'btn btn-default disabled' "
+                           value="map"/>
                 </div>
+            </form>
 
+            <form t-att-action="keep(list_url, search=search, company_status=company_status)" method="get" >
+                <div class="input-group">
+                    <input type="hidden" name='company_status' t-att-value="company_status"/>
+                    <input type="hidden" name='search' t-att-value="search"/>
+                    <input type='submit'
+                           t-att-class="'btn btn-default a-submit' if (url == map_url) else 'btn btn-default disabled' "
+                           value="list"/>
+                </div>
             </form>
         </template>
 
@@ -71,7 +79,9 @@
                     <div class="input-group">
                         <input type="hidden" name='company_status' value="open"/>
                         <input type="hidden" name='search' t-att-value="search"/>
-                        <input type='submit' class="btn btn-default a-submit" value="open"/>
+                        <input type='submit'
+                               t-att-class="'btn btn-default a-submit' if (company_status != 'open') else 'btn btn-default disabled' "
+                               value="open"/>
                     </div>
                 </form>
 
@@ -79,7 +89,9 @@
                     <div class="input-group">
                         <input type="hidden" name='company_status' value="closed"/>
                         <input type="hidden" name='search' t-att-value="search"/>
-                        <input type='submit' class="btn btn-default a-submit" value="closed"/>
+                        <input type='submit'
+                               t-att-class="'btn btn-default a-submit' if (company_status != 'closed') else 'btn btn-default disabled' "
+                               value="closed"/>
                     </div>
                 </form>
 
@@ -87,7 +99,9 @@
                     <div class="input-group">
                         <input type="hidden" name='company_status' value="active"/>
                         <input type="hidden" name='search' t-att-value="search"/>
-                        <input type='submit' class="btn btn-default a-submit" value="all together"/>
+                        <input type='submit'
+                               t-att-class="'btn btn-default a-submit' if (company_status != 'active') else 'btn btn-default disabled' "
+                               value="all together"/>
                     </div>
                 </form>
 

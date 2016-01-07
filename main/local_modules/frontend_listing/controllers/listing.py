@@ -133,7 +133,6 @@ class Listing(Base):
                 for partner in partners
                 }
         )
-        safe_search = search.replace(' ', '+')
         _logger.debug(geoloc)
         values = {
             'geoloc': geoloc,
@@ -141,10 +140,9 @@ class Listing(Base):
             'company_status': company_status,
             'partners': partners,
             'keep': keep,
-            'list_url': '{}{}'.format(
-                self.list_url,
-                safe_search and '?search={}'.format(safe_search) or ''
-            )
+            'map_url': self.map_url,
+            'list_url': self.list_url,
+            'url': self.map_url,
         }
 
         return request.website.render("frontend_listing.map", values)
@@ -161,16 +159,13 @@ class Listing(Base):
         if search:
             post["search"] = search
 
-        _logger.debug('search: %s', search)
-        safe_search = search.replace(' ', '+')
         values = {
             'search': search,
             'company_status': company_status,
             'keep': keep,
-            'map_url': '{}{}'.format(
-                self.map_url,
-                safe_search and '?search={}'.format(safe_search) or ''
-            )
+            'map_url': self.map_url,
+            'list_url': self.list_url,
+            'url': self.list_url,
         }
 
         return request.website.render("frontend_listing.list", values)
