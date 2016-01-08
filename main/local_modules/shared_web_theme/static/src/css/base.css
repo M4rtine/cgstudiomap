@@ -6309,9 +6309,7 @@ a {
   position: absolute;
   bottom: 0;
   width: 100%; }
-  #map_info_footer button,
-  #map_info_footer a,
-  #map_info_footer .openerp .oe_button, .openerp #map_info_footer .oe_button {
+  #map_info_footer button, #map_info_footer .openerp .oe_button, .openerp #map_info_footer .oe_button {
     border: 0;
     background-color: #5ae2b0;
     color: #f1f1f3;
@@ -6607,6 +6605,31 @@ fontCGSM {
   line-height: 1.3em; }
   .footer .footer-name {
     font-size: 1.6em; }
+  .footer .socials i {
+    padding: 0 15px;
+    padding-top: 0;
+    color: #f1f1f3;
+    text-align: right;
+    list-style-type: none;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.65);
+    background-color: transparent;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear; }
+    @media (max-width: 767px) {
+      .footer .socials i {
+        padding: 0 4px;
+        padding-top: 20px; } }
+  .footer .socials i > a:hover {
+    cursor: pointer;
+    text-decoration: none; }
+  .footer .fa-github:hover {
+    color: #B05AE2 !important; }
+  .footer .fa-twitter:hover {
+    color: #55ACEE !important; }
+  .footer .fa-linkedin:hover {
+    color: #0077B5 !important; }
   .footer .social-txt {
     text-align: right; }
   .footer p {
