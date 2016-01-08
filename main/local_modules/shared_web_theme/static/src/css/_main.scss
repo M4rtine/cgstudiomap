@@ -331,6 +331,39 @@ fontCGSM {
 	.footer-name {
 		font-size: 1.6em;
 	}
+    .socials i {
+        padding: 0 15px;
+        padding-top: 0;
+        color: $color-cgsm-light;
+        text-align: right;
+        list-style-type: none;
+        text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.65);
+        background-color: transparent;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+        
+        @media (max-width: $screen-xs-max) {
+            padding: 0 4px;
+            padding-top: 20px;
+        }
+    }
+    .socials i > a:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .fa-github:hover {
+        color: #B05AE2!important;
+    }
+
+    .fa-twitter:hover {
+        color: #55ACEE!important;
+    }
+
+    .fa-linkedin:hover {
+        color: #0077B5!important;
+    }
 	.social-txt {
 		text-align: right;
 	}
@@ -356,6 +389,7 @@ fontCGSM {
 		text-decoration: underline;
 	}
 }
+
 
 /* ---------------------------------------------- /*
  * Scroll to top

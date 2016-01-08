@@ -42,19 +42,29 @@
 				<div class="container">
 				   <div class="row fontCGSM">
 						<div class="col-xs-6 col-sm-4 col-lg-4">
-							<span class="name">CG Studio Map</span><br />
+							<span class="name">CG Studio Map</span>
 							<span class="catch">where cg is</span>
 						</div>
-						<div class="socials col-xs-5 col-sm-4 col-lg-4 col-xs-offset-1 col-sm-offset-4 col-lg-offset-4">
-							<p class="pull-right hidden-xs">
-								<a href="#"><i class="fa fa-twitter fa-3x"></i></a>
-								<a href="#"><i class="fa fa-linkedin fa-3x"></i></a>
-								<a href="#"><i class="fa fa-github fa-3x"></i></a>
+						<div class="socials col-xs-6 col-sm-4 col-lg-4 col-sm-offset-4 col-lg-offset-4">
+							<p class="pull-right visible-lg-inline">
+								<a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-3x"></i></a>
+								<a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-3x"></i></a>
+								<a t-att-href="website.social_github"><i class="fa fa-github fa-3x"></i></a>
 							</p>
-							<p class="pull-right visible-xs">
-								<a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-								<a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
-								<a href="#"><i class="fa fa-github fa-lg"></i></a>
+							<p class="pull-right visible-md-inline">
+								<a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-2x"></i></a>
+								<a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-2x"></i></a>
+								<a t-att-href="website.social_github"><i class="fa fa-github fa-2x"></i></a>
+							</p>
+							<p class="pull-right visible-sm-inline">
+								<a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-lg"></i></a>
+								<a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-lg"></i></a>
+								<a t-att-href="website.social_github"><i class="fa fa-github fa-lg"></i></a>
+							</p>							
+							<p class="pull-right visible-xs-inline">
+								<a t-att-href="website.social_twitter"><i class="fa fa-twitter"></i></a>
+								<a t-att-href="website.social_linkedin"><i class="fa fa-linkedin"></i></a>
+								<a t-att-href="website.social_github"><i class="fa fa-github"></i></a>
 							</p>
 						</div>
 
@@ -100,7 +110,10 @@
             <t t-call="frontend_base.doctype_html"/>
             <t t-call="frontend_base.html">
 
-                <t t-call="frontend_base.full_head"/>
+                <t t-call="frontend_base.full_head">
+				<link rel="stylesheet" href="/frontend_listing/static/src/css/bootstrap-table.css" type="text/css"/>
+                <link rel="stylesheet" href="/frontend_listing/static/src/css/frontend_listing.css" type="text/css"/>
+                </t>
 
                 <t t-call="frontend_base.body">
                     <div class="products_pager">
