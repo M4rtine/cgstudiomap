@@ -96,7 +96,13 @@ class Listing(Base):
                     ),
                     'email': partner.email or '',
                     'industries': ' '.join(
-                        [ind.tag_url for ind in partner.industry_ids]
+                        [
+                            ind.tag_url_link(
+                                company_status=company_status,
+                                listing=True
+                            )
+                            for ind in partner.industry_ids
+                        ]
                     ),
                     'location': partner.location,
                 }
@@ -128,7 +134,7 @@ class Listing(Base):
                 partner.id: [
                     partner.partner_latitude,
                     partner.partner_longitude,
-                    partner.info_window,
+                    partner.info_window(company_status),
                 ]
                 for partner in partners
                 }

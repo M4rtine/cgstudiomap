@@ -35,7 +35,7 @@
                 <p>
                     <em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
                     <t t-foreach="partner.industry_ids" t-as="ind">
-                        <t t-raw="ind.tag_url"/>
+                        <t t-raw="ind.tag_url_link()"/>
                     </t>
                 </p>
 			</a>

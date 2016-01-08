@@ -12,14 +12,17 @@ _logger = logging.getLogger(__name__)
 class ResIndustry(models.Model):
     _inherit = 'res.industry'
 
-    tag_url = fields.Char('Tag Url', compute='industry_tag_url_link')
+    def tag_url_link(self,
+                     company_status='open',
+                     listing=False):
+        url = '/directory'
+        url += listing and '/list' or ''
+        url += '?company_status={0}'.format(company_status)
+        url += '&search={0}'.format(self.name)
 
-    @api.one
-    def industry_tag_url_link(self):
-        self.tag_url = (
-            '<a itemprop="name" href="/directory?search={0.name}">'
-            '<span class="label label-info">{0.name}</span></a>'.format(self)
+        return (
+            '<a itemprop="name" href="{1}">'
+            '<span class="label label-info">{0.name}</span></a>'.format(
+                self, url
+            )
         )
-        # self.tag_url = '<span class="label label-info">{0.name}</span>'.format(
-        #     self
-        # )
