@@ -130,7 +130,61 @@
                 </t>
 
                 <t t-call="frontend_base.body">
-                    <div class="products_pager">
+                    
+                    <div class="container navDirectory">
+                        
+                        
+                        <div class="row">
+                            <div class="col-xs-10">
+
+                                
+                                <div class="row">
+                                    <div class="col-xs-9 col-xs-offset-1" style="background-color:yellow;">
+                                        <t t-call="frontend_listing.search">
+                                            <t t-set="search_class">pagination form-inline col-md-3</t>
+                                        </t>
+                                    </div>
+                                    <div class="col-xs-2" style="background-color:blue;">
+                                        <a class="btn btn-default" href="#" role="button">ADD Studio</a>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-9 col-xs-offset-1" style="background-color:red;">
+                                        <t t-call="frontend_listing.filters"/>
+                <!--                        <ol class="breadcrumb">
+                                          <li><a href="#">Home</a></li>
+                                          <li><a href="#">Library</a></li>
+                                          <li class="active">Data</li>
+                                        </ol>-->
+                                    </div>
+                                    <div class="col-xs-2" style="background-color:green;">
+                                        <t t-call="frontend_listing.switch"/>
+        <!--                                <a class="btn btn-default" href="#" role="button"><i class="fa fa-compass fa-2x"></i></a>
+                                        <a class="btn btn-default" href="#" role="button"><i class="fa fa-th-list fa-2x"></i></a>-->
+                                    </div>
+                                </div> 
+                                
+                                
+                                
+                            </div>
+                        
+                            
+                            <div class="col-xs-2">
+                                <div class="stats fontCGSM">
+                                    <t t-set="nbr" t-value="nbr_companies"/>
+                                    <t t-call="frontend_base.company_counter" />
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                    
+                    
+                    
+                    
+<!--                    <div class="products_pager">
                         <div class="row" style="width: 100%;">
                             <t t-call="frontend_listing.search">
                                 <t t-set="search_class">pagination form-inline col-md-3</t>
@@ -142,13 +196,16 @@
                         <t t-set="nbr" t-value="nbr_companies"/>
                         <t t-call="frontend_base.company_counter" />
                     </div>
-                    <t t-call="frontend_listing.filters"/>
+                    <t t-call="frontend_listing.filters"/>-->
 
                     <t t-raw="0"/>
                     <t t-call="frontend_listing.footer"/>
                     <t t-call="frontend_base.engine">
                         <t t-call="frontend_base.company_counter_js"/>
                     </t>
+                    
+                    
+                    
                 </t> <!-- closing body -->
 
             </t> <!-- closing html -->

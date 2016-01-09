@@ -1,3 +1,7 @@
+function getHeight() {
+    return $(window).height() - $('.navbar').outerHeight(true) - $('.navDirectory').outerHeight(true) - $('footer').outerHeight(true);
+}
+
 function bootstrap_table_ajax(search, status) {
     $.ajax({
         type: "post",
@@ -11,10 +15,11 @@ function bootstrap_table_ajax(search, status) {
         success: function (response) {
             var data = JSON.parse(response);
             $('table').bootstrapTable({
-                classes: 'table table-hover',
+                classes: 'table table-no-bordered table-hover',
+				height: getHeight(),
                 striped: false,
                 iconsPrefix: 'fa',
-                iconSize: 'sm',
+                iconSize: 'md',
                 icons: {
                     paginationSwitchDown: 'glyphicon-collapse-down icon-chevron-down',
                     paginationSwitchUp: 'glyphicon-collapse-up icon-chevron-up',
@@ -35,7 +40,7 @@ function bootstrap_table_ajax(search, status) {
                 falign: 'right',
                 valign: 'middle',
                 sortable: true,
-                showColumns: true,
+                showColumns: false,
 
                 locale: 'en-US',
                 columns: [
@@ -68,6 +73,3 @@ function bootstrap_table_ajax(search, status) {
     });
 }
 
-function getHeight() {
-    return $(window).height() - $('.navbar').outerHeight(true) - $('h2').outerHeight(true) - $('footer').outerHeight(true);
-}

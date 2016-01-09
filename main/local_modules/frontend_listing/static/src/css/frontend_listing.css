@@ -10,8 +10,22 @@ body {
     background-color: #F2F2F2;
     color: #323133;
 }
+.navDirectory {
+    padding-top: 50px;
+}
+.navDirectory .row {
+    margin: 0.25em 0;
+}
+.navDirectory form {
+    display: inline-block;
+    margin-top: 0em;
+}
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 0px 0;
 
-
+}
 /*.bootstrap-table {
     max-width: 99.999%;
     margin: 0 auto;
@@ -20,6 +34,7 @@ body {
 .jumbotron {
     padding-bottom: 0;
     margin-bottom: 0;
+    padding: 0 0;
     background: transparent;
 }
 
@@ -222,6 +237,9 @@ footer .catch {
     footer .container {
         padding: 0;
         margin: 0;
+    }
+    .navDirectory form {
+        display: inline-block;
     }
 }
 @media (min-width: 767px) and (max-width: 992px) {
