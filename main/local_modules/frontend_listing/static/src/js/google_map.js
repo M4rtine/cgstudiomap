@@ -15,7 +15,8 @@ function initialize(geoloc) {
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
     var markers = [];
-    var icon = 'http://demandware.edgesuite.net/aawa_prd/on/demandware.static/Sites-wilton-Site/-/default/dw31f7ef5a/images/marker.png';
+    var icon = '/frontend_listing/static/src/marker.svg';
+    var iconStudio = '/frontend_listing/static/src/marker-studio.svg';
     jQuery.each(geoloc, function (i, val) {
         var contentString = '<div id="content">' + val[2] + '</div>';
         var infowindow = new google.maps.InfoWindow({
@@ -25,7 +26,7 @@ function initialize(geoloc) {
         var marker = new google.maps.Marker({
             position: {lat: val[0], lng: val[1]},
             map: map,
-            icon: icon,
+            icon: iconStudio,
             title: i
         });
         //extend the bounds to include each marker's position
@@ -38,10 +39,11 @@ function initialize(geoloc) {
     });
     var clusterStyles = [
         {
-            textColor: 'white',
+            textColor: '#f1f1f3',
             url: icon,
-            height: 36,
-            width: 27
+            textSize: 18,
+            height: 48,
+            width: 48
         }
     ];
 
