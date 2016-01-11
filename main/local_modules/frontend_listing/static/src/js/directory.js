@@ -5,7 +5,7 @@ function bootstrap_table_ajax(search, status) {
         data: {search: search, company_status: status},
 
         complete: function(){
-            $('#loading-image').hide();
+            $('.loading-spinner').hide();
         },
 
         success: function (response) {
@@ -15,9 +15,9 @@ function bootstrap_table_ajax(search, status) {
 				height: getHeight(),
                 striped: true,
                 undefinedText: 	'&nbsp;',
-                iconsPrefix: 'fa',
+                iconsPrefix: 'glyphicon',
                 iconSize: 'md',
-                icons: {
+/*                icons: {
                     paginationSwitchDown: 'glyphicon-collapse-down icon-chevron-down',
                     paginationSwitchUp: 'glyphicon-collapse-up icon-chevron-up',
                     refresh: 'glyphicon-refresh icon-refresh',
@@ -25,7 +25,7 @@ function bootstrap_table_ajax(search, status) {
                     columns: 'glyphicon-th icon-th',
                     detailOpen: 'glyphicon-plus icon-plus',
                     detailClose: 'glyphicon-minus icon-minus'
-                },
+                },*/
                 cache: true,
                 pageSize: 25,
 

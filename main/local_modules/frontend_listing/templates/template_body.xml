@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+
+        <template id="frontend_listing.loading" name="Listing: loading">
+            <div class="loading-spinner"></div>
+        </template>      
+        
+        
         <!--Requirements:-->
         <!--* url-->
         <template id="frontend_listing.switch" name="Listing: switch">
@@ -130,7 +136,6 @@
                 </t>
 
                 <t t-call="frontend_base.body">
-                    
                     <div class="container navDirectory">
                         
                         
@@ -229,13 +234,17 @@
 
         <template id="frontend_listing.list" name="Listing: List">
             <t t-call="frontend_listing.base">
+                
+<!--                    <div id="#loading">
+                        <div class="loading-spinner"></div>                 
+                    </div>-->
+                
+                
 				<div class="jumbotron fontCGSM">
-					<div id="toolbar">
-					</div>
-                    <div id="loading-image">
-                        <img src="/frontend_base/static/ajax-loader.gif"
-                             alt="Loading... please wait"/>
-                    </div>
+					<div id="toolbar"></div>
+                    
+                    <t t-call="frontend_listing.loading"/>
+                    
                     <table id="table"
                            data-toolbar="#toolbar"
                            data-mobile-responsive="true"
