@@ -14,6 +14,7 @@ function bootstrap_table_ajax(search, status) {
                 classes: 'table table-no-bordered table-hover',
 				height: getHeight(),
                 striped: true,
+                undefinedText: 	'&nbsp;',
                 iconsPrefix: 'fa',
                 iconSize: 'md',
                 icons: {
@@ -42,6 +43,11 @@ function bootstrap_table_ajax(search, status) {
 
                 locale: 'en-US',
                 columns: [
+                    {
+                        field: 'state',
+                        title: ''
+
+                    },
                     {
                         field: 'logo',
                         title: 'Logo'

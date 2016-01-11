@@ -83,17 +83,21 @@ tbody {
     white-space: nowrap;
     text-transform: uppercase;
 }
-.fixed-table-container tbody td:nth-child(1) img {
+
+.fixed-table-container tbody td:nth-child(2) img {
     width: 30px;
     height: 30px;
 }
-.fixed-table-container tbody td:nth-child(2) {
+.fixed-table-container tbody td:nth-child(3) {
     font-family: 'cgsm-regular';
     font-size: 1.3em;
 }
-.fixed-table-container tbody td:nth-child(2) a:hover,
-.fixed-table-container tbody td:nth-child(4) a:hover{
+.fixed-table-container tbody td:nth-child(3) a:hover,
+.fixed-table-container tbody td:nth-child(5) a:hover{
     text-decoration: none;
+    background-color: #b05ae2;
+    color: #f1f1f3;
+
 }
 .fixed-table-container tbody tr:hover {
     background-color: #fff;
@@ -130,7 +134,7 @@ table {
     color: #b05ae2;
 }
 
-.table>tbody>tr>td:nth-child(3) {
+.table>tbody>tr>td:nth-child(4) {
     font-family: 'cgsm-regular';
     color: rgb(226, 176, 90);
     text-decoration: underline;
