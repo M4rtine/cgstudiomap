@@ -1,7 +1,3 @@
-function getHeight() {
-    return $(window).height() - $('.navbar').outerHeight(true) - $('.navDirectory').outerHeight(true) - $('footer').outerHeight(true);
-}
-
 function bootstrap_table_ajax(search, status) {
     $.ajax({
         type: "post",
@@ -17,7 +13,7 @@ function bootstrap_table_ajax(search, status) {
             $('table').bootstrapTable({
                 classes: 'table table-no-bordered table-hover',
 				height: getHeight(),
-                striped: false,
+                striped: true,
                 iconsPrefix: 'fa',
                 iconSize: 'md',
                 icons: {
@@ -30,6 +26,8 @@ function bootstrap_table_ajax(search, status) {
                     detailClose: 'glyphicon-minus icon-minus'
                 },
                 cache: true,
+                pageSize: 25,
+
                 pagination: true,
                 onlyInfoPagination: false,
                 showHeader: true,
@@ -73,3 +71,46 @@ function bootstrap_table_ajax(search, status) {
     });
 }
 
+function getHeight() {
+    return $(window).height() - $('.navbar').outerHeight(true) - $('footer').outerHeight(true) -122;
+}
+
+
+(function ($) {
+    'use strict';
+    $.fn.bootstrapTable.locales['en-US'] = {
+        formatLoadingMessage: function () {
+            return 'Loading, please wait...';
+        },
+        formatRecordsPerPage: function (pageNumber) {
+            return pageNumber + ' studios per page';
+        },
+        formatShowingRows: function (pageFrom, pageTo, totalRows) {
+            return '';
+        },
+        formatSearch: function () {
+            return 'Search';
+        },
+        formatNoMatches: function () {
+            return 'No matching records found';
+        },
+        formatPaginationSwitch: function () {
+            return 'Hide/Show pagination';
+        },
+        formatRefresh: function () {
+            return 'Refresh';
+        },
+        formatToggle: function () {
+            return 'Toggle';
+        },
+        formatColumns: function () {
+            return 'Columns';
+        },
+        formatAllRows: function () {
+            return 'All';
+        }
+    };
+
+    $.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['en-US']);
+
+})(jQuery);
