@@ -132,10 +132,10 @@ class ResPartner(models.Model):
 
     def info_window(self, company_status='open'):
         """Build the info window for the google map."""
-        title = '<div id="map_info_header"><h4>{0}</h4></div>'.format(
+        title = '<div id="iw-container"><div class="iw-title"><a href="{0}">{0}</a></div>'.format(
             self.name.encode('utf8')
         )
-        body = '<div id="map_info_content">'
+        body = '<div class="iw-content">'
         body += '<p>{0}</p>'.format(self.location.encode('utf8'))
         body += ' '.join(
             [
@@ -144,9 +144,10 @@ class ResPartner(models.Model):
             ]
         )
         body += '</div>'
-        footer = '<div id="map_info_footer"><a href="{0}">More ...</a></div>'.format(
+        footer = '<div id="map_info_footer"><a href="{0}">More ...</a></div></div>'.format(
             self.partner_url
         )
+		
         return title + body + footer
 
     location = fields.Char('Location', compute='location_code')
