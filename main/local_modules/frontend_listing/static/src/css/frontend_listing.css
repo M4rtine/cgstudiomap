@@ -98,6 +98,10 @@ tbody {
 .fixed-table-container tbody tr:hover {
     background-color: #fff;
 }
+.jumbotron>.clearfix {
+    background-color: #dddddd;
+    border-top: 8px solid #dddddd;
+}
 .bootstrap-table .table {
     border-bottom: 1px solid transparent;
     border-collapse: collapse!important;
@@ -139,7 +143,7 @@ table {
 .pagination>.disabled>span:focus,
 .pagination>.disabled>span:hover {
     color: #979699;
-    background-color: #f1f1f3;
+    background-color: transparent;
     border-color: transparent;
 }
 
@@ -187,6 +191,14 @@ table {
     color: #f1f1f3;
     background-color: #323133;
     border-color: #323133;
+}
+.fixed-table-pagination .btn-group {
+    border: 1px solid #323133;
+    margin-left: -0.5em;
+}
+.fixed-table-pagination .page-list,
+.fixed-table-pagination .pagination a{
+    font-family: 'cgsm-regular';
 }
 
 ::-webkit-scrollbar {

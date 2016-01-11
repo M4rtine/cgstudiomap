@@ -83,7 +83,7 @@ function getHeight() {
             return 'Loading, please wait...';
         },
         formatRecordsPerPage: function (pageNumber) {
-            return pageNumber + ' studios per page';
+            return pageNumber + ' Studios per page';
         },
         formatShowingRows: function (pageFrom, pageTo, totalRows) {
             return '';
