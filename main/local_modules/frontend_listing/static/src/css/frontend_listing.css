@@ -27,6 +27,23 @@ body {
     margin: 0px 0;
 
 }
+/*/////////////////////////////////
+        STATS resume
+///////////////////////////////// */
+
+.stat-resume {
+	float: none;
+    
+
+}
+
+
+
+
+
+
+
+
 
 .jumbotron {
     padding-bottom: 0;
@@ -47,7 +64,9 @@ body {
     z-index: -50;
 }
 
-/* BOOTSTRAP Table */
+/*/////////////////////////////////
+        BOOTSTRAP Table
+///////////////////////////////// */
 
 /*.bootstrap-table {
     max-width: 96.999%;
@@ -224,7 +243,8 @@ table {
     -moz-border-radius: 4px;
     border-radius: 4px;
 }
-/* ///BOOTSTRAP Table */
+
+
 
 
 
