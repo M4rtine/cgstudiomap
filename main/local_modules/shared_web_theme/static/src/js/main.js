@@ -8,10 +8,6 @@
 	}
 	
 	$(document).ready(function() {
-        
-        $(".footer").click(function () {
-            $(".footer").toggleClass("changeBG");
-        });
 
 		/* ---------------------------------------------- /*
 		 * SVG // snapsvg loader

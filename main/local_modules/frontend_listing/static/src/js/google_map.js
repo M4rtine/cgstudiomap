@@ -15,7 +15,6 @@ function initialize(geoloc) {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(mapCanvas, mapOptions);
-
     var markers = [];
     var icon = '/frontend_listing/static/src/marker.svg';
     var iconStudio = '/frontend_listing/static/src/marker-studio.svg';

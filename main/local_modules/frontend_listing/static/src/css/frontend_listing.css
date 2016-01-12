@@ -9,6 +9,15 @@ body {
     background-color: #F2F2F2;
     color: #323133;
 }
+.fa {
+    display: inline-block;
+    font-family: FontAwesome !important;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 .navDirectory {
     padding-top: 50px;
     z-index: 10;
