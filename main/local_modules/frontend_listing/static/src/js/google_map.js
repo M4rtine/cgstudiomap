@@ -12,7 +12,17 @@ function initialize(geoloc) {
 
     var mapCanvas = document.getElementById('map');
     var mapOptions = {
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false,
+        zoomControl: true,
+        zoomControlOptions: {
+        position: google.maps.ControlPosition.LEFT_CENTER
+        },
+        scaleControl: true,
+        streetViewControl: true,
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.LEFT_CENTER
+        }
     };
     var map = new google.maps.Map(mapCanvas, mapOptions);
     var markers = [];
