@@ -55,8 +55,7 @@
          </template>
 		
         <!--Template about the directory footer of the website-->
-        <template id="frontend_listing.footer" name="Listing: footer">
-			<footer class="footer">
+        <template id="frontend_listing.footer_base" name="Listing: footer">
 				<div class="container">
 				   <div class="row fontCGSM">
 						<div class="col-xs-6 col-sm-4 col-lg-4">
@@ -78,19 +77,15 @@
 								<a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-lg"></i></a>
 								<a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-lg"></i></a>
 								<a t-att-href="website.social_github"><i class="fa fa-github fa-lg"></i></a>
-							</p>							
+							</p>
 							<p class="pull-right visible-xs-inline">
 								<a t-att-href="website.social_twitter"><i class="fa fa-twitter"></i></a>
 								<a t-att-href="website.social_linkedin"><i class="fa fa-linkedin"></i></a>
 								<a t-att-href="website.social_github"><i class="fa fa-github"></i></a>
 							</p>
 						</div>
-
 				   </div>
-
-
 				</div>
-			</footer>
         </template>
 
         <template id="frontend_listing.filters" name="Listing: Filters">
@@ -169,8 +164,8 @@
                                 
                                 
                             </div>
-                        
-                            
+
+
                             <div class="col-xs-2 col-xs-offset-2">
                                 <div class="stats stats-resume fontCGSM">
                                     <t t-set="nbr" t-value="nbr_companies"/>
@@ -178,29 +173,9 @@
                                 </div>
                             </div>
                         </div>
-                        
-
                     </div>
-                    
-                    
-                    
-                    
-<!--                    <div class="products_pager">
-                        <div class="row" style="width: 100%;">
-                            <t t-call="frontend_listing.search">
-                                <t t-set="search_class">pagination form-inline col-md-3</t>
-                            </t>
-                        </div>
-                    </div>
-                    <t t-call="frontend_listing.switch"/>
-                    <div class="stats stat-right fontCGSM">
-                        <t t-set="nbr" t-value="nbr_companies"/>
-                        <t t-call="frontend_base.company_counter" />
-                    </div>
-                    <t t-call="frontend_listing.filters"/>-->
 
                     <t t-raw="0"/>
-                    <t t-call="frontend_listing.footer"/>
                     <t t-call="frontend_base.engine">
                         <t t-call="frontend_base.company_counter_js"/>
                     </t>
@@ -216,6 +191,9 @@
         <template id="frontend_listing.map" name="Listing: Map">
             <t t-call="frontend_listing.base">
                 <div id="map"></div>
+                <footer id="footer_map" class="footer">
+                    <t t-call="frontend_listing.footer_base"/>
+                </footer>
             </t>
             <script type="text/javascript" src="/frontend_listing/static/src/lib/markerclusterer.js"></script>
             <script type="text/javascript" src="/frontend_listing/static/src/js/google_map.js"></script>
@@ -242,6 +220,9 @@
                            data-check-on-init="true">
                     </table>
 				</div>
+                <footer id="footer_list" class="footer">
+                    <t t-call="frontend_listing.footer_base"/>
+                </footer>
             </t>
 
             <script type="text/javascript">
