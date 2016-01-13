@@ -6735,6 +6735,10 @@ fontCGSM {
   width: 40px;
   height: 40px; }
 
+#stats-bg-svg {
+  width: 150px;
+  height: 150px; }
+
 #navbar, #footer-static {
   z-index: 999; }
 

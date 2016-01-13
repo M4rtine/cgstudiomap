@@ -30,6 +30,59 @@ body {
     display: inline-block;
     margin-top: 0em;
 }
+.btn-cgsm-add {
+    background-color: #b05ae2;
+    color: #f1f1f3;
+    width: 100%;
+    padding: 0.5em 2em;
+}
+.navBgcolor{
+    background-color: red;
+}
+.navBtnColor {
+    background-color: green;
+}
+input {
+    background-color: transparent;
+}
+.filters {
+    font-family: 'cgsm-light';
+    font-size: 1.3em;
+    line-height: 2em;
+    background-color: #cbcacc;
+    color: #323133;
+}
+.navFilters, .navSearch, .navSwitch {
+    border: 0 !important;
+    background-color: transparent;
+    padding: 0 ;
+}
+.navSwitch .disabled{
+    color: #f1f1f3;
+    background-color: #b05ae2;
+}
+.navSwitch .a-submit{
+    color: #323133;
+}
+.navSwitch {
+    font-size: 1.6em;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+.navFilters .disabled {
+    color: #b05ae2;
+}
+.navFilters .a-submit:hover,
+.navFilters .a-submit:focus{
+    text-decoration: underline;
+    text-decoration-color: #b05ae2;
+}
+.navFilters::after {
+    content:" /";
+}
+
+
 .pagination {
     display: inline-block;
     padding-left: 0;
@@ -44,13 +97,42 @@ body {
         STATS resume
 ///////////////////////////////// */
 
-.stat-resume {
-	float: none;
-    
 
+.stats {
+	position: relative;
+	display: inline-block;
+    top: 0;
+	width: 200px;
+    max-height: 150px;
+    text-align: center;
+}
+.stats p {
+    font-size: 1.4em;
+    line-height: 1em;
+}
+.stats p:nth-child(2) {
+    font-size: 1.2em;
+    line-height: 3.5em;
+}
+#stats-txt {
+    position: absolute;
+	top: 15px;
+	left: 0;
+	right: 95px;
 }
 
+.stat-resume {
+	float: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
 
+#stats-bg-svg {
+    position: relative;
+    width: 50%;
+    height: auto;
+}
 
 
 
