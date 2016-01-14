@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="frontend_studio.create_button" name="Studio: Create mode">
+            <form>
+                <input type="submit" value="create"/>
+            </form>
+        </template>
+
+        <template id="frontend_studio.edit_button" name="Studio: Edit mode">
+            <form>
+                <input type="submit" value="edit"/>
+            </form>
+        </template>
+
+        <template id="frontend_studio.base" name="Studio: base">
+            <t t-call="frontend_base.doctype_html"/>
+            <t t-call="frontend_base.html">
+
+                <t t-call="frontend_base.full_head"/>
+
+                <t t-call="frontend_base.body">
+
+                    <t t-raw="0"/>
+                    <t t-call="frontend_base.footer"/>
+                    <t t-call="frontend_base.engine"/>
+                </t> <!-- closing body -->
+
+            </t> <!-- closing html -->
+        </template>
+        <template id="frontend_studio.view" name="Studio: view">
+            <t t-call="frontend_studio.base">
+                <t t-call="frontend_studio.edit_button"/>
+                <t t-call="frontend_studio.create_button"/>
+            </t>
+
+        </template>
+
+
+    </data>
+</openerp>
