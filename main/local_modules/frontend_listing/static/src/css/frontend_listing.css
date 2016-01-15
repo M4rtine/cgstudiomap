@@ -185,7 +185,7 @@ input {
     position: absolute;
 	top: 15px;
 	left: 0;
-	right: 95px;
+	right: 100px;
 }
 
 .stat-resume {
@@ -258,11 +258,12 @@ tbody {
 .table-striped>tbody>tr:nth-of-type(odd) {
     background-color: #ececec;
 }
+
 .fixed-table-container tbody td .th-inner,
 .fixed-table-container thead th .th-inner {
     padding: 8px;
     line-height: 1em;
-    vertical-align: top;
+    vertical-align: middle;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -321,7 +322,7 @@ table {
 
 .table>tbody>tr>td:nth-child(4) {
     font-family: 'cgsm-regular';
-    font-size: 1.33em;
+    font-size: 1.11em;
     color: rgb(226, 176, 90);
     text-decoration: underline;
 }
