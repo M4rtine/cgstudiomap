@@ -71,6 +71,18 @@ body {
     background-color: #b05ae2;
     color: #f1f1f3;
 }
+@media (max-width: 992px) {
+    .btn-cgsm-add {
+        font-size: 1.2em;
+        line-height: 2em;
+    }
+}
+@media (max-width: 767px) {
+    .btn-cgsm-add {
+        font-size: 1.66em;
+        line-height: 1.33em;
+    }
+}
 
 .navBgcolor{
     background-color: #cbcacc;
