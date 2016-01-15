@@ -45,10 +45,9 @@
                            t-att-value="search"/>
                     <input type="hidden" name='company_status' t-att-value='company_status'/>
                     <span class="input-group-btn">
-                        <a class="btn btn-lg a-submit"><i class="fa fa-search fa-2x pull-right"/></a>
+                        <a class="btn btn-lg a-submit"><i class="fa fa-search fa-lg"/></a>
                     </span>
                 </div>
-
             </form>
          </template>
 		
@@ -135,11 +134,11 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-10">
                                 <div class="row">
-                                    <div class="col-sm-8 navBgcolor">
+                                    <div class="col-sm-8">
                                         <t t-call="frontend_listing.search"/>
                                     </div>
                                     <div class="col-sm-3 col-sm-offset-1 navBtnColor">
-                                        <a class="btn btn-cgsm-add center-block" href="#" role="button"><i class="fa fa-step-forward fa-fw fa-rotate-90"/> ADD Studio</a>
+                                        <a class="btn btn-cgsm-add center-block" href="#" role="button">ADD Studio <i class="fa fa-step-forward fa-fw fa-rotate-90"/> </a>
                                     </div>
                                 </div>
 

@@ -37,11 +37,11 @@ body {
     font-family: 'cgsm-light';
     font-size: 2em;
     display: block;
-    width: 100%;
+    width: 100% !important;
     height: 45px;
     vertical-align: middle;
     color: #323133;
-    background-color: #f1f1f3;
+    background-color: #fff;
     background-image: none;
     border: 0 solid transparent;
 }
@@ -73,7 +73,7 @@ body {
 }
 
 .navBgcolor{
-    background-color: red;
+    background-color: #cbcacc;
 }
 .navBtnColor {
     background-color: #b05ae2;
@@ -123,7 +123,7 @@ input {
     padding: auto 0;
     margin: 0;
 }
-.navSwitch .btn {
+.navSwitch .btn{
     line-height: 1;
     border-radius: 0;
 }
