@@ -78,7 +78,7 @@ function bootstrap_table_ajax(search, status) {
 }
 
 function getHeight() {
-    return $(window).height() - $('.navbar').outerHeight(true) - $('footer').outerHeight(true) -122;
+    return $(window).height() - $('.navDirectory').outerHeight(true) - $('footer').outerHeight(true) + 8;
 }
 
 

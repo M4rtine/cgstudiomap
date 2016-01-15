@@ -1,26 +1,27 @@
 html {
     min-height: 100%;
+    overflow: hidden;
 }
 
 body {
     /* Margin bottom by footer height */
     margin-bottom: 80px;
-    overflow-y: hidden;
-    background-color: #F2F2F2;
+    overflow-x: hidden;
+    background-color: #cbcacc;
     color: #323133;
 }
-.fa {
-    display: inline-block;
-    font-family: FontAwesome !important;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+
 .navDirectory {
     padding-top: 50px;
     z-index: 10;
+}
+.navDirectory .col-sm-12,
+.navDirectory .col-sm-8,
+.navDirectory .col-sm-2,
+.navDirectory .col-sm-3{
+    padding-left: 0;
+    padding-right: 0;
+    height: 44px;
 }
 .navDirectory .row {
     margin: 0.25em 0;
@@ -30,45 +31,101 @@ body {
     display: inline-block;
     margin-top: 0em;
 }
+
+.navSearch .form-control,
+.navSearch .search-query {
+    font-family: 'cgsm-light';
+    font-size: 2em;
+    display: block;
+    width: 100%;
+    height: 45px;
+    vertical-align: middle;
+    color: #323133;
+    background-color: #f1f1f3;
+    background-image: none;
+    border: 0 solid transparent;
+}
+.navSearch a:link,
+.navSearch a{
+    color: #323133;
+    background-color: #979699;
+}
+.navSearch a:hover,
+.navSearch a:focus{
+    color: #f1f1f3;
+    text-decoration: underline;
+    background-color: #b05ae2;
+}
+.navSearch .fa{
+    font-size: 1.6em;
+    padding: auto 0;
+    margin: 0;
+}
 .btn-cgsm-add {
+    font-family: 'cgsm-regular';
+    font-size: 1.66em;
+    line-height: 1;
+    vertical-align: baseline;
+    padding: auto 0;
+    margin: 0 auto;
     background-color: #b05ae2;
     color: #f1f1f3;
-    width: 100%;
-    padding: 0.5em 2em;
 }
+
 .navBgcolor{
     background-color: red;
 }
 .navBtnColor {
-    background-color: green;
+    background-color: #b05ae2;
 }
 input {
     background-color: transparent;
 }
 .filters {
-    font-family: 'cgsm-light';
-    font-size: 1.3em;
-    line-height: 2em;
-    background-color: #cbcacc;
+    font-family: 'cgsm-regular';
+    font-size: 1.2em;
+    line-height: 2.7em;
+    height: 45px;
+    background-color: transparent;
     color: #323133;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
 }
 .navFilters, .navSearch, .navSwitch {
     border: 0 !important;
+    height: 45px !important;
     background-color: transparent;
     padding: 0 ;
+    margin: 0;
 }
-.navSwitch .disabled{
+.navSwitch .disabled {
     color: #f1f1f3;
     background-color: #b05ae2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
 }
 .navSwitch .a-submit{
     color: #323133;
+    background-color: #cbcacc;
 }
 .navSwitch {
-    font-size: 1.6em;
+    font-size: 1em;
     padding: 0;
-    text-align: center;
-    vertical-align: middle;
+    margin: 0;
+}
+
+.navSwitch .fa{
+    font-size: 1.6em;
+    padding: auto 0;
+    margin: 0;
+}
+.navSwitch .btn {
+    line-height: 1;
+    border-radius: 0;
 }
 .navFilters .disabled {
     color: #b05ae2;
@@ -81,7 +138,6 @@ input {
 .navFilters::after {
     content:" /";
 }
-
 
 .pagination {
     display: inline-block;
@@ -96,7 +152,6 @@ input {
 /*/////////////////////////////////
         STATS resume
 ///////////////////////////////// */
-
 
 .stats {
 	position: relative;
@@ -122,10 +177,13 @@ input {
 }
 
 .stat-resume {
-	float: none;
+    float: none;
     position: relative;
     margin: 0;
     padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #stats-bg-svg {
@@ -163,10 +221,9 @@ input {
         BOOTSTRAP Table
 ///////////////////////////////// */
 
-/*.bootstrap-table {
-    max-width: 96.999%;
-    margin: 0 auto;
-}*/
+.bootstrap-table {
+
+}
 .bootstrap-table .row {
     margin: 0;
     padding: 0;
@@ -252,6 +309,7 @@ table {
 
 .table>tbody>tr>td:nth-child(4) {
     font-family: 'cgsm-regular';
+    font-size: 1.33em;
     color: rgb(226, 176, 90);
     text-decoration: underline;
 }
@@ -320,7 +378,10 @@ table {
 .fixed-table-pagination .pagination a{
     font-family: 'cgsm-regular';
 }
-
+.fixed-table-pagination div.pagination, .fixed-table-pagination .pagination-detail {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 ::-webkit-scrollbar {
     width: 3px;
 }
@@ -476,7 +537,6 @@ footer .catch {
     display: inline-block;
     
 }
-
 
 .socials i {
     padding: 0 15px;
