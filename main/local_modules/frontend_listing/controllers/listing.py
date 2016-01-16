@@ -131,7 +131,7 @@ class Listing(Base):
 
         geoloc = simplejson.dumps(
             {
-                partner.id: [
+                partner.name: [
                     partner.partner_latitude,
                     partner.partner_longitude,
                     partner.info_window(company_status),
