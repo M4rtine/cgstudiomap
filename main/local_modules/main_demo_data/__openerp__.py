@@ -41,7 +41,7 @@ Contributors
         'main',
     ],
     'data': [
-        'data/res.partner.csv',
+        # 'data/res.partner.csv',
     ],
     'installable': True,
     'application': True,

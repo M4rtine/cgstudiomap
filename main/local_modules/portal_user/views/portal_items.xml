@@ -100,15 +100,15 @@
                   <!--parent="portal_user.portal_listing"-->
                   <!--groups="base.group_portal"/>-->
 
-        <record id="action_portal_missing_details" model="ir.actions.act_window">
-            <field name="name">More Details Wanted</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">res.partner</field>
-            <field name="view_mode">kanban,tree,form</field>
-            <field name="view_type">form</field>
-            <field name="domain">[('state', '=', 'open'), ('is_company', '=', True), ('missing_detail_ids', '!=', False)]</field>
-            <field name="search_view_id" ref="base.view_res_partner_filter"/>
-        </record>
+        <!--<record id="action_portal_missing_details" model="ir.actions.act_window">-->
+            <!--<field name="name">More Details Wanted</field>-->
+            <!--<field name="type">ir.actions.act_window</field>-->
+            <!--<field name="res_model">res.partner</field>-->
+            <!--<field name="view_mode">kanban,tree,form</field>-->
+            <!--<field name="view_type">form</field>-->
+            <!--<field name="domain">[('state', '=', 'open'), ('is_company', '=', True), ('missing_detail_ids', '!=', False)]</field>-->
+            <!--<field name="search_view_id" ref="base.view_res_partner_filter"/>-->
+        <!--</record>-->
 
         <!--<menuitem id="menu_portal_missing_details"-->
                   <!--action="action_portal_missing_details"-->
