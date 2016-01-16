@@ -17,8 +17,7 @@
 					<div class="navbar-collapse collapse">
 
 						<div class="dropdown navbar-text navbar-right hidden-xs">
-							<!--<p class="navbar-text navbar-right hidden-xs"><a id="dLabel" data-target="#" href="http://cgstudiomap.org" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="navbar-link"><span id="user-login"></span></a></p>-->
-							<button id="dLabel" class="btn btn-default outline" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">JOIN</button>
+							<button id="dLabel" class="btn btn-connect" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-power-off fa-2x"/></button>
 
 						  <ul class="dropdown-menu" aria-labelledby="dLabel">
                               <li groups="base.group_public"><a t-attf-href="/web/signup"><h4>Sign up</h4></a></li>
@@ -38,7 +37,7 @@
 							<li><a t-att-href="website.about_menu">About</a></li>
 							
 							<li role="separator" class="divider visible-xs-inline"></li>
-							<div class="visible-xs-inline">
+							<div class="navbar-nav visible-xs-inline">
 								<li groups="base.group_public"><a t-attf-href="/web/signup"><h2>Sign up</h2></a></li>
                                 <li groups="base.group_public" class="divider"/>
                                 <li groups="base.group_public"><a t-attf-href="/web/login"><b>Sign in</b></a></li>

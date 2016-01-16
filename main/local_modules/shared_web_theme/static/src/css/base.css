@@ -5905,7 +5905,7 @@ body {
   background-color: white;
   color: #323133;
   margin: 0;
-  border: 1px solid #b05ae2;
+  border: 0 solid #b05ae2;
   -webkit-box-shadow: 0 0 0 transparent;
   box-shadow: 0 0 0 transparent;
   background-clip: padding-box; }
@@ -6010,6 +6010,19 @@ body {
 .navbar-right .openerp .active.oe_button:focus,
 .openerp .navbar-right .active.oe_button:focus {
   outline: 0 none; }
+.navbar-right .btn-connect {
+  background: none;
+  color: #f1f1f3;
+  margin-top: -0.25em; }
+.navbar-right .btn-connect:link,
+.navbar-right .btn-connect:visited,
+.navbar-right .btn-connect:active,
+.navbar-right .btn-connect.active {
+  color: #f1f1f3; }
+.navbar-right .btn-connect:hover,
+.navbar-right .btn-connect:focus {
+  background: #f1f1f3;
+  color: #b05ae2; }
 .navbar-right .btn-default, .navbar-right .openerp button, .openerp .navbar-right button, .navbar-right .openerp .oe_button, .openerp .navbar-right .oe_button {
   border: 2px solid #f2f2f2;
   color: #f1f1f3;
@@ -6364,6 +6377,9 @@ fontCGSM {
 
 .fontCGSMlight {
   font-family: 'cgsm-light'; }
+
+.btn-connect {
+  padding: auto 0; }
 
 .dropdown-menu .divider {
   height: 1px;
