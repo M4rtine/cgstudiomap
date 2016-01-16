@@ -154,6 +154,7 @@
             <t t-call="frontend_base.doctype_html"/>
             <t t-call="frontend_base.html">
 
+				<t t-set="title">Hompage</t>
                 <t t-call="frontend_base.full_head"/>
 
                 <t t-call="frontend_base.body">

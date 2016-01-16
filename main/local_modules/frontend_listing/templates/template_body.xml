@@ -179,6 +179,8 @@
 
 
         <template id="frontend_listing.map" name="Listing: Map">
+
+            <t t-set="title">Directory</t>
             <t t-call="frontend_listing.base">
                 <div id="map"></div>
                 <footer id="footer_map" class="footer">
@@ -197,6 +199,7 @@
         </template>
 
         <template id="frontend_listing.list" name="Listing: List">
+            <t t-set="title">List</t>
             <t t-call="frontend_listing.base">
                 
 				<div class="jumbotron fontCGSM">

@@ -13,7 +13,7 @@
         <!--template that embed all the favicon details.-->
         <template id="frontend_base.meta_icon" name="Base: Meta Icon">
             <link rel="apple-touch-icon" sizes="57x57" href="/main_data/static/src/fav/apple-touch-icon-57x57.png"/>
-            <link rel="apple-touch-icon" sizes="60x60" href="/main_data/static/src/fav/apple-touch-icon-60x60.png"/>
+            <link rel="apple-touctle-icon" sizes="60x60" href="/main_data/static/src/fav/apple-touch-icon-60x60.png"/>
             <link rel="apple-touch-icon" sizes="72x72" href="/main_data/static/src/fav/apple-touch-icon-72x72.png"/>
             <link rel="apple-touch-icon" sizes="76x76" href="/main_data/static/src/fav/apple-touch-icon-76x76.png"/>
             <link rel="apple-touch-icon" sizes="114x114" href="/main_data/static/src/fav/apple-touch-icon-114x114.png"/>
@@ -59,7 +59,7 @@
         <template id="frontend_base.head" name="Base: Head" page="True">
             <head>
                 <meta charset="utf-8" />
-                <title>CG Studio Map</title>
+                <title>CG Studio Map | <t t-raw="title"/></title>
 
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
