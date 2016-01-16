@@ -112,7 +112,7 @@ class Listing(Base):
         _logger.debug('details: %s', details)
         return details
 
-    @statsd.timed('odoo.frontend.list.time',
+    @statsd.timed('odoo.frontend.map.time',
                   tags=['frontend', 'frontend:listing'])
     @http.route(map_url, type='http', auth="public", website=True)
     def map(self, company_status='open', search='', **post):
@@ -153,7 +153,7 @@ class Listing(Base):
 
         return request.website.render("frontend_listing.map", values)
 
-    @statsd.timed('odoo.frontend.map.time',
+    @statsd.timed('odoo.frontend.list.time',
                   tags=['frontend', 'frontend:listing'])
     @http.route(list_url, type='http', auth="public", website=True)
     def list(self, company_status='open', page=0, search='', **post):
