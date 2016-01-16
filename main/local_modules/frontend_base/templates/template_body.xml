@@ -218,5 +218,46 @@
             />
         </template>
 
+        <template id="frontend_base.layout" name="Base for simple page">
+            <t t-call="frontend_base.doctype_html"/>
+            <t t-call="frontend_base.html">
+                <t t-call="frontend_base.full_head"/>
+                <t t-call="frontend_base.body">
+                    <t t-raw="0"/>
+                    <!--<t t-call="frontend_base.footer"/>-->
+                    <t t-call="frontend_base.engine"/>
+                </t> <!-- closing body -->
+            </t> <!-- closing html -->
+        </template>
+
+        <template id="website.404">
+            <t t-call="frontend_base.layout">
+                <div id="wrap" style="padding-top:200px">
+                    <t t-raw="0"/>
+                    <div class="oe_structure oe_empty">
+                        <div class="container">
+                            <h1 class="mt32">404: Page not found!</h1>
+                            <p>
+                                The page you were looking for could not be found; it is possible you have
+                                typed the address incorrectly, but it has most probably been removed due
+                                to the recent website reorganisation.
+                            </p>
+                            <p>Maybe you were looking for one of these popular pages ?</p>
+                            <ul>
+                                <li><a href="/">Homepage</a></li>
+                                <li><a href="/directory">Directory</a></li>
+                                <li><a href="/web/signup">Sign Up</a></li>
+                                <li><a href="/page/website.contactus/">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <t t-if="request.debug">
+                        <t t-call="website.http_error_debug"/>
+                    </t>
+                </div>
+            </t>
+        </template>
+
     </data>
 </openerp>
