@@ -17,6 +17,21 @@
 	.btn.active:focus {
 		outline: 0 none;
 	}
+	.btn-connect {
+		background: none;
+		color: $color-cgsm-light;
+	}
+	.btn-connect:link,
+	.btn-connect:visited,
+	.btn-connect:active,
+	.btn-connect.active	{
+		color: $color-cgsm-light;
+	}
+	.btn-connect:hover,
+	.btn-connect:focus	{
+		background: $color-cgsm-light;
+		color: $color-cgsm;
+	}
 	.btn-default {
 		border: 2px solid $bg;
 		color: $color-cgsm-light;
