@@ -37,7 +37,7 @@
 							<li><a t-att-href="website.about_menu">About</a></li>
 							
 							<li role="separator" class="divider visible-xs-inline"></li>
-							<div class="visible-xs-inline">
+							<div class="navbar-nav visible-xs-inline">
 								<li groups="base.group_public"><a t-attf-href="/web/signup"><h2>Sign up</h2></a></li>
                                 <li groups="base.group_public" class="divider"/>
                                 <li groups="base.group_public"><a t-attf-href="/web/login"><b>Sign in</b></a></li>
