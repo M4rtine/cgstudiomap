@@ -157,7 +157,7 @@ class ResPartner(models.Model):
         # Test if none of the fields are present in vals.
         # set & set is the intersection of both sets.
         if not address_related_fields & set(vals):
-            _logger.info(
+            _logger.debug(
                 'No field related to address was found. '
                 'Skipping Location data cleaning'
             )
