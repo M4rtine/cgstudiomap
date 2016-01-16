@@ -34,7 +34,7 @@ install:
   - pip install pylint
 
 script:
-  - ./main/bin/start_odoo --stop-after-init -d travis -r travis -i main --test-enable
+  - ./main/bin/start_odoo --stop-after-init --workers=0 -d travis -r travis -i main --test-enable
 
 
 after_success:
