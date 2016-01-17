@@ -21,9 +21,9 @@
 
 {
     'name': 'Demo Data Module',
-    'version': '0.1',
-    'author': 'Jordi Riera',
-    'maintainer': 'Jordi Riera',
+    'version': 'beta',
+    'author': 'cgstudiomap',
+    'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Main',
     'summary': 'Demo data for development of the solution.',
@@ -41,9 +41,7 @@ Contributors
         'main',
     ],
     'data': [
-        'data/res_partner_category_demo.xml',
-        'data/res_partner_demo.xml',
-        'data/res_user_demo.xml',
+        # 'data/res.partner.csv',
     ],
     'installable': True,
     'application': True,

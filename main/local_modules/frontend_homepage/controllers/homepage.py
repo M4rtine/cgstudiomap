@@ -2,7 +2,9 @@
 import logging
 from collections import defaultdict
 
-from cachetools import cached, TTLCache
+from cachetools import cached
+from datadog import statsd
+from openerp.addons.frontend_base.models.caches import caches
 from openerp.addons.web import http
 from openerp.addons.website.controllers.main import Website
 
@@ -10,14 +12,14 @@ from openerp.http import request
 
 _logger = logging.getLogger(__name__)
 
-# Cache of 3hours
-# The decorated method are refreshed every 3hours.
-cache = TTLCache(100, 10800)
+cache = caches.get('cache_3h')
 
 
 class Homepage(Website):
     """Representation of the homepage of the website."""
 
+    @statsd.timed('odoo.frontend.index.time',
+                  tags=['frontend', 'frontend:homepage'])
     @http.route('/', type='http', auth="public", website=True)
     def index(self, **kw):
         """Dispatch between homepage depending on the status of the user."""
@@ -62,7 +64,6 @@ class Homepage(Website):
         _logger.debug('index_public_user')
         page = 'homepage'
         env = request.env
-        user_pool = env['res.users']
         partner_pool = env['res.partner']
         # optimisation as it is used in get_partners_by_country
         by_countries = get_partners_by_country(
@@ -70,12 +71,12 @@ class Homepage(Website):
 
         values = {
             'page': page,
+            'search': '',
+            'company_status': 'active',
             'geochart_data': [['Country', 'Popularity']] + [
                 [str(country.name), int(value)]
                 for country, value in by_countries.items()
             ],
-            'nbr_companies': partner_pool.get_number_active_companies(),
-            'nbr_users': user_pool.get_number_active_users(),
             'partners': partner_pool.get_most_popular_studios(8),
         }
         return request.render('frontend_homepage.homepage', values)

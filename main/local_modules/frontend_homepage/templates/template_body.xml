@@ -29,18 +29,16 @@
 
         <!--template that build the mini card of a partner-->
         <template id="partner_card" name="Partner Card">
-            <t t-call="frontend_base.company_form_link">
+			<a t-att-href="partner.partner_url">
                 <t t-call="frontend_base.company_logo"/>
-                <t t-call="frontend_base.company_form_link">
-                    <h4 t-esc="partner.name"/>
-                </t>
+				<a t-att-href="partner.partner_url"><h4 t-esc="partner.name"/></a>
                 <p>
                     <em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
                     <t t-foreach="partner.industry_ids" t-as="ind">
-                        <t t-call="frontend_base.industry_tag"/>
+                        <t t-raw="ind.tag_url_link()"/>
                     </t>
                 </p>
-            </t>
+			</a>
         </template>
 
         <template id="partner_box" name="Partner Box">
@@ -88,7 +86,7 @@
 			</div>
 			
             <!--center heading end-->
-			<div class="container">
+			<div class="container fontCGSM">
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="colored-boxed">
@@ -156,6 +154,7 @@
             <t t-call="frontend_base.doctype_html"/>
             <t t-call="frontend_base.html">
 
+				<t t-set="title">Hompage</t>
                 <t t-call="frontend_base.full_head"/>
 
                 <t t-call="frontend_base.body">
@@ -177,12 +176,12 @@
                             <a href="#present"><span id="arrow-down"></span></a>
                         </p>
 						
-						<div class="stats stat-left fontCGSM">
+						<div class="stats stat-left fontCGSMlight">
 							<t t-set="nbr" t-value="nbr_users"/>
 							<t t-call="frontend_base.user_counter" />
 						</div>
 						
-						<div class="stats stat-right fontCGSM">
+						<div class="stats stat-right fontCGSMlight">
 							<t t-set="nbr" t-value="nbr_companies"/>
 							<t t-call="frontend_base.company_counter" />
 						</div>
@@ -203,6 +202,8 @@
                         <script type="text/javascript">
                             geo_chart(<t t-esc="geochart_data"/>, 'geochart_target');
                         </script>
+						<t t-call="frontend_base.company_counter_js"/>
+						<t t-call="frontend_base.user_counter_js"/>
                     </t>
 
                 </t> <!-- closing body -->

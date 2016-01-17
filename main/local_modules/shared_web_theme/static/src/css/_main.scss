@@ -15,17 +15,19 @@ body {
 	overflow-y: auto;
 }
 
-fontCGSM {
-    font-family: 'cgsm-regular';
+.fontCGSM {
+    font-family: 'cgsm-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .fontCGSMbold {
-    font-family: 'cgsm-bold';
+    font-family: 'cgsm-bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .fontCGSMlight {
-    font-family: 'cgsm-light';
+    font-family: 'cgsm-light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-
+.btn-connect {
+	padding: auto 0;
+}
 .dropdown-menu .divider {
     height: 1px;
     margin: 9px 0;
@@ -140,18 +142,19 @@ fontCGSM {
 
 	}
 	p {
+		font-size: 1.18em;
 	}
 	
 	h2 {
 		text-transform: uppercase;
 		@media (max-width: $screen-lg-min) {
-			font-size: 1.85em;
+			font-size: 2em;
 		}
 		@media (max-width: $screen-md-min) {
-			font-size: 1.45em;
+			font-size: 1.65em;
 		}
 		@media (max-width: $screen-xs-max) {
-			font-size: 1.25em;
+			font-size: 1.45em;
 		}
 	}
 }
@@ -195,8 +198,8 @@ fontCGSM {
 #stats-txt {
     position: absolute;
 	top: 0;
-	left: 20%;
-	right: 20%;
+	left: 0;
+	right: 55px;
 }
 
 .stat-left {
@@ -237,6 +240,16 @@ fontCGSM {
 	}
 	p {
 		margin-top: 10px;
+	}
+}
+.text {
+	
+	h3 {
+		font-family: 'cgsm-light';
+		font-size : 1.99em;
+	}
+	p {
+		font-size : 1.15em;
 	}
 }
 .bloc-studios-title::after {
@@ -319,6 +332,7 @@ fontCGSM {
 .bloc-signup h1 a:active {
 	text-decoration: none;
 }
+
 .footer {
     margin: 0;
     padding: 0;
@@ -330,6 +344,39 @@ fontCGSM {
 	.footer-name {
 		font-size: 1.6em;
 	}
+    .socials i {
+        padding: 0 15px;
+        padding-top: 0;
+        color: $color-cgsm-light;
+        text-align: right;
+        list-style-type: none;
+        text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.65);
+        background-color: transparent;
+        -webkit-transition: 0.2s linear;
+        -moz-transition: 0.2s linear;
+        -o-transition: 0.2s linear;
+        transition: 0.2s linear;
+        
+        @media (max-width: $screen-xs-max) {
+            padding: 0 4px;
+            padding-top: 20px;
+        }
+    }
+    .socials i > a:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .fa-github:hover {
+        color: #B05AE2!important;
+    }
+
+    .fa-twitter:hover {
+        color: #55ACEE!important;
+    }
+
+    .fa-linkedin:hover {
+        color: #0077B5!important;
+    }
 	.social-txt {
 		text-align: right;
 	}
@@ -341,10 +388,6 @@ fontCGSM {
 		line-height: 0.6em;
 		margin-top: 0.5em;
 	}
-
-/*	i, i > a {
-		margin: 0;
-	}*/
 	
 	a >span {
 		margin: 0 0.5em;
@@ -359,6 +402,7 @@ fontCGSM {
 		text-decoration: underline;
 	}
 }
+
 
 /* ---------------------------------------------- /*
  * Scroll to top

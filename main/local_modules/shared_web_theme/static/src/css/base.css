@@ -5785,17 +5785,17 @@ body {
     .navbar-nav > li > a {
       padding-left: 3em;
       padding-right: 3em;
-      font-size: 1em; } }
+      font-size: 1.1em; } }
   @media (min-width: 1200px) {
     .navbar-nav > li > a {
       padding-left: 6em;
       padding-right: 6em;
-      font-size: 1.2em; } }
+      font-size: 1.33em; } }
   @media (min-width: 1900px) {
     .navbar-nav > li > a {
       padding-left: 8em;
       padding-right: 8em;
-      font-size: 1.2em; } }
+      font-size: 1.4em; } }
 
 .navbar-toggle {
   position: relative;
@@ -5905,7 +5905,7 @@ body {
   background-color: white;
   color: #323133;
   margin: 0;
-  border: 1px solid #b05ae2;
+  border: 0 solid #b05ae2;
   -webkit-box-shadow: 0 0 0 transparent;
   box-shadow: 0 0 0 transparent;
   background-clip: padding-box; }
@@ -6010,6 +6010,19 @@ body {
 .navbar-right .openerp .active.oe_button:focus,
 .openerp .navbar-right .active.oe_button:focus {
   outline: 0 none; }
+.navbar-right .btn-connect {
+  background: none;
+  color: #f1f1f3;
+  margin-top: -0.25em; }
+.navbar-right .btn-connect:link,
+.navbar-right .btn-connect:visited,
+.navbar-right .btn-connect:active,
+.navbar-right .btn-connect.active {
+  color: #f1f1f3; }
+.navbar-right .btn-connect:hover,
+.navbar-right .btn-connect:focus {
+  background: #f1f1f3;
+  color: #b05ae2; }
 .navbar-right .btn-default, .navbar-right .openerp button, .openerp .navbar-right button, .navbar-right .openerp .oe_button, .openerp .navbar-right .oe_button {
   border: 2px solid #f2f2f2;
   color: #f1f1f3;
@@ -6356,14 +6369,17 @@ $color-grey-dark: rgb(76,76,76);
 body {
   overflow-y: auto; }
 
-fontCGSM {
-  font-family: 'cgsm-regular'; }
+.fontCGSM {
+  font-family: 'cgsm-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 .fontCGSMbold {
-  font-family: 'cgsm-bold'; }
+  font-family: 'cgsm-bold', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 .fontCGSMlight {
-  font-family: 'cgsm-light'; }
+  font-family: 'cgsm-light', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+.btn-connect {
+  padding: auto 0; }
 
 .dropdown-menu .divider {
   height: 1px;
@@ -6454,17 +6470,19 @@ fontCGSM {
     .txt-present {
       padding-top: 0;
       font-size: 1em; } }
+  .txt-present p {
+    font-size: 1.18em; }
   .txt-present h2 {
     text-transform: uppercase; }
     @media (max-width: 1200px) {
       .txt-present h2 {
-        font-size: 1.85em; } }
+        font-size: 2em; } }
     @media (max-width: 992px) {
       .txt-present h2 {
-        font-size: 1.45em; } }
+        font-size: 1.65em; } }
     @media (max-width: 767px) {
       .txt-present h2 {
-        font-size: 1.25em; } }
+        font-size: 1.45em; } }
 
 .stats {
   position: relative;
@@ -6499,8 +6517,8 @@ fontCGSM {
 #stats-txt {
   position: absolute;
   top: 0;
-  left: 20%;
-  right: 20%; }
+  left: 0;
+  right: 55px; }
 
 .stat-left {
   float: left;
@@ -6536,6 +6554,12 @@ fontCGSM {
     text-transform: uppercase; }
   .colored-boxed p {
     margin-top: 10px; }
+
+.text h3 {
+  font-family: 'cgsm-light';
+  font-size: 1.99em; }
+.text p {
+  font-size: 1.15em; }
 
 .bloc-studios-title::after {
   content: "";
@@ -6602,12 +6626,34 @@ fontCGSM {
   height: 180px;
   padding-bottom: 2em;
   font-size: 1.24em;
-  line-height: 1.3em;
-  /*	i, i > a {
-  		margin: 0;
-  	}*/ }
+  line-height: 1.3em; }
   .footer .footer-name {
     font-size: 1.6em; }
+  .footer .socials i {
+    padding: 0 15px;
+    padding-top: 0;
+    color: #f1f1f3;
+    text-align: right;
+    list-style-type: none;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.65);
+    background-color: transparent;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear; }
+    @media (max-width: 767px) {
+      .footer .socials i {
+        padding: 0 4px;
+        padding-top: 20px; } }
+  .footer .socials i > a:hover {
+    cursor: pointer;
+    text-decoration: none; }
+  .footer .fa-github:hover {
+    color: #B05AE2 !important; }
+  .footer .fa-twitter:hover {
+    color: #55ACEE !important; }
+  .footer .fa-linkedin:hover {
+    color: #0077B5 !important; }
   .footer .social-txt {
     text-align: right; }
   .footer p {
@@ -6713,7 +6759,11 @@ fontCGSM {
   width: 40px;
   height: 40px; }
 
-#navbar {
+#stats-bg-svg {
+  width: 150px;
+  height: 150px; }
+
+#navbar, #footer-static {
   z-index: 999; }
 
 #stats-txt {
@@ -6734,12 +6784,6 @@ fontCGSM {
   pointer-events: none;
   z-index: 20; }
 
-#bt-user {
-  z-index: 10000; }
-
-/**/
-/*@import "_flatify";
-@import "_homepage";*/
 /*
 body {
   overflow: scroll;

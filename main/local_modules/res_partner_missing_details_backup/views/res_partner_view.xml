@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="res_partner_missing_details_form_view" model="ir.ui.view">
+            <field name="name">Res Partner: missing details</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Missing Details">
+                        <field name="missing_detail_ids"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>
