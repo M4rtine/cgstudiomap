@@ -15,14 +15,14 @@ body {
 	overflow-y: auto;
 }
 
-fontCGSM {
-    font-family: 'cgsm-regular';
+.fontCGSM {
+    font-family: 'cgsm-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .fontCGSMbold {
-    font-family: 'cgsm-bold';
+    font-family: 'cgsm-bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .fontCGSMlight {
-    font-family: 'cgsm-light';
+    font-family: 'cgsm-light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .btn-connect {
@@ -142,18 +142,19 @@ fontCGSM {
 
 	}
 	p {
+		font-size: 1.18em;
 	}
 	
 	h2 {
 		text-transform: uppercase;
 		@media (max-width: $screen-lg-min) {
-			font-size: 1.85em;
+			font-size: 2em;
 		}
 		@media (max-width: $screen-md-min) {
-			font-size: 1.45em;
+			font-size: 1.65em;
 		}
 		@media (max-width: $screen-xs-max) {
-			font-size: 1.25em;
+			font-size: 1.45em;
 		}
 	}
 }
@@ -239,6 +240,16 @@ fontCGSM {
 	}
 	p {
 		margin-top: 10px;
+	}
+}
+.text {
+	
+	h3 {
+		font-family: 'cgsm-light';
+		font-size : 1.99em;
+	}
+	p {
+		font-size : 1.15em;
 	}
 }
 .bloc-studios-title::after {

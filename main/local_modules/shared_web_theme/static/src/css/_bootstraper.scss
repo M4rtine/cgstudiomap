@@ -36,17 +36,17 @@ body {
 	@media (min-width: $screen-md-min) {
 		padding-left: 3em;
 		padding-right: 3em;
-		font-size: 1em;
+		font-size: 1.1em;
 	}
 	@media (min-width: $screen-lg-min) {
 		padding-left: 6em;
 		padding-right: 6em;
-		font-size: 1.2em;
+		font-size: 1.33em;
 	}
 	@media (min-width: $screen-big) {
 		padding-left: 8em;
 		padding-right: 8em;
-		font-size: 1.2em;
+		font-size: 1.4em;
 	}
 }
 

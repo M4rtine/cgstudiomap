@@ -86,7 +86,7 @@
 			</div>
 			
             <!--center heading end-->
-			<div class="container">
+			<div class="container fontCGSM">
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="colored-boxed">
@@ -176,12 +176,12 @@
                             <a href="#present"><span id="arrow-down"></span></a>
                         </p>
 						
-						<div class="stats stat-left fontCGSM">
+						<div class="stats stat-left fontCGSMlight">
 							<t t-set="nbr" t-value="nbr_users"/>
 							<t t-call="frontend_base.user_counter" />
 						</div>
 						
-						<div class="stats stat-right fontCGSM">
+						<div class="stats stat-right fontCGSMlight">
 							<t t-set="nbr" t-value="nbr_companies"/>
 							<t t-call="frontend_base.company_counter" />
 						</div>

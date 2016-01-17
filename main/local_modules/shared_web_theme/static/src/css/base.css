@@ -5785,17 +5785,17 @@ body {
     .navbar-nav > li > a {
       padding-left: 3em;
       padding-right: 3em;
-      font-size: 1em; } }
+      font-size: 1.1em; } }
   @media (min-width: 1200px) {
     .navbar-nav > li > a {
       padding-left: 6em;
       padding-right: 6em;
-      font-size: 1.2em; } }
+      font-size: 1.33em; } }
   @media (min-width: 1900px) {
     .navbar-nav > li > a {
       padding-left: 8em;
       padding-right: 8em;
-      font-size: 1.2em; } }
+      font-size: 1.4em; } }
 
 .navbar-toggle {
   position: relative;
@@ -6369,14 +6369,14 @@ $color-grey-dark: rgb(76,76,76);
 body {
   overflow-y: auto; }
 
-fontCGSM {
-  font-family: 'cgsm-regular'; }
+.fontCGSM {
+  font-family: 'cgsm-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 .fontCGSMbold {
-  font-family: 'cgsm-bold'; }
+  font-family: 'cgsm-bold', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 .fontCGSMlight {
-  font-family: 'cgsm-light'; }
+  font-family: 'cgsm-light', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 .btn-connect {
   padding: auto 0; }
@@ -6470,17 +6470,19 @@ fontCGSM {
     .txt-present {
       padding-top: 0;
       font-size: 1em; } }
+  .txt-present p {
+    font-size: 1.18em; }
   .txt-present h2 {
     text-transform: uppercase; }
     @media (max-width: 1200px) {
       .txt-present h2 {
-        font-size: 1.85em; } }
+        font-size: 2em; } }
     @media (max-width: 992px) {
       .txt-present h2 {
-        font-size: 1.45em; } }
+        font-size: 1.65em; } }
     @media (max-width: 767px) {
       .txt-present h2 {
-        font-size: 1.25em; } }
+        font-size: 1.45em; } }
 
 .stats {
   position: relative;
@@ -6552,6 +6554,12 @@ fontCGSM {
     text-transform: uppercase; }
   .colored-boxed p {
     margin-top: 10px; }
+
+.text h3 {
+  font-family: 'cgsm-light';
+  font-size: 1.99em; }
+.text p {
+  font-size: 1.15em; }
 
 .bloc-studios-title::after {
   content: "";
