@@ -2,13 +2,15 @@
 """Suite of methods common operation on res.partner."""
 import logging
 
-from openerp import api, models
+from openerp import api, models, fields
 
 _logger = logging.getLogger(__name__)
 
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
+
+    small_image_url = fields.Char('Url to the small image of the partner.')
 
     def search_domain(self, search):
         """Return the domain that should be used to when a search is processed.
@@ -31,3 +33,13 @@ class ResPartner(models.Model):
             ]
         _logger.debug('domain: %s', domain)
         return domain
+
+    @api.multi
+    def write(self, vals):
+        """Reset the small_image_url value if the image has a new value."""
+        _logger.debug('vals: %s', vals)
+        if 'image' in vals:
+            vals.update({'small_image_url': False})
+
+        _logger.debug('vals: %s', vals)
+        return super(ResPartner, self).write(vals)

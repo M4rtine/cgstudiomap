@@ -3,6 +3,7 @@ import logging
 import pprint
 
 import simplejson
+import time
 from datadog import statsd
 from openerp.addons.frontend_base.controllers.base import Base
 from openerp.addons.frontend_base.models.caches import caches
@@ -12,7 +13,6 @@ from openerp.addons.website.models.website import hashlib
 from openerp.http import request, werkzeug
 
 _logger = logging.getLogger(__name__)
-cache = caches.get('cache_1h')
 
 
 class QueryURL(object):
@@ -37,18 +37,24 @@ class QueryURL(object):
         return path
 
 
-def image_url(record, field, size=None):
+def small_image_url(record, field):
     """Returns a local url that points to the image field of a given browse record."""
-    model = record._name
-    sudo_record = record.sudo()
-    id_ = '%s_%s' % (
-        record.id,
-        hashlib.sha1(
-            sudo_record.write_date or sudo_record.create_date or ''
-        ).hexdigest()[0:7]
-    )
-    size = '' if size is None else '/%s' % size
-    return '/website/image/%s/%s/%s%s' % (model, id_, field, size)
+    if not record.small_image_url:
+        _logger.debug('No small image url for %s', record.id)
+        model = record._name
+        sudo_record = record.sudo()
+        id_ = '%s_%s' % (
+            record.id,
+            hashlib.sha1(
+                sudo_record.write_date or sudo_record.create_date or ''
+            ).hexdigest()[0:7]
+        )
+        size = '' if size is None else '/%s' % size
+        record.small_image_url = '/website/image/%s/%s/%s%s' % (model, id_, field, size)
+    # else:
+        # _logger.debug('Great found small image url for %s!', record.id)
+
+    return record.small_image_url
 
 
 class Listing(Base):
@@ -77,12 +83,15 @@ class Listing(Base):
         """
         _logger.debug('search: %s', search)
         _logger.debug('company_status: %s', company_status)
+        t1 = time.time()
         partners = self.get_partners(
             request.env['res.partner'],
             search=search,
             company_status=company_status
         )
-        _logger.debug('partners: %s', pprint.pformat(partners))
+        _logger.debug('Query time: %s', time.time() - t1)
+        # _logger.debug('partners: %s', pprint.pformat(partners))
+        t1 = time.time()
 
         details = simplejson.dumps(
             [
@@ -90,7 +99,7 @@ class Listing(Base):
                     'logo': '<img itemprop="image" '
                             'class="img img-responsive" '
                             'src="{0}"'
-                            '/>'.format(image_url(partner, 'image_small')),
+                            '/>'.format(small_image_url(partner, 'image_small')),
                     'name': '<a href="{0.partner_url}">{1}</a>'.format(
                         partner, partner.name.encode('utf-8')
                     ),
@@ -109,7 +118,8 @@ class Listing(Base):
                 for partner in partners
             ],
         )
-        _logger.debug('details: %s', details)
+        _logger.debug('dump timing: %s', time.time() - t1)
+        # _logger.debug('details: %s', details)
         return details
 
     @statsd.timed('odoo.frontend.map.time',
