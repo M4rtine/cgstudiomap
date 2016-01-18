@@ -1,36 +1,41 @@
+# WARNING:
+# Do not use this file as a template for you repository TravisCI configuration
+# Instead use the files under the "/sample_files" directory for that purpose.
 language: python
+sudo: false
+cache:
+  apt: true
+  directories:
+    - $HOME/.cache/pip
 
 python:
-      - "2.7"
+  - "2.7"
 
-sudo: false
-cache: pip
+before_script:
+#  - sudo psql -c 'create database odoo;' -U travis
+  - psql -U postgres -c "create extension postgis"
+  - psql -U postgres -c "create extension unaccent"
 
 addons:
-    apt:
-        packages:
-            - expect-dev  # provides unbuffer utility
-            - python-lxml  # because pip installation is slow
-            - python-simplejson
-            - python-serial
-            - python-yaml
-env:
-  - VERSION="8.0" LINT_CHECK="1"
-#  - VERSION="8.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0"
-#  - VERSION="8.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0"
+  postgresql: "9.3"
+  apt:
+    packages:
+      - expect-dev  # provides unbuffer utility
+      - python-lxml  # because pip installation is slow
+      - python-simplejson
+      - python-serial
+      - python-yaml
 
 virtualenv:
   system_site_packages: true
 
 install:
-  - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
-  - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
-  - travis_install_nightly
-#  - pip install geojson Shapely
-#  - sudo apt-get -q -y install postgis
+  - pip install coveralls
+  - pip install pylint
 
 script:
-  - travis_run_tests
+  - ./main/bin/start_odoo --stop-after-init --workers=0 -d travis -r travis -i main --test-enable
+
 
 after_success:
-  coveralls
+  - coveralls

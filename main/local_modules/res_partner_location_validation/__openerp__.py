@@ -27,7 +27,10 @@
     'license': 'AGPL-3',
     'category': 'Main',
     'summary': 'Validation of the location of partners',
-    'depends': [],
+    'depends': [
+        'base_phone',  # or the unittests of base_phone won't pass :(
+        'email_template',  # or the unittests of base_phone won't pass :(
+    ],
     'external_dependencies': {
         'python': ['pygeocoder'],
     },

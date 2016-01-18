@@ -23,7 +23,6 @@ import shutil
 import sys
 import tempfile
 import subprocess
-import zc.buildout.buildout
 from optparse import OptionParser
 
 tmpeggs = tempfile.mkdtemp()
@@ -159,6 +158,8 @@ if subprocess.call(cmd, env=dict(os.environ, PYTHONPATH=setuptools_path)) != 0:
 
 ws.add_entry(tmpeggs)
 ws.require(requirement)
+
+import zc.buildout.buildout  # noqa
 
 if not [a for a in args if '=' not in a]:
     args.append('bootstrap')
