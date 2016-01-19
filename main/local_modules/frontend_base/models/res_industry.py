@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 """Suite of methods common operation on res.partner."""
 import logging
-import random
 
-from caches import clear_caches
-from openerp import api, models, fields
+from openerp import  models
 
 _logger = logging.getLogger(__name__)
 
