@@ -120,12 +120,6 @@ class ResPartner(models.Model):
 
         return super(ResPartner, self).write(vals)
 
-    @api.model
-    def create(self, vals):
-        """Force to clear caches when a new partner is created."""
-        clear_caches()
-        return super(ResPartner, self).create(vals)
-
     partner_url = fields.Char('Partner url', compute='partner_url_link')
 
     @api.one
