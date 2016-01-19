@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 import logging
-import pprint
 
 import simplejson
 import time
 from datadog import statsd
-from openerp.addons.frontend_base.controllers.base import Base
-from openerp.addons.frontend_base.models.caches import caches
+from openerp.addons.frontend_base.controllers.base import (
+    Base,
+    small_image_url
+)
 from openerp.addons.web import http
-from openerp.addons.website.models.website import hashlib
+from cachetools import LRUCache, cached
 
 from openerp.http import request, werkzeug
 
 _logger = logging.getLogger(__name__)
+list_cache = LRUCache(maxsize=10)
+map_cache = LRUCache(maxsize=10)
 
 
 class QueryURL(object):
@@ -35,26 +38,6 @@ class QueryURL(object):
         if l:
             path += '?' + '&'.join(l)
         return path
-
-
-def small_image_url(record, field):
-    """Returns a local url that points to the image field of a given browse record."""
-    if not record.small_image_url:
-        _logger.debug('No small image url for %s', record.id)
-        model = record._name
-        sudo_record = record.sudo()
-        id_ = '%s_%s' % (
-            record.id,
-            hashlib.sha1(
-                sudo_record.write_date or sudo_record.create_date or ''
-            ).hexdigest()[0:7]
-        )
-        size = '' if size is None else '/%s' % size
-        record.small_image_url = '/website/image/%s/%s/%s%s' % (model, id_, field, size)
-    # else:
-        # _logger.debug('Great found small image url for %s!', record.id)
-
-    return record.small_image_url
 
 
 class Listing(Base):
@@ -81,6 +64,39 @@ class Listing(Base):
         :param str search: search to filter with
         :return: json dumps
         """
+        @cached(list_cache)
+        def build_details(partners):
+            """Gather the details to build later the table of companies.
+
+            :param recordset partners: partners to gather the details from.
+            :return: json dump.
+            """
+            return simplejson.dumps(
+                [
+                    {
+                        'logo': '<img itemprop="image" '
+                                'class="img img-responsive" '
+                                'src="{0}"'
+                                '/>'.format(small_image_url(partner, 'image_small')),
+                        'name': '<a href="{0.partner_url}">{1}</a>'.format(
+                            partner, partner.name.encode('utf-8')
+                        ),
+                        'email': partner.email or '',
+                        'industries': ' '.join(
+                            [
+                                ind.tag_url_link(
+                                    company_status=company_status,
+                                    listing=True
+                                )
+                                for ind in partner.industry_ids
+                                ]
+                        ),
+                        'location': partner.location,
+                    }
+                    for partner in partners
+                    ],
+            )
+
         _logger.debug('search: %s', search)
         _logger.debug('company_status: %s', company_status)
         t1 = time.time()
@@ -90,36 +106,10 @@ class Listing(Base):
             company_status=company_status
         )
         _logger.debug('Query time: %s', time.time() - t1)
-        # _logger.debug('partners: %s', pprint.pformat(partners))
         t1 = time.time()
-
-        details = simplejson.dumps(
-            [
-                {
-                    'logo': '<img itemprop="image" '
-                            'class="img img-responsive" '
-                            'src="{0}"'
-                            '/>'.format(small_image_url(partner, 'image_small')),
-                    'name': '<a href="{0.partner_url}">{1}</a>'.format(
-                        partner, partner.name.encode('utf-8')
-                    ),
-                    'email': partner.email or '',
-                    'industries': ' '.join(
-                        [
-                            ind.tag_url_link(
-                                company_status=company_status,
-                                listing=True
-                            )
-                            for ind in partner.industry_ids
-                        ]
-                    ),
-                    'location': partner.location,
-                }
-                for partner in partners
-            ],
-        )
+        details = build_details(partners)
+        _logger.debug('cache.currsize: %s', list_cache.currsize)
         _logger.debug('dump timing: %s', time.time() - t1)
-        # _logger.debug('details: %s', details)
         return details
 
     @statsd.timed('odoo.frontend.map.time',
@@ -127,6 +117,24 @@ class Listing(Base):
     @http.route(map_url, type='http', auth="public", website=True)
     def map(self, company_status='open', search='', **post):
         """Render the list of studio under a map."""
+
+        @cached(map_cache)
+        def build_details(partners):
+            """Gather details from partners to be displayed on the map.
+
+            :param recordset partners: partners to gather the details from.
+            :return: json dump.
+            """
+            return simplejson.dumps(
+                {
+                    partner.name: [
+                        partner.partner_latitude,
+                        partner.partner_longitude,
+                        partner.info_window(company_status),
+                    ]
+                    for partner in partners
+                    }
+            )
         url = self.map_url
         keep = QueryURL(url, search=search, company_status=company_status)
 
@@ -139,17 +147,10 @@ class Listing(Base):
             company_status=company_status
         )
 
-        geoloc = simplejson.dumps(
-            {
-                partner.name: [
-                    partner.partner_latitude,
-                    partner.partner_longitude,
-                    partner.info_window(company_status),
-                ]
-                for partner in partners
-                }
-        )
-        _logger.debug(geoloc)
+        t1 = time.time()
+        geoloc = build_details(partners)
+        _logger.debug('dump timing: %s', time.time() - t1)
+
         values = {
             'geoloc': geoloc,
             'search': search,

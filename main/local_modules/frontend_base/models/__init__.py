@@ -24,6 +24,5 @@ from . import (
     res_partner,
     res_users,
     website,
-    caches,
     res_industry
 )
