@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="0">
-        <record id="base.main_company" model="res.company">
-            <field name="logo" type="base64" file="main_data/static/cgstudiomap.png"/>
-            <field name="name">cg Studio Map beta</field>
-            <field name="rml_header1">Where cg is</field>
-            <!--Address fields-->
-            <field name="street">7345 Boulevard Saint Laurent</field>
-            <field name="city">Montreal</field>
-            <field name="zip">H2R 1W6</field>
-            <field name="country_id" ref="base.ca"/>
-            <field name="website">http://www.cgstudiomap.org</field>
-            <field name="email">cgstudiomap@gmail.com</field>
-            <field name="currency_id" ref="base.CAD"/>
-        </record>
+        <!--<record id="base.main_company" model="res.company">-->
+            <!--<field name="logo" type="base64" file="main_data/static/cgstudiomap.png"/>-->
+            <!--<field name="name">cg Studio Map beta</field>-->
+            <!--<field name="rml_header1">Where cg is</field>-->
+            <!--&lt;!&ndash;Address fields&ndash;&gt;-->
+            <!--<field name="street">7345 Boulevard Saint Laurent</field>-->
+            <!--<field name="city">Montreal</field>-->
+            <!--<field name="zip">H2R 1W6</field>-->
+            <!--<field name="country_id" ref="base.ca"/>-->
+            <!--<field name="website">http://www.cgstudiomap.org</field>-->
+            <!--<field name="email">cgstudiomap@gmail.com</field>-->
+            <!--<field name="currency_id" ref="base.CAD"/>-->
+        <!--</record>-->
         <record id="website.default_website" model="website">
             <field name="social_twitter">https://www.twitter.com/cgstudiomap/</field>
             <field name="social_facebook"/>

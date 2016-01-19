@@ -26,33 +26,23 @@ class TestResPartner(common.TransactionCase):
     def setUp(self):
         super(TestResPartner, self).setUp()
         self.partner_pool = self.env['res.partner']
-        self.valid_email = 'cgstudiomap@gmail.com'
-        self.invalid_email = 'not_valid_email'
 
-    def test_validate_during_create_valid_email(self):
-        partner = self.partner_pool.create(
-            {'name': 't_name', 'email': self.valid_email}
-        )
-        self.assertEqual(partner.email, self.valid_email)
+    def test_small_image_url_exists(self):
+        """Check if the field exist on res.partner."""
+        partner = self.partner_pool.create({
+            'name': 'tpartner',
+            'small_image_url': 'tsmall_image_url',
+        })
+        self.assertFalse(partner.small_image_url)
 
-    def test_validate_during_create_invalid_email(self):
-        self.assertRaises(
-            ValidationError,
-            self.partner_pool.create,
-            {'name': 't_name', 'email': self.invalid_email}
+    def test_write_resetSmallImageUrl(self):
+        """Check if the field small_image_url is reset when image is set."""
+        partner = self.partner_pool.create({
+            'name': 'tpartner',
+            'small_image_url': 'tsmall_image_url',
+        })
+        self.assertEqual(
+            partner.small_image_url, 'tsmall_image_url'
         )
-
-    def test_validate_during_write_valid_email(self):
-        partner = self.partner_pool.create(
-            {'name': 't_name'}
-        )
-        partner.write({'email': self.valid_email})
-        self.assertEqual(partner.email, self.valid_email)
-
-    def test_validate_during_write_invalid_email(self):
-        partner = self.partner_pool.create({'name': 't_name'})
-        self.assertRaises(
-            ValidationError,
-            partner.write,
-            {'email': self.invalid_email}
-        )
+        partner.write({'image': False})
+        self.assertFalse(partner.small_image_url)

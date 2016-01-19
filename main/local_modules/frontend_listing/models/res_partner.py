@@ -2,7 +2,7 @@
 """Suite of methods common operation on res.partner."""
 import logging
 
-from openerp import api, models
+from openerp import api, models, fields
 
 _logger = logging.getLogger(__name__)
 

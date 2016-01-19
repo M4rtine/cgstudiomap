@@ -3,7 +3,6 @@
 import logging
 import random
 
-from caches import clear_caches
 from openerp import api, models, fields
 
 _logger = logging.getLogger(__name__)
@@ -111,15 +110,15 @@ class ResPartner(models.Model):
 
     @api.multi
     def write(self, vals):
-        """Force to clear caches when a partner is updated."""
-        clear_caches()
-        return super(ResPartner, self).write(vals)
+        """Force to reset small_image_url to be reset if image is set to the
+        partner.
+        """
+        _logger.debug('vals: %s', vals)
 
-    @api.model
-    def create(self, vals):
-        """Force to clear caches when a new partner is created."""
-        clear_caches()
-        return super(ResPartner, self).create(vals)
+        if 'image' in vals:
+            vals.update({'small_image_url': False})
+
+        return super(ResPartner, self).write(vals)
 
     partner_url = fields.Char('Partner url', compute='partner_url_link')
 
@@ -163,3 +162,5 @@ class ResPartner(models.Model):
                 self.state_id.name.encode('utf8')) or '',
             '{0}'.format(self.country_id.name.encode('utf8')),
         ])
+
+    small_image_url = fields.Char('Url to the small image of the partner.')
