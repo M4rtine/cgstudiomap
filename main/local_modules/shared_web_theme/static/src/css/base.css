@@ -6468,6 +6468,9 @@ body {
       font-size: 1em; } }
   .txt-present p {
     font-size: 1.18em; }
+    @media (max-width: 767px) {
+      .txt-present p {
+        font-size: 1em; } }
   .txt-present h2 {
     text-transform: uppercase; }
     @media (max-width: 1200px) {
@@ -6484,6 +6487,8 @@ body {
   position: relative;
   display: inline-block;
   top: -60px;
+  left: 0;
+  right: 0;
   width: 200px;
   max-height: 150px;
   text-align: center; }
@@ -6493,42 +6498,51 @@ body {
     @media (max-width: 767px) {
       .stats p {
         font-size: 2em;
-        line-height: 2.5em; } }
+        line-height: 1.5em; } }
   .stats p:nth-child(2) {
     font-size: 1.6em;
     line-height: 2.3em; }
     @media (max-width: 767px) {
       .stats p:nth-child(2) {
         font-size: 1.2em;
-        line-height: 2.9em; } }
-  @media (min-width: 1200px) and (max-width: 1900px) {
-    .stats {
-      top: -60px; } }
+        line-height: 1.8em; } }
+  @media (max-width: 767px) {
+    .stats #stats-bg-svg {
+      position: relative;
+      width: 50%;
+      height: auto; } }
   @media (max-width: 767px) {
     .stats {
-      top: -60px;
-      padding: 0;
-      width: 160px; } }
+      top: 15px;
+      left: 0;
+      right: 0;
+      padding: 0 0;
+      margin: 0 0;
+      width: 180px; } }
 
 #stats-txt {
   position: absolute;
   top: 0;
   left: 0;
-  right: 55px; }
+  right: 50px; }
+  @media (max-width: 767px) {
+    #stats-txt {
+      font-size: 0.9em;
+      right: 92px; } }
 
 .stat-left {
   float: left;
   left: 60px; }
   @media (max-width: 767px) {
     .stat-left {
-      left: 0; } }
+      left: 24%; } }
 
 .stat-right {
   float: right;
   right: 90px; }
   @media (max-width: 767px) {
     .stat-right {
-      right: 0; } }
+      right: -50px; } }
 
 .colored-boxed {
   text-align: left; }

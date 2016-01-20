@@ -126,7 +126,6 @@ body {
     margin: 0 0;
     padding: 0 0;
 	@media (max-width: $screen-xs-max) {
-		
 		font-size: 1em;
 	}
 	@media (min-width: $screen-md-min) {
@@ -140,6 +139,9 @@ body {
 	}
 	p {
 		font-size: 1.18em;
+        @media (max-width: $screen-xs-max) {
+            font-size: 1em;
+        }
 	}
 	
 	h2 {
@@ -160,6 +162,8 @@ body {
 	position: relative;
 	display: inline-block;
     top: -60px;
+    left: 0;
+    right: 0;
 	width: 200px;
     max-height: 150px;
     text-align: center;
@@ -169,7 +173,7 @@ body {
     	line-height: 2em;
 		@media (max-width: $screen-xs-max){
 			font-size: 2em;
-    		line-height: 2.5em;
+    		line-height: 1.5em;
 		}
 
 	}
@@ -179,16 +183,24 @@ body {
 		
 		@media (max-width: $screen-xs-max){
 		font-size: 1.2em;
-    	line-height: 2.9em;
+    	line-height: 1.8em;
 		}
 	}
-	@media (min-width: $screen-lg-min) and (max-width: $screen-big) {
-		top: -60px;
-	}
+    #stats-bg-svg {
+        @media (max-width: $screen-xs-max){
+            position: relative;
+            width: 50%;
+            height: auto;
+        }
+    }
+
 	@media (max-width: $screen-xs-max){
-		top: -60px;
-		padding: 0;
-		width: 160px;
+		top: 15px;
+        left: 0;
+        right: 0;
+		padding: 0 0;
+        margin: 0 0;
+		width: 180px;
 	}
 }
 
@@ -196,21 +208,26 @@ body {
     position: absolute;
 	top: 0;
 	left: 0;
-	right: 55px;
+	right: 50px;
+	@media (max-width: $screen-xs-max){
+        font-size: 0.9em;
+        right: 92px;
+	}
 }
 
 .stat-left {
 	float: left;
 	left: 60px;
 	@media (max-width: $screen-xs-max) {
-		left: 0;
+		left: 24%;
 	}
 }
 .stat-right {
 	float: right;
 	right: 90px;
 	@media (max-width: $screen-xs-max) {
-		right: 0;
+		right: -50px;
+        
 	}
 }
 
