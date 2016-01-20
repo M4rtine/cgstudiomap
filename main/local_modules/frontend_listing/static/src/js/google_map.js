@@ -16,7 +16,7 @@ function initialize(geoloc) {
         mapTypeControl: false,
         zoomControl: true,
         zoomControlOptions: {
-        position: google.maps.ControlPosition.LEFT_CENTER
+            position: google.maps.ControlPosition.LEFT_CENTER
         },
         scaleControl: true,
         streetViewControl: true,
