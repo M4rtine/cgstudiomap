@@ -7,13 +7,14 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 80px;
     overflow-x: hidden;
-    background-color: #cbcacc;
+    background-color: #e8e8e8;
     color: #323133;
 }
 
 .navDirectory {
     padding-top: 50px;
     z-index: 10;
+    overflow: hidden;
 }
 .navDirectory .col-sm-12,
 .navDirectory .col-sm-8,
@@ -21,7 +22,7 @@ body {
 .navDirectory .col-sm-3{
     padding-left: 0;
     padding-right: 0;
-    height: 44px;
+    height: 46px;
 }
 .navDirectory .row {
     margin: 0.25em 0;
@@ -38,17 +39,17 @@ body {
     font-size: 2em;
     display: block;
     width: 100% !important;
-    height: 45px;
+    height: 46px;
     vertical-align: middle;
     color: #323133;
-    background-color: #fff;
+    background-color: #f1f1f3;
     background-image: none;
-    border: 0 solid transparent;
+    border: 1px solid #cbcacc;
 }
 .navSearch a:link,
 .navSearch a{
     color: #323133;
-    background-color: #979699;
+    background-color: #cbcacc;
 }
 .navSearch a:hover,
 .navSearch a:focus{
@@ -68,7 +69,7 @@ body {
     vertical-align: baseline;
     padding: auto 0;
     margin: 0 auto;
-    background-color: #b05ae2;
+    background-color: #5ae2b0;
     color: #f1f1f3;
 }
 @media (max-width: 992px) {
@@ -85,10 +86,12 @@ body {
 }
 
 .navBgcolor{
-    background-color: #cbcacc;
+    background-color: #f1f1f3;
+    border: 0 solid #b05ae2;
+    border-left: 8px solid #b05ae2;
 }
 .navBtnColor {
-    background-color: #b05ae2;
+    background-color: #5ae2b0;
 }
 input {
     background-color: transparent;
@@ -102,6 +105,7 @@ input {
     color: #323133;
     display: inline-block;
     padding: 0;
+    padding-left: 0.66em;
     margin: 0;
 }
 .navFilters, .navSearch, .navSwitch {
@@ -122,7 +126,7 @@ input {
 }
 .navSwitch .a-submit{
     color: #323133;
-    background-color: #cbcacc;
+    background-color: #f1f1f3;
 }
 .navSwitch {
     font-size: 1em;
@@ -133,6 +137,7 @@ input {
 .navSwitch .fa{
     font-size: 1.6em;
     padding: auto 0;
+    height: 44px
     margin: 0;
 }
 .navSwitch .btn{
@@ -201,7 +206,6 @@ input {
 #stats-bg-svg {
     position: relative;
     width: 50%;
-    height: auto;
     height: auto;
     z-index: 100;
 }
