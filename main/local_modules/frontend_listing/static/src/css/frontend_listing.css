@@ -39,7 +39,7 @@ body {
     font-size: 2em;
     display: block;
     width: 100% !important;
-    height: 46px;
+    height: 45px;
     vertical-align: middle;
     color: #323133;
     background-color: #f1f1f3;
@@ -50,6 +50,7 @@ body {
 .navSearch a{
     color: #323133;
     background-color: #cbcacc;
+    border: 1px solid #cbcacc;
 }
 .navSearch a:hover,
 .navSearch a:focus{
