@@ -117,6 +117,7 @@ class ResPartner(models.Model):
 
         if 'image' in vals:
             vals.update({'small_image_url': False})
+            _logger.debug('updated vals: %s', vals)
 
         return super(ResPartner, self).write(vals)
 

@@ -6395,22 +6395,22 @@ body {
   padding-top: 55px; }
   @media (min-width: 768px) {
     #container-map {
-      height: 500px; } }
+      height: 400px; } }
   @media (min-width: 992px) {
     #container-map {
-      height: 550px; } }
+      height: 470px; } }
   @media (min-width: 1200px) {
     #container-map {
-      height: 650px; } }
+      height: 480px; } }
   @media (min-width: 1900px) {
     #container-map {
-      height: 660px; } }
+      height: 650px; } }
   @media (min-width: 768px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
     #container-map {
       height: 384px; } }
   @media (max-width: 991px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
     #container-map {
-      height: 204px; } }
+      height: 210px; } }
   @media (max-width: 991px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
     #container-map {
       height: 144px; } }
@@ -6432,13 +6432,6 @@ body {
   width: 100%;
   height: 100%;
   max-height: 650px; }
-  @media (min-width: 1200px) {
-    #geochart_target {
-      height: 650px; } }
-  @media (min-width: 1900px) {
-    #geochart_target {
-      height: 800px;
-      max-height: 800px; } }
 
 .google-visualization-tooltip {
   -webkit-border-radius: 2px !important;
@@ -6460,18 +6453,24 @@ body {
   margin: 0 !important;
   padding: 0 !important; }
 
-@media (max-width: 767px) {
-  #present {
-    padding-top: 0; } }
+#present {
+  padding-top: 0; }
+  #present .row {
+    margin: 0 0; }
 
 .txt-present {
-  text-align: center; }
+  text-align: center;
+  padding-top: 0;
+  margin: 0 0;
+  padding: 0 0; }
   @media (max-width: 767px) {
     .txt-present {
-      padding-top: 0;
       font-size: 1em; } }
   .txt-present p {
     font-size: 1.18em; }
+    @media (max-width: 767px) {
+      .txt-present p {
+        font-size: 1em; } }
   .txt-present h2 {
     text-transform: uppercase; }
     @media (max-width: 1200px) {
@@ -6488,6 +6487,8 @@ body {
   position: relative;
   display: inline-block;
   top: -60px;
+  left: 0;
+  right: 0;
   width: 200px;
   max-height: 150px;
   text-align: center; }
@@ -6497,42 +6498,51 @@ body {
     @media (max-width: 767px) {
       .stats p {
         font-size: 2em;
-        line-height: 2.5em; } }
+        line-height: 1.5em; } }
   .stats p:nth-child(2) {
     font-size: 1.6em;
     line-height: 2.3em; }
     @media (max-width: 767px) {
       .stats p:nth-child(2) {
         font-size: 1.2em;
-        line-height: 2.9em; } }
-  @media (min-width: 1200px) and (max-width: 1900px) {
-    .stats {
-      top: -60px; } }
+        line-height: 1.8em; } }
+  @media (max-width: 767px) {
+    .stats #stats-bg-svg {
+      position: relative;
+      width: 50%;
+      height: auto; } }
   @media (max-width: 767px) {
     .stats {
-      top: -60px;
-      padding: 0;
-      width: 160px; } }
+      top: 15px;
+      left: 0;
+      right: 0;
+      padding: 0 0;
+      margin: 0 0;
+      width: 180px; } }
 
 #stats-txt {
   position: absolute;
   top: 0;
   left: 0;
-  right: 55px; }
+  right: 50px; }
+  @media (max-width: 767px) {
+    #stats-txt {
+      font-size: 0.9em;
+      right: 92px; } }
 
 .stat-left {
   float: left;
   left: 60px; }
   @media (max-width: 767px) {
     .stat-left {
-      left: 0; } }
+      left: 24%; } }
 
 .stat-right {
   float: right;
   right: 90px; }
   @media (max-width: 767px) {
     .stat-right {
-      right: 0; } }
+      right: -50px; } }
 
 .colored-boxed {
   text-align: left; }
