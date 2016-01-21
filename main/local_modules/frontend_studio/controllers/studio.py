@@ -30,12 +30,14 @@ class Homepage(Website):
         _logger.debug('mode: %s', mode)
         env = request.env
         partner_pool = env['res.partner']
+        country = partner.country_id
         values = {
             'partner': partner,
             'partners': partner_pool.search(
-                [('country_id', '=', partner.country_id.id)],
+                [('country_id', '=', country.id)],
                 limit=4
             ),
+            'filter_domain': country.name,
             'mode': mode,
         }
         return request.website.render("frontend_studio.view", values)
