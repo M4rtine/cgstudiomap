@@ -19,7 +19,11 @@
                 <t t-call="frontend_base.body">
                     <t t-raw="0"/>
                     <t t-call="frontend_base.footer"/>
-                    <t t-call="frontend_base.engine"/>
+                    <t t-call="frontend_base.engine">
+                        <script type="text/javascript">
+                            geo_chart_marker('<t t-esc="partner.city"/>', <t t-esc="partner.partner_latitude"/>,<t t-esc="partner.partner_longitude"/>, '<t t-esc="partner.country_id.code"/>', 'geochart_target');
+                        </script>
+                    </t>
                 </t> <!-- closing body -->
             </t> <!-- closing html -->
         </template>
@@ -29,7 +33,7 @@
         </template>
 
         <template id="frontend_studio.map" name="Studio: Map">
-            <div class="col-md-7">map</div>
+            <div id="geochart_target"></div>
         </template>
 
         <template id="frontend_studio.studio_header" name="Studio: Details Header">
