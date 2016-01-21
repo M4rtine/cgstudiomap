@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from cachetools import cached
-from openerp.addons.frontend_base.models.caches import caches
+from datadog import statsd
 from openerp.addons.web import http
 from openerp.addons.website.controllers.main import Website
 
@@ -10,11 +9,12 @@ from openerp.http import request
 
 _logger = logging.getLogger(__name__)
 
-cache = caches.get('cache_3h')
 
 class Homepage(Website):
     """Representation of the homepage of the website."""
 
+    @statsd.timed('odoo.frontend.studio.time',
+                  tags=['frontend', 'frontend:studio'])
     @http.route('/directory/company/<model("res.partner"):partner>',
                 type='http', auth="public", website=True)
     def main(self, partner, mode='view'):
@@ -28,7 +28,6 @@ class Homepage(Website):
         _logger.debug('main')
         _logger.debug('partner: %s', partner)
         _logger.debug('mode: %s', mode)
-
         env = request.env
         partner_pool = env['res.partner']
         values = {
