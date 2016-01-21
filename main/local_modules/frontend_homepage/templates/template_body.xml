@@ -173,7 +173,7 @@
                         <h1>CG Studio Map</h1>
                         <p>where cg is</p>
                         <p>
-                            <a href="#present"><span id="arrow-down"></span></a>
+                            <a href="#present" class="hidden-xs"><span id="arrow-down"></span></a>
                         </p>
 						
 						<div class="stats stat-left fontCGSMlight">
