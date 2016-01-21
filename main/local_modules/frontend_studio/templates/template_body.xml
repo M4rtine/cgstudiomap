@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="frontend_studio.create_button" name="Studio: Create mode">
-            <form>
-                <input type="submit" value="create"/>
-            </form>
-        </template>
-
         <template id="frontend_studio.edit_button" name="Studio: Edit mode">
             <form t-att-action="'/directory/company/{}'.format(partner.id)" method="get">
                 <div class="input-group">
@@ -124,7 +118,6 @@
                 <t t-call="frontend_studio.map"/>
                 <t t-call="frontend_studio.search_zone"/>
                 <t t-call="frontend_studio.edit_button"/>
-                <t t-call="frontend_studio.create_button"/>
                 <t t-call="frontend_studio.studio_header"/>
                 <t t-call="frontend_studio.studio_details"/>
                 <t t-call="frontend_studio.social_networks"/>
