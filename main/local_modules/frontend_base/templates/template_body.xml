@@ -197,10 +197,9 @@
         <!--<t t-set="ind" t-value="{value_for_ind}"/>-->
         <!--<t t-call="frontend_base.industry_tag"/>-->
         <template id="frontend_base.industry_tag" name="Industry Tag">
-            <!--Uncomment this part when the directory is released!-->
-            <!--<a itemprop="name" t-att-href="'/directory?search=%s' % ind.name">-->
+            <a itemprop="name" t-att-href="'/directory?search=%s' % ind.name">
                 <span class="label label-info" t-esc="ind.name"/>
-            <!--</a>-->
+            </a>
         </template>
 
         <!--Represent the logo to a company-->
