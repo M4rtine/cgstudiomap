@@ -14,12 +14,6 @@
     phone: +41 21 619 10 10
     mobile: +41 79 606 42 42
 -
-  Write invalid phone number
--
-  !record {model: res.partner, id: partner3}:
-    name: Jean Badphone
-    phone: 42
--
   Check that valid phone numbers have been converted to E.164
 -
   !python {model: res.partner}: |
@@ -29,12 +23,6 @@
     partner2 = self.browse(cr, uid, ref('partner2'), context=context)
     assert partner2.phone == '+41216191010', 'Phone number not written in E.164 format (partner2)'
     assert partner2.mobile == '+41796064242', 'Mobile number not written in E.164 format (partner2)'
--
-  Check that invalid phone numbers are kept unchanged
--
-  !python {model: res.partner}: |
-    partner3 = self.browse(cr, uid, ref('partner3'), context=context)
-    assert partner3.phone == '42', 'Invalid phone numbers should not be changed'
 -
   Get name from phone number
 -
