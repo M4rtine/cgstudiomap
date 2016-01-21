@@ -773,6 +773,9 @@ footer .name{
     .navDirectory form {
         display: inline-block;
     }
+	#map {
+		top: 205px;
+	}
 }
 @media (min-width: 767px) and (max-width: 992px) {
     footer .name {
