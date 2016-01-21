@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="frontend_studio.edit_button" name="Studio: Edit mode">
+            <form t-att-action="'/directory/company/{}'.format(partner.id)" method="get">
+                <div class="input-group">
+                    <input type="hidden" name='mode' value="edit"/>
+                    <input type='submit'
+                           class="btn btn-lg fa fa-2x a-submit"
+                           value="Edit"/>
+                </div>
+            </form>
+        </template>
+
+        <template id="frontend_studio.base" name="Studio: base">
+            <t t-call="frontend_base.doctype_html"/>
+            <t t-call="frontend_base.html">
+                <t t-call="frontend_base.full_head"/>
+                <t t-call="frontend_base.body">
+                    <t t-raw="0"/>
+                    <t t-call="frontend_base.footer"/>
+                    <t t-call="frontend_base.engine"/>
+                </t> <!-- closing body -->
+            </t> <!-- closing html -->
+        </template>
+
+        <template id="frontend_studio.search_zone" name="Studio: Search Zone">
+            <div>search</div>
+        </template>
+
+        <template id="frontend_studio.map" name="Studio: Map">
+            <div class="col-md-7">map</div>
+        </template>
+
+        <template id="frontend_studio.studio_header" name="Studio: Details Header">
+            <div>
+                <t t-call="frontend_base.company_logo"/>
+            </div>
+            <div>
+                <h4 t-esc="partner.name"/>
+            </div>
+        </template>
+
+        <template id="frontend_studio.studio_details" name="Studio: Details">
+            <div class="form-group">
+                <div class="col-md-3 col-sm-3 control-label">Address</div>
+                <div class="col-md-7 col-sm-7">
+                    <t t-esc="partner.street"/>
+                    <t t-esc="partner.street2"/>
+                    <t t-esc="partner.city"/>
+                    <t t-esc="partner.zip"/>
+                    <t t-esc="partner.state_id.name"/>
+                    <t t-esc="partner.country_id.name"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3 col-sm-3 control-label">Website</div>
+                <div class="col-md-7 col-sm-7"><t t-esc="partner.website"/></div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3 col-sm-3 control-label">Phone</div>
+                <div class="col-md-7 col-sm-7"><t t-esc="partner.phone"/></div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3 col-sm-3 control-label">Mobile</div>
+                <div class="col-md-7 col-sm-7"><t t-esc="partner.mobile"/></div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3 col-sm-3 control-label">Fax</div>
+                <div class="col-md-7 col-sm-7"><t t-esc="partner.fax"/></div>
+            </div>
+        </template>
+
+        <template id="frontend_studio.social_networks" name="Studio: Social Networks">
+            <div class="form-group">
+                <div class="col-md-3 col-sm-3 control-label">Twitter</div>
+                <div class="col-md-7 col-sm-7"><t t-esc="partner.twitter"/></div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3 col-sm-3 control-label">Youtube</div>
+                <div class="col-md-7 col-sm-7"><t t-esc="partner.youtube"/></div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3 col-sm-3 control-label">Vimeo</div>
+                <div class="col-md-7 col-sm-7"><t t-esc="partner.vimeo"/></div>
+            </div>
+        </template>
+
+        <template id="frontend_studio.industries" name="Studio: Industries">
+            <t t-foreach="partner.industry_ids" t-as="ind">
+                <t t-call="frontend_base.industry_tag"/>
+            </t>
+        </template>
+
+        <template id="frontend_studio.same_localization" name="Studio: Same Localization">
+            <div class="row bloc-studios-title fontCGSM">
+                <div class="col-md-6">
+                    <h2>Same Localization</h2>
+                </div>
+                <div class="col-md-6">
+                    <p><a t-att-href="website.directory_menu">See all <i class="fa fa-angle-right fa-2x"></i></a></p>
+                </div>
+                <div class="row studios">
+                    <a t-foreach="partners" t-as="partner">
+                        <a t-att-href="partner.partner_url">
+                            <t t-call="frontend_base.company_logo"/>
+                            <a t-att-href="partner.partner_url"><h4 t-esc="partner.name"/></a>
+                        </a>
+                    </a>
+                </div>
+
+            </div>
+        </template>
+
+        <template id="frontend_studio.view" name="Studio: view">
+            <t t-call="frontend_studio.base">
+                <div style="margin-top:100px"></div>
+                <t t-call="frontend_studio.map"/>
+                <t t-call="frontend_studio.search_zone"/>
+                <t t-call="frontend_studio.edit_button"/>
+                <t t-call="frontend_studio.studio_header"/>
+                <t t-call="frontend_studio.studio_details"/>
+                <t t-call="frontend_studio.social_networks"/>
+                <t t-call="frontend_studio.industries"/>
+                <t t-call="frontend_studio.same_localization"/>
+            </t>
+
+        </template>
+
+
+    </data>
+</openerp>
