@@ -164,6 +164,11 @@ input {
 
 }
 
+
+
+
+
+
 #footer_map {
     background: none;
 }
@@ -279,19 +284,24 @@ tbody {
 }
 
 .fixed-table-container tbody td:nth-child(2) img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 .fixed-table-container tbody td:nth-child(3) {
     font-family: 'cgsm-regular';
     font-size: 1.3em;
 }
-.fixed-table-container tbody td:nth-child(3) a:hover,
-.fixed-table-container tbody td:nth-child(5) a:hover{
+.fixed-table-container tbody td:nth-child(3) a:hover{
     text-decoration: none;
     background-color: #b05ae2;
     color: #f1f1f3;
-
+}
+.fixed-table-container tbody td:nth-child(5) a:hover{
+    text-decoration: none;
+	background-color: transparent;
+}
+.fixed-table-container tbody td:nth-child(6) {
+	font-family: 'cgsm-regular' !important;
 }
 .fixed-table-container tbody tr:hover {
     background-color: #fff;
@@ -422,7 +432,31 @@ table {
 }
 
 
+/*/////////////////////////////////
+        BOOTSTRAP Table Responsive
+///////////////////////////////// */
+.fixed-table-body .card-view .title {
+    font-weight: bold;
+    display: none;
+    min-width: 30%;
+    text-align: left !important;
+}
+.card-view {
+	font-size: 1.22em;
+	text-align: center;
+	margin: 0 auto;
+}
+.card-view a:hover,
+.card-view a:focus{
+	text-decoration: none;
+}
 
+.card-view img {
+	text-align: center;
+	margin: 0 auto;
+	width: 80px;
+	height: 80px;
+}
 
 
 /*/////////////////////////////////
@@ -506,18 +540,43 @@ table {
 #map_info_footer {
     text-align: right;
     position: absolute;
-    bottom: 0.8em;
+    bottom: 0.22em;
     width: 100%;
     text-transform: uppercase;
 }
 #map_info_footer a:link,
 #map_info_footer a:active{
-    padding: 1em 2.4em;
+    padding: 0.5em 1.2em;
 }
 #map_info_footer a:hover {
     text-decoration: none;
     background-color: #b05ae2;
     color: #f1f1f3;
+}
+
+
+
+
+
+
+
+
+
+.label {
+    display: inline;
+	font-family: 'cgsm-regular';
+    padding: .2em .6em .3em;
+    font-size: 78%;
+    font-weight: normal;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em !important;
+	-webkit-border-radius: 0.25em !important;
+	-moz-border-radius: 0.25em !important;
+
 }
 
 
