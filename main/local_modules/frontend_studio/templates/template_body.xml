@@ -107,14 +107,12 @@
                     <p><a t-att-href="website.directory_menu">See all <i class="fa fa-angle-right fa-2x"></i></a></p>
                 </div>
                 <div class="row studios">
-                    <t t-foreach="partners" t-as="partner">
-                        <t t-call="frontend_base.company_form_link">
+                    <a t-foreach="partners" t-as="partner">
+                        <a t-att-href="partner.partner_url">
                             <t t-call="frontend_base.company_logo"/>
-                            <t t-call="frontend_base.company_form_link">
-                                <h4 t-esc="partner.name"/>
-                            </t>
-                        </t>
-                    </t>
+                            <a t-att-href="partner.partner_url"><h4 t-esc="partner.name"/></a>
+                        </a>
+                    </a>
                 </div>
 
             </div>
