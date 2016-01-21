@@ -228,12 +228,13 @@ input {
 
 #map {
     position: absolute;
-    top: 0;
+    top: 165px;
+	border-top: 1px solid #cbcacc;
     margin: 0 auto;
     padding: 0;
     width: 100%;
     height: 100%;
-    z-index: -50;
+    z-index: 0;
 }
 
 /*/////////////////////////////////
