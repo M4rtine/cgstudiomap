@@ -14,8 +14,8 @@ from cachetools import LRUCache, cached
 from openerp.http import request, werkzeug
 
 _logger = logging.getLogger(__name__)
-list_cache = LRUCache(maxsize=10)
-map_cache = LRUCache(maxsize=10)
+list_cache = LRUCache(maxsize=30)
+map_cache = LRUCache(maxsize=30)
 
 
 class QueryURL(object):
@@ -109,6 +109,7 @@ class Listing(Base):
         t1 = time.time()
         details = build_details(partners)
         _logger.debug('cache.currsize: %s', list_cache.currsize)
+        statsd.gauge('odoo.frontend.list_cache_currsize', list_cache.currsize)
         _logger.debug('dump timing: %s', time.time() - t1)
         return details
 
@@ -125,6 +126,7 @@ class Listing(Base):
             :param recordset partners: partners to gather the details from.
             :return: json dump.
             """
+            statsd.gauge('odoo.frontend.map_cache.currsize', map_cache.currsize)
             return simplejson.dumps(
                 {
                     partner.name: [
