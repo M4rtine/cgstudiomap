@@ -3,13 +3,14 @@ import logging
 from collections import defaultdict
 
 from datadog import statsd
-from cachetools import LRUCache, cached
+from cachetools import TTLCache, cached
 from openerp.addons.web import http
 from openerp.addons.website.controllers.main import Website
 from openerp.http import request
 
 _logger = logging.getLogger(__name__)
-cache = LRUCache(maxsize=10)
+# cache of 3hrs max.
+cache = TTLCache(10, 10800)
 
 
 class Homepage(Website):
