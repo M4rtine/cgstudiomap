@@ -50,7 +50,7 @@ class Homepage(Website):
             for country_ in countries:
                 # by_countries.update(get_partners_by_country(country_))
                 number_partners = partner_pool.search_count(
-                    partner_pool.active_companies_domain + [
+                    partner_pool.open_companies_domain + [
                         ('country_id', '=', country_.id)
                     ],
                 )
