@@ -19,7 +19,9 @@
 #
 ##############################################################################
 from openerp.exceptions import ValidationError
+import logging
 from openerp.tests import common
+_logger = logging.getLogger(__name__)
 
 
 class TestResPartner(common.TransactionCase):
@@ -33,7 +35,7 @@ class TestResPartner(common.TransactionCase):
             'name': 'tpartner',
             'small_image_url': 'tsmall_image_url',
         })
-        self.assertFalse(partner.small_image_url)
+        self.assertEqual(partner.small_image_url, 'tsmall_image_url')
 
     def test_write_resetSmallImageUrl(self):
         """Check if the field small_image_url is reset when image is set."""
@@ -41,8 +43,6 @@ class TestResPartner(common.TransactionCase):
             'name': 'tpartner',
             'small_image_url': 'tsmall_image_url',
         })
-        self.assertEqual(
-            partner.small_image_url, 'tsmall_image_url'
-        )
+        self.assertEqual(partner.small_image_url, 'tsmall_image_url')
         partner.write({'image': False})
-        self.assertFalse(partner.small_image_url)
+        self.assertEqual(partner.small_image_url, False)

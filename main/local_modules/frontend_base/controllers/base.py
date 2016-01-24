@@ -24,8 +24,7 @@ def small_image_url(record, field):
                 sudo_record.write_date or sudo_record.create_date or ''
             ).hexdigest()[0:7]
         )
-        size = '' if size is None else '/%s' % size
-        record.small_image_url = '/website/image/%s/%s/%s%s' % (model, id_, field, size)
+        record.small_image_url = '/website/image/%s/%s/%s' % (model, id_, field)
         # else:
         # _logger.debug('Great found small image url for %s!', record.id)
 
