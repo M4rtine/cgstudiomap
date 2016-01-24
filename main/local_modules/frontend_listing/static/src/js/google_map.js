@@ -12,11 +12,13 @@ function initialize(geoloc) {
 
     var mapCanvas = document.getElementById('map');
     var mapOptions = {
+		minZoom: 3, 
+
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false,
         zoomControl: true,
         zoomControlOptions: {
-        position: google.maps.ControlPosition.LEFT_CENTER
+            position: google.maps.ControlPosition.LEFT_CENTER
         },
         scaleControl: true,
         streetViewControl: true,
