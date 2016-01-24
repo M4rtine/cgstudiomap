@@ -70,7 +70,7 @@ class Homepage(Website):
         values = {
             'page': page,
             'search': '',
-            'company_status': 'active',
+            'company_status': 'open',
             'geochart_data': [['Country', 'Popularity']] + [
                 [str(country.name), int(value)]
                 for country, value in by_countries.items()
