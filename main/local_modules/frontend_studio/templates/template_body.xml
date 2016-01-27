@@ -32,7 +32,21 @@
         </template>
 
         <template id="frontend_studio.search_zone" name="Studio: Search Zone">
-            <div>search</div>
+<!--		<div class="container navDirectory">
+			<div class="row">
+				<div class="col-xs-12 col-sm-10">
+					<div class="row">
+						<div class="col-sm-8">
+							<t t-call="frontend_listing.search" />
+						</div>
+						<div class="col-sm-3 col-sm-offset-1 navBtnColor">
+							<a class="btn btn-cgsm-add center-block" href="#" role="button">ADD Studio <i class="fa fa-step-forward fa-fw fa-rotate-90"/> </a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>-->
         </template>
 
         <template id="frontend_studio.map" name="Studio: Map">
@@ -47,61 +61,90 @@
 		
         <template id="frontend_studio.studio_address" name="Studio: Address">
 			<div class="form-group">
-				<h3>Address</h3>
 				<p>
-					<t t-esc="partner.street" />
-					<t t-esc="partner.street2" />
-					<t t-esc="partner.city" />
-					<t t-esc="partner.zip" />
-					<t t-esc="partner.state_id.name" />
-					<t t-esc="partner.country_id.name" />
+					<span class="details-street">
+						<t t-esc="partner.street" />
+						<t t-esc="partner.street2" />
+					</span>
+					
+					<span class="details-city">
+						<t t-esc="partner.city" />
+						<t t-esc="partner.zip" />
+						<t t-esc="partner.state_id.name" />
+					</span>
+					
+					<span class="details-country">
+						<t t-esc="partner.country_id.name" />
+					</span>
 				</p>
 			</div>
         </template>
 		
         <template id="frontend_studio.studio_details" name="Studio: Details">
-			
-			
-			<div class="row">
-				<div class="col-sm-4" style="background-color:blue;">
-					<div class="form-group">
-						<h4>Website</h4>
-						<p><t t-esc="partner.website" /></p>
-					</div>
-				</div>
-				<div class="col-sm-4" style="background-color:blue;">
-					<t t-call="frontend_studio.social_networks" />
-				</div>
-				<div class="col-sm-4" style="background-color:blue;">
-					<div class="form-group">
-						<h4>Phone</h4>
-						<p><t t-esc="partner.phone" /></p>
-					</div>
-					<div class="form-group">
-						<h4>Mobile</h4>
-						<p><t t-esc="partner.mobile" /></p>
-					</div>
-					<div class="form-group">
-						<h4>Fax</h4>
-						<p><t t-esc="partner.fax" /></p>
-					</div>
+			<div class="col-sm-4">
+				<div class="form-group">
+					<h4>Website</h4>
+					<p>
+						<a t-att-href="partner.website"><t t-esc="partner.website" /></a>
+					</p>
 				</div>
 			</div>
+			<div class="col-sm-4">
+				<t t-call="frontend_studio.social_networks" />
+			</div>
+			<div class="col-sm-4">
+				<div class="form-group">
+					<h4>Phone</h4>
+					<p>
+						<t t-esc="partner.phone" />
+					</p>
+				</div>
+				<div class="form-group">
+					<h4>Mobile</h4>
+					<p>
+						<t t-esc="partner.mobile" />
+					</p>
+				</div>
+				<div class="form-group">
+					<h4>Fax</h4>
+					<p>
+						<t t-esc="partner.fax" />
+					</p>
+				</div>
+			</div>
+
         </template>
 
         <template id="frontend_studio.social_networks" name="Studio: Social Networks">
-            <div class="form-group">
-                <div class="col-md-3 col-sm-3 control-label">Twitter</div>
-                <div class="col-md-7 col-sm-7"><t t-esc="partner.twitter"/></div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-3 col-sm-3 control-label">Youtube</div>
-                <div class="col-md-7 col-sm-7"><t t-esc="partner.youtube"/></div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-3 col-sm-3 control-label">Vimeo</div>
-                <div class="col-md-7 col-sm-7"><t t-esc="partner.vimeo"/></div>
-            </div>
+				<h4>Socials</h4>
+				<div class="form-group">
+				<a t-att-href="partner.twitter">
+					<span class="fa-stack fa-lg">
+				  <i class="fa fa-square fa-stack-2x"></i>
+				  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+				</span>
+				</a>
+				</div>
+				
+					
+				<div class="form-group">
+				<a t-att-href="partner.youtube">
+					<span class="fa-stack fa-lg">
+				  <i class="fa fa-square fa-stack-2x"></i>
+				  <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+				</span>
+				</a>
+				</div>
+				
+				<div class="form-group">
+				<a t-att-href="partner.vimeo">
+					<span class="fa-stack fa-lg">
+				  <i class="fa fa-square fa-stack-2x"></i>
+				  <i class="fa fa-vimeo fa-stack-1x fa-inverse"></i>
+				</span>
+				</a>
+				</div>
+
         </template>
 
         <template id="frontend_studio.industries" name="Studio: Industries">
@@ -141,9 +184,13 @@
             <t t-call="frontend_studio.base">
 				
 				<div class="jumbotron" id="container-map-studio">
-					<t t-call="frontend_studio.map"/>
-					
 					<div class="container studio-header fontCGSMlight">
+						<div class="row">
+							<div class="sm-12">
+								<t t-call="frontend_studio.search_zone"/>
+							</div>
+						</div>
+
 						<div class="row">
 							<div class="col-sm-10">
 								<t t-call="frontend_studio.studio_header"/>
@@ -154,6 +201,7 @@
 							</div>
 						</div>
 					</div>
+					<t t-call="frontend_studio.map"/>
 				</div>
 				
 				<div style="background-color:white;">
@@ -162,6 +210,7 @@
 						<div class="col-sm-10">
 							
 							<div class="row">
+								<h3>Address</h3>
 								<div class="col-sm-12">
 									<t t-call="frontend_studio.studio_address"/>
 								</div>
@@ -169,23 +218,25 @@
 							
 							
 							<div class="row">
+								<h3>Connect</h3>
 								<t t-call="frontend_studio.studio_details"/>
 							</div>
 						</div>
 						
-						<div class="col-sm-2">
+						<div class="col-sm-2 studio_industries">
+							<h4>Industries</h4>
 							<t t-call="frontend_studio.industries"/>
 						</div>
 					</div>
 
-
-					<t t-call="frontend_studio.same_localization"/>
-				
+					
 				</div>
 				</div>
 				
-                
-<!--                <t t-call="frontend_studio.search_zone"/>-->
+				<div class="container">
+				<t t-call="frontend_studio.same_localization"/>
+				</div>
+				
             </t>
 
         </template>
