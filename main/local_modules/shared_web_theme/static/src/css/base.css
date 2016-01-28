@@ -6294,6 +6294,41 @@ body {
     margin: 0;
     margin-bottom: 0; } }
 
+.social-link--twitter {
+  color: #00aced; }
+  .social-link--twitter:focus, .social-link--twitter:hover {
+    color: #0087ba; }
+
+.social-link--facebook {
+  color: #3b5998; }
+  .social-link--facebook:focus, .social-link--facebook:hover {
+    color: #2d4373; }
+
+.social-link--linkedin {
+  color: #007bb6; }
+  .social-link--linkedin:focus, .social-link--linkedin:hover {
+    color: #005983; }
+
+.social-link--vimeo {
+  color: #aad450; }
+  .social-link--vimeo:focus, .social-link--vimeo:hover {
+    color: #93c130; }
+
+.social-link--github {
+  color: #4183c4; }
+  .social-link--github:focus, .social-link--github:hover {
+    color: #3269a0; }
+
+.social-link--youtube {
+  color: #bb0000; }
+  .social-link--youtube:focus, .social-link--youtube:hover {
+    color: #880000; }
+
+.social-link--add {
+  color: #5ae2b0; }
+  .social-link--add:focus, .social-link--add:hover {
+    color: #2fda9b; }
+
 body {
   background-color: #f2f2f2; }
 
