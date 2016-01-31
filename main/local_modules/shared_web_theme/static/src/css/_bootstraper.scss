@@ -10,7 +10,7 @@ body {
 	max-height: 48px;
 	
 	@media (max-width: $screen-xs-max) {
-		max-height: 240px;
+		max-height: 260px;
 	}
 }
 
@@ -19,7 +19,7 @@ body {
 	float: none;
 	
 	@media (min-width: $screen-xs-min) {
-	max-height: 240px;
+		max-height: 240px;
 	}
 }
 
@@ -33,6 +33,10 @@ body {
 	letter-spacing: 0px;
 	text-transform: uppercase;
 	
+	@media (max-width: $screen-xs-max) {
+		font-size: 1.3em;
+		line-height: 1em;
+	}
 	@media (min-width: $screen-md-min) {
 		padding-left: 3em;
 		padding-right: 3em;
@@ -96,12 +100,20 @@ body {
 	}
 }
 .navbar .navbar-nav {
+	@media (max-width: $screen-xs-max) {
+		margin: 0 auto;
+		display: inline-block;
+		float: none;
+	}
 	@media (min-width: $screen-xs-min) {
 		display: inline-block;
 		float: none;
 	}
 }
 .navbar .navbar-collapse {
+	@media (max-width: 480px) {
+		text-align: center;
+	}
 	@media (min-width: $screen-xs-min) {
 		text-align: center;
 	}
