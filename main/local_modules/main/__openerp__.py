@@ -81,7 +81,7 @@ Contributors
         # frontend
         'frontend_base',
         'frontend_homepage',
-        'frontend_lising',
+        'frontend_listing',
         'frontend_studio',
         'frontend_link_to_dashboard',
     ],
