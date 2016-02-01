@@ -2,7 +2,11 @@
 <openerp>
     <data>
         <template id="frontend_studio.studio_closed" name="Studio: Closed mode">
-			<div class="corner-ribbon bottom-left sticky"><span class="fontCGSMicons">ban</span> Closed</div>
+            <t t-if="partner.state == 'closed'">
+                <div class="corner-ribbon bottom-left sticky">
+                    <span class="fontCGSMicons">ban</span> Closed
+                </div>
+            </t>
         </template>
 		
         <template id="frontend_studio.edit_button" name="Studio: Edit mode">
