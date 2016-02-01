@@ -13,7 +13,7 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     @api.model
-    def get_studios_from_same_location(self, sample_):
+    def get_studios_from_same_location(self):
         """Return a list of partners that have a logo with the same locations
         that the given partner.
 
@@ -31,7 +31,7 @@ class ResPartner(models.Model):
         # search return a recordset and we cannot do len() on it.
         partners = [
             partner for partner in self.search(
-                self.active_companies_domain +
+                self.open_companies_domain +
                 [
                     ('id', '!=', company.partner_id.id),
                     ('image', '!=', False),
@@ -41,9 +41,15 @@ class ResPartner(models.Model):
             )
             ]
 
-        # doing kind of unittest in here as I do not know how to
-        # do unittest with request :(
-        assert company.partner_id.id not in [p.id for p in partners], (
-            'cgstudiomap is in the most popular studio list'
-        )
+        return partners
+
+    @api.model
+    def get_random_studios_from_same_location(self, sample_):
+        """Return a random sample from the list of partners
+        are returned from `self.get_studios_from_same_location`
+
+        :param int sample_: size of the sample of partners.
+        :return: list of partner records.
+        """
+        partners = self.get_studios_from_same_location()
         return random.sample(partners, min(len(partners), sample_))
