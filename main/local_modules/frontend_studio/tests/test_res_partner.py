@@ -25,6 +25,7 @@ class TestResPartner(common.TransactionCase):
         }
 
         self.partner_pool = self.env['res.partner']
+        # to avoid to have google checks to be triggered.
         self.partner_pool.__dryRun__ = True
         self.company_pool = self.env['res.company']
         self.company = self.company_pool.browse(1)
@@ -49,11 +50,9 @@ class TestResPartner(common.TransactionCase):
         cgstudiomap is not in the list of partners.
         """
         partners = self.partner1.get_studios_from_same_location()
-        self.assertFalse(
-            any(
-                partner for partner in partners
-                if partner.id == self.company.partner_id.id
-            )
+        self.assertTrue(
+            all(partner.id != self.company.partner_id.id
+                for partner in partners)
         )
 
     def test_getStudioFromSameLocation_partnerIsNotInIt(self):
@@ -61,11 +60,8 @@ class TestResPartner(common.TransactionCase):
         list.
         """
         partners = self.partner1.get_studios_from_same_location()
-        self.assertFalse(
-            any(
-                partner for partner in partners
-                if partner.id == self.partner1.id
-            )
+        self.assertTrue(
+            all(partner.id != self.partner1.id for partner in partners)
         )
 
     def test_getStudioFromSameLocation_isCompany(self):
@@ -77,6 +73,9 @@ class TestResPartner(common.TransactionCase):
         partner = self.partner_pool.create(values)
         partners = self.partner1.get_studios_from_same_location()
         self.assertNotIn(partner, partners)
+        self.assertTrue(
+            all(partner.is_company for partner in partners)
+        )
 
     def test_getStudioFromSameLocation_image(self):
         """Check that the all partners have image and the partner without
@@ -87,6 +86,9 @@ class TestResPartner(common.TransactionCase):
         partner = self.partner_pool.create(values)
         partners = self.partner1.get_studios_from_same_location()
         self.assertNotIn(partner, partners)
+        self.assertTrue(
+            all(partner.image for partner in partners)
+        )
 
     def test_getStudioFromSameLocation_country(self):
         """Check that the all partners have the same country than the witness
@@ -97,6 +99,10 @@ class TestResPartner(common.TransactionCase):
         partner = self.partner_pool.create(values)
         partners = self.partner1.get_studios_from_same_location()
         self.assertNotIn(partner, partners)
+        self.assertTrue(
+            all(partner.country_id.id == self.partner1.country_id.id
+                for partner in partners)
+        )
 
     def test_getStudioFromSameLocation_active(self):
         """Check that the all partners are active, and the inactive
@@ -107,6 +113,9 @@ class TestResPartner(common.TransactionCase):
         partner = self.partner_pool.create(values)
         partners = self.partner1.get_studios_from_same_location()
         self.assertNotIn(partner, partners)
+        self.assertTrue(
+            all(partner.active for partner in partners)
+        )
 
     def test_getStudioFromSameLocation_open(self):
         """Check that the all partners are with status open, and the partner
@@ -117,32 +126,8 @@ class TestResPartner(common.TransactionCase):
         partner = self.partner_pool.create(values)
         partners = self.partner1.get_studios_from_same_location()
         self.assertNotIn(partner, partners)
-
-    def test_getRandomStudiosFromSameLocation_sampleSize(self):
-        """Check the argument sample is taken in count."""
-        self.assertEqual(
-            len(
-                list(self.partner1.get_random_studios_from_same_location(3))
-            ), 3
-        )
-        self.assertEqual(
-            len(
-                list(self.partner1.get_random_studios_from_same_location(4))
-            ), 4
-        )
-
-    def test_getRandomStudiosFromSameLocation_maxSize(self):
-        """Check the behaviour if the sample is more than the number
-        of partners.
-        """
-        self.assertEqual(
-            len(
-                list(
-                    self.partner1.get_random_studios_from_same_location(
-                        len(self.__partners) + 10
-                    )
-                )
-            ), len(self.__partners) - 1
+        self.assertTrue(
+            all(partner.state == 'open' for partner in partners)
         )
 
     def __build_partners(self):
