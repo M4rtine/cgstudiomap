@@ -22,6 +22,7 @@ class Studio(Base):
     def main(self, partner, mode='view'):
         """Dispatch between the different modes of the page.
 
+        :param object partner: record of a res.partner.
         :param str mode: mode the page is viewed. Default: view.
             Can be view, edit, create.
 
@@ -30,16 +31,62 @@ class Studio(Base):
         _logger.debug('main')
         _logger.debug('partner: %s', partner)
         _logger.debug('mode: %s', mode)
-        # env = request.env
-        # partner_pool = env['res.partner']
         url = '{0}/{1}'.format(self.studio_url, partner.id)
         keep = QueryURL(url, mode=mode)
-        country = partner.country_id
+
         values = {
+            'fields': partner.fields_get(),
             'partner': partner,
-            'partners': partner.get_random_studios_from_same_location(6),
-            'filter_domain': country.name,
             'mode': mode,
             'keep': keep,
+            'getattr': getattr,
+            'social_networks': (
+                'twitter',
+                'youtube',
+                'vimeo',
+                'facebook',
+                'linkedin',
+            ),
+            'calls': ('phone', 'fax', 'mobile')
         }
-        return request.website.render("frontend_studio.view", values)
+        if mode == 'view':
+            values = self.get_view_mode_specifics(values, partner)
+        elif mode =='edit':
+            values = self.get_edit_mode_specifics(values, partner)
+        return request.website.render(
+            'frontend_studio.{0}'.format(mode), values
+        )
+
+    @staticmethod
+    def get_edit_mode_specifics(values):
+        """Update values with details needed to render the studio page
+        in mode edit.
+
+        :param dict values: render parameters that will be passed to the
+            template.
+
+        :return: updated values.
+        """
+        values.update({
+            'countries': request.env['res.country'].search([]),
+            'industries': request.env['res.industry'].search([]),
+        })
+        return values
+
+
+    @staticmethod
+    def get_view_mode_specifics(values, partner):
+        """Update values with details needed to render the studio page
+        in mode view.
+
+        :param dict values: render parameters that will be passed to the
+            template.
+        :param object partner: record of a res.partner.
+
+        :return: updated values.
+        """
+        values.update({
+            'partners': partner.get_random_studios_from_same_location(6),
+            'filter_domain': partner.country_id.name,
+        })
+        return values
