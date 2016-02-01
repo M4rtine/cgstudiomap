@@ -218,56 +218,7 @@ h3  {
 	-moz-border-radius: 0.25em !important;
 }
 
-.btn {
-	font-size: 1.35em;
-	font-family: 'cgsm-regular';
-	padding: 14px 24px;
-	border: 0 none;
-	font-weight: normal;
-	letter-spacing: 1px;
-	text-transform: none;
-	-webkit-border-radius: 2px !important;
-	-moz-border-radius: 2px !important;
-	border-radius: 2px !important;
-}
 
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus {
-	outline: 0 none;
-}
-
-.btn-edit {
-	border: 2px solid #5ae2b0;
-	color: #5ae2b0;
-	padding: 12px 22px;
-}
-
-.btn-edit:hover,
-.btn-edit:focus,
-.btn-edit:active,
-.btn-edit.active,
-.open > .dropdown-toggle.btn-edit {
-	background: #f1f1f3;
-	border-color: #5ae2b0;
-	color: #5ae2b0;
-}
-
-.btn-edit:active,
-.btn-edit.active {
-	border-color: #5ae2b0;
-	box-shadow: none;
-}
-
-.btn.outline {
-	background: none;
-	padding: 12px 22px;
-}
-.btn.outline:hover,
-.btn.outline:focus{
-	background: #5ae2b0;
-	color: #f1f1f3;
-}
 .studios h4 {
 	font-family: 'cgsm-regular';
 	margin-top: 0;
@@ -336,13 +287,64 @@ h3  {
     padding: auto 0;
     margin: 0;
 }
+
+.btn {
+	font-family: 'cgsm-regular';
+	border: 0 none;
+	font-weight: normal;
+	letter-spacing: 1px;
+	text-transform: none;
+	-webkit-border-radius: 2px !important;
+	-moz-border-radius: 2px !important;
+	border-radius: 2px !important;
+}
+.btn:hover {
+	color: #f1f1f3;
+}
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+	/*outline: 0 none;*/
+}
+
+.btn-edit {
+	font-size: 1.35em;
+	border: 2px solid #5ae2b0;
+	color: #5ae2b0;
+	padding: 12px 22px;
+}
+
+.btn-edit:hover,
+.btn-edit:focus,
+.btn-edit:active,
+.btn-edit.active,
+.open > .dropdown-toggle.btn-edit {
+	background: #f1f1f3;
+	border-color: #5ae2b0;
+	color: #5ae2b0;
+}
+
+.btn-edit:active,
+.btn-edit.active {
+	border-color: #5ae2b0;
+	box-shadow: none;
+}
+
+.btn.outline {
+	background: none;
+	padding: 12px 22px;
+}
+.btn.outline:hover,
+.btn.outline:focus{
+	background: #5ae2b0;
+	color: #f1f1f3;
+}
 .btn-cgsm-add {
     font-family: 'cgsm-regular';
     font-size: 1.66em;
-    line-height: 1;
+	height: 45px;
+    line-height: normal;
     vertical-align: baseline;
-    padding: auto 0;
-    margin: 0 auto;
     background-color: #5ae2b0;
     color: #f1f1f3;
 	z-index: 100;
@@ -355,8 +357,7 @@ h3  {
 }
 @media (max-width: 767px) {
     .btn-cgsm-add {
-        font-size: 1.66em;
-        line-height: 1.33em;
+
     }
 }
 
@@ -373,6 +374,9 @@ input {
 .navSearch .fontCGSMicons{
     font-size: 1em;
 	color: #323133;
+}
+.navSearch .fontCGSMicons:hover{
+	color: #f1f1f3;
 }
 .navSearch a:hover{
     text-decoration: none;
@@ -503,7 +507,7 @@ input {
 		text-align: center!important;
 	}
 	.btn {
-		font-size: 1.15em;
+		
 	}
 	.btn.outline {
 		padding: 6px 11px;
