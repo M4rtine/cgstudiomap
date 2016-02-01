@@ -10,9 +10,8 @@
         </template>
 		
         <template id="frontend_studio.edit_button" name="Studio: Edit mode">
-            <form t-att-action="'/directory/company/{}'.format(partner.id)" method="get">
+            <form t-att-action="'/directory/company/{}/edit'.format(partner.id)" method="get">
                 <div class="input-group">
-                    <input type="hidden" name='mode' value="edit"/>
                     <input type='submit'
                            class="btn btn-edit outline a-submit"
                            title="Click to edit the details of the company."
@@ -22,9 +21,8 @@
         </template>
 		
         <template id="frontend_studio.flag_button" name="Studio: Flag mode">
-            <form t-att-action="'/directory/company/{}'.format(partner.id)" method="get">
+            <form t-att-action="'/directory/company/{}/edit'.format(partner.id)" method="get">
                 <div class="input-group">
-                    <input type="hidden" name='mode' value="edit"/>
                     <input type='submit'
                            class="btn btn-edit outline fontCGSMicons a-submit"
                            value="flag"/>
@@ -114,7 +112,7 @@
         </template>
 
         <template id="frontend_studio.marqueePlus" name="Marquee Plus">
-            <a t-att-href="'/directory/company/{}?mode=edit'.format(partner.id)"
+            <a t-att-href="'/directory/company/{}/edit'.format(partner.id)"
                title="Click to add the missing value.">
                 <span class="fontCGSMicons social-link--add">marqueePlus</span>
             </a>
