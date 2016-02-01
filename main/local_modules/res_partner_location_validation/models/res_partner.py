@@ -152,6 +152,7 @@ class ResPartner(models.Model):
         """
         if self.__dryRun__:
             return vals
+
         _logger.debug('_clean_location_data')
         _logger.debug('vals: {}'.format(vals))
         # https://github.com/cgstudiomap/cgstudiomap/issues/71

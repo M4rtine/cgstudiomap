@@ -37,6 +37,13 @@ class TestResPartner(common.TransactionCase):
 
         self.partner_pool.__dryRun__ = False
 
+    def test_partnersAreCreated(self):
+        """Check the partners for the tests are created as expected."""
+        self.assertTrue(
+            self.__partners,
+            'No partners were created for the test!'
+        )
+
     def test_getStudioFromSameLocation_cgstudiomapIsNotInIt(self):
         """Check that the partner related to the company
         cgstudiomap is not in the list of partners.

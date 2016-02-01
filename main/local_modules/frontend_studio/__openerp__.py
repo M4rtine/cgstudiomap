@@ -31,6 +31,7 @@
         'website',
         'frontend_base',
         'main_data',  # for state
+        'res_partner_location_validation',
     ],
     'data': [
         'templates/template_body.xml',
