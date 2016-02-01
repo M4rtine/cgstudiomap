@@ -197,7 +197,9 @@
         <!--<t t-set="ind" t-value="{value_for_ind}"/>-->
         <!--<t t-call="frontend_base.industry_tag"/>-->
         <template id="frontend_base.industry_tag" name="Industry Tag">
-            <a itemprop="name" t-att-href="'/directory?search=%s' % ind.name">
+            <a itemprop="name"
+               t-att-href="'/directory?search=%s' % ind.name"
+               title="Click to search for companies with the same industry.">
                 <span class="label label-info" t-esc="ind.name"/>
             </a>
         </template>
