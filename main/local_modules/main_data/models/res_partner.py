@@ -27,7 +27,7 @@ from openerp.addons.base_geolocalize.models.res_partner import (
 from openerp.addons.base_geoengine import geo_model
 
 _logger = logging.getLogger(__name__)
-
+__codec__ = 'utf-8'
 
 class ResPartner(geo_model.GeoModel):
     _inherit = 'res.partner'
@@ -36,11 +36,11 @@ class ResPartner(geo_model.GeoModel):
     def add_geo_localization_details(self, vals):
         result = geo_find(
             geo_query_address(
-                street=vals.get('street'),
-                zip=vals.get('zip'),
-                city=vals.get('city'),
+                street=vals.get('street').encode(__codec__),
+                zip=vals.get('zip').encode(__codec__),
+                city=vals.get('city').encode(__codec__),
                 country=self.env['res.country'].browse(
-                    vals.get('country_id')).name,
+                    vals.get('country_id')).name.encode(__codec__),
             )
         )
         if result:
