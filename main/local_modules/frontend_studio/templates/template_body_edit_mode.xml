@@ -133,31 +133,40 @@
                                 <div class="col-sm-10">
 
                                     <div class="row">
+                                        <div>
                                         <h3>Address</h3>
                                         <div class="col-sm-12">
                                             <t t-call="frontend_studio.studio_address_edit"/>
                                         </div>
-
+                                        </div>
+                                        <div>
                                         <h3>Links</h3>
 
                                         <div class="col-sm-12">
                                             <t t-call="frontend_studio.studio_links_edit"/>
                                         </div>
+                                        </div>
+                                        <div>
 
                                         <h3>Social</h3>
 
                                         <div class="col-sm-12">
                                             <t t-call="frontend_studio.studio_social_networks_edit"/>
                                         </div>
+                                        </div>
+                                        <div>
                                         <h3>calls</h3>
 
                                         <div class="col-sm-12">
                                             <t t-call="frontend_studio.studio_calls_edit"/>
                                         </div>
+                                        </div>
+                                        <div>
                                         <h3>industries</h3>
 
                                         <div class="col-sm-12">
                                             <t t-call="frontend_studio.studio_industries_edit"/>
+                                        </div>
                                         </div>
                                     </div>
 

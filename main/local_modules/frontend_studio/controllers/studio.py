@@ -33,6 +33,13 @@ class Studio(Base):
         _logger.debug('mode: %s', mode)
         url = '{0}/{1}'.format(self.studio_url, partner.id)
         keep = QueryURL(url, mode=mode)
+        social_networks = (
+                'twitter',
+                'youtube',
+                'vimeo',
+                'facebook',
+                'linkedin',
+        )
 
         values = {
             'fields': partner.fields_get(),
@@ -40,19 +47,13 @@ class Studio(Base):
             'mode': mode,
             'keep': keep,
             'getattr': getattr,
-            'social_networks': (
-                'twitter',
-                'youtube',
-                'vimeo',
-                'facebook',
-                'linkedin',
-            ),
-            'calls': ('phone', 'fax', 'mobile')
+            'social_networks': social_networks,
+            'calls': ('phone', 'fax', 'mobile'),
         }
         if mode == 'view':
             values = self.get_view_mode_specifics(values, partner)
-        elif mode =='edit':
-            values = self.get_edit_mode_specifics(values, partner)
+        elif mode == 'edit':
+            values = self.get_edit_mode_specifics(values)
         return request.website.render(
             'frontend_studio.{0}'.format(mode), values
         )
@@ -85,7 +86,14 @@ class Studio(Base):
 
         :return: updated values.
         """
+        marquee_plus_social_network = any(
+            not getattr(partner, field) for field in values['social_networks']
+        )
+        _logger.debug(
+            'marqueePlusSocialNetwork: %s', marquee_plus_social_network
+        )
         values.update({
+            'marqueePlusSocialNetwork': marquee_plus_social_network,
             'partners': partner.get_random_studios_from_same_location(6),
             'filter_domain': partner.country_id.name,
         })
