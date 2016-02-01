@@ -12,6 +12,33 @@
                    value="Save"/>
         </template>
 
+        <template id="frontend_studio.studio_common_edit" name="Studio: Edit Common">
+            <div class="form-group">
+                <p>
+                    <t t-esc="fields['name']['string']"/>
+                    <input type="text"
+                           t-att-name="fields['name']['string']"
+                           class="search-query form-control"
+                           t-att-value="partner.name" />
+                </p>
+                <p>
+                    <t t-esc="fields['state']['string']"/>
+                    <select class="form-control" t-att-name="fields['state']['string']">
+                    <t t-foreach="state_selections" t-as="selections">
+                        <option t-att-value="selections[0]"
+                                t-att-selected="'selected' if selections[0] == partner.state else ''">
+                            <t t-esc="selections[1]"/>
+                        </option>
+                    </t>
+                    </select>
+                    <!--<input type="state"-->
+                           <!--t-att-name="fields['state']['string']"-->
+                           <!--class="search-query form-control"-->
+                           <!--t-att-value="partner.state" />-->
+                </p>
+            </div>
+        </template>
+
         <template id="frontend_studio.studio_address_edit" name="Studio: Edit Address">
             <div class="form-group">
                 <p>
@@ -134,39 +161,40 @@
 
                                     <div class="row">
                                         <div>
-                                        <h3>Address</h3>
-                                        <div class="col-sm-12">
-                                            <t t-call="frontend_studio.studio_address_edit"/>
-                                        </div>
-                                        </div>
-                                        <div>
-                                        <h3>Links</h3>
-
-                                        <div class="col-sm-12">
-                                            <t t-call="frontend_studio.studio_links_edit"/>
-                                        </div>
+                                            <!--<h3>Common</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_common_edit"/>
+                                            </div>
                                         </div>
                                         <div>
-
-                                        <h3>Social</h3>
-
-                                        <div class="col-sm-12">
-                                            <t t-call="frontend_studio.studio_social_networks_edit"/>
-                                        </div>
+                                            <!--<h3>address</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_address_edit"/>
+                                            </div>
                                         </div>
                                         <div>
-                                        <h3>calls</h3>
-
-                                        <div class="col-sm-12">
-                                            <t t-call="frontend_studio.studio_calls_edit"/>
-                                        </div>
+                                            <!--<h3>Links</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_links_edit"/>
+                                            </div>
                                         </div>
                                         <div>
-                                        <h3>industries</h3>
-
-                                        <div class="col-sm-12">
-                                            <t t-call="frontend_studio.studio_industries_edit"/>
+                                            <!--<h3>Social</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_social_networks_edit"/>
+                                            </div>
                                         </div>
+                                        <div>
+                                            <!--<h3>calls</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_calls_edit"/>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <!--<h3>industries</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_industries_edit"/>
+                                            </div>
                                         </div>
                                     </div>
 

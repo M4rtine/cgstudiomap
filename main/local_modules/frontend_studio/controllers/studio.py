@@ -8,6 +8,7 @@ from openerp.addons.frontend_base.controllers.base import (Base, QueryURL)
 from openerp.http import request
 
 _logger = logging.getLogger(__name__)
+_logger.setLevel(logging.DEBUG)
 
 
 class Studio(Base):
@@ -82,10 +83,16 @@ class Studio(Base):
                 'linkedin',
         )
 
+        fields = partner.fields_get()
+        state_selections = fields['state']['selection']
+        _logger.debug('selections: %s', state_selections)
+
+
         return {
-            'fields': partner.fields_get(),
+            'fields': fields,
             'partner': partner,
             'keep': keep,
+            'state_selections': state_selections,
             'getattr': getattr,
             'social_networks': social_networks,
             'calls': ('phone', 'fax', 'mobile'),
