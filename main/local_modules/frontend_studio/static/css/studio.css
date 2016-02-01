@@ -12,6 +12,15 @@
 	margin: 0 0;
 	
 }
+#studioDetails {
+	position: relative;
+	z-index: 1000;
+	margin: 0 0;
+	padding: 0 0;
+	width: 100%;
+	
+	background-color: white;
+}
 #container-map-studio {
 	position: relative;
 	height: 350px;
