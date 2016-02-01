@@ -1,0 +1,186 @@
+<openerp>
+    <data>
+        <template id="frontend_studio.save_form" name="Studio: Save Modifications">
+            <form t-att-action="'/directory/company/{}/save'.format(partner.id)" method="post">
+                <t t-raw="0"/>
+            </form>
+        </template>
+
+        <template id="frontend_studio.save_button" name="Studio: Save Button">
+            <input type='submit'
+                   class="btn btn-edit outline a-submit"
+                   value="Save"/>
+        </template>
+
+        <template id="frontend_studio.studio_address_edit" name="Studio: Edit Address">
+            <div class="form-group">
+                <p>
+                    <t t-esc="fields['street']['string']"/>
+                    <input type="text"
+                           t-att-name="fields['street']['string']"
+                           class="search-query form-control"
+                           t-att-value="partner.street" />
+                </p>
+                <p>
+                    <t t-esc="fields['street2']['string']"/>
+                    <input type="text"
+                           t-att-name="fields['street2']['string']"
+                           class="search-query form-control"
+                           t-att-value="partner.street2" />
+                </p>
+                <p>
+                    <t t-esc="fields['city']['string']"/>
+                    <input type="text"
+                           t-att-name="fields['city']['string']"
+                           class="search-query form-control"
+                           t-att-value="partner.city" />
+                </p>
+                <p>
+                    <t t-esc="fields['zip']['string']"/>
+                    <input type="text"
+                           t-att-name="fields['zip']['string']"
+                           class="search-query form-control"
+                           t-att-value="partner.zip" />
+                </p>
+                <!--<p>-->
+                    <!--<t t-esc="fields['state_id']['string']"/>-->
+                    <!--<t t-esc="partner.state_id" />,-->
+                <!--</p>-->
+                <p>
+                    <t t-esc="fields['country_id']['string']"/>
+                    <select class="form-control" t-att-name="fields['country_id']['string']">
+                        <t t-foreach="countries" t-as="country">
+                            <option t-att-value="country.id"
+                                    t-att-selected="'selected' if country.id == partner.country_id.id else ''"
+                                    >
+                                <t t-esc="country.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </p>
+            </div>
+        </template>
+
+        <template id="frontend_studio.studio_links_edit" name="Studio: Edit Links">
+            <div class="form-group">
+                <p>
+                    <t t-esc="fields['website']['string']"/>
+                    <input type="url"
+                           t-att-name="fields['website']['string']"
+                           class="search-query form-control"
+                           t-att-value="partner.website" />
+                </p>
+                <p>
+                    <t t-esc="fields['email']['string']"/>
+                    <input type="email"
+                           t-att-name="fields['email']['string']"
+                           class="search-query form-control"
+                           t-att-value="partner.email" />
+                </p>
+            </div>
+        </template>
+        
+        <template id="frontend_studio.studio_social_networks_edit" name="Studio: Edit Social Networks">
+            <div class="form-group">
+                <t t-foreach="social_networks" t-as="social_network">
+                    <p>
+                        <t t-esc="fields[social_network]['string']"/>
+                        <input type="url"
+                               t-att-name="fields[social_network]['string']"
+                               class="search-query form-control"
+                               t-att-value="getattr(partner, social_network)" />
+                    </p>
+                </t>
+            </div>
+        </template>
+
+        <template id="frontend_studio.studio_calls_edit" name="Studio: Edit Calls">
+            <div class="form-group">
+                <t t-foreach="calls" t-as="call">
+                    <p>
+                        <t t-esc="fields[call]['string']"/>
+                        <input type="phone"
+                               t-att-name="fields[call]['string']"
+                               class="search-query form-control"
+                               t-att-value="getattr(partner, call)" />
+                    </p>
+                </t>
+            </div>
+        </template>
+
+        <template id="frontend_studio.studio_industries_edit" name="Studio: Edit Industries">
+            <div class="form-group">
+                <t t-foreach="industries" t-as="ind">
+                    <input type="checkbox"
+                           name="industry"
+                           t-att-value="ind.id"
+                           t-att-checked="'checked' if ind in partner.industry_ids else ''"
+                    />
+                    <t t-esc="ind.name"/>
+                </t>
+            </div>
+        </template>
+
+        <template id="frontend_studio.edit" name="Studio: Edit">
+            <t t-call="frontend_studio.base">
+
+                <t t-call="frontend_studio.save_form">
+
+                    <t t-call="frontend_studio.save_button"/>
+                    <div style="background-color:white;">
+                        <div class="container studio-details fontCGSM">
+                            <div class="row">
+                                <div class="col-sm-10">
+
+                                    <div class="row">
+                                        <h3>Address</h3>
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.studio_address_edit"/>
+                                        </div>
+
+                                        <h3>Links</h3>
+
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.studio_links_edit"/>
+                                        </div>
+
+                                        <h3>Social</h3>
+
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.studio_social_networks_edit"/>
+                                        </div>
+                                        <h3>calls</h3>
+
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.studio_calls_edit"/>
+                                        </div>
+                                        <h3>industries</h3>
+
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.studio_industries_edit"/>
+                                        </div>
+                                    </div>
+
+
+                                    <!--<div class="row">-->
+                                        <!--<h3>Connect</h3>-->
+                                        <!--<t t-call="frontend_studio.studio_details"/>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<div class="col-sm-2 studio_industries">-->
+                                    <!--<h4><span class="fontCGSMicons">tag</span> Industries</h4>-->
+                                    <!--<t t-call="frontend_studio.industries"/>-->
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </t>
+
+            </t>
+
+        </template>
+    </data>
+</openerp>

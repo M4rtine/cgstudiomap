@@ -118,10 +118,11 @@
                 <t t-raw="display"/>
             </t>
         </template>
+
         <template id="frontend_studio.studio_details" name="Studio: Details">
             <div class="col-xs-12 col-sm-4">
                 <div class="form-group details-web">
-                    <h4>Website</h4>
+                    <h4><t t-esc="fields['website']['string']"/></h4>
                     <p>
                         <t t-set="display">
                             <a t-att-href="partner.website"><t t-esc="partner.website" /></a>
@@ -129,7 +130,7 @@
                         <t t-set="value" t-value="partner.website"/>
                         <t t-call="frontend_studio.marqueePlus"/>
                     </p>
-                    <h4>Mail</h4>
+                    <h4><t t-esc="fields['email']['string']"/></h4>
                     <p>
                         <t t-set="display">
                             <a t-att-href="partner.email"><t t-esc="partner.email" /></a>
@@ -149,21 +150,21 @@
                         <a t-att-href='"tel://{0}".format(partner.phone)'><t t-esc="partner.phone" /></a>
                     </t>
                     <t t-set="value" t-value="partner.phone"/>
-                    <p>Phone: <t t-call="frontend_studio.marqueePlus"/></p>
+                    <p><t t-esc="fields['phone']['string']"/>: <t t-call="frontend_studio.marqueePlus"/></p>
                 </div>
                 <div class="form-group details-phone">
                     <t t-set="display">
                         <a t-att-href='"tel://{0}".format(partner.mobile)'><t t-esc="partner.mobile" /></a>
                     </t>
                     <t t-set="value" t-value="partner.mobile"/>
-                    <p>Mobile: <t t-call="frontend_studio.marqueePlus"/></p>
+                    <p><t t-esc="fields['mobile']['string']"/>: <t t-call="frontend_studio.marqueePlus"/></p>
                 </div>
                 <div class="form-group details-phone">
                     <t t-set="display">
                         <a t-att-href='"tel://{0}".format(partner.fax)'><t t-esc="partner.fax" /></a>
                     </t>
                     <t t-set="value" t-value="partner.fax"/>
-                    <p>Fax: <t t-call="frontend_studio.marqueePlus"/></p>
+                    <p><t t-esc="fields['fax']['string']"/>: <t t-call="frontend_studio.marqueePlus"/></p>
                 </div>
             </div>
 
