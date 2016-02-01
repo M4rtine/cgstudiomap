@@ -33,6 +33,8 @@ __codec__ = 'utf-8'
 class ResPartner(models.Model):
     """Add Social Networks fields."""
     _inherit = 'res.partner'
+    # set on to avoid that some function are called during tests.
+    __dryRun__ = False
 
     @api.model
     def _build_geocode(self, vals=None):
@@ -43,10 +45,13 @@ class ResPartner(models.Model):
 
         The Geocode is built from the the data in vals completed by the data
         in the record itself.
-        #
+        If self.__dryRun__ is set to True, the build is skipped.
+
         :param vals: set of values for the record. Default: {}
         :return: Geocoder.geocode instance
         """
+        if self.__dryRun__:
+            return None
 
         def get_data(field_name):
             data = vals.get(field_name)
@@ -141,8 +146,12 @@ class ResPartner(models.Model):
         """Build a geocode from the details of the partner to then inject
         into the records the cleaned data caught from google.
 
+        If self.__dryRun__ is set to True, the clean is skipped.
+
         :return: dict with the values for the orm.
         """
+        if self.__dryRun__:
+            return vals
         _logger.debug('_clean_location_data')
         _logger.debug('vals: {}'.format(vals))
         # https://github.com/cgstudiomap/cgstudiomap/issues/71

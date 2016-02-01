@@ -19,21 +19,31 @@
 #
 ##############################################################################
 import logging
-from openerp import api, fields
+
+from openerp.addons.base_geoengine import geo_model
 from openerp.addons.base_geolocalize.models.res_partner import (
     geo_find, geo_query_address
 )
 
-from openerp.addons.base_geoengine import geo_model
+from openerp import api, fields
 
 _logger = logging.getLogger(__name__)
 __codec__ = 'utf-8'
 
+
 class ResPartner(geo_model.GeoModel):
     _inherit = 'res.partner'
 
+    # set on to avoid that some function are called during tests.
+    __dryRun__ = False
+
     @api.model
     def add_geo_localization_details(self, vals):
+        """Add geo localization details to the current partner."""
+        # skip during dry runs.
+        if self.__dryRun__:
+            return vals
+
         result = geo_find(
             geo_query_address(
                 street=vals.get('street').encode(__codec__),

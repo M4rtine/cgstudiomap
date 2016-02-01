@@ -25,6 +25,7 @@ class TestResPartner(common.TransactionCase):
         }
 
         self.partner_pool = self.env['res.partner']
+        self.partner_pool.__dryRun__ = True
         self.company_pool = self.env['res.company']
         self.company = self.company_pool.browse(1)
         self.__partners = self.__build_partners()
@@ -33,6 +34,8 @@ class TestResPartner(common.TransactionCase):
         """Clean the partners that were created in the setUp."""
         for partner in self.__partners:
             partner.unlink()
+
+        self.partner_pool.__dryRun__ = False
 
     def test_getStudioFromSameLocation_cgstudiomapIsNotInIt(self):
         """Check that the partner related to the company
