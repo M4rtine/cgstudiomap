@@ -15,6 +15,7 @@
                     <input type="hidden" name='mode' value="edit"/>
                     <input type='submit'
                            class="btn btn-edit outline a-submit"
+                           title="Click to edit the details of the company."
                            value="Edit"/>
                 </div>
             </form>
@@ -113,10 +114,15 @@
         </template>
 
         <template id="frontend_studio.marqueePlus" name="Marquee Plus">
+            <a t-att-href="'/directory/company/{}?mode=edit'.format(partner.id)"
+               title="Click to add the missing value.">
+                <span class="fontCGSMicons social-link--add">marqueePlus</span>
+            </a>
+        </template>
+
+        <template id="frontend_studio.marqueePlus_placeholder" name="Marquee Plus Placeholder">
             <t t-if="not value">
-                <a href="#" title="social-add">
-                    <span class="fontCGSMicons social-link--add">marqueePlus</span>
-                </a>
+                <t t-call="frontend_studio.marqueePlus"/>
             </t>
             <t t-if="value">
                 <t t-raw="display"/>
@@ -132,7 +138,7 @@
                             <a t-att-href="partner.website"><t t-esc="partner.website" /></a>
                         </t>
                         <t t-set="value" t-value="partner.website"/>
-                        <t t-call="frontend_studio.marqueePlus"/>
+                        <t t-call="frontend_studio.marqueePlus_placeholder"/>
                     </p>
                     <h4><t t-esc="fields['email']['string']"/></h4>
                     <p>
@@ -140,7 +146,7 @@
                             <a t-att-href="partner.email"><t t-esc="partner.email" /></a>
                         </t>
                         <t t-set="value" t-value="partner.email"/>
-                        <t t-call="frontend_studio.marqueePlus"/>
+                        <t t-call="frontend_studio.marqueePlus_placeholder"/>
                     </p>
                 </div>
             </div>
@@ -154,21 +160,21 @@
                         <a t-att-href='"tel://{0}".format(partner.phone)'><t t-esc="partner.phone" /></a>
                     </t>
                     <t t-set="value" t-value="partner.phone"/>
-                    <p><t t-esc="fields['phone']['string']"/>: <t t-call="frontend_studio.marqueePlus"/></p>
+                    <p><t t-esc="fields['phone']['string']"/>: <t t-call="frontend_studio.marqueePlus_placeholder"/></p>
                 </div>
                 <div class="form-group details-phone">
                     <t t-set="display">
                         <a t-att-href='"tel://{0}".format(partner.mobile)'><t t-esc="partner.mobile" /></a>
                     </t>
                     <t t-set="value" t-value="partner.mobile"/>
-                    <p><t t-esc="fields['mobile']['string']"/>: <t t-call="frontend_studio.marqueePlus"/></p>
+                    <p><t t-esc="fields['mobile']['string']"/>: <t t-call="frontend_studio.marqueePlus_placeholder"/></p>
                 </div>
                 <div class="form-group details-phone">
                     <t t-set="display">
                         <a t-att-href='"tel://{0}".format(partner.fax)'><t t-esc="partner.fax" /></a>
                     </t>
                     <t t-set="value" t-value="partner.fax"/>
-                    <p><t t-esc="fields['fax']['string']"/>: <t t-call="frontend_studio.marqueePlus"/></p>
+                    <p><t t-esc="fields['fax']['string']"/>: <t t-call="frontend_studio.marqueePlus_placeholder"/></p>
                 </div>
             </div>
 
@@ -176,55 +182,24 @@
 
         <template id="frontend_studio.social_networks" name="Studio: Social Networks">
             <h4>Socials</h4>
-            <div class="form-group details-socials">
-                <t t-set="display">
-                    <a t-att-href="partner.twitter" title="twitter">
-                        <span class="fontCGSMicons social-link--twitter">twitter</span>
-                    </a>
+            <t t-foreach="social_networks" t-as="social_network">
+                <t t-set="url" t-value="getattr(partner, social_network)"/>
+                <t t-if="url">
+                    <div class="form-group details-socials">
+                        <a t-att-href="url"
+                           t-att-title="social_network">
+                            <span t-att-class="'fontCGSMicons social-link--{0}'.format(social_network)">
+                                <t t-esc="social_network"/>
+                            </span>
+                        </a>
+                    </div>
                 </t>
-                <t t-set="value" t-value="partner.twitter"/>
-                <t t-call="frontend_studio.marqueePlus"/>
-            </div>
-
-            <div class="form-group details-socials">
-                <t t-set="display">
-                    <a t-att-href="partner.linkedin" title="linkedin">
-                        <span class="fontCGSMicons social-link--linkedin">linkedin</span>
-                    </a>
-                </t>
-                <t t-set="value" t-value="partner.linkedin"/>
-                <t t-call="frontend_studio.marqueePlus"/>
-            </div>
-
-            <div class="form-group details-socials">
-                <t t-set="display">
-                    <a t-att-href="partner.youtube" title="youtube">
-                        <span class="fontCGSMicons social-link--youtube">youtube</span>
-                    </a>
-                </t>
-                <t t-set="value" t-value="partner.youtube"/>
-                <t t-call="frontend_studio.marqueePlus"/>
-            </div>
-            <br />
-            <div class="form-group details-socials">
-                <t t-set="display">
-                    <a t-att-href="partner.vimeo" title="vimeo">
-                        <span class="fontCGSMicons social-link--vimeo">vimeo</span>
-                    </a>
-                </t>
-                <t t-set="value" t-value="partner.vimeo"/>
-                <t t-call="frontend_studio.marqueePlus"/>
-            </div>
-
-            <div class="form-group details-socials">
-                <t t-set="display">
-                    <a t-att-href="partner.facebook" title="facebook">
-                        <span class="fontCGSMicons social-link--facebook">facebook</span>
-                    </a>
-                </t>
-                <t t-set="value" t-value="partner.facebook"/>
-                <t t-call="frontend_studio.marqueePlus"/>
-            </div>
+            </t>
+            <t t-if="marqueePlusSocialNetwork">
+                <div class="form-group details-socials">
+                    <t t-call="frontend_studio.marqueePlus"/>
+                </div>
+            </t>
         </template>
 
         <template id="frontend_studio.industries" name="Studio: Industries">
@@ -234,7 +209,7 @@
                 </t>
             </t>
             <t t-set="value" t-value="partner.industry_ids"/>
-            <t t-call="frontend_studio.marqueePlus"/>
+            <t t-call="frontend_studio.marqueePlus_placeholder"/>
         </template>
 
         <template id="frontend_studio.same_localization" name="Studio: Same Localization">
