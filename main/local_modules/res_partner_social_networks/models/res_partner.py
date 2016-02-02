@@ -57,13 +57,8 @@ class ResPartner(models.Model):
         """Add social networks fields to inital list of url fields."""
         fields = super(ResPartner, self)._url_fields
         fields.extend([
-            'twitter',
-            'youtube',
-            'vimeo',
-            'facebook',
-            'linkedin',
-            'wikipedia',
-            # 'art_of_fx',
+            'twitter', 'youtube', 'vimeo', 'facebook', 'linkedin',
+            # 'wikipedia', 'art_of_fx',
         ])
         return fields
 
@@ -89,26 +84,42 @@ class ResPartner(models.Model):
     @api.constrains('linkedin')
     def _validate_linkedin_url(self):
         """Test against the given url against RFC requirements"""
-        if self.linkedin:
-            self._validate_social_network_url(
-                self.__strip_value(self.linkedin),
-                # Linkedin got its page tracking system embed in the url
-                # then the url can be followed by ?trk...
-                r'https?://(www\.)?linkedin\.com/company/[\w-]+'
-            )
+        url = self.__strip_value(self.linkedin)
+        # Linkedin got its page tracking system embed in the url
+        # then the url can be followed by ?trk...
+        regex = r'https?://(www\.)?linkedin\.com/company/[\w-]+'
+        if url:
+            self._url_validation(url)
+            if not re.match(regex, url):
+                err_msg = _(
+                    (
+                        '"{}" seems not to be an linkedin account.'
+                        '\nA linkedin account should be something '
+                        'like https://www.linkedin.com/'
+                        'company/cgstudiomap.com'.format(url)
+                    )
+                )
+                raise ValidationError(err_msg)
 
     @api.one
     @api.constrains('facebook')
     def _validate_facebook_url(self):
         """Test against the given url against RFC requirements"""
-        if self.facebook:
-            self._validate_social_network_url(
-                self.__strip_value(self.facebook),
-                # Facebook got its page tracking system embed in the url
-                # then the url can be followed by ?fref...
-                r'https?://(www\.)?facebook\.com/[\w-]+'
-            )
-
+        url = self.__strip_value(self.facebook)
+        # Facebook got its page tracking system embed in the url
+        # then the url can be followed by ?fref...
+        regex = r'https?://(www\.)?facebook\.com/[\w-]+'
+        if url:
+            self._url_validation(url)
+            if not re.match(regex, url):
+                err_msg = _(
+                    (
+                        '"{}" seems not to be an facebook account.'
+                        '\nA facebook account should be something '
+                        'like https://www.facebook.com/'
+                    )
+                )
+                raise ValidationError(err_msg)
 
     @api.one
     @api.constrains('youtube')
@@ -128,7 +139,6 @@ class ResPartner(models.Model):
                 )
                 raise ValidationError(err_msg)
 
-
     @api.one
     @api.constrains('vimeo')
     def _validate_vimeo_url(self):
@@ -147,21 +157,13 @@ class ResPartner(models.Model):
                 )
                 raise ValidationError(err_msg)
 
-    @api.one
-    @api.constrains('wikipedia')
-    def _validate_wikipedia_url(self):
-        """Test against the given url against RFC requirements"""
-        if self.wikipedia:
-            self._validate_social_network_url(
-                self.__strip_value(self.wikipedia),
-                # Facebook got its page tracking system embed in the url
-                # then the url can be followed by ?fref...
-                r'https?://\w*\.?wikipedia.org/wiki/[\w-]+'
-            )
+    @staticmethod
+    def __strip_value(value):
+        """strip if the value is a string.
 
-
-    def __strip_value(self, value):
-        """strip if the value is a string."""
+        :param object value: value to attempt to strip.
+        :return: striped value.
+        """
         if isinstance(value, basestring):
             return value.strip()
 

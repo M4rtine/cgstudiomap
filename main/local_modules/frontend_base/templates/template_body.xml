@@ -35,14 +35,12 @@
 							<li><a t-att-href="website.directory_menu">Directory</a></li>
                 			<li><a t-att-href="website.shop_menu">Shop</a></li>
 							<li><a t-att-href="website.about_menu">About</a></li>
-							
-							<li role="separator" class="divider visible-xs-inline"></li>
 							<div class="navbar-nav visible-xs-inline">
-								<li groups="base.group_public"><a t-attf-href="/web/signup"><h2>Sign up</h2></a></li>
-                                <li groups="base.group_public" class="divider"/>
-                                <li groups="base.group_public"><a t-attf-href="/web/login"><b>Sign in</b></a></li>
+								<li groups="base.group_public" class="divider"/>
+								<li groups="base.group_public"><a t-attf-href="/web/signup">Sign up</a></li>
+								<li groups="base.group_public"><a t-attf-href="/web/login">Sign in</a></li>
+								<li t-ignore="true" t-if="website.user_id != user_id" class="divider"/>
                                 <li t-ignore="true" t-if="website.user_id != user_id"><a t-att-href="user_menu" role="menuitem">My Account</a></li>
-                                <li t-ignore="true" t-if="website.user_id != user_id" class="divider"/>
                                 <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
 							</div>
 							

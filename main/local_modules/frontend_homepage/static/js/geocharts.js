@@ -28,8 +28,16 @@ function geo_chart(companies, target) {
             document.getElementById(target)
         );
         chart.draw(data, options);
-    }
 
+        google.visualization.events.addListener(chart, 'select', function() {
+            var selectedItem = chart.getSelection()[0];
+            if (selectedItem) {
+                var country = data.getValue(selectedItem.row, 0);
+                window.open("/directory?search=" + country, "_self")
+            }
+
+        });
+    }
 }
 
 

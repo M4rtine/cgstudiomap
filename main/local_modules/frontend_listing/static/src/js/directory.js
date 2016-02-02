@@ -4,7 +4,7 @@ function bootstrap_table_ajax(search, status) {
         url: "/directory/get_partners",
         data: {search: search, company_status: status},
 
-        complete: function(){
+        complete: function () {
             $('.loading-spinner').hide();
         },
 
@@ -12,20 +12,11 @@ function bootstrap_table_ajax(search, status) {
             var data = JSON.parse(response);
             $('table').bootstrapTable({
                 classes: 'table table-no-bordered table-hover',
-				height: getHeight(),
+                height: getHeight(),
                 striped: true,
-                undefinedText: 	'&nbsp;',
+                undefinedText: '&nbsp;',
                 iconsPrefix: 'glyphicon',
                 iconSize: 'md',
-/*                icons: {
-                    paginationSwitchDown: 'glyphicon-collapse-down icon-chevron-down',
-                    paginationSwitchUp: 'glyphicon-collapse-up icon-chevron-up',
-                    refresh: 'glyphicon-refresh icon-refresh',
-                    toggle: 'glyphicon-list-alt icon-list-alt',
-                    columns: 'glyphicon-th icon-th',
-                    detailOpen: 'glyphicon-plus icon-plus',
-                    detailClose: 'glyphicon-minus icon-minus'
-                },*/
                 cache: true,
                 pageSize: 25,
 
@@ -55,7 +46,8 @@ function bootstrap_table_ajax(search, status) {
                     },
                     {
                         field: 'name',
-                        title: 'Name'
+                        title: 'Name',
+                        sortable: true
                     },
                     {
                         field: 'email',
@@ -63,11 +55,13 @@ function bootstrap_table_ajax(search, status) {
                     },
                     {
                         field: 'industries',
-                        title: 'Industries'
+                        title: 'Industries',
+                        sortable: true
                     },
                     {
                         field: 'location',
-                        title: 'Location'
+                        title: 'Location',
+                        sortable: true
                     }
                 ],
                 data: data

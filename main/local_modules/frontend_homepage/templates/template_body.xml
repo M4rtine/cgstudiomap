@@ -154,7 +154,7 @@
             <t t-call="frontend_base.doctype_html"/>
             <t t-call="frontend_base.html">
 
-				<t t-set="title">Hompage</t>
+				<t t-set="title">Home</t>
                 <t t-call="frontend_base.full_head"/>
 				<link rel="stylesheet" href="/frontend_homepage/static/css/homepage.css" type="text/css"/>
 
