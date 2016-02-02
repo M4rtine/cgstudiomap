@@ -114,7 +114,9 @@ body {
 	color: $color-cgsm-light!important;
 }
 
-.dropdown-menu .divider {
+.divider,
+.dropdown-menu .divider,
+.dropdown-menu .separator {
     background-color: $color-cgsm-light;
 }
 .analytic-map {
