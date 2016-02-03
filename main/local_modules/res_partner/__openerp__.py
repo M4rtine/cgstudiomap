@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
+# OpenERP, Open Source Management Solution
+#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,37 +20,39 @@
 ##############################################################################
 
 {
-    'name': 'Frontend',
+    'name': 'Main For res.partner Based Modules',
     'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
-    'category': 'Web',
-    'summary': 'Frontend pages',
-    'depends': [
-        'web',
-        'website',
-        'portal',
-        'auth_signup',
-        'auditlog',
-        'website_menu_by_user_status',
-        'res_partner_industry',
-        'main_data',
-        # frontend modules
-        'frontend_base',
-        'frontend_homepage',
-        'frontend_link_to_dashboard',
-        'frontend_listing',
-        'frontend_shop',
-        'frontend_studio',
+    'category': 'Main',
+    'summary': 'Main module that will install res.partner based modules.',
+    'description': """
+Main Module
+===========
+This module contains the dependencies to install all res.partner based modules.
 
+Contributors
+------------
+* Jordi Riera <kender.jr@gmail.com>
+
+""",
+    # Don't add demo module here as it should not be installed on prod server.
+    'depends': [
+        'res_partner_email_validation',
+        # 'res_partner_email_validation_missing_details',
+        'res_partner_filter',
+        'res_partner_industry',
+        'res_partner_location_validation',
+        # 'res_partner_location_validation_missing_details',
+        'res_partner_missing_details',
+        # 'res_partner_phone_missing_details',
+        'res_partner_filter',
+        'res_partner_social_networks',
+        'res_partner_url_validation',
+        # 'res_partner_url_validation_missing_details',
     ],
-    'data': [
-        'data/website_menus.xml',
-        'templates/login_template.xml',
-        'templates/contact_us_template.xml',
-        'templates/events.xml',
-        'templates/website_partner.xml',
-    ],
+    'data': [],
     'installable': True,
+    'application': True,
 }

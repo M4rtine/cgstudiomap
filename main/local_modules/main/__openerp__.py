@@ -21,7 +21,7 @@
 
 {
     'name': 'Main Module',
-    'version': '166',
+    'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
@@ -59,31 +59,15 @@ Contributors
         'admin_technical_features',
         # geoengine
         'geoengine_base_geolocalize',
+        # Applications
+        'res_partner',
+        'frontend',
         # website
-        'website_blog_mgmt',
-        # local modules
-        'res_partner_email_validation',
-        'res_partner_email_validation_missing_details',
-        'res_partner_industry',
-        'res_partner_location_validation',
-        'res_partner_location_validation_missing_details',
-        'res_partner_missing_details',
-        'res_partner_phone_missing_details',
-        'res_partner_filter',
-        'res_partner_social_networks',
-        'res_partner_url_validation',
-        'res_partner_url_validation_missing_details',
         'portal_user',
         'main_data',
         'shared_web_theme',
         'website_blog_group_published_only',
         'res_group_archetype',
-        # frontend
-        'frontend_base',
-        'frontend_homepage',
-        'frontend_listing',
-        'frontend_studio',
-        'frontend_link_to_dashboard',
     ],
     'data': [],
     'installable': True,
