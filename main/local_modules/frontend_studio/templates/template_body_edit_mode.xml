@@ -12,6 +12,57 @@
                    value="Save"/>
         </template>
 
+        <template id="frontend_studio.image_block" name="Studio: Block Image">
+            <div class="row">
+                <!-- The fileinput-button span is used to style the file input field as button -->
+                <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>Add files...</span>
+                    <!-- The file input field used as target for the file upload widget -->
+                    <input id="fileupload"
+                           type="file" name="files[]" />
+                    <!--<input id="fileupload" -->
+                           <!--multiple='multiple'-->
+                           <!--type="file" name="files[]" />-->
+                </span>
+                <!--<br />-->
+                <!--<br />-->
+                <!--&lt;!&ndash; The global progress bar &ndash;&gt;-->
+                <!--<div id="progress" class="progress">-->
+                    <!--<div class="progress-bar progress-bar-success"></div>-->
+                <!--</div>-->
+                <!-- The container for the uploaded files -->
+                <div id="files" class="files"></div>
+            </div>
+
+        </template>
+        <template id="frontend_studio.studio_common_edit" name="Studio: Edit Common">
+            <div class="form-group">
+                <p>
+                    <t t-esc="fields['name']['string']"/>
+                    <input type="text"
+                           t-att-name="fields['name']['string']"
+                           class="search-query form-control"
+                           t-att-value="partner.name" />
+                </p>
+                <p>
+                    <t t-esc="fields['state']['string']"/>
+                    <select class="form-control" t-att-name="fields['state']['string']">
+                    <t t-foreach="state_selections" t-as="selections">
+                        <option t-att-value="selections[0]"
+                                t-att-selected="'selected' if selections[0] == partner.state else ''">
+                            <t t-esc="selections[1]"/>
+                        </option>
+                    </t>
+                    </select>
+                    <!--<input type="state"-->
+                           <!--t-att-name="fields['state']['string']"-->
+                           <!--class="search-query form-control"-->
+                           <!--t-att-value="partner.state" />-->
+                </p>
+            </div>
+        </template>
+
         <template id="frontend_studio.studio_address_edit" name="Studio: Edit Address">
             <div class="form-group">
                 <p>
@@ -121,8 +172,53 @@
             </div>
         </template>
 
+        <template id="frontend_studio.base_edit" name="Studio: base Edit">
+            <t t-call="frontend_base.doctype_html"/>
+            <t t-call="frontend_base.html">
+                <t t-set="title" t-value="'{} - edit'.format(partner.name)"/>
+                <t t-call="frontend_base.full_head"/>
+                <link rel="stylesheet" href="/frontend_studio/static/css/studio.css" type="text/css"/>
+                <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
+                <!-- Generic page styles -->
+                <link rel="stylesheet" href="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/css/style.css"/>
+                <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+                <link rel="stylesheet" href="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/css/jquery.fileupload.css"/>
+
+
+                <t t-call="frontend_base.body">
+                    <t t-raw="0"/>
+                    <t t-call="frontend_base.footer"/>
+                    <t t-call="frontend_base.engine">
+                        <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/vendor/jquery.ui.widget.js"></script>
+                        <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+                        <script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+                        <!-- The Canvas to Blob plugin is included for image resizing functionality -->
+                        <script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+                        <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+                        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+                        <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.iframe-transport.js"></script>
+                        <!-- The basic File Upload plugin -->
+                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload.js"></script>
+                        <!-- The File Upload processing plugin -->
+                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-process.js"></script>
+                        <!-- The File Upload image preview & resize plugin -->
+                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-image.js"></script>
+                        <!-- The File Upload audio preview plugin -->
+                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-audio.js"></script>
+                        <!-- The File Upload video preview plugin -->
+                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-video.js"></script>
+                        <!-- The File Upload validation plugin -->
+                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-validate.js"></script>
+                        <script src="/frontend_studio/static/js/jQuery-File-Upload-call.js"></script>
+                    </t>
+                </t> <!-- closing body -->
+            </t> <!-- closing html -->
+        </template>
+
         <template id="frontend_studio.edit" name="Studio: Edit">
-            <t t-call="frontend_studio.base">
+            <t t-call="frontend_studio.base_edit">
 
                 <t t-call="frontend_studio.save_form">
 
@@ -131,42 +227,44 @@
                         <div class="container studio-details fontCGSM">
                             <div class="row">
                                 <div class="col-sm-10">
+                                    <t t-call="frontend_studio.image_block"/>
 
                                     <div class="row">
                                         <div>
-                                        <h3>Address</h3>
-                                        <div class="col-sm-12">
-                                            <t t-call="frontend_studio.studio_address_edit"/>
-                                        </div>
-                                        </div>
-                                        <div>
-                                        <h3>Links</h3>
-
-                                        <div class="col-sm-12">
-                                            <t t-call="frontend_studio.studio_links_edit"/>
-                                        </div>
+                                            <!--<h3>Common</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_common_edit"/>
+                                            </div>
                                         </div>
                                         <div>
-
-                                        <h3>Social</h3>
-
-                                        <div class="col-sm-12">
-                                            <t t-call="frontend_studio.studio_social_networks_edit"/>
-                                        </div>
+                                            <!--<h3>address</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_address_edit"/>
+                                            </div>
                                         </div>
                                         <div>
-                                        <h3>calls</h3>
-
-                                        <div class="col-sm-12">
-                                            <t t-call="frontend_studio.studio_calls_edit"/>
-                                        </div>
+                                            <!--<h3>Links</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_links_edit"/>
+                                            </div>
                                         </div>
                                         <div>
-                                        <h3>industries</h3>
-
-                                        <div class="col-sm-12">
-                                            <t t-call="frontend_studio.studio_industries_edit"/>
+                                            <!--<h3>Social</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_social_networks_edit"/>
+                                            </div>
                                         </div>
+                                        <div>
+                                            <!--<h3>calls</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_calls_edit"/>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <!--<h3>industries</h3>-->
+                                            <div class="col-sm-12">
+                                                <t t-call="frontend_studio.studio_industries_edit"/>
+                                            </div>
                                         </div>
                                     </div>
 
