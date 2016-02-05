@@ -4,6 +4,7 @@ import logging
 
 from datadog import statsd
 from openerp.addons.frontend_base.controllers.base import (Base, QueryURL)
+from openerp.addons.frontend_listing.controllers.listing import Listing
 
 from openerp import http
 from openerp.http import request
@@ -13,10 +14,10 @@ _logger = logging.getLogger(__name__)
 
 class Studio(Base):
     """Representation of the homepage of the website."""
-    studio_url = '/directory/company'
+    partner_url = '/directory/company'
 
     @http.route(
-        '{0}/<model("res.partner"):partner>/save'.format(studio_url),
+        '{0}/<model("res.partner"):partner>/save'.format(partner_url),
         type='http', auth="public", methods=['POST'], website=True
     )
     def save(self, partner,
@@ -67,18 +68,22 @@ class Studio(Base):
             int(value) for key, value in kwargs.iteritems()
             if 'industry_id' in key
         ])]
-        # _logger.debug('kwargs: %s', kwargs)
-
 
         partner.write(kwargs)
-        return self.view(partner)
+
+        values = {
+            'partner': partner,
+            'partner_url': '/'.join([self.partner_url, str(partner.id)]),
+            'map_url': Listing.map_url,
+        }
+        return request.website.render('frontend_studio.save', values)
 
     @statsd.timed(
         'odoo.frontend.studio.view.time',
         tags=['frontend', 'frontend:studio']
     )
     @http.route(
-        '{0}/<model("res.partner"):partner>'.format(studio_url),
+        '{0}/<model("res.partner"):partner>'.format(partner_url),
         type='http',
         auth="public",
         website=True
@@ -108,7 +113,7 @@ class Studio(Base):
         tags=['frontend', 'frontend:studio']
     )
     @http.route(
-        '{0}/<model("res.partner"):partner>/edit'.format(studio_url),
+        '{0}/<model("res.partner"):partner>/edit'.format(partner_url),
         type='http',
         auth="user",
         website=True
@@ -130,7 +135,7 @@ class Studio(Base):
         """Build the values shared by different views of the module."""
         _logger.debug('main')
         _logger.debug('partner: %s', partner)
-        url = '{0}/{1}'.format(self.studio_url, partner.id)
+        url = '{0}/{1}'.format(self.partner_url, partner.id)
         keep = QueryURL(url)
         social_networks = (
             'twitter',
