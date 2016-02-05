@@ -1,20 +1,77 @@
 # -*- coding: utf-8 -*-
+import base64
 import logging
 
 from datadog import statsd
-from openerp import http
 from openerp.addons.frontend_base.controllers.base import (Base, QueryURL)
 
+from openerp import http
 from openerp.http import request
 
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
 
 
 class Studio(Base):
     """Representation of the homepage of the website."""
     studio_url = '/directory/company'
 
+    @http.route(
+        '{0}/<model("res.partner"):partner>/save'.format(studio_url),
+        type='http', auth="public", methods=['POST'], website=True
+    )
+    def save(self, partner,
+             country_id=None,
+             remove_image=False,
+             image_file=None,
+             **kwargs):
+        """Save new data of the partner.
+
+        Data might be converted to be ingest by odoo.
+        For example, list of industries has to be gathered from all the keys
+        starting by industry_ids and converted into an odoo leaf to be ingested
+        into the X2X industry_ids field.
+
+        For the image several options to the user:
+         - a bool (remove_image) that will just remove the current image.
+         - a browse (image_file) that will replace the current image by the
+         newly selected.
+
+        If the remove_image is True, the image_file is ignored.
+
+
+        :param object partner: record of a res.partner.
+        :param int country_id: id of the country to set the partner to.
+        :param bool remove_image: if the current image of the partner should
+            be removed.
+        :param werkzerg.Filestore image_file: instance that represents the
+            new image of the partner.
+        :param dict kwargs: list of additional fields to update.
+
+        :return: request.render
+        """
+        _logger.debug('save')
+        _logger.debug('kwargs: %s', kwargs)
+
+        if country_id:
+            kwargs['country_id'] = int(country_id)
+
+        if remove_image:
+            kwargs['image'] = None
+
+        _logger.debug('condition: %s', image_file and not remove_image)
+        if image_file and not remove_image:
+            image_b64 = base64.b64encode(image_file.read())
+            kwargs['image'] = image_b64
+
+        kwargs['industry_ids'] = [(6, 0, [
+            int(value) for key, value in kwargs.iteritems()
+            if 'industry_id' in key
+        ])]
+        # _logger.debug('kwargs: %s', kwargs)
+
+
+        partner.write(kwargs)
+        return self.view(partner)
 
     @statsd.timed(
         'odoo.frontend.studio.view.time',
@@ -76,17 +133,16 @@ class Studio(Base):
         url = '{0}/{1}'.format(self.studio_url, partner.id)
         keep = QueryURL(url)
         social_networks = (
-                'twitter',
-                'youtube',
-                'vimeo',
-                'facebook',
-                'linkedin',
+            'twitter',
+            'youtube',
+            'vimeo',
+            'facebook',
+            'linkedin',
         )
 
         fields = partner.fields_get()
         state_selections = fields['state']['selection']
         _logger.debug('selections: %s', state_selections)
-
 
         return {
             'fields': fields,
