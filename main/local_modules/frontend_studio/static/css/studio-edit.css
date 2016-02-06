@@ -102,15 +102,26 @@ select::-ms-expand {
   font-size: 36px;
   line-height: 0.8;
   color: #5ae2b0;
+
+    -webkit-transition: ease-out .2s;
+    -moz-transition: ease-out .2s;
+    -o-transition: ease-out .2s;
+    transition: ease-out .2s;
 }
 /* checked mark aspect changes */
 [type="checkbox"]:not(:checked) + label:after {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=00)";
+  filter: alpha(opacity=00);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
   opacity: 0;
-  transform: scale(0);
 }
 [type="checkbox"]:checked + label:after {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
   opacity: 1;
-  transform: scale(1);
 }
 /* disabled checkbox */
 [type="checkbox"]:disabled:not(:checked) + label:before,
@@ -132,13 +143,13 @@ select::-ms-expand {
 }
 
 /* hover style just for information */
-.form-group label:hover:before {
+label:hover:before {
   border: 1px solid #b05ae2!important;
 }
-.form-group label:after {
+label:after {
 	padding-right: 1em;
 }
-.form-group label {
+label {
 	font-family: 'cgsm-light';
 	font-size: 1.66em;
 	font-weight: normal;
@@ -156,7 +167,9 @@ select::-ms-expand {
 	border: 8px
 }
 
-
+.col-logo {
+	width: 140px !important;
+}
 .nav-tabs {
     border-bottom: 0 solid #ddd;
 	border-left: 8px solid #b05ae2;

@@ -23,7 +23,8 @@
                 <!--If this checkbox is checked, the current logo of the company will be set to nothing -->
                 <!--And even if there is a picture selected by the user in the input file, the selected-->
                 <!--image will be ignore to reset the logo to the placeholder-->
-                <input type="checkbox" name='remove_image' value="remove_image"/>Check to clean current image
+                <input type="checkbox" id="box1" name='remove_image' value="remove_image"/>
+				<label for="box1" class="pull-right">Check to clean current image</label>
                 <!--Set the logo of the company to a new logo.-->
                 <input type="file" name="image_file" accept="image/*" value="Browse for new logo..."/>
                 <!--If none of the input are selected, the current logo remains.-->
@@ -163,7 +164,7 @@
                            t-att-value="ind.id"
                            t-att-checked="'checked' if ind in partner.industry_ids else ''"
                     />
-                    <label t-att-id='"industry_ids.{0}".format(ind.id)' t-esc="ind.name"/>
+                    <label t-att-for='"industry_ids.{0}".format(ind.id)' t-esc="ind.name"/>
                 </t>
             </div>
         </template>
