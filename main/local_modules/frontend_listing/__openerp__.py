@@ -32,6 +32,7 @@
         'website',
         'crm_partner_assign',
         'frontend_base',
+        'res_group_archetype',
     ],
     'data': [
         'templates/template_body.xml',
