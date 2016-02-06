@@ -15,7 +15,7 @@
         <template id="frontend_studio.image_block" name="Studio: Block Image">
             <div class="row">
                 <!-- The fileinput-button span is used to style the file input field as button -->
-                <span class="btn btn-edit outline fileinput-button">
+                <span class="btn btn-upload outline fileinput-button">
                     <span>Add logo</span><span class="fontCGSMicons">cloudUpload</span>
                     <!-- The file input field used as target for the file upload widget -->
                     <input id="fileupload"
@@ -308,10 +308,11 @@
 							</div>
 							</t>
 
-							<div class="col-sm-4 hidden-xs">
+							<div class="col-sm-4 sidebar-studio-edit hidden-xs">
 								<div class="row">
 									<div class="col-sm-12">
-										<p>{- Studio Name -}</p>
+										<h1>{- Studio Name -}</h1>
+										<p>{- last update date -}</p>
 									</div>
 								</div>
 								<div class="row">

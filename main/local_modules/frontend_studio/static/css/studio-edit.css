@@ -50,9 +50,9 @@ input[type="radio"], input[type="checkbox"] {
 	display: inline;
 }
 
-.studio-edit h1 {
+.studio-edit h1,
+.sidebar-studio-edit h1{
 	font-family: 'cgsm-thin';
-
 }
 .studio-edit h2 {
 	font-family: 'cgsm-light';
@@ -72,6 +72,33 @@ input[type="radio"], input[type="checkbox"] {
 	font-weight: normal;
 	font-style: normal;
 	color: #cbcacc;
+}
+.sidebar-studio-edit h1{
+	font-size: 1.44em;
+	
+}
+.btn-upload {
+	font-size: 1.35em;
+	border: 2px solid #5ae2b0;
+	color: #5ae2b0;
+	padding: 12px 22px;
+
+}
+
+.btn-upload:hover,
+.btn-upload:focus,
+.btn-upload:active,
+.btn-upload.active,
+.open > .dropdown-toggle.btn-edit {
+	background: #f1f1f3;
+	border-color: #cbcacc;
+	color: #323133;
+}
+
+.btn-upload:active,
+.btn-upload.active {
+	border-color: #cbcacc;
+	box-shadow: none;
 }
 
 /*/////////////////////////////////
