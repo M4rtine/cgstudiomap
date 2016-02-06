@@ -291,6 +291,28 @@
 
         </template>
 
+        <template id="frontend_studio.save">
+            <t t-call="frontend_base.layout">
+                <div id="wrap" style="padding-top:200px">
+                    <t t-raw="0"/>
+                    <div class="oe_structure oe_empty">
+                        <div class="container">
+                            <h1 class="mt32">Thank you!</h1>
+                            <p>
+                                The company <a t-att-href="partner_url"><t t-esc="partner.name"/></a> details have been successfully updated!
+
+                                Thank you for your contribution.
+                            </p>
+                            <p>You can go back to the <a t-att-href="partner_url">page of the company</a> or <a t-att-href="map_url">look for more companies to update!</a></p>
+                        </div>
+                    </div>
+
+                    <t t-if="request.debug">
+                        <t t-call="website.http_error_debug"/>
+                    </t>
+                </div>
+            </t>
+        </template>
 
     </data>
 </openerp>

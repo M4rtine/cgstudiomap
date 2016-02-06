@@ -1,7 +1,9 @@
 <openerp>
     <data>
         <template id="frontend_studio.save_form" name="Studio: Save Modifications">
-            <form t-att-action="'/directory/company/{}/save'.format(partner.id)" method="post">
+            <form t-att-action="'/directory/company/{}/save'.format(partner.id)"
+                  enctype="multipart/form-data"
+                  method="POST">
                 <t t-raw="0"/>
             </form>
         </template>
@@ -14,40 +16,32 @@
 
         <template id="frontend_studio.image_block" name="Studio: Block Image">
             <div class="row">
-                <!-- The fileinput-button span is used to style the file input field as button -->
-                <span class="btn btn-success fileinput-button">
-                    <i class="glyphicon glyphicon-plus"></i>
-                    <span>Add files...</span>
-                    <!-- The file input field used as target for the file upload widget -->
-                    <input id="fileupload"
-                           type="file" name="files[]" />
-                    <!--<input id="fileupload" -->
-                           <!--multiple='multiple'-->
-                           <!--type="file" name="files[]" />-->
-                </span>
-                <!--<br />-->
-                <!--<br />-->
-                <!--&lt;!&ndash; The global progress bar &ndash;&gt;-->
-                <!--<div id="progress" class="progress">-->
-                    <!--<div class="progress-bar progress-bar-success"></div>-->
-                <!--</div>-->
-                <!-- The container for the uploaded files -->
-                <div id="files" class="files"></div>
+                <!--Display of the current logo of the company-->
+                <div class="col-sm-3 col-logo">
+                    <t t-call="frontend_base.company_logo" />
+                </div>
+                <!--If this checkbox is checked, the current logo of the company will be set to nothing -->
+                <!--And even if there is a picture selected by the user in the input file, the selected-->
+                <!--image will be ignore to reset the logo to the placeholder-->
+                <input type="checkbox" name='remove_image' value="remove_image"/>Check to clean current image
+                <!--Set the logo of the company to a new logo.-->
+                <input type="file" name="image_file" accept="image/*" value="Browse for new logo..."/>
+                <!--If none of the input are selected, the current logo remains.-->
             </div>
-
         </template>
+
         <template id="frontend_studio.studio_common_edit" name="Studio: Edit Common">
             <div class="form-group">
                 <p>
                     <t t-esc="fields['name']['string']"/>
                     <input type="text"
-                           t-att-name="fields['name']['string']"
+                           name="name"
                            class="search-query form-control"
                            t-att-value="partner.name" />
                 </p>
                 <p>
                     <t t-esc="fields['state']['string']"/>
-                    <select class="form-control" t-att-name="fields['state']['string']">
+                    <select class="form-control" name="state">
                     <t t-foreach="state_selections" t-as="selections">
                         <option t-att-value="selections[0]"
                                 t-att-selected="'selected' if selections[0] == partner.state else ''">
@@ -68,28 +62,28 @@
                 <p>
                     <t t-esc="fields['street']['string']"/>
                     <input type="text"
-                           t-att-name="fields['street']['string']"
+                           name="street"
                            class="search-query form-control"
                            t-att-value="partner.street" />
                 </p>
                 <p>
                     <t t-esc="fields['street2']['string']"/>
                     <input type="text"
-                           t-att-name="fields['street2']['string']"
+                           name="street2"
                            class="search-query form-control"
                            t-att-value="partner.street2" />
                 </p>
                 <p>
                     <t t-esc="fields['city']['string']"/>
                     <input type="text"
-                           t-att-name="fields['city']['string']"
+                           name="city"
                            class="search-query form-control"
                            t-att-value="partner.city" />
                 </p>
                 <p>
                     <t t-esc="fields['zip']['string']"/>
                     <input type="text"
-                           t-att-name="fields['zip']['string']"
+                           name="zip"
                            class="search-query form-control"
                            t-att-value="partner.zip" />
                 </p>
@@ -99,7 +93,7 @@
                 <!--</p>-->
                 <p>
                     <t t-esc="fields['country_id']['string']"/>
-                    <select class="form-control" t-att-name="fields['country_id']['string']">
+                    <select class="form-control" name="country_id">
                         <t t-foreach="countries" t-as="country">
                             <option t-att-value="country.id"
                                     t-att-selected="'selected' if country.id == partner.country_id.id else ''"
@@ -117,14 +111,14 @@
                 <p>
                     <t t-esc="fields['website']['string']"/>
                     <input type="url"
-                           t-att-name="fields['website']['string']"
+                           name="website"
                            class="search-query form-control"
                            t-att-value="partner.website" />
                 </p>
                 <p>
                     <t t-esc="fields['email']['string']"/>
                     <input type="email"
-                           t-att-name="fields['email']['string']"
+                           name="email"
                            class="search-query form-control"
                            t-att-value="partner.email" />
                 </p>
@@ -137,7 +131,7 @@
                     <p>
                         <t t-esc="fields[social_network]['string']"/>
                         <input type="url"
-                               t-att-name="fields[social_network]['string']"
+                               t-att-name="social_network"
                                class="search-query form-control"
                                t-att-value="getattr(partner, social_network)" />
                     </p>
@@ -151,7 +145,7 @@
                     <p>
                         <t t-esc="fields[call]['string']"/>
                         <input type="phone"
-                               t-att-name="fields[call]['string']"
+                               t-att-name="call"
                                class="search-query form-control"
                                t-att-value="getattr(partner, call)" />
                     </p>
@@ -163,7 +157,7 @@
             <div class="form-group">
                 <t t-foreach="industries" t-as="ind">
                     <input type="checkbox"
-                           name="industry"
+                           t-att-name='"industry_ids.{0}".format(ind.id)'
                            t-att-value="ind.id"
                            t-att-checked="'checked' if ind in partner.industry_ids else ''"
                     />

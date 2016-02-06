@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 import logging
-from copy import copy
 
 from openerp.tests import common
 
 _logger = logging.getLogger(__name__)
 
 
-class TestResPartner(common.TransactionCase):
+class TestResPartnerSave(common.TransactionCase):
     """Test Suite for the Studio controller."""
 
     def setUp(self):
         """Build the partners for each tests."""
-        super(TestResPartner, self).setUp()
+        super(TestResPartnerSave, self).setUp()
+
         self.values = {
             'name': 'tname',
             'is_company': True,
@@ -23,130 +23,65 @@ class TestResPartner(common.TransactionCase):
             'country_id': 39,  # Canada
             'website': 'http://www.cgstudiomap.org',
         }
-
         self.partner_pool = self.env['res.partner']
         # to avoid to have google checks to be triggered.
         self.partner_pool.__dryRun__ = True
-        self.company_pool = self.env['res.company']
-        self.company = self.company_pool.browse(1)
-        self.__partners = self.__build_partners()
+        self.partner = self.partner_pool.create(self.values)
 
     def tearDown(self):
         """Clean the partners that were created in the setUp."""
-        for partner in self.__partners:
-            partner.unlink()
+        self.partner.unlink()
 
-        self.partner_pool.__dryRun__ = False
+    def test_dryRun_on(self):
+        """Double check the mode dryRun of partner poll is on."""
+        self.assertTrue(self.partner_pool.__dryRun__)
 
-    def test_partnersAreCreated(self):
-        """Check the partners for the tests are created as expected."""
-        self.assertTrue(
-            self.__partners,
-            'No partners were created for the test!'
+    def test_cleanValuesFromPostRequest_noArguments(self):
+        """If no arguments is given."""
+        self.assertEqual(self.partner.clean_values_from_post_request(), {})
+
+    def test_cleanValuesFromPostRequest_countryId(self):
+        """If country_id is given."""
+        self.assertEqual(
+            self.partner.clean_values_from_post_request(country_id='45'),
+            {'country_id': 45}
         )
 
-    def test_getStudioFromSameLocation_cgstudiomapIsNotInIt(self):
-        """Check that the partner related to the company
-        cgstudiomap is not in the list of partners.
-        """
-        partners = self.partner1.get_studios_from_same_location()
-        self.assertTrue(
-            all(partner.id != self.company.partner_id.id
-                for partner in partners)
+        self.assertEqual(
+            self.partner.clean_values_from_post_request(country_id=3),
+            {'country_id': 3}
         )
 
-    def test_getStudioFromSameLocation_partnerIsNotInIt(self):
-        """Check that the partner the request is done against is not in the
-        list.
-        """
-        partners = self.partner1.get_studios_from_same_location()
-        self.assertTrue(
-            all(partner.id != self.partner1.id for partner in partners)
-        )
+    def test_cleanvaluesfrompostrequest_industryIds(self):
+        """If industry_ids is given as kwargs."""
+        kwargs = {
+            'industry_ids.23': 23, 'industry_ids.4': 4, 'industry_ids.15': 13
+        }
+        res = self.partner.clean_values_from_post_request(**kwargs)
+        industries = res['industry_ids']
+        self.assertEqual(len(industries), 1)
+        ids = industries[0][-1]
+        self.assertEqual(len(ids), 3)
+        self.assertIn(23, ids)
+        self.assertIn(13, ids)
+        self.assertIn(4, ids)
 
-    def test_getStudioFromSameLocation_isCompany(self):
-        """Check that the all partners are companies and that the not company
-        partner is exclude.
-        """
-        values = copy(self.values)
-        values['is_company'] = False
-        partner = self.partner_pool.create(values)
-        partners = self.partner1.get_studios_from_same_location()
-        self.assertNotIn(partner, partners)
-        self.assertTrue(
-            all(partner.is_company for partner in partners)
-        )
-
-    def test_getStudioFromSameLocation_image(self):
-        """Check that the all partners have image and the partner without
-        image is excluded.
-        """
-        values = copy(self.values)
-        values['image'] = False
-        partner = self.partner_pool.create(values)
-        partners = self.partner1.get_studios_from_same_location()
-        self.assertNotIn(partner, partners)
-        self.assertTrue(
-            all(partner.image for partner in partners)
-        )
-
-    def test_getStudioFromSameLocation_country(self):
-        """Check that the all partners have the same country than the witness
-        partner and partner with different countries are excluded.
-        """
-        values = copy(self.values)
-        values['country_id'] = 33
-        partner = self.partner_pool.create(values)
-        partners = self.partner1.get_studios_from_same_location()
-        self.assertNotIn(partner, partners)
-        self.assertTrue(
-            all(partner.country_id.id == self.partner1.country_id.id
-                for partner in partners)
-        )
-
-    def test_getStudioFromSameLocation_active(self):
-        """Check that the all partners are active, and the inactive
-        partner is excluded.
-        """
-        values = copy(self.values)
-        values['active'] = False
-        partner = self.partner_pool.create(values)
-        partners = self.partner1.get_studios_from_same_location()
-        self.assertNotIn(partner, partners)
-        self.assertTrue(
-            all(partner.active for partner in partners)
-        )
-
-    def test_getStudioFromSameLocation_open(self):
-        """Check that the all partners are with status open, and the partner
-        with the status closed is excluded.
-        """
-        values = copy(self.values)
-        values['state'] = 'closed'
-        partner = self.partner_pool.create(values)
-        partners = self.partner1.get_studios_from_same_location()
-        self.assertNotIn(partner, partners)
-        self.assertTrue(
-            all(partner.state == 'open' for partner in partners)
-        )
-
-    def __build_partners(self):
-        """Build a set of partners to tests against."""
-        # 3 partners from the same location.
-        self.partner1 = self.partner_pool.create(self.values)
-        self.partner2 = self.partner_pool.create(self.values)
-        self.partner3 = self.partner_pool.create(self.values)
-        self.partner4 = self.partner_pool.create(self.values)
-        self.partner5 = self.partner_pool.create(self.values)
-        self.partner6 = self.partner_pool.create(self.values)
-        return [
-            self.partner1,
-            self.partner2,
-            self.partner3,
-            self.partner4,
-            self.partner5,
-            self.partner6,
-        ]
+    def test_writeFromPostRequest(self):
+        """Test write_from_post_request method."""
+        kwargs = {
+            'name': 'new name',
+            'street': 'Chemin de la palombiere',
+            'zip': '64150',
+            'city': 'Mourenx',
+            'remove_image': True,
+        }
+        res = self.partner.write_from_post_request(kwargs)
+        self.assertTrue(res)
+        self.assertEqual(self.partner.name, 'new name')
+        self.assertEqual(self.partner.street, u'Rue de la Palombi\xe8re')
+        self.assertEqual(self.partner.zip, '64150')
+        self.assertEqual(self.partner.city, 'Mourenx')
+        self.assertEqual(self.partner.image, None)
 
     @staticmethod
     def __base64Image():
