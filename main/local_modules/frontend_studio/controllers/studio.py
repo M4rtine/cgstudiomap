@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import base64
 import logging
 
 from datadog import statsd
@@ -20,56 +19,18 @@ class Studio(Base):
         '{0}/<model("res.partner"):partner>/save'.format(partner_url),
         type='http', auth="public", methods=['POST'], website=True
     )
-    def save(self, partner,
-             country_id=None,
-             remove_image=False,
-             image_file=None,
-             **kwargs):
-        """Save new data of the partner.
-
-        Data might be converted to be ingest by odoo.
-        For example, list of industries has to be gathered from all the keys
-        starting by industry_ids and converted into an odoo leaf to be ingested
-        into the X2X industry_ids field.
-
-        For the image several options to the user:
-         - a bool (remove_image) that will just remove the current image.
-         - a browse (image_file) that will replace the current image by the
-         newly selected.
-
-        If the remove_image is True, the image_file is ignored.
-
+    def save(self, partner, **kwargs):
+        """Save new data of the partner then return the request to render
+        the page following the edition.
 
         :param object partner: record of a res.partner.
-        :param int country_id: id of the country to set the partner to.
-        :param bool remove_image: if the current image of the partner should
-            be removed.
-        :param werkzerg.Filestore image_file: instance that represents the
-            new image of the partner.
-        :param dict kwargs: list of additional fields to update.
-
+        :param dict kwargs: list of fields to update.
         :return: request.render
         """
         _logger.debug('save')
         _logger.debug('kwargs: %s', kwargs)
 
-        if country_id:
-            kwargs['country_id'] = int(country_id)
-
-        if remove_image:
-            kwargs['image'] = None
-
-        _logger.debug('condition: %s', image_file and not remove_image)
-        if image_file and not remove_image:
-            image_b64 = base64.b64encode(image_file.read())
-            kwargs['image'] = image_b64
-
-        kwargs['industry_ids'] = [(6, 0, [
-            int(value) for key, value in kwargs.iteritems()
-            if 'industry_id' in key
-        ])]
-
-        partner.write(kwargs)
+        partner.write_from_post_request(kwargs)
 
         values = {
             'partner': partner,

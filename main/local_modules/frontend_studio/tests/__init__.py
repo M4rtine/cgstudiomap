@@ -18,4 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import test_res_partner
+from . import (
+    test_res_partner_save,
+    # test_res_partner_get_studios,
+)
