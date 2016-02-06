@@ -32,6 +32,7 @@
         'website',
         'crm_partner_assign',
         'frontend_base',
+        'website_menu_by_user_status',
     ],
     'data': [
         'templates/template_body.xml',
