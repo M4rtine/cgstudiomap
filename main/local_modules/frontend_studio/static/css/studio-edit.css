@@ -18,18 +18,15 @@ body {
 	background-color: #e8e8e8;
 	color: #323133;
 	/* Margin bottom by footer height */
-	margin-bottom: 180px;
+	margin-bottom: 80px;
 }
+.studio-edit {
 
-.footer {
-	/*display: none;*/
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	/* Set the fixed height of the footer here */
-	height: 180px;
 }
-
+.studio-edit .row {
+	margin: 0 ;
+	padding: 0 ;
+}
 .edit-form .form-control {
 	color: #323133;
 	background-color: #f1f1f3;
@@ -43,20 +40,50 @@ body {
 	-o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+.has-warning,
+.has-error,
+.has-success{
+	border: 8px
+}
+
 input[type="radio"], input[type="checkbox"] {
 	display: inline;
 }
 
+.studio-edit h1 {
+	font-family: 'cgsm-thin';
 
+}
+.studio-edit h2 {
+	font-family: 'cgsm-light';
+	font-size: 1.2em;
+	color: #e2b05a;
+	background-color: #f1f1f3;
+	padding: 0.6em 0.6em;
+	border-left: 8px solid #e2b05a;
+
+}
+.studio-edit p {
+	color: #323133;
+}
+.studio-edit i {
+	font-family: 'cgsm-regular';
+	font-size: 1em;
+	font-weight: normal;
+	font-style: normal;
+	color: #cbcacc;
+}
 
 /*/////////////////////////////////
        FOOTER
 ///////////////////////////////// */
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
+	/*display: none;*/
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 80px;
 }
 
 footer .row {

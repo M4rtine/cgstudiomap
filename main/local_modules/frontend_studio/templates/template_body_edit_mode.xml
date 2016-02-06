@@ -223,14 +223,10 @@
         <template id="frontend_studio.edit" name="Studio: Edit">
             <t t-call="frontend_studio.base_edit">
 
-                <t t-call="frontend_studio.save_form">
-
-                    
-
-				
-					<div class="container fontCGSM">
+					<div class="container studio-edit fontCGSM">
 						<div class="row">
-							<div class="col-xs-12 col-sm-10">
+							<t t-call="frontend_studio.save_form">
+							<div class="col-xs-12 col-sm-8">
 								<div class="row">
 									<div class="col-sm-12">
 										<h1>Studio Informations / {- Categories -}</h1>
@@ -310,8 +306,9 @@
 								
 
 							</div>
+							</t>
 
-							<div class="col-sm-2 hidden-xs">
+							<div class="col-sm-4 hidden-xs">
 								<div class="row">
 									<div class="col-sm-12">
 										<p>{- Studio Name -}</p>
@@ -320,15 +317,12 @@
 								<div class="row">
 									<div class="col-sm-12">
 										<h2>{- Categories -} information</h2>
-										<p>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</p>
+										<i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>					
-					
-
-                </t>
 
             </t>
 
