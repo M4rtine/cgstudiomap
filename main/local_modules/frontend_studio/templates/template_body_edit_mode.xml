@@ -210,6 +210,8 @@
                         <!-- The File Upload validation plugin -->
                         <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-validate.js"></script>
                         <script src="/frontend_studio/static/js/jQuery-File-Upload-call.js"></script>
+						
+						<script type="text/javascript" src="/frontend_studio/static/js/studio-edit.js"></script>
                     </t>
                 </t> <!-- closing body -->
             </t> <!-- closing html -->
@@ -230,13 +232,13 @@
 
 								<div class="row">
 									<div class="col-sm-12">
-										<ul class="nav nav-tabs" role="tablist">
-											<li role="presentation" class="active"><a href="#edit01" aria-controls="edit01" role="tab" data-toggle="tab">Common</a></li>
-											<li role="presentation"><a href="#edit02" aria-controls="edit02" role="tab" data-toggle="tab">Location</a></li>
-											<li role="presentation"><a href="#edit03" aria-controls="edit03" role="tab" data-toggle="tab">Links</a></li>
-											<li role="presentation"><a href="#edit04" aria-controls="edit04" role="tab" data-toggle="tab">Socials</a></li>
-											<li role="presentation"><a href="#edit05" aria-controls="edit05" role="tab" data-toggle="tab">Calls</a></li>
-											<li role="presentation"><a href="#edit06" aria-controls="edit06" role="tab" data-toggle="tab">Industries</a></li>
+										<ul class="nav nav-tabs">
+											<li class="active"><a href="#01" data-target="#01, #side01" data-toggle="tab">Common</a></li>
+											<li><a href="#02" data-target="#02, #side02" data-toggle="tab">Location</a></li>
+											<li><a href="#03" data-target="#03, #side03" data-toggle="tab">Links</a></li>
+											<li><a href="#04" data-target="#04, #side04" data-toggle="tab">Socials</a></li>
+											<li><a href="#05" data-target="#05, #side05" data-toggle="tab">Calls</a></li>
+											<li><a href="#06" data-target="#06, #side06" data-toggle="tab">Industries</a></li>
 											<t t-call="frontend_studio.save_button"/>
 										</ul>
 
@@ -246,7 +248,7 @@
 
 								<div class="tab-content edit-form">
 
-									<div role="tabpanel" class="tab-pane fade in active" id="edit01">
+									<div class="tab-pane fade in active" id="01">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_common_edit"/>
@@ -258,7 +260,7 @@
 									</div>
 
 
-									<div role="tabpanel" class="tab-pane fade" id="edit02">
+									<div class="tab-pane fade" id="02">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_address_edit"/>
@@ -266,7 +268,7 @@
 										</div>
 									</div>
 
-									<div role="tabpanel" class="tab-pane fade" id="edit03">
+									<div class="tab-pane fade" id="03">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_links_edit"/>
@@ -274,7 +276,7 @@
 										</div>
 									</div>
 
-									<div role="tabpanel" class="tab-pane fade" id="edit04">
+									<div class="tab-pane fade" id="04">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_social_networks_edit"/>
@@ -282,7 +284,7 @@
 										</div>
 									</div>
 
-									<div role="tabpanel" class="tab-pane fade" id="edit05">
+									<div class="tab-pane fade" id="05">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_calls_edit"/>
@@ -290,7 +292,7 @@
 										</div>
 									</div>
 
-									<div role="tabpanel" class="tab-pane fade" id="edit06">
+									<div class="tab-pane fade" id="06">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_industries_edit"/>
@@ -306,14 +308,49 @@
 							<div class="col-sm-4 sidebar-studio-edit hidden-xs">
 								<div class="row">
 									<div class="col-sm-12">
-										<h1>{- Studio Name -}</h1>
+										<h1 t-esc="partner.name" />
 										<p>{- last update date -}</p>
 									</div>
 								</div>
+								
+								
+
+								
 								<div class="row">
 									<div class="col-sm-12">
-										<h2>{- Categories -} information</h2>
-										<i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+										<div class="tab-content">
+											<div class="tab-pane fade in active" id="side01">
+												<h2>{- Categorie 01 -} information</h2>
+												<i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+											</div>
+											
+											<div class="tab-pane fade" id="side02">
+												<h2>{- Categorie 02 -} information</h2>
+												<i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+											</div>
+											
+											<div class="tab-pane fade" id="side03">
+												<h2>{- Categorie 03 -} information</h2>
+												<i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+											</div>
+											
+											<div class="tab-pane fade" id="side04">
+												<h2>{- Categorie 04 -} information</h2>
+												<i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+											</div>
+
+											<div class="tab-pane fade" id="side05">
+												<h2>{- Categorie 05 -} information</h2>
+												<i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+											</div>
+											
+											<div class="tab-pane fade" id="side06">
+												<h2>{- Categorie 06 -} information</h2>
+												<i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+											</div>
+																						
+										</div>
+
 									</div>
 								</div>
 							</div>
