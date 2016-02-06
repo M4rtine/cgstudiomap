@@ -35,6 +35,7 @@
                 <p>
                     <t t-esc="fields['name']['string']"/>
                     <input type="text"
+                           required="'required' field['name']['required'] else ''"
                            name="name"
                            class="search-query form-control"
                            t-att-value="partner.name" />
@@ -62,6 +63,7 @@
                 <p>
                     <t t-esc="fields['street']['string']"/>
                     <input type="text"
+                           required="'required' field['name']['required'] else ''"
                            name="street"
                            class="search-query form-control"
                            t-att-value="partner.street" />
@@ -69,6 +71,7 @@
                 <p>
                     <t t-esc="fields['street2']['string']"/>
                     <input type="text"
+                           required="'required' field['name']['required'] else ''"
                            name="street2"
                            class="search-query form-control"
                            t-att-value="partner.street2" />
@@ -76,6 +79,7 @@
                 <p>
                     <t t-esc="fields['city']['string']"/>
                     <input type="text"
+                           required="'required' field['name']['required'] else ''"
                            name="city"
                            class="search-query form-control"
                            t-att-value="partner.city" />
@@ -83,6 +87,7 @@
                 <p>
                     <t t-esc="fields['zip']['string']"/>
                     <input type="text"
+                           required="'required' field['name']['required'] else ''"
                            name="zip"
                            class="search-query form-control"
                            t-att-value="partner.zip" />
@@ -111,6 +116,7 @@
                 <p>
                     <t t-esc="fields['website']['string']"/>
                     <input type="url"
+                           required="'required' field['name']['required'] else ''"
                            name="website"
                            class="search-query form-control"
                            t-att-value="partner.website" />
@@ -118,6 +124,7 @@
                 <p>
                     <t t-esc="fields['email']['string']"/>
                     <input type="email"
+                           required="'required' field['name']['required'] else ''"
                            name="email"
                            class="search-query form-control"
                            t-att-value="partner.email" />
@@ -131,6 +138,7 @@
                     <p>
                         <t t-esc="fields[social_network]['string']"/>
                         <input type="url"
+                               required="'required' field['name']['required'] else ''"
                                t-att-name="social_network"
                                class="search-query form-control"
                                t-att-value="getattr(partner, social_network)" />
@@ -145,6 +153,7 @@
                     <p>
                         <t t-esc="fields[call]['string']"/>
                         <input type="phone"
+                               required="'required' field['name']['required'] else ''"
                                t-att-name="call"
                                class="search-query form-control"
                                t-att-value="getattr(partner, call)" />
@@ -157,6 +166,7 @@
             <div class="form-group">
                 <t t-foreach="industries" t-as="ind">
                     <input type="checkbox"
+                           required="'required' field['name']['required'] else ''"
                            t-att-name='"industry_ids.{0}".format(ind.id)'
                            t-att-value="ind.id"
                            t-att-checked="'checked' if ind in partner.industry_ids else ''"
