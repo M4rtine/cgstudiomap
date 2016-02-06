@@ -8,7 +8,7 @@
 
         <template id="frontend_studio.save_button" name="Studio: Save Button">
             <input type='submit'
-                   class="btn btn-edit outline a-submit"
+                   class="btn btn-edit outline a-submit pull-right"
                    value="Save"/>
         </template>
 
@@ -16,7 +16,7 @@
             <div class="row">
                 <!-- The fileinput-button span is used to style the file input field as button -->
                 <span class="btn btn-success fileinput-button">
-                    <i class="glyphicon glyphicon-plus"></i>
+                    <span class="fontCGSMicons">uploadCloud</span>
                     <span>Add files...</span>
                     <!-- The file input field used as target for the file upload widget -->
                     <input id="fileupload"
@@ -61,6 +61,7 @@
                            <!--t-att-value="partner.state" />-->
                 </p>
             </div>
+			
         </template>
 
         <template id="frontend_studio.studio_address_edit" name="Studio: Edit Address">
@@ -178,6 +179,7 @@
                 <t t-set="title" t-value="'{} - edit'.format(partner.name)"/>
                 <t t-call="frontend_base.full_head"/>
                 <link rel="stylesheet" href="/frontend_studio/static/css/studio.css" type="text/css"/>
+				<link rel="stylesheet" href="/frontend_studio/static/css/studio-edit.css" type="text/css"/>
                 <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
                 <!-- Generic page styles -->
                 <link rel="stylesheet" href="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/css/style.css"/>
@@ -222,68 +224,108 @@
 
                 <t t-call="frontend_studio.save_form">
 
-                    <t t-call="frontend_studio.save_button"/>
-                    <div style="background-color:white;">
-                        <div class="container studio-details fontCGSM">
-                            <div class="row">
-                                <div class="col-sm-10">
-                                    <t t-call="frontend_studio.image_block"/>
+                    
 
-                                    <div class="row">
-                                        <div>
-                                            <!--<h3>Common</h3>-->
-                                            <div class="col-sm-12">
-                                                <t t-call="frontend_studio.studio_common_edit"/>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <!--<h3>address</h3>-->
-                                            <div class="col-sm-12">
-                                                <t t-call="frontend_studio.studio_address_edit"/>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <!--<h3>Links</h3>-->
-                                            <div class="col-sm-12">
-                                                <t t-call="frontend_studio.studio_links_edit"/>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <!--<h3>Social</h3>-->
-                                            <div class="col-sm-12">
-                                                <t t-call="frontend_studio.studio_social_networks_edit"/>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <!--<h3>calls</h3>-->
-                                            <div class="col-sm-12">
-                                                <t t-call="frontend_studio.studio_calls_edit"/>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <!--<h3>industries</h3>-->
-                                            <div class="col-sm-12">
-                                                <t t-call="frontend_studio.studio_industries_edit"/>
-                                            </div>
-                                        </div>
-                                    </div>
+				
+					<div class="container fontCGSM">
+						<div class="row">
+							<div class="col-xs-12 col-sm-10">
+								<div class="row">
+									<div class="col-sm-12">
+										TITLE
+									</div>
+								</div>
 
+								<div class="row">
+									<div class="col-sm-12">
+										<ul class="nav nav-tabs" role="tablist">
+											<li role="presentation" class="active"><a href="#link01" aria-controls="link01" role="tab" data-toggle="tab">Link01</a></li>
+											<li role="presentation"><a href="#link02" aria-controls="link02" role="tab" data-toggle="tab">Link02</a></li>
+											<li role="presentation"><a href="#link03" aria-controls="link03" role="tab" data-toggle="tab">Link03</a></li>
+											<li role="presentation"><a href="#link04" aria-controls="link04" role="tab" data-toggle="tab">Link04</a></li>
+											<li role="presentation"><a href="#link05" aria-controls="link05" role="tab" data-toggle="tab">Link05</a></li>
+											<li role="presentation"><a href="#link06" aria-controls="link06" role="tab" data-toggle="tab">Link06</a></li>
+											<t t-call="frontend_studio.save_button"/>
+										</ul>
+										
+									</div>
+								</div>
+								
+								
+								<div class="tab-content edit-form">
+									
+									<div role="tabpanel" class="tab-pane fade in active" id="link01">
+										<div class="row">
+											<div class="col-sm-12">
+												<t t-call="frontend_studio.studio_common_edit"/>
+											</div>
+											<div class="col-sm-12">
+												<t t-call="frontend_studio.image_block"/>
+											</div>
+										</div>
+									</div>
+									
+									
+									<div role="tabpanel" class="tab-pane fade active" id="link02">
+										<div class="row">
+											<div class="col-sm-12">
+												<t t-call="frontend_studio.studio_address_edit"/>
+											</div>
+										</div>
+									</div>
+									
+									<div role="tabpanel" class="tab-pane fade active" id="link03">
+										<div class="row">
+											<div class="col-sm-12">
+												<t t-call="frontend_studio.studio_links_edit"/>
+											</div>
+										</div>
+									</div>
+									
+									<div role="tabpanel" class="tab-pane fade active" id="link04">
+										<div class="row">
+											<div class="col-sm-12">
+												<t t-call="frontend_studio.studio_social_networks_edit"/>
+											</div>
+										</div>
+									</div>
+									
+									<div role="tabpanel" class="tab-pane fade active" id="link05">
+										<div class="row">
+											<div class="col-sm-12">
+												<t t-call="frontend_studio.studio_calls_edit"/>
+											</div>
+										</div>
+									</div>
+									
+									<div role="tabpanel" class="tab-pane fade active" id="link06">
+										<div class="row">
+											<div class="col-sm-12">
+												<t t-call="frontend_studio.studio_industries_edit"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								
 
-                                    <!--<div class="row">-->
-                                        <!--<h3>Connect</h3>-->
-                                        <!--<t t-call="frontend_studio.studio_details"/>-->
-                                    <!--</div>-->
-                                <!--</div>-->
+							</div>
 
-                                <!--<div class="col-sm-2 studio_industries">-->
-                                    <!--<h4><span class="fontCGSMicons">tag</span> Industries</h4>-->
-                                    <!--<t t-call="frontend_studio.industries"/>-->
-                                </div>
-                            </div>
+							<div class="col-sm-2 hidden-xs" style="background-color:green;">
+								<div class="row">
+									<div class="col-sm-12" style="background-color:yellow;">
+										SIDEBAR title
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12" style="background-color:yellow;">
+										SIDEBAR BT + description
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>					
+					
 
-
-                        </div>
-                    </div>
                 </t>
 
             </t>
