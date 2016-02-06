@@ -53,6 +53,7 @@ input[type="radio"], input[type="checkbox"] {
     border-bottom: 0 solid #ddd;
 	border-left: 8px solid #b05ae2;
 	background-color: #f1f1f3;
+	
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
     color: #323133;
@@ -60,7 +61,9 @@ input[type="radio"], input[type="checkbox"] {
     border: 0 solid #ddd;
     border-bottom-color: transparent;
     cursor: default;
+	height: 45px;
 }
+
 .studio-edit h1,
 .sidebar-studio-edit h1{
 	font-family: 'cgsm-thin';
@@ -121,9 +124,12 @@ input[type="radio"], input[type="checkbox"] {
     color: #f1f1f3;
 	z-index: 100;
 }
-.tab-content h1 {
-	display: inline;
+.tab-content h1 span {
+	position: absolute;
+	left: auto;
+	text-indent: 0.15em;
 }
+
 /*/////////////////////////////////
        FOOTER
 ///////////////////////////////// */

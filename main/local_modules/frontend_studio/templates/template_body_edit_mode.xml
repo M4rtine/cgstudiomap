@@ -223,19 +223,16 @@
 					<div class="container studio-edit fontCGSM">
 						<div class="row">
 							<t t-call="frontend_studio.save_form">
-							<div class="col-xs-12 col-sm-8">
+							<div class="col-xs-12 col-sm-9">
 								<div class="row">
 									<div class="col-sm-12 tab-content">
-										<h1>Studio Informations / 
-
-
-												<span class="tab-pane fade in active" id="title01">Common</span >
-												<span  class="tab-pane fade" id="title02">Location</span >
-												<span  class="tab-pane fade" id="title03">Links</span >
-												<span  class="tab-pane fade" id="title04">Socials</span >
-												<span  class="tab-pane fade" id="title05">Calls</span >
-												<span class="tab-pane fade" id="title06">Industries</span >
-
+										<h1>Studio Informations /
+											<span class="tab-pane fade in active" id="title01">Common</span >
+											<span  class="tab-pane fade" id="title02">Location</span >
+											<span  class="tab-pane fade" id="title03">Links</span >
+											<span  class="tab-pane fade" id="title04">Socials</span >
+											<span  class="tab-pane fade" id="title05">Calls</span >
+											<span class="tab-pane fade" id="title06">Industries</span >
 										</h1>
 									</div>
 								</div>
@@ -315,7 +312,7 @@
 							</div>
 							</t>
 
-							<div class="col-sm-4 sidebar-studio-edit hidden-xs">
+							<div class="col-sm-3 sidebar-studio-edit hidden-xs">
 								<div class="row">
 									<div class="col-sm-12">
 										<h1 t-esc="partner.name" />
