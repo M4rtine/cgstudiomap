@@ -49,7 +49,18 @@ body {
 input[type="radio"], input[type="checkbox"] {
 	display: inline;
 }
-
+.nav-tabs {
+    border-bottom: 0 solid #ddd;
+	border-left: 8px solid #b05ae2;
+	background-color: #f1f1f3;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #323133;
+    background-color: #fff;
+    border: 0 solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}
 .studio-edit h1,
 .sidebar-studio-edit h1{
 	font-family: 'cgsm-thin';
@@ -100,7 +111,19 @@ input[type="radio"], input[type="checkbox"] {
 	border-color: #cbcacc;
 	box-shadow: none;
 }
-
+.btn-save {
+    font-family: 'cgsm-regular';
+    font-size: 1.66em;
+	height: 45px;
+    line-height: normal;
+    vertical-align: baseline;
+    background-color: #5ae2b0;
+    color: #f1f1f3;
+	z-index: 100;
+}
+.tab-content h1 {
+	display: inline;
+}
 /*/////////////////////////////////
        FOOTER
 ///////////////////////////////// */

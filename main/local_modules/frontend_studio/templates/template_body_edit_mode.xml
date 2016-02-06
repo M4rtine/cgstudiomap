@@ -10,7 +10,7 @@
 
         <template id="frontend_studio.save_button" name="Studio: Save Button">
             <input type='submit'
-                   class="btn btn-edit outline a-submit pull-right"
+                   class="btn btn-save a-submit pull-right"
                    value="Save changes"/>
         </template>
 
@@ -225,20 +225,30 @@
 							<t t-call="frontend_studio.save_form">
 							<div class="col-xs-12 col-sm-8">
 								<div class="row">
-									<div class="col-sm-12">
-										<h1>Studio Informations / {- Categories -}</h1>
+									<div class="col-sm-12 tab-content">
+										<h1>Studio Informations / 
+
+
+												<span class="tab-pane fade in active" id="title01">Common</span >
+												<span  class="tab-pane fade" id="title02">Location</span >
+												<span  class="tab-pane fade" id="title03">Links</span >
+												<span  class="tab-pane fade" id="title04">Socials</span >
+												<span  class="tab-pane fade" id="title05">Calls</span >
+												<span class="tab-pane fade" id="title06">Industries</span >
+
+										</h1>
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="col-sm-12">
 										<ul class="nav nav-tabs">
-											<li class="active"><a href="#01" data-target="#01, #side01" data-toggle="tab">Common</a></li>
-											<li><a href="#02" data-target="#02, #side02" data-toggle="tab">Location</a></li>
-											<li><a href="#03" data-target="#03, #side03" data-toggle="tab">Links</a></li>
-											<li><a href="#04" data-target="#04, #side04" data-toggle="tab">Socials</a></li>
-											<li><a href="#05" data-target="#05, #side05" data-toggle="tab">Calls</a></li>
-											<li><a href="#06" data-target="#06, #side06" data-toggle="tab">Industries</a></li>
+											<li class="active"><a href="#01" data-target="#01, #side01, #title01" data-toggle="tab">Common</a></li>
+											<li><a href="#02" data-target="#02, #side02, #title02" data-toggle="tab">Location</a></li>
+											<li><a href="#03" data-target="#03, #side03, #title03" data-toggle="tab">Links</a></li>
+											<li><a href="#04" data-target="#04, #side04, #title04" data-toggle="tab">Socials</a></li>
+											<li><a href="#05" data-target="#05, #side05, #title05" data-toggle="tab">Calls</a></li>
+											<li><a href="#06" data-target="#06, #side06, #title06" data-toggle="tab">Industries</a></li>
 											<t t-call="frontend_studio.save_button"/>
 										</ul>
 
@@ -320,32 +330,32 @@
 									<div class="col-sm-12">
 										<div class="tab-content">
 											<div class="tab-pane fade in active" id="side01">
-												<h2>{- Categorie 01 -} information</h2>
+												<h2>Common information</h2>
 												<i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
 											</div>
 											
 											<div class="tab-pane fade" id="side02">
-												<h2>{- Categorie 02 -} information</h2>
+												<h2>Location information</h2>
 												<i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
 											</div>
 											
 											<div class="tab-pane fade" id="side03">
-												<h2>{- Categorie 03 -} information</h2>
+												<h2>Links information</h2>
 												<i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
 											</div>
 											
 											<div class="tab-pane fade" id="side04">
-												<h2>{- Categorie 04 -} information</h2>
+												<h2>Socials information</h2>
 												<i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
 											</div>
 
 											<div class="tab-pane fade" id="side05">
-												<h2>{- Categorie 05 -} information</h2>
+												<h2>Calls information</h2>
 												<i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
 											</div>
 											
 											<div class="tab-pane fade" id="side06">
-												<h2>{- Categorie 06 -} information</h2>
+												<h2>Industries information</h2>
 												<i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
 											</div>
 																						
