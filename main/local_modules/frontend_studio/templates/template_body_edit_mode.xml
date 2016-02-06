@@ -9,15 +9,14 @@
         <template id="frontend_studio.save_button" name="Studio: Save Button">
             <input type='submit'
                    class="btn btn-edit outline a-submit pull-right"
-                   value="Save"/>
+                   value="Save changes"/>
         </template>
 
         <template id="frontend_studio.image_block" name="Studio: Block Image">
             <div class="row">
                 <!-- The fileinput-button span is used to style the file input field as button -->
-                <span class="btn btn-success fileinput-button">
-                    <span class="fontCGSMicons">uploadCloud</span>
-                    <span>Add files...</span>
+                <span class="btn btn-edit outline fileinput-button">
+                    <span>Add logo</span><span class="fontCGSMicons">cloudUpload</span>
                     <!-- The file input field used as target for the file upload widget -->
                     <input id="fileupload"
                            type="file" name="files[]" />
@@ -232,19 +231,19 @@
 							<div class="col-xs-12 col-sm-10">
 								<div class="row">
 									<div class="col-sm-12">
-										TITLE
+										<h1>Studio Informations / {- Categories -}</h1>
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="col-sm-12">
 										<ul class="nav nav-tabs" role="tablist">
-											<li role="presentation" class="active"><a href="#link01" aria-controls="link01" role="tab" data-toggle="tab">Link01</a></li>
-											<li role="presentation"><a href="#link02" aria-controls="link02" role="tab" data-toggle="tab">Link02</a></li>
-											<li role="presentation"><a href="#link03" aria-controls="link03" role="tab" data-toggle="tab">Link03</a></li>
-											<li role="presentation"><a href="#link04" aria-controls="link04" role="tab" data-toggle="tab">Link04</a></li>
-											<li role="presentation"><a href="#link05" aria-controls="link05" role="tab" data-toggle="tab">Link05</a></li>
-											<li role="presentation"><a href="#link06" aria-controls="link06" role="tab" data-toggle="tab">Link06</a></li>
+											<li role="presentation" class="active"><a href="#edit01" aria-controls="edit01" role="tab" data-toggle="tab">Common</a></li>
+											<li role="presentation"><a href="#edit02" aria-controls="edit02" role="tab" data-toggle="tab">Location</a></li>
+											<li role="presentation"><a href="#edit03" aria-controls="edit03" role="tab" data-toggle="tab">Links</a></li>
+											<li role="presentation"><a href="#edit04" aria-controls="edit04" role="tab" data-toggle="tab">Socials</a></li>
+											<li role="presentation"><a href="#edit05" aria-controls="edit05" role="tab" data-toggle="tab">Calls</a></li>
+											<li role="presentation"><a href="#edit06" aria-controls="edit06" role="tab" data-toggle="tab">Industries</a></li>
 											<t t-call="frontend_studio.save_button"/>
 										</ul>
 										
@@ -254,7 +253,7 @@
 								
 								<div class="tab-content edit-form">
 									
-									<div role="tabpanel" class="tab-pane fade in active" id="link01">
+									<div role="tabpanel" class="tab-pane fade in active" id="edit01">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_common_edit"/>
@@ -266,7 +265,7 @@
 									</div>
 									
 									
-									<div role="tabpanel" class="tab-pane fade active" id="link02">
+									<div role="tabpanel" class="tab-pane fade active" id="edit02">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_address_edit"/>
@@ -274,7 +273,7 @@
 										</div>
 									</div>
 									
-									<div role="tabpanel" class="tab-pane fade active" id="link03">
+									<div role="tabpanel" class="tab-pane fade active" id="edit03">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_links_edit"/>
@@ -282,7 +281,7 @@
 										</div>
 									</div>
 									
-									<div role="tabpanel" class="tab-pane fade active" id="link04">
+									<div role="tabpanel" class="tab-pane fade active" id="edit04">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_social_networks_edit"/>
@@ -290,7 +289,7 @@
 										</div>
 									</div>
 									
-									<div role="tabpanel" class="tab-pane fade active" id="link05">
+									<div role="tabpanel" class="tab-pane fade active" id="edit05">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_calls_edit"/>
@@ -298,7 +297,7 @@
 										</div>
 									</div>
 									
-									<div role="tabpanel" class="tab-pane fade active" id="link06">
+									<div role="tabpanel" class="tab-pane fade active" id="edit06">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_industries_edit"/>
@@ -310,15 +309,16 @@
 
 							</div>
 
-							<div class="col-sm-2 hidden-xs" style="background-color:green;">
+							<div class="col-sm-2 hidden-xs">
 								<div class="row">
-									<div class="col-sm-12" style="background-color:yellow;">
-										SIDEBAR title
+									<div class="col-sm-12">
+										<p>{- Studio Name -}</p>
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-sm-12" style="background-color:yellow;">
-										SIDEBAR BT + description
+									<div class="col-sm-12">
+										<h2>{- Categories -} information</h2>
+										<p>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</p>
 									</div>
 								</div>
 							</div>
