@@ -158,11 +158,12 @@
             <div class="form-group">
                 <t t-foreach="industries" t-as="ind">
                     <input type="checkbox"
+						   t-att-id='"industry_ids.{0}".format(ind.id)'
                            t-att-name='"industry_ids.{0}".format(ind.id)'
                            t-att-value="ind.id"
                            t-att-checked="'checked' if ind in partner.industry_ids else ''"
                     />
-                    <t t-esc="ind.name"/>
+                    <label t-att-id='"industry_ids.{0}".format(ind.id)' t-esc="ind.name"/>
                 </t>
             </div>
         </template>
