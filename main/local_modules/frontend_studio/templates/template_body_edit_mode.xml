@@ -188,7 +188,9 @@
 
                 <t t-call="frontend_base.body">
                     <t t-raw="0"/>
-                    <t t-call="frontend_base.footer"/>
+                    <footer id="footer_edit" class="footer">
+                    <t t-call="frontend_listing.footer_base"/>
+					</footer>
                     <t t-call="frontend_base.engine">
                         <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
                         <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/vendor/jquery.ui.widget.js"></script>
@@ -265,7 +267,7 @@
 									</div>
 									
 									
-									<div role="tabpanel" class="tab-pane fade active" id="edit02">
+									<div role="tabpanel" class="tab-pane fade" id="edit02">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_address_edit"/>
@@ -273,7 +275,7 @@
 										</div>
 									</div>
 									
-									<div role="tabpanel" class="tab-pane fade active" id="edit03">
+									<div role="tabpanel" class="tab-pane fade" id="edit03">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_links_edit"/>
@@ -281,7 +283,7 @@
 										</div>
 									</div>
 									
-									<div role="tabpanel" class="tab-pane fade active" id="edit04">
+									<div role="tabpanel" class="tab-pane fade" id="edit04">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_social_networks_edit"/>
@@ -289,7 +291,7 @@
 										</div>
 									</div>
 									
-									<div role="tabpanel" class="tab-pane fade active" id="edit05">
+									<div role="tabpanel" class="tab-pane fade" id="edit05">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_calls_edit"/>
@@ -297,7 +299,7 @@
 										</div>
 									</div>
 									
-									<div role="tabpanel" class="tab-pane fade active" id="edit06">
+									<div role="tabpanel" class="tab-pane fade" id="edit06">
 										<div class="row">
 											<div class="col-sm-12">
 												<t t-call="frontend_studio.studio_industries_edit"/>
