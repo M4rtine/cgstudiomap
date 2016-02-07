@@ -1,4 +1,7 @@
 // ref : https://output.jsbin.com/quvelo/2/#tab3 
+// fonction de re-formatage de l'adresse URL pour pouvoir accéder aux tabs depuis un lien et une page externe.
+
+
 
 $(window).load(function () {
 
