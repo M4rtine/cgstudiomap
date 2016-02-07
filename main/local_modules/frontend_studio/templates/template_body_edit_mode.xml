@@ -14,6 +14,14 @@
                    value="Save"/>
         </template>
 
+        <template id="frontend_studio.error_zone" name="Studio: Zone to display errors">
+            <t t-if="error">
+                <div class="form-group" style="background:red">
+                    <t t-raw="error"/>
+                </div>
+            </t>
+        </template>
+
         <template id="frontend_studio.image_block" name="Studio: Block Image">
             <div class="row">
                 <!--Display of the current logo of the company-->
@@ -50,10 +58,6 @@
                         </option>
                     </t>
                     </select>
-                    <!--<input type="state"-->
-                           <!--t-att-name="fields['state']['string']"-->
-                           <!--class="search-query form-control"-->
-                           <!--t-att-value="partner.state" />-->
                 </p>
             </div>
         </template>
@@ -131,7 +135,7 @@
                 </p>
             </div>
         </template>
-        
+
         <template id="frontend_studio.studio_social_networks_edit" name="Studio: Edit Social Networks">
             <div class="form-group">
                 <t t-foreach="social_networks" t-as="social_network">
@@ -166,7 +170,6 @@
             <div class="form-group">
                 <t t-foreach="industries" t-as="ind">
                     <input type="checkbox"
-                           required="'required' field['name']['required'] else ''"
                            t-att-name='"industry_ids.{0}".format(ind.id)'
                            t-att-value="ind.id"
                            t-att-checked="'checked' if ind in partner.industry_ids else ''"
@@ -226,7 +229,9 @@
 
                 <t t-call="frontend_studio.save_form">
 
+
                     <t t-call="frontend_studio.save_button"/>
+                    <t t-call="frontend_studio.error_zone"/>
                     <div style="background-color:white;">
                         <div class="container studio-details fontCGSM">
                             <div class="row">

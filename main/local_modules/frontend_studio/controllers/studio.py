@@ -6,6 +6,7 @@ from openerp.addons.frontend_base.controllers.base import (Base, QueryURL)
 from openerp.addons.frontend_listing.controllers.listing import Listing
 
 from openerp import http
+from openerp.exceptions import ValidationError
 from openerp.http import request
 
 _logger = logging.getLogger(__name__)
@@ -30,7 +31,18 @@ class Studio(Base):
         _logger.debug('save')
         _logger.debug('kwargs: %s', kwargs)
 
-        partner.write_from_post_request(kwargs)
+        try:
+            partner.write_from_post_request(kwargs)
+        except ValidationError as err:
+            # if a validation error has been raised,
+            # we go back to the edit page, so the user can fix the error.
+            values = self.get_value_for_edit_page(partner)
+            # website is part of the kwargs, but it interfers with a call of
+            # website module.
+            del kwargs['website']
+            values.update(kwargs)
+            values['error'] = err[-1]
+            return request.website.render('frontend_studio.edit', values)
 
         values = {
             'partner': partner,
@@ -85,12 +97,25 @@ class Studio(Base):
         :param object partner: record of a res.partner.
         :return: request.render
         """
+        return request.website.render(
+            'frontend_studio.edit',
+            self.get_value_for_edit_page(partner)
+        )
+
+    def get_value_for_edit_page(self, partner):
+        """Gather the details needed to render the edit page.
+
+        :param object partner: record of a res.partner.
+
+        :return: mapping of the value to render the page with.
+        :rtype: dict
+        """
         values = self.common_values(partner)
         values.update({
             'countries': request.env['res.country'].search([]),
             'industries': request.env['res.industry'].search([]),
         })
-        return request.website.render('frontend_studio.edit', values)
+        return values
 
     def common_values(self, partner):
         """Build the values shared by different views of the module."""
