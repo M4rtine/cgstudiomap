@@ -18,11 +18,12 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import re
 import logging
+import re
+
 from openerp import models, api, fields
-from openerp.tools.translate import _
 from openerp.exceptions import ValidationError
+from openerp.tools.translate import _
 
 _logger = logging.getLogger(__name__)
 
@@ -38,6 +39,7 @@ class ResPartner(models.Model):
     linkedin = fields.Char('Linkedin')
     facebook = fields.Char('Facebook')
     wikipedia = fields.Char('Wikipedia')
+
     # art_of_vfx = fields.Char('Art of VFX')
 
     @api.model
@@ -64,9 +66,16 @@ class ResPartner(models.Model):
 
     @api.one
     @api.constrains('twitter')
-    def _validate_twitter_url(self):
-        """Test against the given url against RFC requirements"""
-        url = self.__strip_value(self.twitter)
+    def _validate_twitter_url_constrains(self):
+        """Add a constrains to the twitter field."""
+        self._validate_twitter_url(self.twitter)
+
+    def _validate_twitter_url(self, value):
+        """Test against the given url against RFC requirements.
+
+        :param str value: url to check. Can be False.
+        """
+        url = self.__strip_value(value)
         regex = r'https?://(www\.)?twitter\.com/\w+'
         if url:
             self._url_validation(url)
@@ -82,9 +91,16 @@ class ResPartner(models.Model):
 
     @api.one
     @api.constrains('linkedin')
-    def _validate_linkedin_url(self):
-        """Test against the given url against RFC requirements"""
-        url = self.__strip_value(self.linkedin)
+    def _validate_linkedin_url_constrains(self):
+        """Add a constrains to the linkedin field."""
+        self._validate_linkedin_url(self.linkedin)
+
+    def _validate_linkedin_url(self, value):
+        """Test against the given url against RFC requirements.
+
+        :param str value: url to check. Can be False.
+        """
+        url = self.__strip_value(value)
         # Linkedin got its page tracking system embed in the url
         # then the url can be followed by ?trk...
         regex = r'https?://(www\.)?linkedin\.com/company/[\w-]+'
@@ -104,8 +120,15 @@ class ResPartner(models.Model):
     @api.one
     @api.constrains('facebook')
     def _validate_facebook_url(self):
-        """Test against the given url against RFC requirements"""
-        url = self.__strip_value(self.facebook)
+        """Add a constrains to the facebook field."""
+        self._validate_facebook_url(self.facebook)
+
+    def _validate_facebook_url(self, value):
+        """Test against the given url against RFC requirements.
+
+        :param str value: url to check. Can be False.
+        """
+        url = self.__strip_value(value)
         # Facebook got its page tracking system embed in the url
         # then the url can be followed by ?fref...
         regex = r'https?://(www\.)?facebook\.com/[\w-]+'
@@ -123,10 +146,17 @@ class ResPartner(models.Model):
 
     @api.one
     @api.constrains('youtube')
-    def _validate_youtube_url(self):
-        """Check the youtube url."""
-        url = self.__strip_value(self.youtube)
-        regex = r'https?://(www\.)?youtube\.com'
+    def _validate_youtube_url_constrains(self):
+        """Add a constrains to the youtube field."""
+        self._validate_youtube_url(self.youtube)
+
+    def _validate_youtube_url(self, value):
+        """Check the youtube url.
+
+        :param str value: url to check. Can be False.
+        """
+        url = self.__strip_value(value)
+        regex = r'https?://(www\.)?youtube\.com/user/'
         if url:
             self._url_validation(url)
             if not re.match(regex, url):
@@ -141,9 +171,16 @@ class ResPartner(models.Model):
 
     @api.one
     @api.constrains('vimeo')
-    def _validate_vimeo_url(self):
-        """Check the vimeo url."""
-        url = self.__strip_value(self.vimeo)
+    def _validate_vimeo_url_constrains(self):
+        """Add a constrains to the vimeo field."""
+        self._validate_vimeo_url(self.vimeo)
+
+    def _validate_vimeo_url(self, value):
+        """Check the vimeo url.
+
+        :param str value: url to check. Can be False.
+        """
+        url = self.__strip_value(value)
         regex = r'https?://(www\.)?vimeo\.com'
         if url:
             self._url_validation(url)
