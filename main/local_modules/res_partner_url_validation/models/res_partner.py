@@ -162,11 +162,3 @@ class ResPartner(models.Model):
             raise ValidationError(err_msg)
 
         return True
-
-    @api.one
-    @api.constrains('website')
-    def _validate_website_url(self):
-        """Test against the given url against RFC requirements"""
-        _logger.debug('self.website: {}'.format(self.website))
-        if self.website:
-            self._url_validation(self.website)
