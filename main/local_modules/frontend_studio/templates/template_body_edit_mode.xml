@@ -1,7 +1,7 @@
 <openerp>
     <data>
         <template id="frontend_studio.save_form" name="Studio: Save Modifications">
-            <form t-att-action="'/directory/company/{}/save'.format(partner.id)"
+            <form t-att-action="'/directory/company/{}/edit'.format(partner.id)"
                   enctype="multipart/form-data"
                   method="POST">
                 <t t-raw="0"/>

@@ -17,7 +17,7 @@ class Studio(Base):
     partner_url = '/directory/company'
 
     @http.route(
-        '{0}/<model("res.partner"):partner>/save'.format(partner_url),
+        '{0}/<model("res.partner"):partner>/edit'.format(partner_url),
         type='http', auth="public", methods=['POST'], website=True
     )
     def save(self, partner, **kwargs):
@@ -57,9 +57,7 @@ class Studio(Base):
     )
     @http.route(
         '{0}/<model("res.partner"):partner>'.format(partner_url),
-        type='http',
-        auth="public",
-        website=True
+        type='http', auth="public", website=True
     )
     def view(self, partner):
         """Render the page of a studio in view mode.
@@ -67,7 +65,12 @@ class Studio(Base):
         :param object partner: record of a res.partner.
         :return: request.render
         """
-        values = self.common_values(partner)
+        values = self.common_values()
+        values['partner'] = partner
+        partner_values = self.get_partner_values()
+        values['social_networks'] = partner_values['social_networks'].keys()
+        # values['calls'] = partner_values['calls'].keys()
+
         marquee_plus_social_network = any(
             not getattr(partner, field) for field in values['social_networks']
         )
@@ -87,9 +90,7 @@ class Studio(Base):
     )
     @http.route(
         '{0}/<model("res.partner"):partner>/edit'.format(partner_url),
-        type='http',
-        auth="user",
-        website=True
+        type='http', methods=['GET'], auth="user", website=True
     )
     def edit(self, partner):
         """Render the page of a studio in edit mode
@@ -101,6 +102,68 @@ class Studio(Base):
             'frontend_studio.edit',
             self.get_value_for_edit_page(partner)
         )
+
+    @staticmethod
+    def get_partner_values():
+        """Return the set of data to build edit/create view.
+
+        :return: dict
+        """
+        return {
+            'id': 0,
+            'partner_latitude': 0.0, 'partner_longitude': 0.0,
+            'name': '',
+            'website': '',
+            'state': '',
+            'street': '',
+            'street2': '',
+            'city': '',
+            'zip': '',
+            'country_id': 0,
+            'country_id_code': '',
+            # social network urls
+            'social_networks': {
+                'twitter': '',
+                'youtube': '',
+                'vimeo': '',
+                'linkedin': '',
+                'facebook': '',
+            },
+            # phone numbers
+            'call': {
+                'phone': '',
+                'mobile': '',
+                'fax': '',
+            }
+
+        }
+
+    def build_value_from_partner(self, partner):
+        """Fill up the partner_value from a partner record.
+
+        :param object partner: partner to fill the values with.
+        :return: dict
+        """
+        partner_values = self.get_partner_values()
+        partner_values['id'] = partner.id
+        partner_values['name'] = partner.name
+        partner_values['website'] = partner.website
+        partner_values['state'] = partner.state
+        partner_values['street'] = partner.street
+        partner_values['street2'] = partner.street2
+        partner_values['city'] = partner.city
+        partner_values['zip'] = partner.name
+        partner_values['country_id'] = partner.country_id
+        partner_values['call']['phone'] = partner.phone
+        partner_values['call']['mobile'] = partner.mobile
+        partner_values['call']['fax'] = partner.fax
+        partner_values['social_network']['linkedin'] = partner.linkedin
+        partner_values['social_network']['vimeo'] = partner.vimeo
+        partner_values['social_network']['youtube'] = partner.youtube
+        partner_values['social_network']['twitter'] = partner.twitter
+        partner_values['social_network']['facebook'] = partner.facebook
+
+        return partner_values
 
     def get_value_for_edit_page(self, partner):
         """Gather the details needed to render the edit page.
@@ -117,20 +180,16 @@ class Studio(Base):
         })
         return values
 
-    def common_values(self, partner):
-        """Build the values shared by different views of the module."""
-        _logger.debug('main')
-        _logger.debug('partner: %s', partner)
-        url = '{0}/{1}'.format(self.partner_url, partner.id)
-        keep = QueryURL(url)
-        social_networks = (
-            'twitter',
-            'youtube',
-            'vimeo',
-            'facebook',
-            'linkedin',
-        )
+    @staticmethod
+    def common_values():
+        """Build the values shared by different views of the module.
 
+        :return: mapping for values for all the views.
+        """
+        _logger.debug('main')
+        keep = QueryURL()
+
+        partner = request.env['res.partner'].browse(1)
         fields = partner.fields_get()
         state_selections = fields['state']['selection']
         _logger.debug('selections: %s', state_selections)
@@ -141,6 +200,6 @@ class Studio(Base):
             'keep': keep,
             'state_selections': state_selections,
             'getattr': getattr,
-            'social_networks': social_networks,
-            'calls': ('phone', 'fax', 'mobile'),
+            # 'social_networks': social_networks,
+            # 'calls': ('phone', 'fax', 'mobile'),
         }
