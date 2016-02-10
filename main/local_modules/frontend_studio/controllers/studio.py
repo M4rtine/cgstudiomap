@@ -99,8 +99,7 @@ class Studio(Base):
         :return: request.render
         """
         return request.website.render(
-            'frontend_studio.edit',
-            self.get_value_for_edit_page(partner)
+            'frontend_studio.edit', self.get_value_for_edit_page(partner)
         )
 
     @staticmethod
@@ -111,16 +110,17 @@ class Studio(Base):
         """
         return {
             'id': 0,
-            'partner_latitude': 0.0, 'partner_longitude': 0.0,
+            'image_url': '',
             'name': '',
             'website': '',
+            'email': '',
             'state': '',
             'street': '',
             'street2': '',
             'city': '',
             'zip': '',
+            'industry_ids': [],
             'country_id': 0,
-            'country_id_code': '',
             # social network urls
             'social_networks': {
                 'twitter': '',
@@ -130,7 +130,7 @@ class Studio(Base):
                 'facebook': '',
             },
             # phone numbers
-            'call': {
+            'calls': {
                 'phone': '',
                 'mobile': '',
                 'fax': '',
@@ -144,24 +144,28 @@ class Studio(Base):
         :param object partner: partner to fill the values with.
         :return: dict
         """
+        websites = request.env['website']
         partner_values = self.get_partner_values()
         partner_values['id'] = partner.id
         partner_values['name'] = partner.name
+        partner_values['image_url'] = websites.image_url(partner, 'image_medium', size='256x256')
         partner_values['website'] = partner.website
+        partner_values['email'] = partner.email
         partner_values['state'] = partner.state
         partner_values['street'] = partner.street
         partner_values['street2'] = partner.street2
         partner_values['city'] = partner.city
         partner_values['zip'] = partner.name
-        partner_values['country_id'] = partner.country_id
-        partner_values['call']['phone'] = partner.phone
-        partner_values['call']['mobile'] = partner.mobile
-        partner_values['call']['fax'] = partner.fax
-        partner_values['social_network']['linkedin'] = partner.linkedin
-        partner_values['social_network']['vimeo'] = partner.vimeo
-        partner_values['social_network']['youtube'] = partner.youtube
-        partner_values['social_network']['twitter'] = partner.twitter
-        partner_values['social_network']['facebook'] = partner.facebook
+        partner_values['industry_ids'] = partner.industry_ids
+        partner_values['country_id'] = partner.country_id.id
+        partner_values['calls']['phone'] = partner.phone
+        partner_values['calls']['mobile'] = partner.mobile
+        partner_values['calls']['fax'] = partner.fax
+        partner_values['social_networks']['linkedin'] = partner.linkedin
+        partner_values['social_networks']['vimeo'] = partner.vimeo
+        partner_values['social_networks']['youtube'] = partner.youtube
+        partner_values['social_networks']['twitter'] = partner.twitter
+        partner_values['social_networks']['facebook'] = partner.facebook
 
         return partner_values
 
@@ -173,7 +177,8 @@ class Studio(Base):
         :return: mapping of the value to render the page with.
         :rtype: dict
         """
-        values = self.common_values(partner)
+        values = self.common_values()
+        values['partner'] = self.build_value_from_partner(partner)
         values.update({
             'countries': request.env['res.country'].search([]),
             'industries': request.env['res.industry'].search([]),
@@ -200,6 +205,4 @@ class Studio(Base):
             'keep': keep,
             'state_selections': state_selections,
             'getattr': getattr,
-            # 'social_networks': social_networks,
-            # 'calls': ('phone', 'fax', 'mobile'),
         }

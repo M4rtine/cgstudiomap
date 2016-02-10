@@ -1,7 +1,7 @@
 <openerp>
     <data>
         <template id="frontend_studio.save_form" name="Studio: Save Modifications">
-            <form t-att-action="'/directory/company/{}/edit'.format(partner.id)"
+            <form t-att-action="'/directory/company/{}/edit'.format(partner['id'])"
                   enctype="multipart/form-data"
                   method="POST">
                 <t t-raw="0"/>
@@ -26,7 +26,8 @@
             <div class="row">
                 <!--Display of the current logo of the company-->
                 <div class="col-sm-3 col-logo">
-                    <t t-call="frontend_base.company_logo" />
+                    <t t-set="image_url" t-value="partner['image_url']"/>
+                    <t t-call="frontend_base.company_logo"/>
                 </div>
                 <!--If this checkbox is checked, the current logo of the company will be set to nothing -->
                 <!--And even if there is a picture selected by the user in the input file, the selected-->
@@ -46,14 +47,14 @@
                            t-att-required="'required' if fields['name']['required'] else ''"
                            name="name"
                            class="search-query form-control"
-                           t-att-value="partner.name" />
+                           t-att-value="partner['name']" />
                 </p>
                 <p>
                     <t t-esc="fields['state']['string']"/>
                     <select class="form-control" name="state">
                     <t t-foreach="state_selections" t-as="selections">
                         <option t-att-value="selections[0]"
-                                t-att-selected="'selected' if selections[0] == partner.state else ''">
+                                t-att-selected="'selected' if selections[0] == partner['state'] else ''">
                             <t t-esc="selections[1]"/>
                         </option>
                     </t>
@@ -70,7 +71,7 @@
                            t-att-required="'required' if fields['street']['required'] else ''"
                            name="street"
                            class="search-query form-control"
-                           t-att-value="partner.street" />
+                           t-att-value="partner['street']" />
                 </p>
                 <p>
                     <t t-esc="fields['street2']['string']"/>
@@ -78,7 +79,7 @@
                            t-att-required="'required' if fields['street2']['required'] else ''"
                            name="street2"
                            class="search-query form-control"
-                           t-att-value="partner.street2" />
+                           t-att-value="partner['street2']" />
                 </p>
                 <p>
                     <t t-esc="fields['city']['string']"/>
@@ -86,7 +87,7 @@
                            t-att-required="'required' if fields['city']['required'] else ''"
                            name="city"
                            class="search-query form-control"
-                           t-att-value="partner.city" />
+                           t-att-value="partner['city']" />
                 </p>
                 <p>
                     <t t-esc="fields['zip']['string']"/>
@@ -94,18 +95,18 @@
                            t-att-required="'required' if fields['zip']['required'] else ''"
                            name="zip"
                            class="search-query form-control"
-                           t-att-value="partner.zip" />
+                           t-att-value="partner['zip']" />
                 </p>
                 <!--<p>-->
                     <!--<t t-esc="fields['state_id']['string']"/>-->
-                    <!--<t t-esc="partner.state_id" />,-->
+                    <!--<t t-esc="partner['state_id']" />,-->
                 <!--</p>-->
                 <p>
                     <t t-esc="fields['country_id']['string']"/>
                     <select class="form-control" name="country_id">
                         <t t-foreach="countries" t-as="country">
                             <option t-att-value="country.id"
-                                    t-att-selected="'selected' if country.id == partner.country_id.id else ''"
+                                    t-att-selected="'selected' if country.id == partner['country_id'] else ''"
                                     >
                                 <t t-esc="country.name"/>
                             </option>
@@ -123,7 +124,7 @@
                            t-att-required="'required' if fields['website']['required'] else ''"
                            name="website"
                            class="search-query form-control"
-                           t-att-value="partner.website" />
+                           t-att-value="partner['website']" />
                 </p>
                 <p>
                     <t t-esc="fields['email']['string']"/>
@@ -131,21 +132,21 @@
                            t-att-required="'required' if fields['email']['required'] else ''"
                            name="email"
                            class="search-query form-control"
-                           t-att-value="partner.email" />
+                           t-att-value="partner['email']" />
                 </p>
             </div>
         </template>
 
         <template id="frontend_studio.studio_social_networks_edit" name="Studio: Edit Social Networks">
             <div class="form-group">
-                <t t-foreach="social_networks" t-as="social_network">
+                <t t-foreach="partner['social_networks']" t-as="social_network">
                     <p>
                         <t t-esc="fields[social_network]['string']"/>
                         <input type="url"
                                t-att-required="'required' if fields[social_network]['required'] else ''"
                                t-att-name="social_network"
                                class="search-query form-control"
-                               t-att-value="getattr(partner, social_network)" />
+                               t-att-value="partner['social_networks'][social_network]" />
                     </p>
                 </t>
             </div>
@@ -153,14 +154,14 @@
 
         <template id="frontend_studio.studio_calls_edit" name="Studio: Edit Calls">
             <div class="form-group">
-                <t t-foreach="calls" t-as="call">
+                <t t-foreach="partner['calls']" t-as="call">
                     <p>
                         <t t-esc="fields[call]['string']"/>
                         <input type="phone"
                                t-att-required="'required' if fields[call]['required'] else ''"
                                t-att-name="call"
                                class="search-query form-control"
-                               t-att-value="getattr(partner, call)" />
+                               t-att-value="partner['calls'][call]" />
                     </p>
                 </t>
             </div>
@@ -172,7 +173,7 @@
                     <input type="checkbox"
                            t-att-name='"industry_ids.{0}".format(ind.id)'
                            t-att-value="ind.id"
-                           t-att-checked="'checked' if ind in partner.industry_ids else ''"
+                           t-att-checked="'checked' if ind in partner['industry_ids'] else ''"
                     />
                     <t t-esc="ind.name"/>
                 </t>
@@ -182,7 +183,7 @@
         <template id="frontend_studio.base_edit" name="Studio: base Edit">
             <t t-call="frontend_base.doctype_html"/>
             <t t-call="frontend_base.html">
-                <t t-set="title" t-value="'{} - edit'.format(partner.name)"/>
+                <t t-set="title" t-value="'{} - edit'.format(partner['name'])"/>
                 <t t-call="frontend_base.full_head"/>
                 <link rel="stylesheet" href="/frontend_studio/static/css/studio.css" type="text/css"/>
                 <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
