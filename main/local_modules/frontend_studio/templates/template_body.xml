@@ -77,7 +77,7 @@
         <template id="frontend_studio.studio_header" name="Studio: Details Header">
 		<div class="row">
 			<div class="col-sm-3 col-logo">
-				<t t-call="frontend_base.company_logo" />
+				<t t-call="frontend_base.company_logo_website" />
 			</div>
 			<div class="col-sm-9">
 				<h2 t-esc="partner.name" />
@@ -226,7 +226,7 @@
                 <t t-foreach="partners" t-as="partner">
                     <div class="col-xs-6 col-sm-2 partner-item">
                     <a t-att-href="partner.partner_url">
-                        <t t-call="frontend_base.company_logo" />
+                        <t t-call="frontend_base.company_logo_website" />
                         <a t-att-href="partner.partner_url">
                             <h4 t-esc="partner.name" /></a>
                     </a>

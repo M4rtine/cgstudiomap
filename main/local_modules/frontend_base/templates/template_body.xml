@@ -204,18 +204,28 @@
 
         <!--Represent the logo to a company-->
         <!--Requirements:-->
-        <!--* ind: partner object-->
+        <!--* image_url: url-->
         <!--How To:-->
         <!--=======-->
-        <!--<t t-set="partner" t-value="{value_for_partner}"/>-->
-        <!--<t t-call="frontend_base.company_logo"/>-->
+        <!--<t t-set="image_url" t-value="{url to an image}"/>-->
+        <!--<t t-call="frontend_base.company_logo_website"/>-->
         <template id="frontend_base.company_logo" name="Company Logo">
-		<div class="logo-thumb">
-            <img itemprop="image"
-                 class="fill-box img-responsive"
-                 t-att-src="website.image_url(partner, 'image_medium', size='256x256')"
-            />
-		</div>
+            <div class="logo-thumb">
+                <img itemprop="image"
+                     class="fill-box img-responsive"
+                     t-att-src="image_url"
+                />
+            </div>
+        </template>
+        <!--Represent the logo to a company-->
+        <!--Requirements:-->
+        <!--* partner: partner object-->
+        <!--How To:-->
+        <!--=======-->
+        <!--<t t-call="frontend_base.company_logo_website"/>-->
+        <template id="frontend_base.company_logo_website" name="Company Logo using website.image_url">
+            <t t-set="image_url" t-value="website.image_url(partner, 'image_medium', size='256x256')"/>
+            <t t-call="frontend_base.company_logo"/>
         </template>
 
         <template id="frontend_base.layout" name="Base for simple page">

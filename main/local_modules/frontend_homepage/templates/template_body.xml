@@ -30,7 +30,7 @@
         <!--template that build the mini card of a partner-->
         <template id="partner_card" name="Partner Card">
 			<a t-att-href="partner.partner_url">
-                <t t-call="frontend_base.company_logo"/>
+                <t t-call="frontend_base.company_logo_website"/>
 				<a t-att-href="partner.partner_url"><h4 t-esc="partner.name"/></a>
                 <p>
                     <em t-esc="'{}, {}'.format(partner.city.encode('utf8'), partner.country_id.name)"/><br />
