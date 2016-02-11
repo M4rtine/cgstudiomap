@@ -23,6 +23,8 @@
                    value="Save"/>
         </template>
 
+        <!--Zone to inform something when wrong during the processing of new data.-->
+        <!--As there are several tabs, a unique zone will important for the UX I guess.-->
         <template id="frontend_studio.error_zone" name="Studio: Zone to display errors">
             <t t-if="error">
                 <div class="form-group" style="background:red">
@@ -155,6 +157,8 @@
                                t-att-required="'required' if fields[social_network]['required'] else ''"
                                t-att-name="social_network"
                                class="search-query form-control"
+                               t-att-pattern="getattr(partner_pool, '_{0}_regex'.format(social_network))"
+                               t-att-title="getattr(partner_pool, '_{0}_error_message'.format(social_network))"
                                t-att-value="partner['social_networks'][social_network]" />
                     </p>
                 </t>

@@ -42,6 +42,37 @@ class ResPartner(models.Model):
 
     # art_of_vfx = fields.Char('Art of VFX')
 
+    _twitter_regex = r'https?://(www\.)?twitter\.com/\w+'
+    _twitter_error_message = _(
+        'The entry for Twitter seems not to be correct.'
+        '\nA twitter account should be something '
+        'like https://www.twitter.com/cgstudiomap'
+    )
+    _linkedin_regex = r'https?://(www\.)?linkedin\.com/company/[\w-]+'
+    _linkedin_error_message = _(
+        'The entry for LinkedIn seems not to be correct.'
+        '\nA linkedin account should be something '
+        'like https://www.linkedin.com/company/cgstudiomap.com'
+    )
+    _facebook_regex = r'https?://(www\.)?facebook\.com/[\w-]+'
+    _facebook_error_message = _(
+        'The entry for Facebook seems not to be correct.'
+        '\nA facebook account should be something '
+        'like https://www.facebook.com/'
+    )
+    _youtube_regex = r'https?://(www\.)?youtube\.com/user/'
+    _youtube_error_message = _(
+        'The entry for Youtube seems not to be correct.'
+        '\nA youtube account should start by '
+        'https://www.youtube.com'
+    )
+    _vimeo_regex = r'https?://(www\.)?vimeo\.com'
+    _vimeo_error_message = _(
+        'The entry for Vimeo seems not to be correct.'
+        '\nA vimeo account should start by '
+        'https://www.vimeo.com'
+    )
+
     @api.model
     def _validate_social_network_url(self, url, regex, err_msg):
         _logger.debug('_validate_social_network_url')
@@ -76,17 +107,11 @@ class ResPartner(models.Model):
         :param str value: url to check. Can be False.
         """
         url = self.__strip_value(value)
-        regex = r'https?://(www\.)?twitter\.com/\w+'
+        regex = self._twitter_regex
         if url:
             self._url_validation(url)
             if not re.match(regex, url):
-                err_msg = _(
-                    (
-                        '"{}" seems not to be an twitter account.'
-                        '\nA twitter account should be something '
-                        'like https://www.twitter.com/cgstudiomap'.format(url)
-                    )
-                )
+                err_msg = self._twitter_error_message
                 raise ValidationError(err_msg)
 
     @api.one
@@ -103,18 +128,11 @@ class ResPartner(models.Model):
         url = self.__strip_value(value)
         # Linkedin got its page tracking system embed in the url
         # then the url can be followed by ?trk...
-        regex = r'https?://(www\.)?linkedin\.com/company/[\w-]+'
+        regex = self._linkedin_regex
         if url:
             self._url_validation(url)
             if not re.match(regex, url):
-                err_msg = _(
-                    (
-                        '"{}" seems not to be an linkedin account.'
-                        '\nA linkedin account should be something '
-                        'like https://www.linkedin.com/'
-                        'company/cgstudiomap.com'.format(url)
-                    )
-                )
+                err_msg = self._linkedin_error_message
                 raise ValidationError(err_msg)
 
     @api.one
@@ -131,17 +149,11 @@ class ResPartner(models.Model):
         url = self.__strip_value(value)
         # Facebook got its page tracking system embed in the url
         # then the url can be followed by ?fref...
-        regex = r'https?://(www\.)?facebook\.com/[\w-]+'
+        regex = self._facebook_regex
         if url:
             self._url_validation(url)
             if not re.match(regex, url):
-                err_msg = _(
-                    (
-                        '"{}" seems not to be an facebook account.'
-                        '\nA facebook account should be something '
-                        'like https://www.facebook.com/'
-                    )
-                )
+                err_msg = self._facebook_error_message
                 raise ValidationError(err_msg)
 
     @api.one
@@ -156,17 +168,11 @@ class ResPartner(models.Model):
         :param str value: url to check. Can be False.
         """
         url = self.__strip_value(value)
-        regex = r'https?://(www\.)?youtube\.com/user/'
+        regex = self._youtube_regex
         if url:
             self._url_validation(url)
             if not re.match(regex, url):
-                err_msg = _(
-                    (
-                        '"{}" seems not to be an youtube account.'
-                        '\nA youtube account should start by '
-                        'https://www.youtube.com'.format(url)
-                    )
-                )
+                err_msg = self._youtube_error_message
                 raise ValidationError(err_msg)
 
     @api.one
@@ -181,17 +187,11 @@ class ResPartner(models.Model):
         :param str value: url to check. Can be False.
         """
         url = self.__strip_value(value)
-        regex = r'https?://(www\.)?vimeo\.com'
+        regex = self._vimeo_regex
         if url:
             self._url_validation(url)
             if not re.match(regex, url):
-                err_msg = _(
-                    (
-                        '"{}" seems not to be an vimeo account.'
-                        '\nA vimeo account should start by '
-                        'https://www.vimeo.com'.format(url)
-                    )
-                )
+                err_msg = self._vimeo_error_message
                 raise ValidationError(err_msg)
 
     @staticmethod

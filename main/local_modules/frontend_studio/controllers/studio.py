@@ -16,6 +16,12 @@ class Studio(Base):
     """Representation of the homepage of the website."""
     partner_url = '/directory/company'
 
+    # Set of validations for fields.
+    # Emails and urls are validated by html fields.
+    social_url_validations = {
+
+    }
+
     @http.route(
         '{0}/<model("res.partner"):partner>/edit'.format(partner_url),
         type='http', auth="public", methods=['POST'], website=True
@@ -182,6 +188,8 @@ class Studio(Base):
         values.update({
             'countries': request.env['res.country'].search([]),
             'industries': request.env['res.industry'].search([]),
+            'partner_pool': request.env['res.partner'],
+            'getattr': getattr,
         })
         return values
 
