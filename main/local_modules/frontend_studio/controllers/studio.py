@@ -49,7 +49,7 @@ class Studio(Base):
             'partner_url': '/'.join([self.partner_url, str(partner.id)]),
             'map_url': Listing.map_url,
         }
-        return request.website.render('frontend_studio.save', values)
+        return request.website.render('frontend_studio.thank_you', values)
 
     @statsd.timed(
         'odoo.frontend.studio.view.time',

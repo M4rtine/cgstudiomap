@@ -291,7 +291,8 @@
 
         </template>
 
-        <template id="frontend_studio.save">
+        <!--Template to thank the user that update a card directory-->
+        <template id="frontend_studio.thank_you" name="Studio: Thank you!">
             <t t-call="frontend_base.layout">
                 <div id="wrap" style="padding-top:200px">
                     <t t-raw="0"/>
