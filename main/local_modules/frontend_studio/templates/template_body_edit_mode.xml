@@ -8,6 +8,15 @@
             </form>
         </template>
 
+        <template id="frontend_studio.back_button" name="Studio: Back To Edit Button">
+            <div class="col-xs-6 col-sm-6">
+                <p>
+                    <a t-att-href="'/directory/company/{}'.format(partner['id'])">Back </a>
+                    <span class="fontCGSMicons">play</span>
+                </p>
+            </div>
+        </template>
+
         <template id="frontend_studio.save_button" name="Studio: Save Button">
             <input type='submit'
                    class="btn btn-edit outline a-submit"
@@ -232,6 +241,7 @@
 
 
                     <t t-call="frontend_studio.save_button"/>
+                    <t t-call="frontend_studio.back_button"/>
                     <t t-call="frontend_studio.error_zone"/>
                     <div style="background-color:white;">
                         <div class="container studio-details fontCGSM">
