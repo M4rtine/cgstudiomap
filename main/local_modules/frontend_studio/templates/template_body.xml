@@ -95,16 +95,9 @@
             <div class="form-group">
                 <p>
                     <span class="details-street">
-                        <t t-esc="partner.street" />,
-                        <t t-if="partner.street2"><t t-esc="partner.street2" />,</t>
+                        <t t-esc="partner.full_location" />
                     </span>
-                    
-                    <span class="details-city">
-                        <t t-if="partner.city"><t t-esc="partner.city"/>,</t>
-                        <t t-if="partner.zip"><t t-esc="partner.zip"/>,</t>
-                        <t t-esc="partner.state_id.name" />
-                    </span>
-                    
+
                     <span class="details-country">
                         <a t-att-href="'/directory?search={}'.format(filter_domain)">
                             <t t-esc="partner.country_id.name" />

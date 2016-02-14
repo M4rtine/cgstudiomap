@@ -6,10 +6,11 @@ from openerp.addons.frontend_base.controllers.base import (Base, QueryURL)
 from openerp.addons.frontend_listing.controllers.listing import Listing
 
 from openerp import http
-from openerp.exceptions import ValidationError
+from openerp.exceptions import ValidationError, except_orm
 from openerp.http import request
 
 _logger = logging.getLogger(__name__)
+_logger.setLevel(logging.DEBUG)
 
 partner_url = '/directory/company'
 
@@ -33,7 +34,7 @@ class Studio(Base):
         """
         values = self.common_values()
         values['partner'] = partner
-        partner_values = self.get_partner_values()
+        partner_values = partner.get_partner_values()
         values['social_networks'] = partner_values['social_networks'].keys()
         # values['calls'] = partner_values['calls'].keys()
 
@@ -82,77 +83,6 @@ class Studio(Base):
         values['create'] = True
         return request.website.render('frontend_studio.edit', values)
 
-    @staticmethod
-    def get_partner_values():
-        """Return the set of data to build edit/create view.
-
-        :return: dict
-        """
-        return {
-            'id': 0,
-            'write_date': '',
-            'image_url': '',
-            'name': '',
-            'website': '',
-            'email': '',
-            'state': '',
-            'street': '',
-            'street2': '',
-            'city': '',
-            'zip': '',
-            'industry_ids': [],
-            'country_id': 0,
-            # social network urls
-            'social_networks': {
-                'twitter': '',
-                'youtube': '',
-                'vimeo': '',
-                'linkedin': '',
-                'facebook': '',
-            },
-            # phone numbers
-            'calls': {
-                'phone': '',
-                'mobile': '',
-                'fax': '',
-            }
-
-        }
-
-    def build_values_from_partner(self, partner):
-        """Fill up the partner_value from a partner record.
-
-        :param object partner: partner to fill the values with.
-        :return: dict
-        """
-        websites = request.env['website']
-        partner_values = self.get_partner_values()
-        partner_values['id'] = partner.id
-        partner_values['write_date'] = partner.write_date
-        partner_values['name'] = partner.name
-        partner_values['image_url'] = websites.image_url(
-            partner, 'image_medium', size='256x256'
-        )
-        partner_values['website'] = partner.website
-        partner_values['email'] = partner.email
-        partner_values['state'] = partner.state
-        partner_values['street'] = partner.street
-        partner_values['street2'] = partner.street2
-        partner_values['city'] = partner.city
-        partner_values['zip'] = partner.name
-        partner_values['industry_ids'] = partner.industry_ids
-        partner_values['country_id'] = partner.country_id.id
-        partner_values['calls']['phone'] = partner.phone
-        partner_values['calls']['mobile'] = partner.mobile
-        partner_values['calls']['fax'] = partner.fax
-        partner_values['social_networks']['linkedin'] = partner.linkedin
-        partner_values['social_networks']['vimeo'] = partner.vimeo
-        partner_values['social_networks']['youtube'] = partner.youtube
-        partner_values['social_networks']['twitter'] = partner.twitter
-        partner_values['social_networks']['facebook'] = partner.facebook
-
-        return partner_values
-
     def get_values_for_edition_page(self, partner=None):
         """Gather the details needed to render page that edit or create a
         partner. If a partner is given, the value are built from it.
@@ -164,9 +94,10 @@ class Studio(Base):
         """
         values = self.common_values()
         if partner:
-            partner_values = self.build_values_from_partner(partner)
+            partner_values = partner.build_values_from_partner()
         else:
-            partner_values = self.get_partner_values()
+            partner_pool = request.env['res.partner']
+            partner_values = partner_pool.get_partner_values()
 
         values['partner'] = partner_values
 
@@ -263,12 +194,13 @@ class StudioPost(Studio):
         partner_pool = request.env['res.partner']
         try:
             partner = partner_pool.create_from_post_request(kwargs)
-        except ValidationError as err:
+        except (ValidationError, except_orm) as err:
 
             values = self.get_values_for_edition_page()
             del kwargs['website']
             values.update(kwargs)
             values['error'] = err[-1]
+            values['create'] = True
             return request.website.render('frontend_studio.edit', values)
 
         values = {

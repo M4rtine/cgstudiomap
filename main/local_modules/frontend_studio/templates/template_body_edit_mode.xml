@@ -340,7 +340,7 @@
                                 </div>
                             </t>
 
-
+                            <t t-call="frontend_studio.error_zone"/>
 
                             <div class="row">
                                 <div class="col-sm-12">
