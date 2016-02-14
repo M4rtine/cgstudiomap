@@ -64,7 +64,10 @@
                     </form>
                 </div>
                 <div class="col-xs-12 col-sm-3 navBtnColor">
-                    <a class="btn btn-cgsm-add center-block" href="#" role="button">ADD Studio <span class="fontCGSMicons">upload</span></a>
+                    <a class="btn btn-cgsm-add center-block"
+                       href="/directory/company/create"
+                       role="button">ADD Studio <span class="fontCGSMicons">upload</span>
+                    </a>
                 </div>
             </div>
         </div>

@@ -265,11 +265,7 @@ class StudioPost(Studio):
             partner = partner_pool.create_from_post_request(kwargs)
         except ValidationError as err:
 
-            # if a validation error has been raised,
-            # we go back to the edit page, so the user can fix the error.
             values = self.get_values_for_edition_page()
-            # website is part of the kwargs, but it interfers with a call of
-            # website module.
             del kwargs['website']
             values.update(kwargs)
             values['error'] = err[-1]
