@@ -229,8 +229,6 @@
 
                 <t t-call="frontend_studio.save_form">
 
-
-                    <t t-call="frontend_studio.save_button"/>
                     <t t-call="frontend_studio.back_button"/>
                     <t t-call="frontend_studio.error_zone"/>
                     <div style="background-color:white;">
