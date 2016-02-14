@@ -127,6 +127,11 @@ class ResPartnerSave(models.Model):
         return values
 
     @api.model
+    def create_from_post_request(self, kwargs):
+        """Process a create from data coming from a post request."""
+        return self.create(self.clean_values_from_post_request(**kwargs))
+
+    @api.model
     def write_from_post_request(self, kwargs):
         """Process a write from data coming from a post request."""
         return self.write(self.clean_values_from_post_request(**kwargs))
