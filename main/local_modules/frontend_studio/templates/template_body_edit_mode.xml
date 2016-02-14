@@ -1,7 +1,9 @@
 <openerp>
     <data>
         <template id="frontend_studio.save_form" name="Studio: Save Modifications">
-            <form t-att-action="'/directory/company/{}/edit'.format(partner['id'])"
+            <form id="save-form"
+                  style="padding-top: 100px"
+                  t-att-action="'/directory/company/{}/edit'.format(partner['id'])"
                   enctype="multipart/form-data"
                   method="POST">
                 <t t-raw="0"/>
@@ -114,7 +116,7 @@
                 <!--</p>-->
                 <p>
                     <t t-esc="fields['country_id']['string']"/>
-                    <select class="form-control" name="country_id">
+                    <select class="form-control" name="country_id" id="country-select">
                         <t t-foreach="countries" t-as="country">
                             <option t-att-value="country.id"
                                     t-att-selected="'selected' if country.id == partner['country_id'] else ''"
@@ -157,8 +159,6 @@
                                t-att-required="'required' if fields[social_network]['required'] else ''"
                                t-att-name="social_network"
                                class="search-query form-control"
-                               t-att-pattern="getattr(partner_pool, '_{0}_regex'.format(social_network))"
-                               t-att-title="getattr(partner_pool, '_{0}_error_message'.format(social_network))"
                                t-att-value="partner['social_networks'][social_network]" />
                     </p>
                 </t>
@@ -170,9 +170,10 @@
                 <t t-foreach="partner['calls']" t-as="call">
                     <p>
                         <t t-esc="fields[call]['string']"/>
-                        <input type="phone"
+                        <input type="tel"
                                t-att-required="'required' if fields[call]['required'] else ''"
                                t-att-name="call"
+                               t-att-id="call"
                                class="search-query form-control"
                                t-att-value="partner['calls'][call]" />
                     </p>
@@ -200,39 +201,18 @@
                 <t t-call="frontend_base.full_head"/>
                 <link rel="stylesheet" href="/frontend_studio/static/css/studio.css" type="text/css"/>
                 <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
-                <!-- Generic page styles -->
-                <link rel="stylesheet" href="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/css/style.css"/>
-                <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-                <link rel="stylesheet" href="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/css/jquery.fileupload.css"/>
-
-
+                <style>
+                    input:invalid {
+                        color: red;
+                    }
+                </style>
                 <t t-call="frontend_base.body">
                     <t t-raw="0"/>
                     <t t-call="frontend_base.footer"/>
                     <t t-call="frontend_base.engine">
-                        <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/vendor/jquery.ui.widget.js"></script>
-                        <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-                        <script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
-                        <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-                        <script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
-                        <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
-                        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-                        <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.iframe-transport.js"></script>
-                        <!-- The basic File Upload plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload.js"></script>
-                        <!-- The File Upload processing plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-process.js"></script>
-                        <!-- The File Upload image preview & resize plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-image.js"></script>
-                        <!-- The File Upload audio preview plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-audio.js"></script>
-                        <!-- The File Upload video preview plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-video.js"></script>
-                        <!-- The File Upload validation plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-validate.js"></script>
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-call.js"></script>
+                        <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
+                        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+                        <script type="text/javascript" src="/frontend_studio/static/js/form_validations.js"></script>
                     </t>
                 </t> <!-- closing body -->
             </t> <!-- closing html -->

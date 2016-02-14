@@ -101,17 +101,18 @@ class ResPartner(models.Model):
         """Add a constrains to the twitter field."""
         self._validate_twitter_url(self.twitter)
 
-    def _validate_twitter_url(self, value):
+    @classmethod
+    def _validate_twitter_url(cls, value):
         """Test against the given url against RFC requirements.
 
         :param str value: url to check. Can be False.
         """
-        url = self.__strip_value(value)
-        regex = self._twitter_regex
+        url = cls.__strip_value(value)
+        regex = cls._twitter_regex
         if url:
-            self._url_validation(url)
+            cls._url_validation(url)
             if not re.match(regex, url):
-                err_msg = self._twitter_error_message
+                err_msg = cls._twitter_error_message
                 raise ValidationError(err_msg)
 
     @api.one
@@ -120,19 +121,20 @@ class ResPartner(models.Model):
         """Add a constrains to the linkedin field."""
         self._validate_linkedin_url(self.linkedin)
 
-    def _validate_linkedin_url(self, value):
+    @classmethod
+    def _validate_linkedin_url(cls, value):
         """Test against the given url against RFC requirements.
 
         :param str value: url to check. Can be False.
         """
-        url = self.__strip_value(value)
+        url = cls.__strip_value(value)
         # Linkedin got its page tracking system embed in the url
         # then the url can be followed by ?trk...
-        regex = self._linkedin_regex
+        regex = cls._linkedin_regex
         if url:
-            self._url_validation(url)
+            cls._url_validation(url)
             if not re.match(regex, url):
-                err_msg = self._linkedin_error_message
+                err_msg = cls._linkedin_error_message
                 raise ValidationError(err_msg)
 
     @api.one
@@ -141,19 +143,20 @@ class ResPartner(models.Model):
         """Add a constrains to the facebook field."""
         self._validate_facebook_url(self.facebook)
 
-    def _validate_facebook_url(self, value):
+    @classmethod
+    def _validate_facebook_url(cls, value):
         """Test against the given url against RFC requirements.
 
         :param str value: url to check. Can be False.
         """
-        url = self.__strip_value(value)
+        url = cls.__strip_value(value)
         # Facebook got its page tracking system embed in the url
         # then the url can be followed by ?fref...
-        regex = self._facebook_regex
+        regex = cls._facebook_regex
         if url:
-            self._url_validation(url)
+            cls._url_validation(url)
             if not re.match(regex, url):
-                err_msg = self._facebook_error_message
+                err_msg = cls._facebook_error_message
                 raise ValidationError(err_msg)
 
     @api.one
@@ -162,17 +165,18 @@ class ResPartner(models.Model):
         """Add a constrains to the youtube field."""
         self._validate_youtube_url(self.youtube)
 
-    def _validate_youtube_url(self, value):
+    @classmethod
+    def _validate_youtube_url(cls, value):
         """Check the youtube url.
 
         :param str value: url to check. Can be False.
         """
-        url = self.__strip_value(value)
-        regex = self._youtube_regex
+        url = cls.__strip_value(value)
+        regex = cls._youtube_regex
         if url:
-            self._url_validation(url)
+            cls._url_validation(url)
             if not re.match(regex, url):
-                err_msg = self._youtube_error_message
+                err_msg = cls._youtube_error_message
                 raise ValidationError(err_msg)
 
     @api.one
@@ -181,17 +185,18 @@ class ResPartner(models.Model):
         """Add a constrains to the vimeo field."""
         self._validate_vimeo_url(self.vimeo)
 
-    def _validate_vimeo_url(self, value):
+    @classmethod
+    def _validate_vimeo_url(cls, value):
         """Check the vimeo url.
 
         :param str value: url to check. Can be False.
         """
-        url = self.__strip_value(value)
-        regex = self._vimeo_regex
+        url = cls.__strip_value(value)
+        regex = cls._vimeo_regex
         if url:
-            self._url_validation(url)
+            cls._url_validation(url)
             if not re.match(regex, url):
-                err_msg = self._vimeo_error_message
+                err_msg = cls._vimeo_error_message
                 raise ValidationError(err_msg)
 
     @staticmethod
