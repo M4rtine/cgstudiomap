@@ -58,19 +58,19 @@ class ResPartner(models.Model):
     _facebook_error_message = _(
         'The entry for Facebook seems not to be correct.'
         '\nA facebook account should be something '
-        'like https://www.facebook.com/'
+        'like https://www.facebook.com/ followed the name of the company.'
     )
     _youtube_regex = r'https?://(www\.)?youtube\.com/user/'
     _youtube_error_message = _(
         'The entry for Youtube seems not to be correct.'
         '\nA youtube account should start by '
-        'https://www.youtube.com'
+        'https://www.youtube.com/user/ follow by the account.'
     )
-    _vimeo_regex = r'https?://(www\.)?vimeo\.com'
+    _vimeo_regex = r'https?://(www\.)?vimeo\.com/'
     _vimeo_error_message = _(
         'The entry for Vimeo seems not to be correct.'
         '\nA vimeo account should start by '
-        'https://www.vimeo.com'
+        'https://www.vimeo.com followed by the account.'
     )
 
     @api.model

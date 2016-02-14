@@ -5,6 +5,8 @@
 
 $("#save-form").validate({
     rules: {
+        //Avoid an input to be validated while typing.
+        onkeyup: false,
         //phone numbers
         phone: {
             remote: {
@@ -56,14 +58,5 @@ $("#save-form").validate({
         facebook: {
             remote: {url: "/directory/validations/facebook", type: "post"}
         }
-    }
-});
-
-//Little script to avoid an input to be validated while typing in it
-$('#save-form').on('keyup keypress', function (e) {
-    var keyCode = e.keyCode || e.which;
-    if (keyCode === 13) {
-        e.preventDefault();
-        return false;
     }
 });
