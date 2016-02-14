@@ -243,7 +243,7 @@
                             <div class="col-xs-12 col-sm-9">
                             <div class="row">
                                 <div class="col-sm-12 tab-content">
-                                    <h1>Studio Informations /
+                                    <h1>Studio Details /
                                         <span class="tab-pane fade in active" id="title01">Common</span >
                                         <span  class="tab-pane fade" id="title02">Location</span >
                                         <span  class="tab-pane fade" id="title03">Links</span >
@@ -346,32 +346,32 @@
                                 <div class="col-sm-12">
                                     <div class="tab-content">
                                         <div class="tab-pane fade in active" id="side01">
-                                            <h2>Common information</h2>
+                                            <h2>Common Details</h2>
                                             <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side02">
-                                            <h2>Location information</h2>
+                                            <h2>Location Details</h2>
                                             <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side03">
-                                            <h2>Links information</h2>
+                                            <h2>Links Details</h2>
                                             <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side04">
-                                            <h2>Socials information</h2>
+                                            <h2>Socials Details</h2>
                                             <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side05">
-                                            <h2>Calls information</h2>
+                                            <h2>Calls Details</h2>
                                             <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side06">
-                                            <h2>Industries information</h2>
+                                            <h2>Industries Details</h2>
                                             <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
                                         </div>
 
