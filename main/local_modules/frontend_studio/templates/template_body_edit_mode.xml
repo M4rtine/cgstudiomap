@@ -1,11 +1,22 @@
 <openerp>
     <data>
         <template id="frontend_studio.save_form" name="Studio: Save Modifications">
-            <form t-att-action="'/directory/company/{}/save'.format(partner.id)"
+            <form id="save-form"
+                  style="padding-top: 100px"
+                  t-att-action="'/directory/company/{}/edit'.format(partner['id'])"
                   enctype="multipart/form-data"
                   method="POST">
                 <t t-raw="0"/>
             </form>
+        </template>
+
+        <template id="frontend_studio.back_button" name="Studio: Back To Edit Button">
+            <div class="col-xs-6 col-sm-6">
+                <p>
+                    <a t-att-href="'/directory/company/{}'.format(partner['id'])">Back </a>
+                    <span class="fontCGSMicons">play</span>
+                </p>
+            </div>
         </template>
 
         <template id="frontend_studio.save_button" name="Studio: Save Button">
@@ -14,11 +25,22 @@
                    value="Save changes"/>
         </template>
 
+        <!--Zone to inform something when wrong during the processing of new data.-->
+        <!--As there are several tabs, a unique zone will important for the UX I guess.-->
+        <template id="frontend_studio.error_zone" name="Studio: Zone to display errors">
+            <t t-if="error">
+                <div class="form-group" style="background:red">
+                    <t t-raw="error"/>
+                </div>
+            </t>
+        </template>
+
         <template id="frontend_studio.image_block" name="Studio: Block Image">
             <div class="row">
                 <!--Display of the current logo of the company-->
                 <div class="col-sm-3 col-logo">
-                    <t t-call="frontend_base.company_logo" />
+                    <t t-set="image_url" t-value="partner['image_url']"/>
+                    <t t-call="frontend_base.company_logo"/>
                 </div>
                 <!--If this checkbox is checked, the current logo of the company will be set to nothing -->
                 <!--And even if there is a picture selected by the user in the input file, the selected-->
@@ -36,24 +58,21 @@
                 <p>
                     <t t-esc="fields['name']['string']"/>
                     <input type="text"
+                           t-att-required="'required' if fields['name']['required'] else ''"
                            name="name"
                            class="search-query form-control"
-                           t-att-value="partner.name" />
+                           t-att-value="partner['name']" />
                 </p>
                 <p>
                     <t t-esc="fields['state']['string']"/>
                     <select class="form-control" name="state">
                     <t t-foreach="state_selections" t-as="selections">
                         <option t-att-value="selections[0]"
-                                t-att-selected="'selected' if selections[0] == partner.state else ''">
+                                t-att-selected="'selected' if selections[0] == partner['state'] else ''">
                             <t t-esc="selections[1]"/>
                         </option>
                     </t>
                     </select>
-                    <!--<input type="state"-->
-                           <!--t-att-name="fields['state']['string']"-->
-                           <!--class="search-query form-control"-->
-                           <!--t-att-value="partner.state" />-->
                 </p>
             </div>
 
@@ -64,41 +83,45 @@
                 <p>
                     <t t-esc="fields['street']['string']"/>
                     <input type="text"
+                           t-att-required="'required' if fields['street']['required'] else ''"
                            name="street"
                            class="search-query form-control"
-                           t-att-value="partner.street" />
+                           t-att-value="partner['street']" />
                 </p>
                 <p>
                     <t t-esc="fields['street2']['string']"/>
                     <input type="text"
+                           t-att-required="'required' if fields['street2']['required'] else ''"
                            name="street2"
                            class="search-query form-control"
-                           t-att-value="partner.street2" />
+                           t-att-value="partner['street2']" />
                 </p>
                 <p>
                     <t t-esc="fields['city']['string']"/>
                     <input type="text"
+                           t-att-required="'required' if fields['city']['required'] else ''"
                            name="city"
                            class="search-query form-control"
-                           t-att-value="partner.city" />
+                           t-att-value="partner['city']" />
                 </p>
                 <p>
                     <t t-esc="fields['zip']['string']"/>
                     <input type="text"
+                           t-att-required="'required' if fields['zip']['required'] else ''"
                            name="zip"
                            class="search-query form-control"
-                           t-att-value="partner.zip" />
+                           t-att-value="partner['zip']" />
                 </p>
                 <!--<p>-->
                     <!--<t t-esc="fields['state_id']['string']"/>-->
-                    <!--<t t-esc="partner.state_id" />,-->
+                    <!--<t t-esc="partner['state_id']" />,-->
                 <!--</p>-->
                 <p>
                     <t t-esc="fields['country_id']['string']"/>
-                    <select class="form-control" name="country_id">
+                    <select class="form-control" name="country_id" id="country-select">
                         <t t-foreach="countries" t-as="country">
                             <option t-att-value="country.id"
-                                    t-att-selected="'selected' if country.id == partner.country_id.id else ''"
+                                    t-att-selected="'selected' if country.id == partner['country_id'] else ''"
                                     >
                                 <t t-esc="country.name"/>
                             </option>
@@ -113,29 +136,32 @@
                 <p>
                     <t t-esc="fields['website']['string']"/>
                     <input type="url"
+                           t-att-required="'required' if fields['website']['required'] else ''"
                            name="website"
                            class="search-query form-control"
-                           t-att-value="partner.website" />
+                           t-att-value="partner['website']" />
                 </p>
                 <p>
                     <t t-esc="fields['email']['string']"/>
                     <input type="email"
+                           t-att-required="'required' if fields['email']['required'] else ''"
                            name="email"
                            class="search-query form-control"
-                           t-att-value="partner.email" />
+                           t-att-value="partner['email']" />
                 </p>
             </div>
         </template>
-        
+
         <template id="frontend_studio.studio_social_networks_edit" name="Studio: Edit Social Networks">
             <div class="form-group">
-                <t t-foreach="social_networks" t-as="social_network">
+                <t t-foreach="partner['social_networks']" t-as="social_network">
                     <p>
                         <t t-esc="fields[social_network]['string']"/>
                         <input type="url"
+                               t-att-required="'required' if fields[social_network]['required'] else ''"
                                t-att-name="social_network"
                                class="search-query form-control"
-                               t-att-value="getattr(partner, social_network)" />
+                               t-att-value="partner['social_networks'][social_network]" />
                     </p>
                 </t>
             </div>
@@ -143,13 +169,15 @@
 
         <template id="frontend_studio.studio_calls_edit" name="Studio: Edit Calls">
             <div class="form-group">
-                <t t-foreach="calls" t-as="call">
+                <t t-foreach="partner['calls']" t-as="call">
                     <p>
                         <t t-esc="fields[call]['string']"/>
-                        <input type="phone"
+                        <input type="tel"
+                               t-att-required="'required' if fields[call]['required'] else ''"
                                t-att-name="call"
+                               t-att-id="call"
                                class="search-query form-control"
-                               t-att-value="getattr(partner, call)" />
+                               t-att-value="partner['calls'][call]" />
                     </p>
                 </t>
             </div>
@@ -162,7 +190,7 @@
                            t-att-id='"industry_ids.{0}".format(ind.id)'
                            t-att-name='"industry_ids.{0}".format(ind.id)'
                            t-att-value="ind.id"
-                           t-att-checked="'checked' if ind in partner.industry_ids else ''"
+                           t-att-checked="'checked' if ind in partner['industry_ids'] else ''"
                     />
                     <label t-att-for='"industry_ids.{0}".format(ind.id)' t-esc="ind.name"/>
                 </t>
@@ -172,48 +200,25 @@
         <template id="frontend_studio.base_edit" name="Studio: base Edit">
             <t t-call="frontend_base.doctype_html"/>
             <t t-call="frontend_base.html">
-                <t t-set="title" t-value="'{} - edit'.format(partner.name)"/>
+                <t t-set="title" t-value="'{} - edit'.format(partner['name'])"/>
                 <t t-call="frontend_base.full_head"/>
                 <link rel="stylesheet" href="/frontend_studio/static/css/studio.css" type="text/css"/>
                 <link rel="stylesheet" href="/frontend_studio/static/css/studio-edit.css" type="text/css"/>
                 <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
-                <!-- Generic page styles -->
-                <link rel="stylesheet" href="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/css/style.css"/>
-                <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-                <link rel="stylesheet" href="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/css/jquery.fileupload.css"/>
-
-
+                <style>
+                    input:invalid {
+                        color: red;
+                    }
+                </style>
                 <t t-call="frontend_base.body">
                     <t t-raw="0"/>
                     <footer id="footer_edit" class="footer">
                     <t t-call="frontend_listing.footer_base"/>
                     </footer>
                     <t t-call="frontend_base.engine">
-                        <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/vendor/jquery.ui.widget.js"></script>
-                        <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-                        <script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
-                        <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-                        <script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
-                        <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
-                        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-                        <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.iframe-transport.js"></script>
-                        <!-- The basic File Upload plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload.js"></script>
-                        <!-- The File Upload processing plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-process.js"></script>
-                        <!-- The File Upload image preview & resize plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-image.js"></script>
-                        <!-- The File Upload audio preview plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-audio.js"></script>
-                        <!-- The File Upload video preview plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-video.js"></script>
-                        <!-- The File Upload validation plugin -->
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-9.11.2/js/jquery.fileupload-validate.js"></script>
-                        <script src="/frontend_studio/static/js/jQuery-File-Upload-call.js"></script>
-                        
-                        <script type="text/javascript" src="/frontend_studio/static/js/studio-edit.js"></script>
+                        <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
+                        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+                        <script type="text/javascript" src="/frontend_studio/static/js/form_validations.js"></script>
                     </t>
                 </t> <!-- closing body -->
             </t> <!-- closing html -->
@@ -222,10 +227,14 @@
         <template id="frontend_studio.edit" name="Studio: Edit">
             <t t-call="frontend_studio.base_edit">
 
-                <div class="container studio-edit fontCGSM">
-                    <div class="row">
-                        <t t-call="frontend_studio.save_form">
-                        <div class="col-xs-12 col-sm-9">
+                <t t-call="frontend_studio.save_form">
+
+
+                    <t t-call="frontend_studio.save_button"/>
+                    <t t-call="frontend_studio.back_button"/>
+                    <t t-call="frontend_studio.error_zone"/>
+                    <div style="background-color:white;">
+                        <div class="container studio-details fontCGSM">
                             <div class="row">
                                 <div class="col-sm-12 tab-content">
                                     <h1>Studio Informations /
@@ -312,12 +321,11 @@
 
 
                         </div>
-                        </t>
 
                         <div class="col-sm-3 sidebar-studio-edit hidden-xs">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h1 t-esc="partner.name" />
+                                    <h1 t-esc="partner['name']" />
                                     <p>{- last update date -}</p>
                                 </div>
                             </div>
@@ -364,7 +372,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </t>
 
             </t>
 

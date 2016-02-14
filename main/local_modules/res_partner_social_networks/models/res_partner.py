@@ -18,11 +18,12 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import re
 import logging
+import re
+
 from openerp import models, api, fields
-from openerp.tools.translate import _
 from openerp.exceptions import ValidationError
+from openerp.tools.translate import _
 
 _logger = logging.getLogger(__name__)
 
@@ -38,7 +39,39 @@ class ResPartner(models.Model):
     linkedin = fields.Char('Linkedin')
     facebook = fields.Char('Facebook')
     wikipedia = fields.Char('Wikipedia')
+
     # art_of_vfx = fields.Char('Art of VFX')
+
+    _twitter_regex = r'https?://(www\.)?twitter\.com/\w+'
+    _twitter_error_message = _(
+        'The entry for Twitter seems not to be correct.'
+        '\nA twitter account should be something '
+        'like https://www.twitter.com/cgstudiomap'
+    )
+    _linkedin_regex = r'https?://(www\.)?linkedin\.com/company/[\w-]+'
+    _linkedin_error_message = _(
+        'The entry for LinkedIn seems not to be correct.'
+        '\nA linkedin account should be something '
+        'like https://www.linkedin.com/company/cgstudiomap.com'
+    )
+    _facebook_regex = r'https?://(www\.)?facebook\.com/[\w-]+'
+    _facebook_error_message = _(
+        'The entry for Facebook seems not to be correct.'
+        '\nA facebook account should be something '
+        'like https://www.facebook.com/ followed the name of the company.'
+    )
+    _youtube_regex = r'https?://(www\.)?youtube\.com/user/'
+    _youtube_error_message = _(
+        'The entry for Youtube seems not to be correct.'
+        '\nA youtube account should start by '
+        'https://www.youtube.com/user/ follow by the account.'
+    )
+    _vimeo_regex = r'https?://(www\.)?vimeo\.com/'
+    _vimeo_error_message = _(
+        'The entry for Vimeo seems not to be correct.'
+        '\nA vimeo account should start by '
+        'https://www.vimeo.com followed by the account.'
+    )
 
     @api.model
     def _validate_social_network_url(self, url, regex, err_msg):
@@ -64,97 +97,106 @@ class ResPartner(models.Model):
 
     @api.one
     @api.constrains('twitter')
-    def _validate_twitter_url(self):
-        """Test against the given url against RFC requirements"""
-        url = self.__strip_value(self.twitter)
-        regex = r'https?://(www\.)?twitter\.com/\w+'
+    def _validate_twitter_url_constrains(self):
+        """Add a constrains to the twitter field."""
+        self._validate_twitter_url(self.twitter)
+
+    @classmethod
+    def _validate_twitter_url(cls, value):
+        """Test against the given url against RFC requirements.
+
+        :param str value: url to check. Can be False.
+        """
+        url = cls.__strip_value(value)
+        regex = cls._twitter_regex
         if url:
-            self._url_validation(url)
+            cls._url_validation(url)
             if not re.match(regex, url):
-                err_msg = _(
-                    (
-                        '"{}" seems not to be an twitter account.'
-                        '\nA twitter account should be something '
-                        'like https://www.twitter.com/cgstudiomap'.format(url)
-                    )
-                )
+                err_msg = cls._twitter_error_message
                 raise ValidationError(err_msg)
 
     @api.one
     @api.constrains('linkedin')
-    def _validate_linkedin_url(self):
-        """Test against the given url against RFC requirements"""
-        url = self.__strip_value(self.linkedin)
+    def _validate_linkedin_url_constrains(self):
+        """Add a constrains to the linkedin field."""
+        self._validate_linkedin_url(self.linkedin)
+
+    @classmethod
+    def _validate_linkedin_url(cls, value):
+        """Test against the given url against RFC requirements.
+
+        :param str value: url to check. Can be False.
+        """
+        url = cls.__strip_value(value)
         # Linkedin got its page tracking system embed in the url
         # then the url can be followed by ?trk...
-        regex = r'https?://(www\.)?linkedin\.com/company/[\w-]+'
+        regex = cls._linkedin_regex
         if url:
-            self._url_validation(url)
+            cls._url_validation(url)
             if not re.match(regex, url):
-                err_msg = _(
-                    (
-                        '"{}" seems not to be an linkedin account.'
-                        '\nA linkedin account should be something '
-                        'like https://www.linkedin.com/'
-                        'company/cgstudiomap.com'.format(url)
-                    )
-                )
+                err_msg = cls._linkedin_error_message
                 raise ValidationError(err_msg)
 
     @api.one
     @api.constrains('facebook')
     def _validate_facebook_url(self):
-        """Test against the given url against RFC requirements"""
-        url = self.__strip_value(self.facebook)
+        """Add a constrains to the facebook field."""
+        self._validate_facebook_url(self.facebook)
+
+    @classmethod
+    def _validate_facebook_url(cls, value):
+        """Test against the given url against RFC requirements.
+
+        :param str value: url to check. Can be False.
+        """
+        url = cls.__strip_value(value)
         # Facebook got its page tracking system embed in the url
         # then the url can be followed by ?fref...
-        regex = r'https?://(www\.)?facebook\.com/[\w-]+'
+        regex = cls._facebook_regex
         if url:
-            self._url_validation(url)
+            cls._url_validation(url)
             if not re.match(regex, url):
-                err_msg = _(
-                    (
-                        '"{}" seems not to be an facebook account.'
-                        '\nA facebook account should be something '
-                        'like https://www.facebook.com/'
-                    )
-                )
+                err_msg = cls._facebook_error_message
                 raise ValidationError(err_msg)
 
     @api.one
     @api.constrains('youtube')
-    def _validate_youtube_url(self):
-        """Check the youtube url."""
-        url = self.__strip_value(self.youtube)
-        regex = r'https?://(www\.)?youtube\.com'
+    def _validate_youtube_url_constrains(self):
+        """Add a constrains to the youtube field."""
+        self._validate_youtube_url(self.youtube)
+
+    @classmethod
+    def _validate_youtube_url(cls, value):
+        """Check the youtube url.
+
+        :param str value: url to check. Can be False.
+        """
+        url = cls.__strip_value(value)
+        regex = cls._youtube_regex
         if url:
-            self._url_validation(url)
+            cls._url_validation(url)
             if not re.match(regex, url):
-                err_msg = _(
-                    (
-                        '"{}" seems not to be an youtube account.'
-                        '\nA youtube account should start by '
-                        'https://www.youtube.com'.format(url)
-                    )
-                )
+                err_msg = cls._youtube_error_message
                 raise ValidationError(err_msg)
 
     @api.one
     @api.constrains('vimeo')
-    def _validate_vimeo_url(self):
-        """Check the vimeo url."""
-        url = self.__strip_value(self.vimeo)
-        regex = r'https?://(www\.)?vimeo\.com'
+    def _validate_vimeo_url_constrains(self):
+        """Add a constrains to the vimeo field."""
+        self._validate_vimeo_url(self.vimeo)
+
+    @classmethod
+    def _validate_vimeo_url(cls, value):
+        """Check the vimeo url.
+
+        :param str value: url to check. Can be False.
+        """
+        url = cls.__strip_value(value)
+        regex = cls._vimeo_regex
         if url:
-            self._url_validation(url)
+            cls._url_validation(url)
             if not re.match(regex, url):
-                err_msg = _(
-                    (
-                        '"{}" seems not to be an vimeo account.'
-                        '\nA vimeo account should start by '
-                        'https://www.vimeo.com'.format(url)
-                    )
-                )
+                err_msg = cls._vimeo_error_message
                 raise ValidationError(err_msg)
 
     @staticmethod
