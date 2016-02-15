@@ -13,7 +13,7 @@
         <template id="frontend_studio.back_button" name="Studio: Back To Edit Button">
                 <p>
                     <span class="fontCGSMicons">rewind</span>
-					<a t-att-href="'/directory/company/{}'.format(partner['id'])">Back </a>
+                    <a t-att-href="'/directory/company/{}'.format(partner['id'])">Back </a>
                 </p>
 
         </template>
@@ -217,7 +217,7 @@
                         <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
                         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
                         <script type="text/javascript" src="/frontend_studio/static/js/form_validations.js"></script>
-						<script type="text/javascript" src="/frontend_studio/static/js/studio-edit.js"></script>
+                        <script type="text/javascript" src="/frontend_studio/static/js/studio-edit.js"></script>
                     </t>
                 </t> <!-- closing body -->
             </t> <!-- closing html -->
@@ -227,17 +227,17 @@
             <t t-call="frontend_studio.base_edit">
 
                 <t t-call="frontend_studio.save_form">
-					
+                    
                         <div class="container studio-edit fontCGSM">
-							
-							<div class="row">
-								<div class="col-xs-12">
-									<t t-call="frontend_studio.back_button" />
-									<t t-call="frontend_studio.error_zone" />						
-								</div>
-							</div>
-						<div class="row">
-							<div class="col-xs-12 col-sm-9">
+                            
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <t t-call="frontend_studio.back_button" />
+                                    <t t-call="frontend_studio.error_zone" />                        
+                                </div>
+                            </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-9">
                             <div class="row">
                                 <div class="col-sm-12 tab-content">
                                     <h1>Studio Informations /
@@ -322,8 +322,8 @@
                                 </div>
                             </div>
 
-							</div>
-						
+                            </div>
+                        
                         
 
                         <div class="col-sm-3 sidebar-studio-edit hidden-xs">
@@ -375,8 +375,8 @@
                                 </div>
                             </div>
                         </div>
-						</div>
-					</div>
+                        </div>
+                    </div>
                 </t>
 
             </t>
