@@ -2,7 +2,7 @@
     <data>
         <template id="frontend_studio.save_form" name="Studio: Save Modifications">
             <form id="save-form"
-                  style="padding-top: 100px"
+                  style="padding-top: 50px"
                   t-att-action="'/directory/company/{}/edit'.format(partner['id'])"
                   enctype="multipart/form-data"
                   method="POST">
@@ -11,12 +11,11 @@
         </template>
 
         <template id="frontend_studio.back_button" name="Studio: Back To Edit Button">
-            <div class="col-xs-6 col-sm-6">
                 <p>
+                    <span class="fontCGSMicons">rewind</span>
                     <a t-att-href="'/directory/company/{}'.format(partner['id'])">Back </a>
-                    <span class="fontCGSMicons">play</span>
                 </p>
-            </div>
+
         </template>
 
         <template id="frontend_studio.save_button" name="Studio: Save Button">
@@ -36,9 +35,8 @@
         </template>
 
         <template id="frontend_studio.image_block" name="Studio: Block Image">
-            <div class="row">
-                <!--Display of the current logo of the company-->
-                <div class="col-sm-3 col-logo">
+
+                <div class="col-logo">
                     <t t-set="image_url" t-value="partner['image_url']"/>
                     <t t-call="frontend_base.company_logo"/>
                 </div>
@@ -50,7 +48,7 @@
                 <!--Set the logo of the company to a new logo.-->
                 <input type="file" name="image_file" accept="image/*" value="Browse for new logo..."/>
                 <!--If none of the input are selected, the current logo remains.-->
-            </div>
+
         </template>
 
         <template id="frontend_studio.studio_common_edit" name="Studio: Edit Common">
@@ -219,6 +217,7 @@
                         <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
                         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
                         <script type="text/javascript" src="/frontend_studio/static/js/form_validations.js"></script>
+                        <script type="text/javascript" src="/frontend_studio/static/js/studio-edit.js"></script>
                     </t>
                 </t> <!-- closing body -->
             </t> <!-- closing html -->
@@ -228,13 +227,17 @@
             <t t-call="frontend_studio.base_edit">
 
                 <t t-call="frontend_studio.save_form">
-
-
-                    <t t-call="frontend_studio.save_button"/>
-                    <t t-call="frontend_studio.back_button"/>
-                    <t t-call="frontend_studio.error_zone"/>
-                    <div style="background-color:white;">
-                        <div class="container studio-details fontCGSM">
+                    
+                        <div class="container studio-edit fontCGSM">
+                            
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <t t-call="frontend_studio.back_button" />
+                                    <t t-call="frontend_studio.error_zone" />                        
+                                </div>
+                            </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-9">
                             <div class="row">
                                 <div class="col-sm-12 tab-content">
                                     <h1>Studio Informations /
@@ -319,8 +322,9 @@
                                 </div>
                             </div>
 
-
-                        </div>
+                            </div>
+                        
+                        
 
                         <div class="col-sm-3 sidebar-studio-edit hidden-xs">
                             <div class="row">
@@ -370,6 +374,7 @@
 
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </t>
