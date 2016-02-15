@@ -202,7 +202,8 @@ label {
 .studio-edit p {
 	color: #323133;
 }
-.studio-edit i {
+.studio-edit i,
+.sidebar-studio-edit i{
 	font-family: 'cgsm-regular';
 	font-size: 1em;
 	font-weight: normal;
@@ -211,6 +212,9 @@ label {
 }
 .sidebar-studio-edit h1{
 	font-size: 1.44em;
+}
+.sidebar-studio-edit .row {
+	margin: 0.2em 0;
 }
 
 .btn-upload {
