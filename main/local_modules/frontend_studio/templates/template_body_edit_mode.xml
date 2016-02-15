@@ -218,6 +218,7 @@
                         <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
                         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
                         <script type="text/javascript" src="/frontend_studio/static/js/form_validations.js"></script>
+						<script type="text/javascript" src="/frontend_studio/static/js/studio-edit.js"></script>
                     </t>
                 </t> <!-- closing body -->
             </t> <!-- closing html -->
