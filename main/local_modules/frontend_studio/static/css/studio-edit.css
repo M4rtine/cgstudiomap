@@ -189,7 +189,8 @@ label {
 .sidebar-studio-edit h1{
 	font-family: 'cgsm-thin';
 }
-.studio-edit h2 {
+.studio-edit h2,
+.sidebar-studio-edit h2{
 	font-family: 'cgsm-light';
 	font-size: 1.2em;
 	color: #e2b05a;
@@ -210,8 +211,8 @@ label {
 }
 .sidebar-studio-edit h1{
 	font-size: 1.44em;
-	
 }
+
 .btn-upload {
 	font-size: 1.35em;
 	border: 2px solid #5ae2b0;
