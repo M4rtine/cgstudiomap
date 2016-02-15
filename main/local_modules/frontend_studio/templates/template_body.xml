@@ -291,7 +291,7 @@
 
         </template>
 
-        <template id="frontend_studio.save">
+        <template id="frontend_studio.thank_you">
 
             <t t-call="frontend_base.doctype_html"/>
             <t t-call="frontend_base.html">
@@ -313,13 +313,12 @@
 							<div class="row">
 								<div class="col-xs-12">
 									<h1>Thank you!</h1>
-									<h2>The company<a t-att-href="partner_url"><t t-esc="partner.name" /></a> details have been successfully updated!</h2>
+									<h2><a t-att-href="partner_url"><t t-esc="partner.name" /></a> has been successfully updated!</h2>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-12">
-									<p>Thank you for your contribution.</p>
-									<p>You can go <a t-att-href="partner_url">back</a> or <a t-att-href="map_url">look for more companies to update!</a></p>
+									<p>Check your updates <a t-att-href="partner_url">here</a> or continue your great work by <a t-att-href="map_url">updating more studios</a>!</p>
 								</div>
 							</div>
 						</div>
