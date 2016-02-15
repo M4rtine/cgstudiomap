@@ -35,9 +35,8 @@
         </template>
 
         <template id="frontend_studio.image_block" name="Studio: Block Image">
-            <div class="row">
-                <!--Display of the current logo of the company-->
-                <div class="col-sm-3 col-logo">
+
+                <div class="col-logo">
                     <t t-set="image_url" t-value="partner['image_url']"/>
                     <t t-call="frontend_base.company_logo"/>
                 </div>
@@ -49,7 +48,7 @@
                 <!--Set the logo of the company to a new logo.-->
                 <input type="file" name="image_file" accept="image/*" value="Browse for new logo..."/>
                 <!--If none of the input are selected, the current logo remains.-->
-            </div>
+
         </template>
 
         <template id="frontend_studio.studio_common_edit" name="Studio: Edit Common">
