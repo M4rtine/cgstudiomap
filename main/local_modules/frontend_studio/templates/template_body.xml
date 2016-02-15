@@ -291,28 +291,51 @@
 
         </template>
 
-        <!--Template to thank the user that update a card directory-->
-        <template id="frontend_studio.thank_you" name="Studio: Thank you!">
-            <t t-call="frontend_base.layout">
-                <div id="wrap" style="padding-top:200px">
+        <template id="frontend_studio.thank_you">
+
+            <t t-call="frontend_base.doctype_html"/>
+            <t t-call="frontend_base.html">
+                <t t-set="title" t-value="partner.name"/>
+                <t t-call="frontend_base.full_head"/>
+                <link rel="stylesheet" href="/frontend_studio/static/css/studio.css" type="text/css"/>
+				<link rel="stylesheet" href="/frontend_studio/static/css/studio-save.css" type="text/css"/>
+
+                <t t-call="frontend_base.body">
                     <t t-raw="0"/>
-                    <div class="oe_structure oe_empty">
-                        <div class="container">
-                            <h1 class="mt32">Thank you!</h1>
-                            <p>
-                                The company <a t-att-href="partner_url"><t t-esc="partner.name"/></a> details have been successfully updated!
 
-                                Thank you for your contribution.
-                            </p>
-                            <p>You can go back to the <a t-att-href="partner_url">page of the company</a> or <a t-att-href="map_url">look for more companies to update!</a></p>
-                        </div>
-                    </div>
+					<div class="full v-align fontCGSMlight">
+						<div class="container">
+							<div class="row">
+								<div class="col-xs-12">
+									<span id="love"></span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<h1>Thank you!</h1>
+									<h2><a t-att-href="partner_url"><t t-esc="partner.name" /></a> has been successfully updated!</h2>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<p>Check your updates <a t-att-href="partner_url">here</a> or continue your great work by <a t-att-href="map_url">updating more studios</a>!</p>
+								</div>
+							</div>
+						</div>
 
-                    <t t-if="request.debug">
-                        <t t-call="website.http_error_debug"/>
+
+					</div>
+
+					<t t-if="request.debug">
+						<t t-call="website.http_error_debug" />
+					</t>
+
+                    <t t-call="frontend_base.engine">
+
                     </t>
-                </div>
+                </t>
             </t>
+
         </template>
 
     </data>

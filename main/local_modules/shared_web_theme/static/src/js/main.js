@@ -22,7 +22,9 @@
         $(".stats div").each(function( index ) {
             loadSVG(this, "/shared_web_theme/static/src/svg/__stats-bg.svg");
          });
-
+		 
+		 
+        loadSVG("#love", "/shared_web_theme/static/src/svg/__heart.svg");
 
 		/* ---------------------------------------------- /*
 		 * Smooth scroll / Scroll To Top

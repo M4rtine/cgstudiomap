@@ -7268,6 +7268,15 @@ body {
     top: 10px;
     opacity: 0; } }
 /* ---------------------------------------------- /*
+ * Vertical Align
+/* ---------------------------------------------- */
+.v-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; }
+
+/* ---------------------------------------------- /*
  * SVG
 /* ---------------------------------------------- */
 #social-icon .anim-github,
