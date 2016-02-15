@@ -10,7 +10,6 @@ from openerp.exceptions import ValidationError, except_orm
 from openerp.http import request
 
 _logger = logging.getLogger(__name__)
-_logger.setLevel(logging.DEBUG)
 
 partner_url = '/directory/company'
 
@@ -66,7 +65,9 @@ class Studio(Base):
         :return: request.render
         """
         return request.website.render(
-            'frontend_studio.edit', self.get_values_for_edition_page(partner)
+            'frontend_studio.edit', self.get_values_for_edition_page(
+                partner=partner
+            )
         )
 
     @statsd.timed(
@@ -83,20 +84,32 @@ class Studio(Base):
         values['create'] = True
         return request.website.render('frontend_studio.edit', values)
 
-    def get_values_for_edition_page(self, partner=None):
+    def get_values_for_edition_page(self, partner=None, kwargs=None):
         """Gather the details needed to render page that edit or create a
         partner. If a partner is given, the value are built from it.
 
         :param object partner: record of a res.partner. Default: None.
+        :param dict kwargs: mapping of values to work with.
+            kwargs most likely come from an edition page (edit or create).
+            The aim here is to remap the values in kwargs to be processed
+            in the edition page.
 
         :return: mapping of the value to render the page with.
         :rtype: dict
         """
         values = self.common_values()
+        partner_pool = request.env['res.partner']
         if partner:
+            # map the values of a res.partner record to a structure that
+            # an edition page will process.
             partner_values = partner.build_values_from_partner()
+        elif kwargs:
+            # remap the values in kwargs to a structure that can be processed
+            # by an edition page.
+            partner_values = partner_pool.build_values_from_kwargs(kwargs)
         else:
-            partner_pool = request.env['res.partner']
+            # get the empty dict that will allow to render an edition page
+            # with all fields as empty.
             partner_values = partner_pool.get_partner_values()
 
         values['partner'] = partner_values
@@ -159,7 +172,7 @@ class StudioPost(Studio):
 
             # if a validation error has been raised,
             # we go back to the edit page, so the user can fix the error.
-            values = self.get_values_for_edition_page(partner)
+            values = self.get_values_for_edition_page(partner=partner)
             # website is part of the kwargs, but it interfers with a call of
             # website module.
             del kwargs['website']
@@ -196,7 +209,7 @@ class StudioPost(Studio):
             partner = partner_pool.create_from_post_request(kwargs)
         except (ValidationError, except_orm) as err:
 
-            values = self.get_values_for_edition_page()
+            values = self.get_values_for_edition_page(kwargs=kwargs)
             del kwargs['website']
             values.update(kwargs)
             values['error'] = err[-1]

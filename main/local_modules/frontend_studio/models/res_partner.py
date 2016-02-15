@@ -2,6 +2,7 @@
 """Suite of methods common operation on res.partner."""
 import base64
 import logging
+import pprint
 import random
 
 from openerp import api, models, fields
@@ -146,7 +147,6 @@ class ResPartnerSave(models.Model):
             self.street2 and self.street2.encode('utf8') or '',
             self.city and self.city.encode('utf8') or '',
             self.state_id and self.state_id.name.encode('utf8') or '',
-            # '{0}'.format(self.country_id.name.encode('utf8')),
             ])
 
     full_location = fields.Char(
@@ -196,6 +196,55 @@ class ResPartnerEdition(models.Model):
             }
 
         }
+
+    @api.model
+    def build_values_from_kwargs(self, raw_data):
+        """Remap the data in kwargs to a mapping that can be processed by
+        edition pages.
+
+        For the context, the edition pages when they are process on the server
+        can still have error then a write or a create will raise a error. Then
+        the data that were supposed to be saved in the partner have to be
+        remapped to match what the edition page waits for.
+
+        :param dict raw_data: data from partner.
+
+        :return: remapped data as dict.
+        """
+        _logger.debug('kwargs: %s', pprint.pformat(raw_data))
+        partner_values = self.get_partner_values()
+        _logger.debug('partner_values: %s', pprint.pformat(partner_values))
+
+        industry_ids = []
+
+        for key, value in raw_data.iteritems():
+
+            # industries are separated in the raw_data, not part of a single
+            # list as expected by the page.
+            if 'industry_ids' in key:
+                industry_ids.append(int(value))
+
+            elif key in partner_values:
+
+                # country_id is a string but edition page waits it to be a int
+                if key in ['country_id']:
+                    value = int(value)
+
+                partner_values[key] = value
+
+            elif key in partner_values['calls']:
+                partner_values['calls'][key] = value
+
+            elif key in partner_values['social_networks']:
+                partner_values['social_networks'][key] = value
+
+        if industry_ids:
+            industries = self.env['res.industry']
+            partner_values['industry_ids'] = industries.browse(industry_ids)
+
+        _logger.debug('updated partner_values: %s', pprint.pformat(partner_values))
+
+        return partner_values
 
     @api.model
     def build_values_from_partner(self):
