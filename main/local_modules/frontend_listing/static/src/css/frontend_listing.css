@@ -780,7 +780,15 @@ footer .name{
         display: inline-block;
     }
 	#map {
-		top: 205px;
+		top: 165px;
+	}
+	.filters {
+		font-size: 1.05em;
+		line-height: 2.9em; 
+		padding-left: 0.33em;
+	}
+	.navDirectory {
+		padding-bottom: 0;
 	}
 }
 @media (min-width: 767px) and (max-width: 992px) {

@@ -119,6 +119,20 @@
             </div>
         </template>
 
+        <template id="frontend_listing.force_cache_reset_button" name="Studio: Button to reset the cache">
+            <form t-att-action="keep(url, search=search, company_status=company_status)" method="get">
+                <div class="col-sm-2" groups="res_group_archetype.group_archetype_contributor">
+                    <div class="input-group">
+                        <input type="hidden" name='company_status' t-att-value="company_status"/>
+                        <input type="hidden" name='search' t-att-value="search"/>
+                        <input type="hidden" name='force_cache_reset' value="1"/>
+                        <input type='submit' class="a-submit" value="Force Cache Reset"
+                               title="Reset of the cache will force the system to reconsider positions of markers. Dedicated Contributors Only."
+                        />
+                    </div>
+                </div>
+            </form>
+        </template>
 	
         <template id="frontend_listing.base" name="Base for listing of companies">
             <t t-call="frontend_base.doctype_html"/>
@@ -163,7 +177,9 @@
                                     <t t-call="frontend_base.company_counter" />
                                 </div>
                             </div>
+
                         </div>
+                        <t t-call="frontend_listing.force_cache_reset_button"/>
                     </div>
 
                     <t t-raw="0"/>
