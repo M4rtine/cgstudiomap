@@ -29,6 +29,7 @@
     'summary': 'Base for frontend pages.',
     'depends': [
         'website',
+        'res_group_archetype',
         'res_partner_industry',
     ],
     'data': [

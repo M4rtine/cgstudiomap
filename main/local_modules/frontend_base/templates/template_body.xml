@@ -25,7 +25,8 @@
                               <!--<li groups="base.group_public">Already have an account?</li>-->
                               <li groups="base.group_public"><a t-attf-href="/web/login">or <b>Sign in</b></a></li>
 
-                              <li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>
+                              <!--<li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>-->
+
                               <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
 						  </ul>
 						</div>	
@@ -40,7 +41,7 @@
 								<li groups="base.group_public"><a t-attf-href="/web/signup">Sign up</a></li>
 								<li groups="base.group_public"><a t-attf-href="/web/login">Sign in</a></li>
 								<li t-ignore="true" t-if="website.user_id != user_id" class="divider"/>
-                                <li t-ignore="true" t-if="website.user_id != user_id"><a t-att-href="user_menu" role="menuitem">My Account</a></li>
+                                <!--<li t-ignore="true" t-if="website.user_id != user_id"><a t-att-href="user_menu" role="menuitem">My Account</a></li>-->
                                 <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
 							</div>
 							
@@ -228,13 +229,18 @@
             <t t-call="frontend_base.company_logo"/>
         </template>
 
+        <template id="frontend_base.beta_tester" name="Component visible to beta testers">
+           <div groups="res_group_archetype.group_archetype_beta_tester">
+               <t t-raw="0"/>
+           </div>
+        </template>
+
         <template id="frontend_base.layout" name="Base for simple page">
             <t t-call="frontend_base.doctype_html"/>
             <t t-call="frontend_base.html">
                 <t t-call="frontend_base.full_head"/>
                 <t t-call="frontend_base.body">
                     <t t-raw="0"/>
-                    <!--<t t-call="frontend_base.footer"/>-->
                     <t t-call="frontend_base.engine"/>
                 </t> <!-- closing body -->
             </t> <!-- closing html -->
