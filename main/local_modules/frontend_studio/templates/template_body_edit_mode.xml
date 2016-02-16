@@ -1,27 +1,37 @@
 <openerp>
     <data>
         <template id="frontend_studio.save_form" name="Studio: Save Modifications">
-            <form id="save-form"
-                  style="padding-top: 50px"
-                  t-att-action="'/directory/company/{}/edit'.format(partner['id'])"
-                  enctype="multipart/form-data"
-                  method="POST">
-                <t t-raw="0"/>
-            </form>
-        </template>
-
-        <template id="frontend_studio.back_button" name="Studio: Back To Edit Button">
-                <p>
-                    <span class="fontCGSMicons">rewind</span>
-                    <a t-att-href="'/directory/company/{}'.format(partner['id'])">Back </a>
-                </p>
-
+            <!--validated-form is required by form-validations.js to check the form-->
+            <t t-if="create">
+                <!--Form the create a new entry-->
+                <form id="validated-form"
+                      style="padding-top: 50px"
+                      action="/directory/company/create"
+                      enctype="multipart/form-data"
+                      method="POST">
+                    <t t-raw="0"/>
+                </form>
+            </t>
+            <t t-if="not create">
+                <!--Form to update an entry-->
+                <form id="validated-form"
+                      style="padding-top: 50px"
+                      t-att-action="'/directory/company/{}/edit'.format(partner['id'])"
+                      enctype="multipart/form-data"
+                      method="POST">
+                    <t t-raw="0"/>
+                </form>
+            </t>
         </template>
 
         <template id="frontend_studio.save_button" name="Studio: Save Button">
-            <input type='submit'
-                   class="btn btn-save a-submit pull-right"
-                   value="Save changes"/>
+            <t t-if="create">
+                <input type='submit' class="btn btn-save a-submit pull-right" value="Create new company"/>
+            </t>
+            <t t-if="not create">
+                <input type='submit' class="btn btn-save a-submit pull-right" value="Save Changes"/>
+            </t>
+
         </template>
 
         <!--Zone to inform something when wrong during the processing of new data.-->
@@ -203,11 +213,6 @@
                 <link rel="stylesheet" href="/frontend_studio/static/css/studio.css" type="text/css"/>
                 <link rel="stylesheet" href="/frontend_studio/static/css/studio-edit.css" type="text/css"/>
                 <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
-                <style>
-                    input:invalid {
-                        color: red;
-                    }
-                </style>
                 <t t-call="frontend_base.body">
                     <t t-raw="0"/>
                     <footer id="footer_edit" class="footer">
@@ -227,20 +232,19 @@
             <t t-call="frontend_studio.base_edit">
 
                 <t t-call="frontend_studio.save_form">
-                    
+
                         <div class="container studio-edit fontCGSM">
-                            
+
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <t t-call="frontend_studio.back_button" />
-                                    <t t-call="frontend_studio.error_zone" />                        
+                                    <t t-call="frontend_studio.error_zone" />
                                 </div>
                             </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-9">
                             <div class="row">
                                 <div class="col-sm-12 tab-content">
-                                    <h1>Studio Informations /
+                                    <h1>Studio Details /
                                         <span class="tab-pane fade in active" id="title01">Common</span >
                                         <span  class="tab-pane fade" id="title02">Location</span >
                                         <span  class="tab-pane fade" id="title03">Links</span >
@@ -323,50 +327,52 @@
                             </div>
 
                             </div>
-                        
-                        
+
+
 
                         <div class="col-sm-3 sidebar-studio-edit hidden-xs">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h1 t-esc="partner['name']" />
-                                    <p>{- last update date -}</p>
+                            <t t-if="not create">
+                                <!--Irrevelant information in the case of a create-->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h1 t-esc="partner['name']" />
+                                        <p t-esc="partner['write_date']"/>
+                                    </div>
                                 </div>
-                            </div>
+                            </t>
 
-
-
+                            <t t-call="frontend_studio.error_zone"/>
 
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="tab-content">
                                         <div class="tab-pane fade in active" id="side01">
-                                            <h2>Common information</h2>
+                                            <h2>Common Details</h2>
                                             <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side02">
-                                            <h2>Location information</h2>
+                                            <h2>Location Details</h2>
                                             <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side03">
-                                            <h2>Links information</h2>
+                                            <h2>Links Details</h2>
                                             <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side04">
-                                            <h2>Socials information</h2>
+                                            <h2>Socials Details</h2>
                                             <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side05">
-                                            <h2>Calls information</h2>
+                                            <h2>Calls Details</h2>
                                             <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side06">
-                                            <h2>Industries information</h2>
+                                            <h2>Industries Details</h2>
                                             <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
                                         </div>
 

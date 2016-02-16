@@ -2,8 +2,8 @@
  * Created by foutoucour on 2/13/16.
  */
 
-
-$("#save-form").validate({
+//Script to ensure the data in the form are following our requirements.
+$("#validated-form").validate({
     rules: {
         //Avoid an input to be validated while typing.
         onkeyup: false,

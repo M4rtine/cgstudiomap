@@ -2,10 +2,10 @@
 """Suite of methods common operation on res.partner."""
 import base64
 import logging
+import pprint
 import random
-import re
 
-from openerp import api, models
+from openerp import api, models, fields
 
 _logger = logging.getLogger(__name__)
 
@@ -127,6 +127,155 @@ class ResPartnerSave(models.Model):
         return values
 
     @api.model
+    def create_from_post_request(self, kwargs):
+        """Process a create from data coming from a post request."""
+        values = self.clean_values_from_post_request(**kwargs)
+        # Users are only allowed to create companies.
+        values['is_company'] = True
+        return self.create(values)
+
+    @api.model
     def write_from_post_request(self, kwargs):
         """Process a write from data coming from a post request."""
         return self.write(self.clean_values_from_post_request(**kwargs))
+
+    @api.one
+    def full_location_studio_page(self):
+        """Return the address as oneliner."""
+        self.full_location = ', '.join([
+            self.street and self.street.encode('utf8') or '',
+            self.street2 and self.street2.encode('utf8') or '',
+            self.city and self.city.encode('utf8') or '',
+            self.state_id and self.state_id.name.encode('utf8') or '',
+            ])
+
+    full_location = fields.Char(
+        'Full Location', compute='full_location_studio_page'
+    )
+
+
+class ResPartnerEdition(models.Model):
+    """Overcharge the definition of a partner to add methods for edit and
+    create pages.
+    """
+    _inherit = 'res.partner'
+
+    @staticmethod
+    def get_partner_values():
+        """Return the set of data to build edit/create view.
+
+        :return: dict
+        """
+        return {
+            'id': 0,
+            'write_date': '',
+            'image_url': '',
+            'name': '',
+            'website': '',
+            'email': '',
+            'state': '',
+            'street': '',
+            'street2': '',
+            'city': '',
+            'zip': '',
+            'industry_ids': [],
+            'country_id': 0,
+            # social network urls
+            'social_networks': {
+                'twitter': '',
+                'youtube': '',
+                'vimeo': '',
+                'linkedin': '',
+                'facebook': '',
+            },
+            # phone numbers
+            'calls': {
+                'phone': '',
+                'mobile': '',
+                'fax': '',
+            }
+
+        }
+
+    @api.model
+    def build_values_from_kwargs(self, raw_data):
+        """Remap the data in kwargs to a mapping that can be processed by
+        edition pages.
+
+        For the context, the edition pages when they are process on the server
+        can still have error then a write or a create will raise a error. Then
+        the data that were supposed to be saved in the partner have to be
+        remapped to match what the edition page waits for.
+
+        :param dict raw_data: data from partner.
+
+        :return: remapped data as dict.
+        """
+        _logger.debug('kwargs: %s', pprint.pformat(raw_data))
+        partner_values = self.get_partner_values()
+        _logger.debug('partner_values: %s', pprint.pformat(partner_values))
+
+        industry_ids = []
+
+        for key, value in raw_data.iteritems():
+
+            # industries are separated in the raw_data, not part of a single
+            # list as expected by the page.
+            if 'industry_ids' in key:
+                industry_ids.append(int(value))
+
+            elif key in partner_values:
+
+                # country_id is a string but edition page waits it to be a int
+                if key in ['country_id']:
+                    value = int(value)
+
+                partner_values[key] = value
+
+            elif key in partner_values['calls']:
+                partner_values['calls'][key] = value
+
+            elif key in partner_values['social_networks']:
+                partner_values['social_networks'][key] = value
+
+        if industry_ids:
+            industries = self.env['res.industry']
+            partner_values['industry_ids'] = industries.browse(industry_ids)
+
+        _logger.debug('updated partner_values: %s', pprint.pformat(partner_values))
+
+        return partner_values
+
+    @api.model
+    def build_values_from_partner(self):
+        """Fill up the partner_value from a partner record.
+
+        :return: dict
+        """
+        websites = self.env['website']
+        partner_values = self.get_partner_values()
+        partner_values['id'] = self.id
+        partner_values['write_date'] = self.write_date
+        partner_values['name'] = self.name
+        partner_values['image_url'] = websites.image_url(
+            self, 'image_medium', size='256x256'
+        )
+        partner_values['website'] = self.website
+        partner_values['email'] = self.email
+        partner_values['state'] = self.state
+        partner_values['street'] = self.street
+        partner_values['street2'] = self.street2
+        partner_values['city'] = self.city
+        partner_values['zip'] = self.zip
+        partner_values['industry_ids'] = self.industry_ids
+        partner_values['country_id'] = self.country_id.id
+        partner_values['calls']['phone'] = self.phone
+        partner_values['calls']['mobile'] = self.mobile
+        partner_values['calls']['fax'] = self.fax
+        partner_values['social_networks']['linkedin'] = self.linkedin
+        partner_values['social_networks']['vimeo'] = self.vimeo
+        partner_values['social_networks']['youtube'] = self.youtube
+        partner_values['social_networks']['twitter'] = self.twitter
+        partner_values['social_networks']['facebook'] = self.facebook
+
+        return partner_values

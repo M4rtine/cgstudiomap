@@ -33,6 +33,7 @@
         'frontend_listing',  # url of the map page.
         'main_data',  # for state
         'res_partner_location_validation',
+        'res_partner_social_networks',
     ],
     'data': [
         'templates/template_body.xml',
