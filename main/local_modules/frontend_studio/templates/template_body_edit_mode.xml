@@ -1,0 +1,392 @@
+<openerp>
+    <data>
+        <template id="frontend_studio.save_form" name="Studio: Save Modifications">
+            <!--validated-form is required by form-validations.js to check the form-->
+            <t t-if="create">
+                <!--Form the create a new entry-->
+                <form id="validated-form"
+                      style="padding-top: 50px"
+                      action="/directory/company/create"
+                      enctype="multipart/form-data"
+                      method="POST">
+                    <t t-raw="0"/>
+                </form>
+            </t>
+            <t t-if="not create">
+                <!--Form to update an entry-->
+                <form id="validated-form"
+                      style="padding-top: 50px"
+                      t-att-action="'/directory/company/{}/edit'.format(partner['id'])"
+                      enctype="multipart/form-data"
+                      method="POST">
+                    <t t-raw="0"/>
+                </form>
+            </t>
+        </template>
+
+        <template id="frontend_studio.save_button" name="Studio: Save Button">
+            <t t-if="create">
+                <input type='submit' class="btn btn-save a-submit pull-right" value="Create new company"/>
+            </t>
+            <t t-if="not create">
+                <input type='submit' class="btn btn-save a-submit pull-right" value="Save Changes"/>
+            </t>
+
+        </template>
+
+        <!--Zone to inform something when wrong during the processing of new data.-->
+        <!--As there are several tabs, a unique zone will important for the UX I guess.-->
+        <template id="frontend_studio.error_zone" name="Studio: Zone to display errors">
+            <t t-if="error">
+                <div class="form-group" style="background:red">
+                    <t t-raw="error"/>
+                </div>
+            </t>
+        </template>
+
+        <template id="frontend_studio.image_block" name="Studio: Block Image">
+
+                <div class="col-logo">
+                    <t t-set="image_url" t-value="partner['image_url']"/>
+                    <t t-call="frontend_base.company_logo"/>
+                </div>
+                <!--If this checkbox is checked, the current logo of the company will be set to nothing -->
+                <!--And even if there is a picture selected by the user in the input file, the selected-->
+                <!--image will be ignore to reset the logo to the placeholder-->
+                <input type="checkbox" id="box1" name='remove_image' value="remove_image"/>
+                <label for="box1" class="pull-right">Check to clean current image</label>
+                <!--Set the logo of the company to a new logo.-->
+                <input type="file" name="image_file" accept="image/*" value="Browse for new logo..."/>
+                <!--If none of the input are selected, the current logo remains.-->
+
+        </template>
+
+        <template id="frontend_studio.studio_common_edit" name="Studio: Edit Common">
+            <div class="form-group">
+                <p>
+                    <t t-esc="fields['name']['string']"/>
+                    <input type="text"
+                           t-att-required="'required' if fields['name']['required'] else ''"
+                           name="name"
+                           class="search-query form-control"
+                           t-att-value="partner['name']" />
+                </p>
+                <p>
+                    <t t-esc="fields['state']['string']"/>
+                    <select class="form-control" name="state">
+                    <t t-foreach="state_selections" t-as="selections">
+                        <option t-att-value="selections[0]"
+                                t-att-selected="'selected' if selections[0] == partner['state'] else ''">
+                            <t t-esc="selections[1]"/>
+                        </option>
+                    </t>
+                    </select>
+                </p>
+            </div>
+
+        </template>
+
+        <template id="frontend_studio.studio_address_edit" name="Studio: Edit Address">
+            <div class="form-group">
+                <p>
+                    <t t-esc="fields['street']['string']"/>
+                    <input type="text"
+                           t-att-required="'required' if fields['street']['required'] else ''"
+                           name="street"
+                           class="search-query form-control"
+                           t-att-value="partner['street']" />
+                </p>
+                <p>
+                    <t t-esc="fields['street2']['string']"/>
+                    <input type="text"
+                           t-att-required="'required' if fields['street2']['required'] else ''"
+                           name="street2"
+                           class="search-query form-control"
+                           t-att-value="partner['street2']" />
+                </p>
+                <p>
+                    <t t-esc="fields['city']['string']"/>
+                    <input type="text"
+                           t-att-required="'required' if fields['city']['required'] else ''"
+                           name="city"
+                           class="search-query form-control"
+                           t-att-value="partner['city']" />
+                </p>
+                <p>
+                    <t t-esc="fields['zip']['string']"/>
+                    <input type="text"
+                           t-att-required="'required' if fields['zip']['required'] else ''"
+                           name="zip"
+                           class="search-query form-control"
+                           t-att-value="partner['zip']" />
+                </p>
+                <!--<p>-->
+                    <!--<t t-esc="fields['state_id']['string']"/>-->
+                    <!--<t t-esc="partner['state_id']" />,-->
+                <!--</p>-->
+                <p>
+                    <t t-esc="fields['country_id']['string']"/>
+                    <select class="form-control" name="country_id" id="country-select">
+                        <t t-foreach="countries" t-as="country">
+                            <option t-att-value="country.id"
+                                    t-att-selected="'selected' if country.id == partner['country_id'] else ''"
+                                    >
+                                <t t-esc="country.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </p>
+            </div>
+        </template>
+
+        <template id="frontend_studio.studio_links_edit" name="Studio: Edit Links">
+            <div class="form-group">
+                <p>
+                    <t t-esc="fields['website']['string']"/>
+                    <input type="url"
+                           t-att-required="'required' if fields['website']['required'] else ''"
+                           name="website"
+                           class="search-query form-control"
+                           t-att-value="partner['website']" />
+                </p>
+                <p>
+                    <t t-esc="fields['email']['string']"/>
+                    <input type="email"
+                           t-att-required="'required' if fields['email']['required'] else ''"
+                           name="email"
+                           class="search-query form-control"
+                           t-att-value="partner['email']" />
+                </p>
+            </div>
+        </template>
+
+        <template id="frontend_studio.studio_social_networks_edit" name="Studio: Edit Social Networks">
+            <div class="form-group">
+                <t t-foreach="partner['social_networks']" t-as="social_network">
+                    <p>
+                        <t t-esc="fields[social_network]['string']"/>
+                        <input type="url"
+                               t-att-required="'required' if fields[social_network]['required'] else ''"
+                               t-att-name="social_network"
+                               class="search-query form-control"
+                               t-att-value="partner['social_networks'][social_network]" />
+                    </p>
+                </t>
+            </div>
+        </template>
+
+        <template id="frontend_studio.studio_calls_edit" name="Studio: Edit Calls">
+            <div class="form-group">
+                <t t-foreach="partner['calls']" t-as="call">
+                    <p>
+                        <t t-esc="fields[call]['string']"/>
+                        <input type="tel"
+                               t-att-required="'required' if fields[call]['required'] else ''"
+                               t-att-name="call"
+                               t-att-id="call"
+                               class="search-query form-control"
+                               t-att-value="partner['calls'][call]" />
+                    </p>
+                </t>
+            </div>
+        </template>
+
+        <template id="frontend_studio.studio_industries_edit" name="Studio: Edit Industries">
+            <div class="form-group">
+                <t t-foreach="industries" t-as="ind">
+                    <input type="checkbox"
+                           t-att-id='"industry_ids.{0}".format(ind.id)'
+                           t-att-name='"industry_ids.{0}".format(ind.id)'
+                           t-att-value="ind.id"
+                           t-att-checked="'checked' if ind in partner['industry_ids'] else ''"
+                    />
+                    <label t-att-for='"industry_ids.{0}".format(ind.id)' t-esc="ind.name"/>
+                </t>
+            </div>
+        </template>
+
+        <template id="frontend_studio.base_edit" name="Studio: base Edit">
+            <t t-call="frontend_base.doctype_html"/>
+            <t t-call="frontend_base.html">
+                <t t-set="title" t-value="'{} - edit'.format(partner['name'])"/>
+                <t t-call="frontend_base.full_head"/>
+                <link rel="stylesheet" href="/frontend_studio/static/css/studio.css" type="text/css"/>
+                <link rel="stylesheet" href="/frontend_studio/static/css/studio-edit.css" type="text/css"/>
+                <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
+                <t t-call="frontend_base.body">
+                    <t t-raw="0"/>
+                    <footer id="footer_edit" class="footer">
+                    <t t-call="frontend_listing.footer_base"/>
+                    </footer>
+                    <t t-call="frontend_base.engine">
+                        <script type="text/javascript" src="/frontend_studio/static/js/geocharts_marker.js"></script>
+                        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+                        <script type="text/javascript" src="/frontend_studio/static/js/form_validations.js"></script>
+                        <script type="text/javascript" src="/frontend_studio/static/js/studio-edit.js"></script>
+                    </t>
+                </t> <!-- closing body -->
+            </t> <!-- closing html -->
+        </template>
+
+        <template id="frontend_studio.edit" name="Studio: Edit">
+            <t t-call="frontend_studio.base_edit">
+
+                <t t-call="frontend_studio.save_form">
+
+                        <div class="container studio-edit fontCGSM">
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <t t-call="frontend_studio.error_zone" />
+                                </div>
+                            </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-9">
+                            <div class="row">
+                                <div class="col-sm-12 tab-content">
+                                    <h1>Studio Details /
+                                        <span class="tab-pane fade in active" id="title01">Common</span >
+                                        <span  class="tab-pane fade" id="title02">Location</span >
+                                        <span  class="tab-pane fade" id="title03">Links</span >
+                                        <span  class="tab-pane fade" id="title04">Socials</span >
+                                        <span  class="tab-pane fade" id="title05">Calls</span >
+                                        <span class="tab-pane fade" id="title06">Industries</span >
+                                    </h1>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#01" data-target="#01, #side01, #title01" data-toggle="tab">Common</a></li>
+                                        <li><a href="#02" data-target="#02, #side02, #title02" data-toggle="tab">Location</a></li>
+                                        <li><a href="#03" data-target="#03, #side03, #title03" data-toggle="tab">Links</a></li>
+                                        <li><a href="#04" data-target="#04, #side04, #title04" data-toggle="tab">Socials</a></li>
+                                        <li><a href="#05" data-target="#05, #side05, #title05" data-toggle="tab">Calls</a></li>
+                                        <li><a href="#06" data-target="#06, #side06, #title06" data-toggle="tab">Industries</a></li>
+                                        <t t-call="frontend_studio.save_button"/>
+                                    </ul>
+
+                                </div>
+                            </div>
+
+
+                            <div class="tab-content edit-form">
+
+                                <div class="tab-pane fade in active" id="01">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.studio_common_edit"/>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.image_block"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="tab-pane fade" id="02">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.studio_address_edit"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="03">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.studio_links_edit"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="04">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.studio_social_networks_edit"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="05">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.studio_calls_edit"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="06">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <t t-call="frontend_studio.studio_industries_edit"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            </div>
+
+
+
+                        <div class="col-sm-3 sidebar-studio-edit hidden-xs">
+                            <t t-if="not create">
+                                <!--Irrevelant information in the case of a create-->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h1 t-esc="partner['name']" />
+                                        <p t-esc="partner['write_date']"/>
+                                    </div>
+                                </div>
+                            </t>
+
+                            <t t-call="frontend_studio.error_zone"/>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="side01">
+                                            <h2>Common Details</h2>
+                                            <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="side02">
+                                            <h2>Location Details</h2>
+                                            <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="side03">
+                                            <h2>Links Details</h2>
+                                            <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="side04">
+                                            <h2>Socials Details</h2>
+                                            <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="side05">
+                                            <h2>Calls Details</h2>
+                                            <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="side06">
+                                            <h2>Industries Details</h2>
+                                            <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </t>
+
+            </t>
+
+        </template>
+    </data>
+</openerp>

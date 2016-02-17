@@ -9,7 +9,7 @@
 						<span class="navbar-text navbar-left"><a href="/" class="navbar-link"><span id="logo-nav"></span></a></span>
 						
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-							<span id="toggle"></span>
+							<span class="fontCGSMicons">menu</span>
                         </button>
 						
                     </div>
@@ -17,7 +17,7 @@
 					<div class="navbar-collapse collapse">
 
 						<div class="dropdown navbar-text navbar-right hidden-xs">
-							<button id="dLabel" class="btn btn-connect" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-power-off fa-2x"/></button>
+							<button id="dLabel" class="btn btn-connect" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fontCGSMicons">power</span></button>
 
 						  <ul class="dropdown-menu" aria-labelledby="dLabel">
                               <li groups="base.group_public"><a t-attf-href="/web/signup"><h4>Sign up</h4></a></li>
@@ -25,7 +25,8 @@
                               <!--<li groups="base.group_public">Already have an account?</li>-->
                               <li groups="base.group_public"><a t-attf-href="/web/login">or <b>Sign in</b></a></li>
 
-                              <li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>
+                              <!--<li t-ignore="true" t-if="website.user_id != user_id"><a href="/web" role="menuitem">My Account</a></li>-->
+
                               <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
 						  </ul>
 						</div>	
@@ -40,7 +41,7 @@
 								<li groups="base.group_public"><a t-attf-href="/web/signup">Sign up</a></li>
 								<li groups="base.group_public"><a t-attf-href="/web/login">Sign in</a></li>
 								<li t-ignore="true" t-if="website.user_id != user_id" class="divider"/>
-                                <li t-ignore="true" t-if="website.user_id != user_id"><a t-att-href="user_menu" role="menuitem">My Account</a></li>
+                                <!--<li t-ignore="true" t-if="website.user_id != user_id"><a t-att-href="user_menu" role="menuitem">My Account</a></li>-->
                                 <li t-ignore="true" t-if="website.user_id != user_id" ><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
 							</div>
 							
@@ -195,24 +196,43 @@
         <!--<t t-set="ind" t-value="{value_for_ind}"/>-->
         <!--<t t-call="frontend_base.industry_tag"/>-->
         <template id="frontend_base.industry_tag" name="Industry Tag">
-            <!--Uncomment this part when the directory is released!-->
-            <!--<a itemprop="name" t-att-href="'/directory?search=%s' % ind.name">-->
+            <a itemprop="name"
+               t-att-href="'/directory?search=%s' % ind.name"
+               title="Click to search for companies with the same industry.">
                 <span class="label label-info" t-esc="ind.name"/>
-            <!--</a>-->
+            </a>
         </template>
 
         <!--Represent the logo to a company-->
         <!--Requirements:-->
-        <!--* ind: partner object-->
+        <!--* image_url: url-->
         <!--How To:-->
         <!--=======-->
-        <!--<t t-set="partner" t-value="{value_for_partner}"/>-->
-        <!--<t t-call="frontend_base.company_logo"/>-->
+        <!--<t t-set="image_url" t-value="{url to an image}"/>-->
+        <!--<t t-call="frontend_base.company_logo_website"/>-->
         <template id="frontend_base.company_logo" name="Company Logo">
-            <img itemprop="image"
-                 class="img img-responsive"
-                 t-att-src="website.image_url(partner, 'image_small')"
-            />
+            <div class="logo-thumb">
+                <img itemprop="image"
+                     class="fill-box img-responsive"
+                     t-att-src="image_url"
+                />
+            </div>
+        </template>
+        <!--Represent the logo to a company-->
+        <!--Requirements:-->
+        <!--* partner: partner object-->
+        <!--How To:-->
+        <!--=======-->
+        <!--<t t-call="frontend_base.company_logo_website"/>-->
+        <template id="frontend_base.company_logo_website" name="Company Logo using website.image_url">
+            <t t-set="image_url" t-value="website.image_url(partner, 'image_medium', size='256x256')"/>
+            <t t-call="frontend_base.company_logo"/>
+        </template>
+
+        <template id="frontend_base.beta_tester" name="Component visible to beta testers">
+           <div groups="res_group_archetype.group_archetype_beta_tester">
+               <t t-raw="0"/>
+           </div>
         </template>
 
         <template id="frontend_base.layout" name="Base for simple page">
@@ -221,7 +241,6 @@
                 <t t-call="frontend_base.full_head"/>
                 <t t-call="frontend_base.body">
                     <t t-raw="0"/>
-                    <!--<t t-call="frontend_base.footer"/>-->
                     <t t-call="frontend_base.engine"/>
                 </t> <!-- closing body -->
             </t> <!-- closing html -->

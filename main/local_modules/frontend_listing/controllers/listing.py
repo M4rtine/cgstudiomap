@@ -7,11 +7,12 @@ from cachetools import TTLCache, cached
 from datadog import statsd
 from openerp.addons.frontend_base.controllers.base import (
     Base,
-    small_image_url
+    small_image_url,
+    QueryURL,
 )
 from openerp.addons.web import http
 
-from openerp.http import request, werkzeug
+from openerp.http import request
 
 _logger = logging.getLogger(__name__)
 
@@ -26,28 +27,6 @@ def reset_cache(max_size=10, ttl=10800):
     :return: cachetools.TTLCache instance.
     """
     return TTLCache(max_size, ttl)
-
-
-class QueryURL(object):
-    def __init__(self, path='', **args):
-        self.path = path
-        self.args = args
-
-    def __call__(self, path=None, **kw):
-        if not path:
-            path = self.path
-        for k, v in self.args.items():
-            kw.setdefault(k, v)
-        l = []
-        for k, v in kw.items():
-            if v:
-                if isinstance(v, list) or isinstance(v, set):
-                    l.append(werkzeug.url_encode([(k, i) for i in v]))
-                else:
-                    l.append(werkzeug.url_encode([(k, v)]))
-        if l:
-            path += '?' + '&'.join(l)
-        return path
 
 
 class Listing(Base):
@@ -73,6 +52,30 @@ class Listing(Base):
     map_url = '/directory'
     list_url = '/directory/list'
 
+    @staticmethod
+    def is_beta_tester():
+        """Return if the user is illegible to beta test features.
+
+        :rtype: boolean
+        """
+        uid = request.uid
+        public_user_id = request.website.user_id.id
+        is_public_user = uid == public_user_id
+        if not is_public_user:
+            user_pool = request.env['res.users']
+            user = user_pool.browse(uid)
+
+            ir_model_data = request.env['ir.model.data']
+            group_beta_tester = ir_model_data.xmlid_to_object(
+                'res_group_archetype.group_archetype_beta_tester'
+            )
+            is_beta_tester = group_beta_tester in user.groups_id
+            _logger.debug('is_beta_tester: %s', is_beta_tester)
+
+            return is_beta_tester
+
+        return False
+
     def get_partners(self, partner_pool, search='', company_status='open'):
         """Wrapper to be able to cache the result of a search in the
         partner_pool.
@@ -93,6 +96,43 @@ class Listing(Base):
         :param str search: search to filter with
         :return: json dumps
         """
+
+        def build_details_beta_test(partners):
+            """Gather the details to build later the table of companies.
+            FOR BETA TESTING PURPOSE.
+
+            :param list partners: recordsets of partner to gather the details
+                from.
+            :return: json dump.
+            """
+            return simplejson.dumps(
+                [
+                    {
+                        'logo': '<img itemprop="image" '
+                                'class="img img-responsive" '
+                                'src="{0}"'
+                                '/>'.format(
+                            small_image_url(partner, 'image_small')),
+
+                        # self.partner_url = ''.format(self.id)
+                        'name': '<a href="/directory/company/{0.id}">{1}</a>'.format(  # noqa
+                            partner, partner.name.encode('utf-8')
+                        ),
+                        'email': partner.email or '',
+                        'industries': ' '.join(
+                            [
+                                ind.tag_url_link(
+                                    company_status=company_status,
+                                    listing=True
+                                )
+                                for ind in partner.industry_ids
+                                ]
+                        ),
+                        'location': partner.location,
+                    }
+                    for partner in partners
+                    ],
+            )
 
         @cached(self.list_cache)
         def build_details(partners):
@@ -141,7 +181,10 @@ class Listing(Base):
         )
         _logger.debug('Query time: %s', time.time() - t1)
         t1 = time.time()
-        details = build_details(partners)
+        build_details_method = (
+            self.is_beta_tester() and build_details_beta_test or build_details
+        )
+        details = build_details_method(partners)
         _logger.debug(
             'cache.currsize: %s', self.list_cache.currsize
         )

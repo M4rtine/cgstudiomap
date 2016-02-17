@@ -19,34 +19,52 @@
 #
 ##############################################################################
 import logging
-from openerp import api, fields
+
+from openerp.addons.base_geoengine import geo_model
 from openerp.addons.base_geolocalize.models.res_partner import (
     geo_find, geo_query_address
 )
 
-from openerp.addons.base_geoengine import geo_model
+from openerp import api, fields
 
 _logger = logging.getLogger(__name__)
+__codec__ = 'utf-8'
 
 
 class ResPartner(geo_model.GeoModel):
     _inherit = 'res.partner'
 
+    # set on to avoid that some function are called during tests.
+    __dryRun__ = False
+
     @api.model
     def add_geo_localization_details(self, vals):
-        result = geo_find(
-            geo_query_address(
-                street=vals.get('street'),
-                zip=vals.get('zip'),
-                city=vals.get('city'),
-                country=self.env['res.country'].browse(
-                    vals.get('country_id')).name,
+        """Add geo localization details to the current partner."""
+        # skip during dry runs.
+        if self.__dryRun__:
+            return vals
+
+        street = vals.get('street')
+        zip = vals.get('zip')
+        city = vals.get('city')
+        country_id = vals.get('country_id')
+
+        if street and zip and city and country_id:
+            result = geo_find(
+                geo_query_address(
+                    street=vals.get('street', '').encode(__codec__),
+                    zip=vals.get('zip', '').encode(__codec__),
+                    city=vals.get('city', '').encode(__codec__),
+                    country=self.env['res.country'].browse(
+                        vals.get('country_id')).name.encode(__codec__),
+                )
             )
-        )
-        if result:
-            vals['partner_latitude'] = result[0]
-            vals['partner_longitude'] = result[1]
-            vals['date_localization'] = fields.Date.context_today(self)
+            if result:
+                vals['partner_latitude'] = result[0]
+                vals['partner_longitude'] = result[1]
+                vals['date_localization'] = fields.Date.context_today(self)
+        else:
+            _logger.debug('Missing details. Skipping.')
         return vals
 
     @api.model

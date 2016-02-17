@@ -126,6 +126,7 @@ class ResPartner(models.Model):
     @api.one
     def partner_url_link(self):
         """Return the link to the page of the current partner."""
+        # self.partner_url = '/directory/company/{0}'.format(self.id)
         self.partner_url = (
             '/web#id={0}&view_type=form&model=res.partner'.format(self.id)
         )

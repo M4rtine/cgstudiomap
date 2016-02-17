@@ -33,6 +33,7 @@
         'crm_partner_assign',
         'frontend_base',
         'res_group_archetype',
+        'website_menu_by_user_status',
     ],
     'data': [
         'templates/template_body.xml',

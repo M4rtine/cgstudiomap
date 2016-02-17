@@ -1,0 +1,96 @@
+/*
+#f1f1f3
+#b05ae2
+#323133
+
+#979699
+#cbcacc
+
+*/
+html {
+  position: relative;
+  min-height: 100%;
+	height: 100%;
+}
+body {
+	margin-bottom: 80px;
+	height: 100%;
+	overflow: hidden;
+	color: #323133;
+	/* Margin bottom by footer height */
+	margin-bottom: 80px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b05ae2+20,f1f1f3+100&1+20,1+67,0.7+84,0+100 */
+	background: -moz-linear-gradient(top, rgba(176, 90, 226, 1) 20%, rgba(214, 179, 236, 1) 67%, rgba(228, 211, 240, 0.7) 84%, rgba(241, 241, 243, 0) 100%) fixed;
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(176, 90, 226, 1) 20%, rgba(214, 179, 236, 1) 67%, rgba(228, 211, 240, 0.7) 84%, rgba(241, 241, 243, 0) 100%) fixed;
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(176, 90, 226, 1) 20%, rgba(214, 179, 236, 1) 67%, rgba(228, 211, 240, 0.7) 84%, rgba(241, 241, 243, 0) 100%) fixed;
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#b05ae2', endColorstr='#00f1f1f3', GradientType=0);
+	/* IE6-9 */
+}
+
+.navbar-default, .navbar-inverse {
+    background-color: transparent;
+}
+/*/////////////////////////////////
+        FULL thanks
+///////////////////////////////// */
+
+.full {
+	width: 100%;
+	height: 100%;
+	padding-top: 0;
+	background: url(../cgsm-pattern.svg) top center repeat;
+	text-align: center;
+}
+.full .row{
+	margin: 0 0;
+	padding: 0 0;
+}
+.full h1 {
+	font-size: 5em;
+	line-height: 1.5em;
+	color: #f1f1f3;
+	font-family: 'cgsm-thin';
+
+}
+.full h2 {
+	font-size: 2.25em;
+	line-height: 1.5em;
+	font-family: 'cgsm-thin';
+}
+.full p {
+	font-size: 1.25em;
+}
+
+.full h2 a{
+	background-color: #f1f1f3;
+	padding: 0.3em 0.4em;
+	text-decoration: none;
+    border-radius: 0.25em !important;
+    -webkit-border-radius: 0.25em !important;
+    -moz-border-radius: 0.25em !important;
+}
+.full p a{
+	text-decoration: underline;
+}
+/*/////////////////////////////////
+        MEDIA QUERIES
+///////////////////////////////// */
+
+
+@media (max-width: 767px) {
+	.full h1 {
+		font-size: 3em;
+		line-height: 1em;
+	}
+	.full h2 {
+		font-size: 1.65em;
+		line-height: 1em;
+	}
+	.full h2 a{
+		padding: 0.15em 0.2em;
+
+	}
+}
