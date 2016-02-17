@@ -184,7 +184,7 @@ class Listing(Base):
             )
             return simplejson.dumps(
                 {
-                    partner.name: [
+                    partner.id: [
                         partner.partner_latitude,
                         partner.partner_longitude,
                         partner.info_window(company_status),
