@@ -8,49 +8,34 @@
             <field name="sequence">1</field>
         </record>
 
-        <record id="group_archetype_user" model="res.groups">
+        <record id="group_archetype_contributor" model="res.groups">
             <field name="category_id"
                    ref="module_category_cgstudiomap_archetype"/>
-            <field name="name">User</field>
-            <!-- + Employee-->
-            <!-- + Portal-->
-            <!-- + Industry Media-->
-            <!-- + Geoengine User-->
-            <!-- + Published Webblog posts-->
-            <field name="implied_ids"
-                   eval="[
-                   (6, 0, [
-                    ref('base.group_user'),
-                    ref('base.group_portal'),
-                    ref('res_partner_industry.group_industry_med'),
-                    ref('base_geoengine.group_geoengine_user'),
-                    ref('base.group_website_blog_published_post_only'),
-                   ]),
-                   (3, ref('base.group_partner_manager')),
-                   ]"
-                    />
-            <field name="comment">Minimal settings for everyday usage of the website.
-                WARNING: Remove the "contact creation" at the very bottom of the list of settings.
-                This setting is not automatically removed but should!
-            </field>
+            <field name="name">Dedicated Contributor</field>
         </record>
 
-        <record id="group_archetype_blog_poster" model="res.groups">
+        <record id="group_archetype_beta_tester" model="res.groups">
             <field name="category_id"
                    ref="module_category_cgstudiomap_archetype"/>
-            <field name="name">Blog Poster</field>
-            <!-- + knowledge user -->
-            <!-- + website designer-->
-            <field name="implied_ids"
-                   eval="[
-                   (4, ref('base.group_document_user')),
-                   (4, ref('base.group_website_designer')),
-                   (3, ref('base.group_website_blog_published_post_only')),
-                   ]"
-                    />
-            <field name="comment">Settings to give rights to write blog post.
-            WARNING: REMOVE link to Only Published posts</field>
+            <field name="name">Beta Tester</field>
+            <field name="comment">Give the user access to some extra features that are in beta still.</field>
         </record>
+
+        <!--<record id="group_archetype_blog_poster" model="res.groups">-->
+            <!--<field name="category_id"-->
+                   <!--ref="module_category_cgstudiomap_archetype"/>-->
+            <!--<field name="name">Blog Poster</field>-->
+            <!--&lt;!&ndash; + knowledge user &ndash;&gt;-->
+            <!--&lt;!&ndash; + website designer&ndash;&gt;-->
+            <!--<field name="implied_ids"-->
+                   <!--eval="[-->
+                   <!--(4, ref('base.group_document_user')),-->
+                   <!--(4, ref('base.group_website_designer')),-->
+                   <!--]"-->
+                    <!--/>-->
+            <!--<field name="comment">Settings to give rights to write blog post.-->
+            <!--WARNING: REMOVE link to Only Published posts</field>-->
+        <!--</record>-->
         <record id="group_archetype_admin" model="res.groups">
             <field name="category_id"
                    ref="module_category_cgstudiomap_archetype"/>

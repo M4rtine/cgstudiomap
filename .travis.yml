@@ -29,11 +29,5 @@ addons:
 virtualenv:
   system_site_packages: true
 
-before_install:
-  - pip install codecov
-
 script:
   - ./main/bin/start_odoo --stop-after-init --workers=0 -d travis -r travis -i main --test-enable
-
-after_success:
-  - codecov

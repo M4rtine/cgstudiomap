@@ -59,8 +59,18 @@ function bootstrap_table_ajax(search, status) {
                         sortable: true
                     },
                     {
-                        field: 'location',
-                        title: 'Location',
+                        field: 'city',
+                        title: 'City',
+                        sortable: true
+                    },
+                    {
+                        field: 'state_name',
+                        title: 'State',
+                        sortable: true
+                    },
+                    {
+                        field: 'country_name',
+                        title: 'Country',
                         sortable: true
                     }
                 ],

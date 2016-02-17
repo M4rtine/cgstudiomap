@@ -36,10 +36,16 @@
         'website_menu_by_user_status',
         'res_partner_industry',
         'main_data',
-        'frontend_shop',
+        # frontend modules
         'frontend_base',
         'frontend_homepage',
+        'frontend_link_to_dashboard',
         'frontend_listing',
+        'frontend_shop',
+        # To be added when the module is official released
+        # 'frontend_studio',
+
+
     ],
     'data': [
         'data/website_menus.xml',

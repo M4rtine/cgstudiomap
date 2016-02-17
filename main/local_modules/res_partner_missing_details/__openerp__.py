@@ -21,7 +21,7 @@
 
 {
     'name': 'Partner Missing Details',
-    'version': '0.2',
+    'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
@@ -30,7 +30,6 @@
     'depends': [],
     'data': [
         'security/ir.model.access.csv',
-        'ir_cron.xml',
         'views/res_missing_details_view.xml',
         'views/res_partner_view.xml',
     ],

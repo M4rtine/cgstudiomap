@@ -116,6 +116,12 @@ input {
     padding: 0 ;
     margin: 0;
 }
+.navSearch .fontCGSMicons{
+    font-size: 1em;
+}
+.navSearch a:hover{
+    text-decoration: none;
+}
 .navSwitch .disabled {
     color: #f1f1f3;
     background-color: #b05ae2;
@@ -135,8 +141,8 @@ input {
     margin: 0;
 }
 
-.navSwitch .fa{
-    font-size: 1.6em;
+.navSwitch .fontCGSMicons{
+    font-size: 1.55em;
     padding: auto 0;
     height: 44px
     margin: 0;
@@ -774,7 +780,15 @@ footer .name{
         display: inline-block;
     }
 	#map {
-		top: 205px;
+		top: 165px;
+	}
+	.filters {
+		font-size: 1.05em;
+		line-height: 2.9em; 
+		padding-left: 0.33em;
+	}
+	.navDirectory {
+		padding-bottom: 0;
 	}
 }
 @media (min-width: 767px) and (max-width: 992px) {

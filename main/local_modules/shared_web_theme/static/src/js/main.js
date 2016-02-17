@@ -7,6 +7,8 @@
 		});
 	}
 	
+	$(".fill-box").fillBox();
+	
 	$(document).ready(function() {
 
 		/* ---------------------------------------------- /*
@@ -15,14 +17,14 @@
 		// Nav
         loadSVG("#arrow-down", "/shared_web_theme/static/src/svg/__arrow-down.svg");
         loadSVG("#logo-nav", "/shared_web_theme/static/src/svg/__logo-nav.svg");
-        /*loadSVG("#user-login", "/shared_web_theme/static/src/svg/__user-login.svg");*/
-        loadSVG("#toggle", "/shared_web_theme/static/src/svg/__toggle.svg");
         
         // Stats
         $(".stats div").each(function( index ) {
             loadSVG(this, "/shared_web_theme/static/src/svg/__stats-bg.svg");
          });
-
+		 
+		 
+        loadSVG("#love", "/shared_web_theme/static/src/svg/__heart.svg");
 
 		/* ---------------------------------------------- /*
 		 * Smooth scroll / Scroll To Top

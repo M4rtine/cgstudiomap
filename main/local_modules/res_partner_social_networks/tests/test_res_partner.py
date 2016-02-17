@@ -20,6 +20,7 @@
 ##############################################################################
 import logging
 
+from openerp.exceptions import ValidationError
 from openerp.tests import common
 
 _logger = logging.getLogger(__name__)
@@ -33,38 +34,92 @@ class TestResPartner(common.TransactionCase):
         super(TestResPartner, self).setUp()
         self.partner_pool = self.env['res.partner']
 
-    def test_twitter_value(self):
+        self.twitter_url = 'https://twitter.com/cgstudiomap'
+        self.youtube_url = 'https://www.youtube.com/user/mpcvfx'
+        self.vimeo_url = 'https://vimeo.com/mpcvfx'
+        self.linkedin_url = 'https://www.linkedin.com/company/cgstudiomap-com'
+        self.facebook_url = 'https://www.facebook.com/Moving.Picture.Company/'
+        self.wikipedia_url = 'https://en.wikipedia.org/wiki/Sony_Pictures_Imageworks'
+        self.partner = self.partner_pool.create({'name': 'tname'})
+
+    def test_twitter_constrains(self):
         """Check if we can add value to the twitter field."""
-        url = 'https://twitter.com/cgstudiomap'
-        partner = self.partner_pool.create({'name': 'tname', 'twitter': url})
-        self.assertEqual(partner.twitter, url)
+        partner = self.partner_pool.create(
+            {'name': 'tname', 'twitter': self.twitter_url}
+        )
+        self.assertEqual(partner.twitter, self.twitter_url)
+
+    def test_twitter_value(self):
+        """Test the method _validate_twitter_url raise Error if the
+        given value is not a valid twitter url.
+        """
+        with self.assertRaises(ValidationError):
+            self.partner._validate_twitter_url(
+                'https://twitter.ca/cgstudiomap'
+            )
+
+    def test_youtube_constrains(self):
+        """Check if we can add value to the youtube field."""
+        partner = self.partner_pool.create(
+            {'name': 'tname', 'youtube': self.youtube_url}
+        )
+        self.assertEqual(partner.youtube, self.youtube_url)
 
     def test_youtube_value(self):
-        """Check if we can add value to the youtube field."""
-        url = 'https://www.youtube.com/user/mpcvfx'
-        partner = self.partner_pool.create({'name': 'tname', 'youtube': url})
-        self.assertEqual(partner.youtube, url)
+        """Test the method _validate_youtube_url raise Error if the
+        given value is not a valid youtube url.
+        """
+        with self.assertRaises(ValidationError):
+            self.partner._validate_youtube_url(
+                'https://www.youtube.com//mpcvfx'
+            )
+
+    def test_vimeo_constrains(self):
+        """Check if we can add value to the vimeo field."""
+        partner = self.partner_pool.create(
+            {'name': 'tname', 'vimeo': self.vimeo_url}
+        )
+        self.assertEqual(partner.vimeo, self.vimeo_url)
 
     def test_vimeo_value(self):
-        """Check if we can add value to the vimeo field."""
-        url = 'https://vimeo.com/mpcvfx'
-        partner = self.partner_pool.create({'name': 'tname', 'vimeo': url})
-        self.assertEqual(partner.vimeo, url)
+        """Test the method _validate_vimeo_url raise Error if the
+        given value is not a valid vimeo url.
+        """
+        with self.assertRaises(ValidationError):
+            self.partner._validate_vimeo_url(
+                'https://www.vimeo.ca/mpcvfx'
+            )
+
+    def test_linkedin_constrains(self):
+        """Check if we can add value to the linkedin field."""
+        partner = self.partner_pool.create(
+            {'name': 'tname', 'linkedin': self.linkedin_url}
+        )
+        self.assertEqual(partner.linkedin, self.linkedin_url)
 
     def test_linkedin_value(self):
-        """Check if we can add value to the linkedin field."""
-        url = 'https://www.linkedin.com/company/cgstudiomap-com'
-        partner = self.partner_pool.create({'name': 'tname', 'linkedin': url})
-        self.assertEqual(partner.linkedin, url)
+        """Test the method _validate_linkedin_url raise Error if the
+        given value is not a valid linkedin url.
+
+        Case /company/ is missing.
+        """
+        with self.assertRaises(ValidationError):
+            self.partner._validate_linkedin_url(
+                'https://www.linkedin.com/mpcvfx'
+            )
+
+    def test_facebook_constrains(self):
+        """Check if we can add value to the facebook field."""
+        partner = self.partner_pool.create(
+            {'name': 'tname', 'facebook': self.facebook_url}
+        )
+        self.assertEqual(partner.facebook, self.facebook_url)
 
     def test_facebook_value(self):
-        """Check if we can add value to the facebook field."""
-        url = 'https://www.facebook.com/Moving.Picture.Company/'
-        partner = self.partner_pool.create({'name': 'tname', 'facebook': url})
-        self.assertEqual(partner.facebook, url)
-
-    def test_wikipedia_value(self):
-        """Check if we can add value to the wikipedia field."""
-        url = 'https://en.wikipedia.org/wiki/Sony_Pictures_Imageworks'
-        partner = self.partner_pool.create({'name': 'tname', 'wikipedia': url})
-        self.assertEqual(partner.wikipedia, url)
+        """Test the method _validate_facebook_url raise Error if the
+        given value is not a valid facebook url.
+        """
+        with self.assertRaises(ValidationError):
+            self.partner._validate_facebook_url(
+                'https://www.facebook.ca/mpcvfx'
+            )
