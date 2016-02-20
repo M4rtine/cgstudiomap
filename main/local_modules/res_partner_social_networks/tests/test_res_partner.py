@@ -35,7 +35,7 @@ class TestResPartner(common.TransactionCase):
         self.partner_pool = self.env['res.partner']
 
         self.twitter_url = 'https://twitter.com/cgstudiomap'
-        self.youtube_url = 'https://www.youtube.com/user/mpcvfx'
+        self.youtube_url = 'https://www.youtube.com/mpcvfx'
         self.vimeo_url = 'https://vimeo.com/mpcvfx'
         self.linkedin_url = 'https://www.linkedin.com/company/cgstudiomap-com'
         self.facebook_url = 'https://www.facebook.com/Moving.Picture.Company/'
@@ -71,7 +71,7 @@ class TestResPartner(common.TransactionCase):
         """
         with self.assertRaises(ValidationError):
             self.partner._validate_youtube_url(
-                'https://www.youtube.com//mpcvfx'
+                'https://www.youtube.ca/mpcvfx'
             )
 
     def test_vimeo_constrains(self):

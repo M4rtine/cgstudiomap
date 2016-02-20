@@ -18,9 +18,10 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.exceptions import ValidationError
 import logging
+
 from openerp.tests import common
+
 _logger = logging.getLogger(__name__)
 
 
@@ -28,6 +29,9 @@ class TestResPartner(common.TransactionCase):
     def setUp(self):
         super(TestResPartner, self).setUp()
         self.partner_pool = self.env['res.partner']
+        self.partner_pool.__dryRun__ = True
+        self.country_pool = self.env['res.country']
+        self.canada = self.country_pool.browse(39)
 
     def test_small_image_url_exists(self):
         """Check if the field exist on res.partner."""
@@ -46,3 +50,87 @@ class TestResPartner(common.TransactionCase):
         self.assertEqual(partner.small_image_url, 'tsmall_image_url')
         partner.write({'image': False})
         self.assertEqual(partner.small_image_url, False)
+
+    def test_location_return(self):
+        """Check the return of the method with city, state and country."""
+        partner = self.partner_pool.create({
+            'name': 'tpartner',
+            'street': '8017 Avenue Chateaubriand',
+            'zip': 'H2R 2M7',
+            'city': 'Montreal',
+            'state_id': 1,
+            'country_id': self.canada.id,
+        })
+        self.assertEqual(
+            partner.location,
+            'Montreal, Australian Capital Territory, Canada'
+        )
+
+    def test_location_returnNoCity(self):
+        """Check the return of the method with state, country and no city."""
+        partner = self.partner_pool.create({
+            'name': 'tpartner',
+            'street': '8017 Avenue Chateaubriand',
+            'zip': 'H2R 2M7',
+            'state_id': 1,
+            'country_id': self.canada.id,
+        })
+        self.assertEqual(
+            partner.location, 'Australian Capital Territory, Canada'
+        )
+
+    def test_location_returnNoState(self):
+        """Check the return of the method with city, country and no state."""
+        partner = self.partner_pool.create({
+            'name': 'tpartner',
+            'street': '8017 Avenue Chateaubriand',
+            'zip': 'H2R 2M7',
+            'city': 'Montreal',
+            'country_id': self.canada.id,
+        })
+        self.assertEqual(
+            partner.location, 'Montreal, Canada'
+        )
+
+    def test_location_returnNoCountry(self):
+        """Check the return of the method with city, state and no country."""
+        partner = self.partner_pool.create({
+            'name': 'tpartner',
+            'street': '8017 Avenue Chateaubriand',
+            'zip': 'H2R 2M7',
+            'city': 'Montreal',
+            'state_id': 1,
+        })
+        self.assertEqual(
+            partner.location, 'Montreal, Australian Capital Territory'
+        )
+
+    def test_infoWindow_return(self):
+        """Check the template the method returns."""
+        partner = self.partner_pool.create({
+            'name': 'tpartner',
+            'small_image_url': 'tsmall_image_url',
+            'street': '8017 Avenue Chateaubriand',
+            'zip': 'H2R 2M7',
+            'city': 'Montreal',
+            'country_id': self.canada.id,
+            'website': 'http://www.cgstudiomap.org',
+            'industry_ids': [(6, 0, [1, 2])]
+        })
+        res = (
+            '<div id="iw-container">'
+            '<div class="iw-title">'
+            '<a href="{0.partner_url}">tpartner</a>'
+            '</div>'
+            '<div class="iw-content">'
+            '<p>Montreal, Canada</p>'
+            '<a itemprop="name" href="/directory?company_status=open&search=Animation">'
+            '<span class="label label-info">Animation</span>'
+            '</a> '
+            '<a itemprop="name" href="/directory?company_status=open&search=Broadcast Media">'
+            '<span class="label label-info">Broadcast Media</span></a>'
+            '</div>'
+            '<div id="map_info_footer"><a href="{0.partner_url}">More ...</a></div></div>'.format(
+                partner)
+        )
+        self.assertEqual(partner.info_window(), res)
