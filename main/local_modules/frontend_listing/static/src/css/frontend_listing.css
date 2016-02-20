@@ -282,7 +282,7 @@ tbody {
 .fixed-table-container thead th .th-inner {
     padding: 8px;
     line-height: 1em;
-    vertical-align: middle;
+    vertical-align: middle !important;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -292,6 +292,9 @@ tbody {
 .fixed-table-container tbody td:nth-child(2) img {
     width: 40px;
     height: 40px;
+}
+.fixed-table-container tbody td{
+	vertical-align: middle !important;
 }
 .fixed-table-container tbody td:nth-child(3) {
     font-family: 'cgsm-regular';
@@ -306,8 +309,13 @@ tbody {
     text-decoration: none;
 	background-color: transparent;
 }
-.fixed-table-container tbody td:nth-child(6) {
+.fixed-table-container tbody td:nth-child(6),
+.fixed-table-container tbody td:nth-child(8){
 	font-family: 'cgsm-regular' !important;
+	font-kerning: normal;
+}
+.fixed-table-container tbody td:nth-child(8){
+	text-transform: uppercase !important;
 }
 .fixed-table-container tbody tr:hover {
     background-color: #fff;
