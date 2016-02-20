@@ -135,8 +135,8 @@ class ResPartner(models.Model):
         """Build the info window for the google map."""
         title = (
             '<div id="iw-container">'
-            '<div class="iw-title"><a href="{0}">{0}</a></div>'
-        ).format(self.name.encode('utf8'))
+            '<div class="iw-title"><a href="{0}">{1}</a></div>'
+        ).format(self.partner_url, self.name.encode('utf8'))
 
         body = '<div class="iw-content">'
         body += '<p>{0}</p>'.format(self.location.encode('utf8'))
@@ -144,7 +144,7 @@ class ResPartner(models.Model):
             [
                 ind.tag_url_link(company_status=company_status)
                 for ind in self.industry_ids
-            ]
+                ]
         )
         body += '</div>'
         footer = (
@@ -158,11 +158,14 @@ class ResPartner(models.Model):
     @api.one
     def location_code(self):
         """Return the concatenation of city, state and country."""
-        self.location = ''.join([
-            self.city and '{0}, '.format(self.city.encode('utf8')) or '',
-            self.state_id and '{0}, '.format(
-                self.state_id.name.encode('utf8')) or '',
-            '{0}'.format(self.country_id.name.encode('utf8')),
-        ])
+        elements = []
+        if self.city:
+            elements.append(self.city)
+        for element in (self.state_id, self.country_id):
+            if element:
+                elements.append(element.name)
+        self.location = ', '.join(
+            [element.encode('utf8') for element in elements]
+        )
 
     small_image_url = fields.Char('Url to the small image of the partner.')
