@@ -7268,6 +7268,62 @@ body {
     top: 10px;
     opacity: 0; } }
 /* ---------------------------------------------- /*
+ *Studio Closed ribbon
+/* ---------------------------------------------- */
+#closed-ribbon {
+  z-index: 100000 !important; }
+
+.corner-ribbon {
+  font-family: 'cgsm-regular';
+  width: 200px;
+  background: #e43000;
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f1f1f3;
+  transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg); }
+
+.corner-ribbon.sticky {
+  position: fixed; }
+
+.corner-ribbon.top-left {
+  top: 25px;
+  left: -50px;
+  transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg); }
+
+.corner-ribbon.top-right {
+  top: 25px;
+  right: -50px;
+  left: auto;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg); }
+
+.corner-ribbon.bottom-left {
+  top: auto;
+  bottom: 25px;
+  left: -50px;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg); }
+
+.corner-ribbon.bottom-right {
+  top: auto;
+  right: -50px;
+  bottom: 25px;
+  left: auto;
+  transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg); }
+
+/* ---------------------------------------------- /*
  * Vertical Align
 /* ---------------------------------------------- */
 .v-align {

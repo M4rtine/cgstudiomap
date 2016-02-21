@@ -212,6 +212,12 @@
         <!--<t t-call="frontend_base.company_logo_website"/>-->
         <template id="frontend_base.company_logo" name="Company Logo">
             <div class="logo-thumb">
+				<t t-if="partner.state == 'closed'">
+				<div class="corner-ribbon top-right">
+					<span class="fontCGSMicons">ban</span> 
+				</div>
+				</t>
+				
                 <img itemprop="image"
                      class="fill-box img-responsive"
                      t-att-src="image_url"

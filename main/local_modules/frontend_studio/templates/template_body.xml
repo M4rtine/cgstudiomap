@@ -3,7 +3,7 @@
     <data>
         <template id="frontend_studio.studio_closed" name="Studio: Closed mode">
             <t t-if="partner.state == 'closed'">
-                <div class="corner-ribbon bottom-left sticky">
+                <div id="closed-ribbon" class="corner-ribbon bottom-left sticky">
                     <span class="fontCGSMicons">ban</span> Closed
                 </div>
             </t>
@@ -234,7 +234,10 @@
 
         <template id="frontend_studio.view" name="Studio: view">
             <t t-call="frontend_studio.base">
-							
+				
+				<!-- STUDIO Closed -->
+				<t t-call="frontend_studio.studio_closed"/>
+				
 				<div class="jumbotron" id="container-map-studio">
 					
 					<t t-call="frontend_studio.search_zone"/>
@@ -243,10 +246,6 @@
 						<t t-call="frontend_studio.studio_header"/>
 						<t t-call="frontend_studio.map"/>
 					</div>
-					
-				<!-- STUDIO Closed -->
-				<t t-call="frontend_studio.studio_closed"/>
-					
 					
 				</div>
 				
