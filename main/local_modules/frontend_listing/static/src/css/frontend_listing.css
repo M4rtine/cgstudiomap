@@ -668,9 +668,26 @@ footer .name{
     background-color: transparent;
 }
 
-
-
-
+/*/////////////////////////////////
+        ADMIN ToolBox
+///////////////////////////////// */
+#admin-toolbox {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	background-color: #323133;
+	padding: 0.5em;
+	color: #f1f1f3;
+	z-index: 10000;
+}
+#admin-toolbox p {
+	font-family: 'cgsm-regular';
+	font-size: 0.66em;
+	text-transform: uppercase;
+}
+#admin-toolbox input {
+	font-size: 1.8em;
+}
 
 
 /*/////////////////////////////////
