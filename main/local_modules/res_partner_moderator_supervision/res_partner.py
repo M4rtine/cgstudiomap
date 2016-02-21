@@ -19,6 +19,7 @@
 #
 ##############################################################################
 
+import os
 import logging
 
 from slack_log_handler import SlackLogHandler
@@ -27,9 +28,11 @@ from openerp import models, api
 
 _logger = logging.getLogger(__name__)
 
-WEBHOOK_URL = 'https://hooks.slack.com/services/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'  # noqa
-# WEBHOOK for tests
-# WEBHOOK_URL = 'https://hooks.slack.com/services/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'  # noqa
+# see https://cgstudiomap.slack.com/apps/manage/A0F7XDUAZ-incoming-webhooks
+# for the url.
+# Use test_hook url webhook for tests
+WEBHOOK_URL = os.getenv('SLACK_WEBHOOK_MODERATION')
+_logger.debug('WEBHOOK_URL: %s', WEBHOOK_URL)
 
 
 def get_slack_logger(name, hook):
@@ -59,6 +62,9 @@ _slack_logger = get_slack_logger(__name__, WEBHOOK_URL)
 
 
 class ResPartner(models.Model):
+    """Represent addition of slack notification for updates and creation of
+    records of the model.
+    """
     _inherit = 'res.partner'
 
     @api.model
