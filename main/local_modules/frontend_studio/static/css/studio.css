@@ -285,6 +285,7 @@ h3  {
 .navSearch a{
     color: #323133;
     background-color: #cbcacc;
+    border: 1px solid #cbcacc;
 }
 .navSearch a:hover,
 .navSearch a:focus{
