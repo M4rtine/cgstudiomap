@@ -158,7 +158,10 @@ label {
 }
 
 
-
+label .error {
+	color: red !important;
+}
+required input:after { content:"*"; }
 
 
 .has-warning,
