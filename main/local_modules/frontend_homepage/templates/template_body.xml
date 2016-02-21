@@ -42,32 +42,35 @@
         </template>
 
         <template id="partner_box" name="Partner Box">
-			<div class="row bloc-studios-title fontCGSM">
-				<div class="col-xs-6 col-md-6">
-					<h2>Most Popular Studios</h2>
-				</div>
-				<div class="col-xs-6 col-md-6">
-					<p><a t-att-href="website.directory_menu">See all </a><span class="fontCGSMicons">play</span> </p>
-				</div>
-			
-			</div>
-            <div class="row studios">
-                <t t-foreach="partners[4:]" t-as="partner">
-                    <div class="col-xs-6 col-sm-3 partner-item">
-                        <t t-call="frontend_homepage.partner_card"/>
+            <!--See https://github.com/cgstudiomap/cgstudiomap/issues/598-->
+			<t t-if="partners">
+                <div class="row bloc-studios-title fontCGSM">
+                    <div class="col-xs-6 col-md-6">
+                        <h2>Most Popular Studios</h2>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <p><a t-att-href="website.directory_menu">See all </a><span class="fontCGSMicons">play</span> </p>
                     </div>
 
-                </t>
-            </div>
-            <div class="clearfix visible-xs"></div>
-            <div class="row studios">
-                <t t-foreach="partners[:4]" t-as="partner">
-                    <div class="col-xs-6 col-sm-3 partner-item">
-                        <t t-call="frontend_homepage.partner_card"/>
-                    </div>
-                </t>
-            </div>
-            <div class="clearfix visible-xs"></div>
+                </div>
+                <div class="row studios">
+                    <t t-foreach="partners[4:]" t-as="partner">
+                        <div class="col-xs-6 col-sm-3 partner-item">
+                            <t t-call="frontend_homepage.partner_card"/>
+                        </div>
+
+                    </t>
+                </div>
+                <div class="clearfix visible-xs"></div>
+                <div class="row studios">
+                    <t t-foreach="partners[:4]" t-as="partner">
+                        <div class="col-xs-6 col-sm-3 partner-item">
+                            <t t-call="frontend_homepage.partner_card"/>
+                        </div>
+                    </t>
+                </div>
+                <div class="clearfix visible-xs"></div>
+			</t>
         </template>
 
 
