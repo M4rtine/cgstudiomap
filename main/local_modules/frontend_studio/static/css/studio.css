@@ -415,8 +415,10 @@ input {
 	width: 128px;
 	background: #e43;
 	position: relative;
+	top: 0;
+	right: -40px;
 	text-align: center;
-	line-height: normal;
+	line-height: 50px;
 	letter-spacing: 1px;
 	color: #f1f1f3;
 }
