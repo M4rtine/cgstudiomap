@@ -22,7 +22,7 @@ body {
 .navDirectory .col-sm-3{
     padding-left: 0;
     padding-right: 0;
-    height: 46px;
+    height: 45px;
 }
 .navDirectory .row {
     margin: 0.25em 0;
@@ -58,11 +58,7 @@ body {
     text-decoration: underline;
     background-color: #b05ae2;
 }
-.navSearch .fa{
-    font-size: 1.6em;
-    padding: auto 0;
-    margin: 0;
-}
+
 .btn-cgsm-add {
     font-family: 'cgsm-regular';
     font-size: 1.66em;
@@ -787,16 +783,73 @@ footer .name{
     .navDirectory form {
         display: inline-block;
     }
+    .navDirectory > .row {
+		margin: 0.15em 0;
+		margin-bottom: 0.65em;
+    }
 	#map {
 		top: 165px;
 	}
+	.btn {
+		height: 28px;
+	}
 	.filters {
-		font-size: 1.05em;
-		line-height: 2.9em; 
+		font-size: .9em;
+		line-height: 1.95em; 
 		padding-left: 0.33em;
+		height: 28px;
 	}
 	.navDirectory {
 		padding-bottom: 0;
+	}
+	.navSearch .form-control,
+	.navSearch .search-query {
+		font-size: 1em;
+		display: block;
+		width: 100% !important;
+		height: 28px;
+		border: 0 solid #cbcacc;
+	}
+	.navSearch .fontCGSMicons{
+		position: absolute;
+		right: 7px;
+		font-size: .9em;
+		line-height: .5em;
+		padding: 0 0;
+		height: 28px;
+		margin: 0;
+		padding-bottom: 10px;
+	}
+	.navSearch .btn-lg {
+		height: 28px;
+		padding: auto 0;
+	}
+	.navDirectory .col-sm-12,
+	.navDirectory .col-sm-8,
+	.navDirectory .col-sm-2,
+	.navDirectory .col-sm-3{
+		height: 28px;
+	}
+	.navFilters, .navSearch, .navSwitch {
+		height: 28px !important;
+		background-color: transparent;
+	}
+
+	.navFilters, .navSearch, .navSwitch {
+		height: 28px !important;
+		background-color: transparent;
+	}
+	.navSwitch .fontCGSMicons {
+		font-size: .9em;
+		line-height: .5em;
+		padding: auto 0;
+		height: 28px;
+		margin: 0;
+	}
+	.btn-cgsm-add {
+		font-size: 1em;
+		line-height: 1.33em;
+		margin-top: .28em;
 	}
 }
 @media (min-width: 767px) and (max-width: 992px) {
