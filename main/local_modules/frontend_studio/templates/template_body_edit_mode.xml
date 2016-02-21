@@ -48,6 +48,7 @@
 
                 <div class="col-logo">
                     <t t-set="image_url" t-value="partner['image_url']"/>
+                    <t t-set="state" t-value="partner['state']"/>
                     <t t-call="frontend_base.company_logo"/>
                 </div>
                 <!--If this checkbox is checked, the current logo of the company will be set to nothing -->
