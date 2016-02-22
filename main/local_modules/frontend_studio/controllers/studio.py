@@ -25,10 +25,14 @@ class Studio(Base):
         '{0}/<model("res.partner"):partner>'.format(partner_url),
         type='http', auth="public", website=True
     )
-    def view(self, partner):
+    def view(self, partner, **dummy):
         """Render the page of a studio in view mode.
 
         :param object partner: record of a res.partner.
+        :param dummy: implemented to dodge the 500 error described in
+            https://github.com/cgstudiomap/cgstudiomap/issues/631
+            It is actually not used later in the function.
+
         :return: request.render
         """
         values = self.common_values()
