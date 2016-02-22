@@ -128,7 +128,9 @@ class Listing(Base):
                                 for ind in partner.industry_ids
                                 ]
                         ),
-                        'location': partner.location,
+                        'city': partner.city,
+                        'state_name': partner.state_id.name,
+                        'country_name': partner.country_id.name,
                     }
                     for partner in partners
                     ],
