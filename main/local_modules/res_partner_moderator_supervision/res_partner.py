@@ -80,7 +80,13 @@ class ResPartner(models.Model):
         contributor_group = ir_model_data.xmlid_to_object(
             'res_group_archetype.group_archetype_contributor'
         )
-        ret = self.is_company and contributor_group not in user.groups_id
+
+        ret = (
+            self.is_company and
+            contributor_group not in user.groups_id and
+            user.id != 3  # id 3 is public user and we don't
+                          # want updates from him
+        )
         _logger.debug('Do notification? %s', ret)
         return ret
 
