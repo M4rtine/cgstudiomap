@@ -502,6 +502,7 @@ table {
     border-radius: 2px 2px 0 0 !important;
 }
 #iw-container .iw-title a:active,
+#iw-container .iw-title a:visited,
 #iw-container .iw-title a:link {
     color: #f1f1f3;
     text-decoration: none;
