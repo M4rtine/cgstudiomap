@@ -19,6 +19,8 @@
 	margin: 0 0;
 	padding: 0 0;
 	width: 100%;
+	border-top: 1px #cbcacc solid;
+	background-color: white;
 }
 #container-map-studio {
 	position: relative;
@@ -66,10 +68,11 @@
 	position: relative;
 	margin: 0 auto;
 	padding: 0;
-	padding-top: 100px;
-
+	padding-top: 165px;
 }
-
+.studio-header .row {
+	margin: 0 0;
+}
 .studio-header .btn {
 	z-index: 200;
 }
@@ -198,7 +201,7 @@ h3  {
 	height: 128px !important;
 	margin: 0 0;
 	overflow: hidden;
-	border: 2px solid #cbcacc;
+	border: 1px solid #cbcacc;
 	background-color: #fff;
 	border-radius: 0.15em !important;
 	-webkit-border-radius: 0.15em !important;
