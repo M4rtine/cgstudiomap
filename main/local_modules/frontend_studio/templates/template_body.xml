@@ -23,7 +23,7 @@
         </template>
 		
         <template id="frontend_studio.flag_button" name="Studio: Flag mode">
-            <form t-att-action="'/directory/company/{}/flagged_missing_details'.format(partner.id)" method="get">
+<!--            <form t-att-action="'/directory/company/{}/flagged_missing_details'.format(partner.id)" method="get">
                 <div class="input-group btn btn-edit outline ">
                     <input type='submit'
 						   data-toggle="modal" 
@@ -34,7 +34,11 @@
                            value="flag"/>
 					<label for="studio-flag">Alert</label>
                 </div>
-            </form>
+            </form>-->
+			
+			<button type="button" class="btn btn-edit outline fontCGSMthin" data-toggle="modal" data-target="#myModal">
+				<span class="fontCGSMicons">flag</span>Alert
+			</button>
         </template>
 		
         <template id="frontend_studio.closed_button" name="Studio: Closed mode">
@@ -59,11 +63,16 @@
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="fontCGSMicons">cross</span></button>
-							<h4 class="modal-title" id="myModalLabel">Flag Missing details</h4>
+							<h4 class="modal-title" id="myModalLabel">Flag Wrong details</h4>
 						</div>
 						<div class="modal-body">
-						
-
+<!--							ICI 
+							Multiple CheckBox
+							- Adress
+							- Website & mail
+							- Socials
+							- Phones
+							- Industries-->
 							
 						</div>
 						<div class="modal-footer">
