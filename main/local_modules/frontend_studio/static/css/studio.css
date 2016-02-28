@@ -339,7 +339,7 @@ h3  {
 
 .btn-edit:hover,
 .btn-edit:focus,
-.btn-edit:active,
+.btn-edit:focus,
 .btn-edit.active,
 .open > .dropdown-toggle.btn-edit {
 	background: #f1f1f3;
