@@ -34,7 +34,19 @@
                 </div>
             </form>
         </template>
-
+		
+        <template id="frontend_studio.closed_button" name="Studio: Closed mode">
+            <form t-att-action="'/directory/company/{}/edit'.format(partner.id)" method="get">
+                <div class="input-group btn btn-edit outline ">
+                    <input type='submit'
+                           class="fontCGSMicons a-submit"
+						   id="studio-closed"
+						   title="Click to alert wrongs details of the company."
+                           value="ban"/>
+					<label for="studio-closed">Closed</label>
+                </div>
+            </form>
+        </template>
         <template id="frontend_studio.base" name="Studio: base">
             <t t-call="frontend_base.doctype_html"/>
             <t t-call="frontend_base.html">
@@ -92,6 +104,7 @@
 				<div class="navEdit">
 				<t t-call="frontend_studio.edit_button"/>
 				<t t-call="frontend_studio.flag_button" />
+				<t t-call="frontend_studio.closed_button" />
 				</div>
 
 			</div>
