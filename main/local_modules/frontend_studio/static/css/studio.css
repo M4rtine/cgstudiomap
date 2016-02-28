@@ -301,7 +301,7 @@ h3  {
     margin: 0;
 }
 .navEdit{
-	margin-top: 2em;
+	margin-top: 1.4em;
 }
 .navEdit form,
 .navEdit .input-group{
@@ -480,15 +480,7 @@ input {
         MODAL missing details
 ///////////////////////////////// */
 .modal-content {
-    position: relative;
     background-color: #f1f1f3;
-    border: 0px solid #999;
-    border: 0px solid rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    -webkit-box-shadow: 0 0 0 transparent;
-    box-shadow: 0 0 0 transparent;
-    background-clip: padding-box;
-    outline: 0;
 }
 
 /*/////////////////////////////////
