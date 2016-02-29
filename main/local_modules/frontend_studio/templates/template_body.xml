@@ -49,7 +49,7 @@
 						   id="studio-closed"
 						   title="Click to alert wrongs details of the company."
                            value="ban"/>
-					<label for="studio-closed">Closed</label>
+					<label for="studio-closed">Close</label>
                 </div>
             </form>
         </template>
