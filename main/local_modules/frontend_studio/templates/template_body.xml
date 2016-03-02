@@ -85,7 +85,7 @@
 			<div class="col-sm-9">
 				<h2 t-esc="partner.name" />
 				<t t-call="frontend_studio.edit_button"/> 
-				<!--<t t-call="frontend_studio.flag_button" />--> 
+				<!--<t t-call="frontend_studio.flag_button" />-->
 
 			</div>
 		</div>
@@ -107,8 +107,9 @@
             </div>
         </template>
 
+        <!--Require tab: which tab in the edit mode to be opened under. Default #01-->
         <template id="frontend_studio.marqueePlus" name="Marquee Plus">
-            <a t-att-href="'/directory/company/{}/edit'.format(partner.id)"
+            <a t-att-href="'/directory/company/{}/edit{}'.format(partner.id, tab and tab or '#01')"
                title="Click to add the missing value.">
                 <span class="fontCGSMicons social-link--add">marqueePlus</span>
             </a>
@@ -131,6 +132,7 @@
                         <t t-set="display">
                             <a t-att-href="partner.website"><t t-esc="partner.website" /></a>
                         </t>
+                        <t t-set="tab">#03</t>
                         <t t-set="value" t-value="partner.website"/>
                         <t t-call="frontend_studio.marqueePlus_placeholder"/>
                     </p>
@@ -153,6 +155,7 @@
                     <t t-set="display">
                         <a t-att-href='"tel://{0}".format(partner.phone)'><t t-esc="partner.phone" /></a>
                     </t>
+                    <t t-set="tab">#05</t>
                     <t t-set="value" t-value="partner.phone"/>
                     <p><t t-esc="fields['phone']['string']"/>: <t t-call="frontend_studio.marqueePlus_placeholder"/></p>
                 </div>
@@ -160,6 +163,7 @@
                     <t t-set="display">
                         <a t-att-href='"tel://{0}".format(partner.mobile)'><t t-esc="partner.mobile" /></a>
                     </t>
+                    <t t-set="tab">#05</t>
                     <t t-set="value" t-value="partner.mobile"/>
                     <p><t t-esc="fields['mobile']['string']"/>: <t t-call="frontend_studio.marqueePlus_placeholder"/></p>
                 </div>
@@ -167,6 +171,7 @@
                     <t t-set="display">
                         <a t-att-href='"tel://{0}".format(partner.fax)'><t t-esc="partner.fax" /></a>
                     </t>
+                    <t t-set="tab">#05</t>
                     <t t-set="value" t-value="partner.fax"/>
                     <p><t t-esc="fields['fax']['string']"/>: <t t-call="frontend_studio.marqueePlus_placeholder"/></p>
                 </div>
@@ -191,6 +196,7 @@
             </t>
             <t t-if="marqueePlusSocialNetwork">
                 <div class="form-group details-socials">
+                    <t t-set="tab">#04</t>
                     <t t-call="frontend_studio.marqueePlus"/>
                 </div>
             </t>
@@ -202,6 +208,7 @@
                     <t t-call="frontend_base.industry_tag"/>
                 </t>
             </t>
+            <t t-set="tab">#06</t>
             <t t-set="value" t-value="partner.industry_ids"/>
             <t t-call="frontend_studio.marqueePlus_placeholder"/>
         </template>
