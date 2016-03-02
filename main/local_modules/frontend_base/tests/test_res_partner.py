@@ -51,60 +51,6 @@ class TestResPartner(common.TransactionCase):
         partner.write({'image': False})
         self.assertEqual(partner.small_image_url, False)
 
-    def test_location_return(self):
-        """Check the return of the method with city, state and country."""
-        partner = self.partner_pool.create({
-            'name': 'tpartner',
-            'street': '8017 Avenue Chateaubriand',
-            'zip': 'H2R 2M7',
-            'city': 'Montreal',
-            'state_id': 1,
-            'country_id': self.canada.id,
-        })
-        self.assertEqual(
-            partner.location,
-            'Montreal, Australian Capital Territory, Canada'
-        )
-
-    def test_location_returnNoCity(self):
-        """Check the return of the method with state, country and no city."""
-        partner = self.partner_pool.create({
-            'name': 'tpartner',
-            'street': '8017 Avenue Chateaubriand',
-            'zip': 'H2R 2M7',
-            'state_id': 1,
-            'country_id': self.canada.id,
-        })
-        self.assertEqual(
-            partner.location, 'Australian Capital Territory, Canada'
-        )
-
-    def test_location_returnNoState(self):
-        """Check the return of the method with city, country and no state."""
-        partner = self.partner_pool.create({
-            'name': 'tpartner',
-            'street': '8017 Avenue Chateaubriand',
-            'zip': 'H2R 2M7',
-            'city': 'Montreal',
-            'country_id': self.canada.id,
-        })
-        self.assertEqual(
-            partner.location, 'Montreal, Canada'
-        )
-
-    def test_location_returnNoCountry(self):
-        """Check the return of the method with city, state and no country."""
-        partner = self.partner_pool.create({
-            'name': 'tpartner',
-            'street': '8017 Avenue Chateaubriand',
-            'zip': 'H2R 2M7',
-            'city': 'Montreal',
-            'state_id': 1,
-        })
-        self.assertEqual(
-            partner.location, 'Montreal, Australian Capital Territory'
-        )
-
     def test_infoWindow_return(self):
         """Check the template the method returns."""
         partner = self.partner_pool.create({
