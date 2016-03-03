@@ -26,10 +26,12 @@
 
         <template id="frontend_studio.save_button" name="Studio: Save Button">
             <t t-if="create">
-                <input type='submit' class="btn btn-save a-submit pull-right" value="Create new company"/>
+                <input type='submit' class="btn btn-save a-submit pull-right hidden-xs" value="Create new company"/>
+				<input type='submit' class="btn btn-save a-submit pull-right fontCGSMicons hidden-sm hidden-md hidden-lg" value="check"/>
             </t>
             <t t-if="not create">
-                <input type='submit' class="btn btn-save a-submit pull-right" value="Save Changes"/>
+                <input type='submit' class="btn btn-save a-submit pull-right hidden-xs" value="Save Changes"/>
+				<input type='submit' class="btn btn-save a-submit pull-right fontCGSMicons hidden-sm hidden-md hidden-lg" value="check"/>
             </t>
 
         </template>
