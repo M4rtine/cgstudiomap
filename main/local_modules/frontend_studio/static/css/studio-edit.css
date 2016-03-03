@@ -374,6 +374,9 @@ footer .name{
         padding: 0;
         margin: 0;
     }
+	.nav > li > a {
+		padding: 10px 8px;
+	}
 label {
 
 	font-size: 1.2em;
