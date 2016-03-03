@@ -261,12 +261,43 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#01" data-target="#01, #side01, #title01" data-toggle="tab">Common</a></li>
-                                        <li><a href="#02" data-target="#02, #side02, #title02" data-toggle="tab">Location</a></li>
-                                        <li><a href="#03" data-target="#03, #side03, #title03" data-toggle="tab">Links</a></li>
-                                        <li><a href="#04" data-target="#04, #side04, #title04" data-toggle="tab">Socials</a></li>
-                                        <li><a href="#05" data-target="#05, #side05, #title05" data-toggle="tab">Calls</a></li>
-                                        <li><a href="#06" data-target="#06, #side06, #title06" data-toggle="tab">Industries</a></li>
+										
+                                        <li class="active">
+											<a href="#01" data-target="#01, #side01, #title01" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-lg-inline">target </span><span class="hidden-xs">Common</span>
+											</a>
+										</li>
+										
+                                        <li>
+											<a href="#02" data-target="#02, #side02, #title02" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-lg-inline">location </span><span class="hidden-xs">Location</span>
+											</a>
+										</li>
+										
+                                        <li>
+											<a href="#03" data-target="#03, #side03, #title03" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-lg-inline">link </span><span class="hidden-xs">Links</span>
+											</a>
+										</li>
+										
+                                        <li>
+											<a href="#04" data-target="#04, #side04, #title04" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-lg-inline">share </span><span class="hidden-xs">Socials</span>
+											</a>
+										</li>
+										
+                                        <li>
+											<a href="#05" data-target="#05, #side05, #title05" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-lg-inline">volume </span><span class="hidden-xs">Calls</span>
+											</a>
+										</li>
+										
+                                        <li>
+											<a href="#06" data-target="#06, #side06, #title06" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-lg-inline">clipboard </span><span class="hidden-xs">Industries</span>
+											</a>
+										</li>
+										
                                         <t t-call="frontend_studio.save_button"/>
                                     </ul>
 
