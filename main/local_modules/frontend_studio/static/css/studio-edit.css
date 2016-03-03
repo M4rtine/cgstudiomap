@@ -152,7 +152,10 @@ label:after {
 label {
 	font-family: 'cgsm-light';
 	font-size: 1.66em;
+	line-height: 2em;
 	font-weight: normal;
+	letter-spacing: 0.0125em;
+	word-spacing:  -0.1em;
 	padding-right: 2em;
 	vertical-align: baseline;
 }
@@ -371,6 +374,14 @@ footer .name{
         padding: 0;
         margin: 0;
     }
+label {
+
+	font-size: 1.2em;
+	line-height: 2.4em;
+	letter-spacing: 0.0125em;
+	word-spacing:  0em;
+
+}
 
 
 }
