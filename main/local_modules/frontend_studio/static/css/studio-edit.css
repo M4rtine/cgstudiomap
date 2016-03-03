@@ -378,12 +378,8 @@ label {
 
 	font-size: 1.2em;
 	line-height: 2.4em;
-	letter-spacing: 0.0125em;
 	word-spacing:  0em;
-
 }
-
-
 }
 @media (min-width: 767px) and (max-width: 992px) {
     footer .name {
