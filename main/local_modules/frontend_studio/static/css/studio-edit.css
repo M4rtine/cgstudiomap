@@ -377,6 +377,9 @@ footer .name{
 	.nav > li > a {
 		padding: 10px 8px;
 	}
+	.studio-edit h1 {
+		font-size: 1.85em;
+	}
 label {
 
 	font-size: 1.2em;
