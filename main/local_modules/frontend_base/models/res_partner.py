@@ -153,3 +153,16 @@ class ResPartner(models.Model):
         return title + body + footer
 
     small_image_url = fields.Char('Url to the small image of the partner.')
+
+    location = fields.Char('Location', compute='location_code')
+
+    @api.one
+    def location_code(self):
+        """Return the concatenation of city, state and country."""
+        elements = []
+        if self.city:
+            elements.append(self.city)
+        for element in (self.state_id, self.country_id):
+            if element:
+                elements.append(element.name)
+        self.location = ', '.join(elements)
