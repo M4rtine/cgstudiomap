@@ -195,13 +195,15 @@
         <template id="frontend_studio.studio_industries_edit" name="Studio: Edit Industries">
             <div class="form-group">
                 <t t-foreach="industries" t-as="ind">
-                    <input type="checkbox"
-                           t-att-id='"industry_ids.{0}".format(ind.id)'
-                           t-att-name='"industry_ids.{0}".format(ind.id)'
-                           t-att-value="ind.id"
-                           t-att-checked="'checked' if ind in partner['industry_ids'] else ''"
-                    />
-                    <label t-att-for='"industry_ids.{0}".format(ind.id)' t-esc="ind.name"/>
+					<div class="col-xs-12 col-sm-6">
+						<input type="checkbox"
+							   t-att-id='"industry_ids.{0}".format(ind.id)'
+							   t-att-name='"industry_ids.{0}".format(ind.id)'
+							   t-att-value="ind.id"
+							   t-att-checked="'checked' if ind in partner['industry_ids'] else ''"
+						/>
+						<label t-att-for='"industry_ids.{0}".format(ind.id)' t-esc="ind.name"/>
+					</div>
                 </t>
             </div>
         </template>
