@@ -351,32 +351,32 @@
                                     <div class="tab-content">
                                         <div class="tab-pane fade in active" id="side01">
                                             <h2>Common Details</h2>
-                                            <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+                                            <i><t t-raw="website.studio_common_details"/></i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side02">
                                             <h2>Location Details</h2>
-                                            <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+                                            <i><t t-raw="website.studio_location_details"/></i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side03">
                                             <h2>Links Details</h2>
-                                            <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+                                            <i><t t-raw="website.studio_links_details"/></i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side04">
                                             <h2>Socials Details</h2>
-                                            <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+                                            <i><t t-raw="website.studio_socials_details"/></i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side05">
                                             <h2>Calls Details</h2>
-                                            <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+                                            <i><t t-raw="website.studio_calls_details"/></i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side06">
                                             <h2>Industries Details</h2>
-                                            <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+                                            <i><t t-raw="website.studio_industries_details"/></i>
                                         </div>
 
                                     </div>

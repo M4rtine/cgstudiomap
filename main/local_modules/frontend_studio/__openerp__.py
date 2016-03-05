@@ -39,8 +39,7 @@
         'templates/template_body.xml',
         'templates/template_body_edit_mode.xml',
         'templates/template_engine.xml',
-        # 'templates/template_head.xml',
-        # 'templates/template_html.xml',
+        'views/website_views.xml',
     ],
     'installable': True,
 }
