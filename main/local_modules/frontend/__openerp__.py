@@ -42,9 +42,7 @@
         'frontend_link_to_dashboard',
         'frontend_listing',
         'frontend_shop',
-        # To be added when the module is official released
-        # 'frontend_studio',
-
+        'frontend_studio',
 
     ],
     'data': [

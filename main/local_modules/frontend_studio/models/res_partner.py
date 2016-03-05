@@ -142,12 +142,13 @@ class ResPartnerSave(models.Model):
     @api.one
     def full_location_studio_page(self):
         """Return the address as oneliner."""
-        self.full_location = ', '.join([
-            self.street and self.street.encode('utf8') or '',
-            self.street2 and self.street2.encode('utf8') or '',
-            self.city and self.city.encode('utf8') or '',
-            self.state_id and self.state_id.name.encode('utf8') or '',
-            ])
+        elements = []
+        if self.street: elements.append(self.street)
+        if self.street2: elements.append(self.street2)
+        if self.city: elements.append(self.city)
+        if self.state_id:
+            elements.append(self.state_id.name)
+        self.full_location = ', '.join(elements)
 
     full_location = fields.Char(
         'Full Location', compute='full_location_studio_page'
@@ -242,7 +243,8 @@ class ResPartnerEdition(models.Model):
             industries = self.env['res.industry']
             partner_values['industry_ids'] = industries.browse(industry_ids)
 
-        _logger.debug('updated partner_values: %s', pprint.pformat(partner_values))
+        _logger.debug('updated partner_values: %s',
+                      pprint.pformat(partner_values))
 
         return partner_values
 
