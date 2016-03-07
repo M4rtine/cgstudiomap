@@ -212,6 +212,12 @@
         <!--<t t-call="frontend_base.company_logo_website"/>-->
         <template id="frontend_base.company_logo" name="Company Logo">
             <div class="logo-thumb">
+				<t t-if="state == 'closed'">
+                    <div class="corner-ribbon top-right">
+                        <span class="fontCGSMicons">ban</span>
+                    </div>
+				</t>
+				
                 <img itemprop="image"
                      class="fill-box img-responsive"
                      t-att-src="image_url"
@@ -226,6 +232,7 @@
         <!--<t t-call="frontend_base.company_logo_website"/>-->
         <template id="frontend_base.company_logo_website" name="Company Logo using website.image_url">
             <t t-set="image_url" t-value="website.image_url(partner, 'image_medium', size='256x256')"/>
+            <t t-set="state" t-value="partner.state"/>
             <t t-call="frontend_base.company_logo"/>
         </template>
 

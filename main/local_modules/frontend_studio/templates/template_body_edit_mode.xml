@@ -26,10 +26,12 @@
 
         <template id="frontend_studio.save_button" name="Studio: Save Button">
             <t t-if="create">
-                <input type='submit' class="btn btn-save a-submit pull-right" value="Create new company"/>
+                <input type='submit' class="btn btn-save a-submit pull-right hidden-xs" value="Create new company"/>
+				<input type='submit' class="btn btn-save a-submit pull-right fontCGSMicons hidden-sm hidden-md hidden-lg" value="check"/>
             </t>
             <t t-if="not create">
-                <input type='submit' class="btn btn-save a-submit pull-right" value="Save Changes"/>
+                <input type='submit' class="btn btn-save a-submit pull-right hidden-xs" value="Save Changes"/>
+				<input type='submit' class="btn btn-save a-submit pull-right fontCGSMicons hidden-sm hidden-md hidden-lg" value="check"/>
             </t>
 
         </template>
@@ -48,6 +50,7 @@
 
                 <div class="col-logo">
                     <t t-set="image_url" t-value="partner['image_url']"/>
+                    <t t-set="state" t-value="partner['state']"/>
                     <t t-call="frontend_base.company_logo"/>
                 </div>
                 <!--If this checkbox is checked, the current logo of the company will be set to nothing -->
@@ -194,13 +197,15 @@
         <template id="frontend_studio.studio_industries_edit" name="Studio: Edit Industries">
             <div class="form-group">
                 <t t-foreach="industries" t-as="ind">
-                    <input type="checkbox"
-                           t-att-id='"industry_ids.{0}".format(ind.id)'
-                           t-att-name='"industry_ids.{0}".format(ind.id)'
-                           t-att-value="ind.id"
-                           t-att-checked="'checked' if ind in partner['industry_ids'] else ''"
-                    />
-                    <label t-att-for='"industry_ids.{0}".format(ind.id)' t-esc="ind.name"/>
+					<div class="col-xs-12 col-sm-6">
+						<input type="checkbox"
+							   t-att-id='"industry_ids.{0}".format(ind.id)'
+							   t-att-name='"industry_ids.{0}".format(ind.id)'
+							   t-att-value="ind.id"
+							   t-att-checked="'checked' if ind in partner['industry_ids'] else ''"
+						/>
+						<label t-att-for='"industry_ids.{0}".format(ind.id)' t-esc="ind.name"/>
+					</div>
                 </t>
             </div>
         </template>
@@ -258,12 +263,43 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#01" data-target="#01, #side01, #title01" data-toggle="tab">Common</a></li>
-                                        <li><a href="#02" data-target="#02, #side02, #title02" data-toggle="tab">Location</a></li>
-                                        <li><a href="#03" data-target="#03, #side03, #title03" data-toggle="tab">Links</a></li>
-                                        <li><a href="#04" data-target="#04, #side04, #title04" data-toggle="tab">Socials</a></li>
-                                        <li><a href="#05" data-target="#05, #side05, #title05" data-toggle="tab">Calls</a></li>
-                                        <li><a href="#06" data-target="#06, #side06, #title06" data-toggle="tab">Industries</a></li>
+										
+                                        <li class="active">
+											<a href="#01" data-target="#01, #side01, #title01" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-sm-inline visible-lg-inline">target </span><span class="visible-md-inline visible-lg-inline">Common</span>
+											</a>
+										</li>
+										
+                                        <li>
+											<a href="#02" data-target="#02, #side02, #title02" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-sm-inline visible-lg-inline">location </span><span class="visible-md-inline visible-lg-inline">Location</span>
+											</a>
+										</li>
+										
+                                        <li>
+											<a href="#03" data-target="#03, #side03, #title03" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-sm-inline visible-lg-inline">link </span><span class="visible-md-inline visible-lg-inline">Links</span>
+											</a>
+										</li>
+										
+                                        <li>
+											<a href="#04" data-target="#04, #side04, #title04" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-sm-inline visible-lg-inline">share </span><span class="visible-md-inline visible-lg-inline">Socials</span>
+											</a>
+										</li>
+										
+                                        <li>
+											<a href="#05" data-target="#05, #side05, #title05" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-sm-inline visible-lg-inline">volume </span><span class="visible-md-inline visible-lg-inline">Calls</span>
+											</a>
+										</li>
+										
+                                        <li>
+											<a href="#06" data-target="#06, #side06, #title06" data-toggle="tab">
+												<span class="fontCGSMicons visible-xs-inline visible-sm-inline visible-lg-inline">clipboard </span><span class="visible-md-inline visible-lg-inline">Industries</span>
+											</a>
+										</li>
+										
                                         <t t-call="frontend_studio.save_button"/>
                                     </ul>
 
@@ -348,32 +384,32 @@
                                     <div class="tab-content">
                                         <div class="tab-pane fade in active" id="side01">
                                             <h2>Common Details</h2>
-                                            <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+                                            <i><t t-raw="website.studio_common_details"/></i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side02">
                                             <h2>Location Details</h2>
-                                            <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+                                            <i><t t-raw="website.studio_location_details"/></i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side03">
                                             <h2>Links Details</h2>
-                                            <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+                                            <i><t t-raw="website.studio_links_details"/></i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side04">
                                             <h2>Socials Details</h2>
-                                            <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+                                            <i><t t-raw="website.studio_socials_details"/></i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side05">
                                             <h2>Calls Details</h2>
-                                            <i>{- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet ex dui, quis ornare ante vulputate ac. Nulla facilisi. Cras id lacus neque. Mauris hendrerit lectus eu nibh consequat ullamcorper. In lectus justo, elementum non mauris a, volutpat auctor nulla. -}</i>
+                                            <i><t t-raw="website.studio_calls_details"/></i>
                                         </div>
 
                                         <div class="tab-pane fade" id="side06">
                                             <h2>Industries Details</h2>
-                                            <i>{- Vivamus quis posuere nunc, eget maximus ex. In hac habitasse platea dictumst. Sed odio dui, posuere sit amet lorem et, sagittis aliquet turpis. Mauris metus diam, mollis et aliquet sit amet, porta non leo. Mauris euismod neque id porta molestie. Phasellus vulputate posuere venenatis. -}</i>
+                                            <i><t t-raw="website.studio_industries_details"/></i>
                                         </div>
 
                                     </div>

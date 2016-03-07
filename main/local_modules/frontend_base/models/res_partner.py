@@ -126,9 +126,8 @@ class ResPartner(models.Model):
     @api.one
     def partner_url_link(self):
         """Return the link to the page of the current partner."""
-        # self.partner_url = '/directory/company/{0}'.format(self.id)
         self.partner_url = (
-            '/web#id={0}&view_type=form&model=res.partner'.format(self.id)
+            '/directory/company/{0}'.format(self.id)
         )
 
     def info_window(self, company_status='open'):
@@ -153,6 +152,8 @@ class ResPartner(models.Model):
 
         return title + body + footer
 
+    small_image_url = fields.Char('Url to the small image of the partner.')
+
     location = fields.Char('Location', compute='location_code')
 
     @api.one
@@ -164,8 +165,4 @@ class ResPartner(models.Model):
         for element in (self.state_id, self.country_id):
             if element:
                 elements.append(element.name)
-        self.location = ', '.join(
-            [element.encode('utf8') for element in elements]
-        )
-
-    small_image_url = fields.Char('Url to the small image of the partner.')
+        self.location = ', '.join(elements)
