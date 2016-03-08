@@ -21,28 +21,19 @@
 
 {
     'name': 'Main Data Module',
-    'version': '226',
+    'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Main',
     'summary': 'Main Module, that install data, views etc.',
-    'description': """
-Main Data Module
-================
-This module contains the data, views, models.
-
-Contributors
-------------
-* Jordi Riera <kender.jr@gmail.com>
-* David Mazeau <d.mazeau@gmail.com>
-""",
     'depends': [
         'crm',
         'auditlog',
         'website',
         'website_blog',
         'website_crm',
+        'crm_partner_assign',
         'base_geolocalize',
         'geoengine_partner',
         'base_geoengine',
@@ -57,6 +48,7 @@ Contributors
         'data/res_groups_data.xml',
         'data/res_users_data.xml',
         'data/auditlog_res_partner.xml',
+        'security/ir.model.access.csv',
         'security/ir_rules.xml',
         'views/website_blog_view.xml',
         'views/res_partner_view.xml',
