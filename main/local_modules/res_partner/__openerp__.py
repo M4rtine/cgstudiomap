@@ -37,21 +37,18 @@ Contributors
 * Jordi Riera <kender.jr@gmail.com>
 
 """,
-    # Don't add demo module here as it should not be installed on prod server.
     'depends': [
         'res_partner_email_validation',
-        # 'res_partner_email_validation_missing_details',
         'res_partner_filter',
         'res_partner_industry',
         'res_partner_location_validation',
-        # 'res_partner_location_validation_missing_details',
         'res_partner_missing_details',
-        # 'res_partner_phone_missing_details',
         'res_partner_filter',
         'res_partner_social_networks',
         'res_partner_url_validation',
         'res_partner_moderator_supervision',
-        # 'res_partner_url_validation_missing_details',
+        # partner-contact
+        'partner_relations',
     ],
     'data': [],
     'installable': True,
