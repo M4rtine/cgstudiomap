@@ -1,9 +1,9 @@
 main/.*
-#main/bin
+main/bin
 main/develop-eggs
-#main/eggs
-#main/etc
-#main/parts
+main/eggs
+main/etc
+main/parts
 
 __pycache__/
 *.py[cod]

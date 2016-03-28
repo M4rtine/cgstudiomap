@@ -1,0 +1,30 @@
+#To set up the instance:
+#
+## build the dockers
+#docker-compose build
+#
+## pull the dependencies
+#docker-compose run cgstudiomap /opt/cgstudiomap/install.sh
+#
+## link the instance and launch the odoo instance
+#docker-compose up
+
+# for tests:
+# docker-compose up -d; sudo docker logs -f cgstudiomap_production; sudo docker wait cgstudiomap_production
+version: "2"
+services:
+
+  pgsql:
+    extends:
+      file: base_compose.yml
+      service: base_pgsql
+
+  cgstudiomap:
+    extends:
+      file: base_compose.yml
+      service: base_cgstudiomap
+    depends_on:
+      - pgsql
+    links:
+      - "pgsql:pgsql-server"
+    command: /opt/cgstudiomap/bin/start_odoo -d cgstudiomap -r cgstudiomap --workers=0

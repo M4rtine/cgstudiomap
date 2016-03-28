@@ -1,4 +1,4 @@
-#!/home/foutoucour/virtualenvs/cgstudiomap/bin/python2
+#!/usr/bin/python2
 
 # $Id: rst2xetex.py 7038 2011-05-19 09:12:02Z milde $
 # Author: Guenter Milde

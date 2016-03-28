@@ -1,4 +1,4 @@
-#!/home/foutoucour/virtualenvs/cgstudiomap/bin/python2
+#!/usr/bin/python2
 
 # $Id: rst2html.py 4564 2006-05-21 20:44:42Z wiemann $
 # Author: David Goodger <goodger@python.org>

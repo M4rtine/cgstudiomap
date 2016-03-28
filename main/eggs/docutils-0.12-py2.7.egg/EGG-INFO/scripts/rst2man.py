@@ -1,4 +1,4 @@
-#!/home/foutoucour/virtualenvs/cgstudiomap/bin/python2
+#!/usr/bin/python2
 
 # Author: 
 # Contact: grubert@users.sf.net

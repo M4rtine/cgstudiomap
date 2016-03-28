@@ -1,0 +1,34 @@
+#To set up the instance:
+#
+## build the dockers
+#docker-compose build
+#
+## pull the dependencies
+#docker-compose run cgstudiomap /opt/cgstudiomap/install.sh
+#
+## link the instance and launch the odoo instance
+#docker-compose up
+
+# for tests:
+# docker-compose up -d; sudo docker logs -f cgstudiomap_production; sudo docker wait cgstudiomap_production
+version: "2"
+services:
+  base_pgsql:
+    image: camptocamp/postgis:9.4
+    volumes:
+      - ~/.containers/cgstudiomap-pgsql-9.4:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: cgstudiomap
+      POSTGRES_PASSWORD: cgstudiomap
+
+  base_cgstudiomap:
+    container_name: cgstudiomap
+    build: .
+    ports:
+      - "localhost:8069:8069"
+      - "localhost:8072:8072"
+    environment:
+      SLACK_WEBHOOK_MODERATION: https://hooks.slack.com/services/t0gu8tqtw/b0nak7h5x/8c9i1llztffhszeykzaz8kks
+    volumes:
+      - ./main:/opt/cgstudiomap
+      - ./openerp_serverrc:/home/cgstudiomap/.openerp_serverrc

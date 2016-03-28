@@ -22,8 +22,7 @@ def insert_args(arguments):
 
 def main(starter, conf, version=None, just_test=False,
          server_wide_modules=None,
-         gevent_script_path=None,
-         addons=None):
+         gevent_script_path=None):
     """Call the `starter` script, dispatching configuration.
 
     All arguments are set in the standalone script produced by buildout through

@@ -1,33 +1,10 @@
-# WARNING:
-# Do not use this file as a template for you repository TravisCI configuration
-# Instead use the files under the "/sample_files" directory for that purpose.
 language: python
 sudo: false
-cache:
-  apt: true
-  directories:
-    - $HOME/.cache/pip
 
 python:
   - "2.7"
 
-before_script:
-#  - sudo psql -c 'create database odoo;' -U travis
-  - psql -U postgres -c "create extension postgis"
-  - psql -U postgres -c "create extension unaccent"
-
-addons:
-  postgresql: "9.3"
-  apt:
-    packages:
-      - expect-dev  # provides unbuffer utility
-      - python-lxml  # because pip installation is slow
-      - python-simplejson
-      - python-serial
-      - python-yaml
-
-virtualenv:
-  system_site_packages: true
-
 script:
-  - ./main/bin/start_odoo --stop-after-init --workers=0 -d travis -r travis -i main --test-enable
+  - docker-compose -f test-compose.yml up -d
+  - sudo docker logs -f cgstudiomap
+  - sudo docker wait cgstudiomap

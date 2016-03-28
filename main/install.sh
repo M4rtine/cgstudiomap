@@ -13,20 +13,6 @@ PARTS="odoo"
 # Prepare Odoo environment
 $PROJECT_HOME/bin/buildout -c $BUILDOUT_CFG install $PARTS
 
-# Create .openerp_serverrc file
-echo -n "Creating ~/.openerp_serverrc file... "
-if [ ! -e ~/.openerp_serverrc ]
-then
-    cat>~/.openerp_serverrc<<EOF
-[options]
-admin_passwd = admin
-db_password = odoo
-EOF
-    echo "OK"
-else
-    echo "File exists!"
-fi
-
 # Make sure there's no admin_passwd or db_password in the generated config file
 sed -i '/admin_passwd/d' etc/odoo.cfg
 sed -i '/db_password/d' etc/odoo.cfg
