@@ -81,7 +81,7 @@ class TestResPartnerSave(common.TransactionCase):
         self.assertEqual(self.partner.street, u'Rue de la Palombi\xe8re')
         self.assertEqual(self.partner.zip, '64150')
         self.assertEqual(self.partner.city, 'Mourenx')
-        self.assertEqual(self.partner.image, None)
+        self.assertEqual(self.partner.image, False)
 
     @staticmethod
     def __base64Image():
