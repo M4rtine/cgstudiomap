@@ -109,7 +109,7 @@
 
         <!--Require tab: which tab in the edit mode to be opened under. Default #01-->
         <template id="frontend_studio.marqueePlus" name="Marquee Plus">
-            <a t-att-href="'/directory/company/{}/edit{}'.format(partner.id, tab and tab or '#01')"
+            <a t-att-href="'/directory/company/{}/edit{}'.format(partner.id, tab and tab or '#01')" class="btAdd"
                title="Click to add the missing value.">
                 <span class="fontCGSMicons social-link--add">marqueePlus</span>
             </a>
