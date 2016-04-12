@@ -51,6 +51,11 @@
 		 * LINK / auto external link
 		/* ---------------------------------------------- */
         $(".socials a").attr('target', '_blank');
+		$(".details-web a").attr('target', '_blank');
+		$(".details-phone a").attr('target', '_blank');
+		$(".details-socials a").attr('target', '_blank');
+		$(".btAdd").attr('target', '_self');
+		
 
 	});
 
