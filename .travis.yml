@@ -1,10 +1,7 @@
-language: python
-sudo: false
-
-python:
-  - "2.7"
+services:
+  - docker
 
 script:
   - docker-compose -f test-compose.yml up -d
-  - sudo docker logs -f cgstudiomap
-  - sudo docker wait cgstudiomap
+  - docker logs -f cgstudiomap
+  - docker wait cgstudiomap
