@@ -27,4 +27,4 @@ services:
       - pgsql
     links:
       - "pgsql:pgsql-server"
-    command: /opt/cgstudiomap/bin/start_odoo -d cgstudiomap -r cgstudiomap --workers=0 --test-enable -i main
+    command: /opt/cgstudiomap/bin/start_odoo -d cgstudiomap -r cgstudiomap --workers=0 --test-enable -i main --stop-after-init
