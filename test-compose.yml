@@ -1,14 +1,3 @@
-#To set up the instance:
-#
-## build the dockers
-#docker-compose build
-#
-## pull the dependencies
-#docker-compose run cgstudiomap /opt/cgstudiomap/install.sh
-#
-## link the instance and launch the odoo instance
-#docker-compose up
-
 # for tests:
 # docker-compose -f test-compose.yml up -d; sudo docker logs -f cgstudiomap; sudo docker wait cgstudiomap
 version: "2"
@@ -27,4 +16,4 @@ services:
       - pgsql
     links:
       - "pgsql:pgsql-server"
-    command: /opt/cgstudiomap/bin/start_odoo -d cgstudiomap -r cgstudiomap --workers=0 --test-enable -i main --stop-after-init
+    command: /opt/cgstudiomap/parts/odoo/openerp-server -c /opt/cgstudiomap/etc/odoo.cfg -d cgstudiomap -r cgstudiomap --workers=0 --test-enable -i main --stop-after-init
