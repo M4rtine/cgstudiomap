@@ -28,4 +28,3 @@ script:
   - docker-compose -f test-compose.yml up -d
   - docker logs -f cgstudiomap
   - docker wait cgstudiomap
-  - exit $?
