@@ -8,6 +8,9 @@ env:
         - DOCKER_VERSION=1.11.1-0~trusty
         - DOCKER_COMPOSE_VERSION=1.6.2
 
+
+
+
 before_install:
   # list docker-engine versions
   - apt-cache madison docker-engine
@@ -22,5 +25,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - docker-compose -f test-compose.yml up
-  - docker-compose ps -q | xargs docker inspect -f '{{ .State.ExitCode }}' | grep -v 0 | wc -l | tr -d ' '
+  - docker-compose -f test-compose.yml up -d
+  - docker logs -f cgstudiomap
+  - docker wait cgstudiomap
+  - echo $?
