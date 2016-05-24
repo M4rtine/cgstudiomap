@@ -22,4 +22,4 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - docker-compose -f test-compose.yml up
+  - docker-compose run /opt/cgstudiomap/parts/odoo/openerp-server -c /opt/cgstudiomap/etc/odoo.cfg -d cgstudiomap -r cgstudiomap --workers=0 --test-enable -i main --stop-after-init
