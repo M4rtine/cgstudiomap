@@ -25,7 +25,6 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - docker version
   - docker-compose -f test-compose.yml up -d
   - docker logs -f cgstudiomap
-  - docker wait cgstudiomap
+  - exit $(docker wait cgstudiomap)

@@ -48,7 +48,7 @@ class TestResPartner(common.TransactionCase):
         partner = self.partner_pool.create(
             {'name': 'tname', 'twitter': self.twitter_url}
         )
-        self.assertEqual(partner.twitter, '')
+        self.assertEqual(partner.twitter, self.twitter_url)
 
     def test_twitter_value(self):
         """Test the method _validate_twitter_url raise Error if the
