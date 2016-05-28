@@ -1,20 +1,7 @@
-#To set up the instance:
-#
-## build the dockers
-#docker-compose build
-#
-## pull the dependencies
-#docker-compose run cgstudiomap /opt/cgstudiomap/install.sh
-#
-## link the instance and launch the odoo instance
-#docker-compose up
-
-# for tests:
-# docker-compose up -d; sudo docker logs -f cgstudiomap_production; sudo docker wait cgstudiomap_production
 version: "2"
 services:
   base_pgsql:
-    image: camptocamp/postgis:9.4
+    image: cgstudiomap/postgis-unaccent
     volumes:
       - ~/.containers/cgstudiomap-pgsql-9.4:/var/lib/postgresql/data
     environment:
