@@ -17,8 +17,8 @@ Requirement to run the project:
 The setup is based on `services.yml`, where all the bases of each services are defined.
 The setup of the steps are defined in inheriting yml files.
 
-## Steps
-Following the different steps for the instance.
+## Environments
+Following the different environments for the instance.
 
 ### Development
 To develop cgstudiomap, you will need to copy the `docker-compose.sample` to `docker-compose.yml`

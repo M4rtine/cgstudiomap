@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 
 import sys
-from anybox.recipe.odoo.runtime.session import Session
+from session import Session
 session = Session('/opt/cgstudiomap/etc/odoo.cfg', '/opt/cgstudiomap')
 if len(sys.argv) <= 1:
     print('To start the OpenERP working session, just do:')

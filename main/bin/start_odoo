@@ -1,7 +1,0 @@
-#!/usr/bin/python2
-
-import sys
-import anybox.recipe.odoo.runtime.start_openerp
-
-if __name__ == '__main__':
-    sys.exit(anybox.recipe.odoo.runtime.start_openerp.main('/opt/cgstudiomap/parts/odoo/openerp-server', '/opt/cgstudiomap/etc/odoo.cfg', version=(8, 0), gevent_script_path='/opt/cgstudiomap/bin/gevent_odoo'))
