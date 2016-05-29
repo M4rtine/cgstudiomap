@@ -47,6 +47,14 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.full {
+	width: 100%;
+	height: 100%;
+	padding-top: 0;
+	background: $bg url(../svg/cgsm-pattern-inv.svg) top center repeat;
+	text-align: center;
+}
 .btn-connect {
 	padding: auto 0;
 	font-size: 24px !important;

@@ -52,7 +52,7 @@
         </template>
 
         <template id="frontend_base.body" name="Base: body">
-            <body id="home">
+            <body id="home" class="full">
                 <t t-call="frontend_base.navbar"/>
                 <t t-raw="0"/>
                 <div id="wrapwrap"></div>

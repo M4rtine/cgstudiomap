@@ -51,26 +51,26 @@ $social:            (twitter,   $twitter),
 //-------------------
 // BOOTSTRAP upgrade
 //-------------------
-body {
+body{
 	background-color: $bg;
 }
 .navbar-default, .navbar-inverse {
-    background-color: $color-cgsm;
+    background-color: transparent;
 }
 .navbar-nav>li>a{
-	color: $color-cgsm-light;
+	color: $color-cgsm;
 }
 .navbar-toggle {
     background-color: transparent;
     background-image: none;
     border: 0px solid transparent;
-	color : $color-cgsm-light;
+	color : $color-cgsm;
 }
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
     background-color: transparent;
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    border-color: $color-cgsm-light;
+    border-color: $color-cgsm;
 }
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -78,10 +78,10 @@ body {
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-    color: $color-cgsm-light;
+    color: $color-cgsm;
 }
 .navbar-inverse .navbar-nav > li > a{
-    color: $color-cgsm-light;
+    color: $color-cgsm;
 }
 
 .navbar-inverse .navbar-nav > a,
@@ -91,7 +91,7 @@ body {
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
-	color: $color-cgsm-light;
+	color: $color-cgsm;
 	background-color: transparent;
 }
 
