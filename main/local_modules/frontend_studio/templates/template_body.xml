@@ -125,7 +125,10 @@
         </template>
 
         <template id="frontend_studio.studio_details" name="Studio: Details">
-            <div class="col-xs-12 col-sm-6">
+            <span class="details-connect-right">
+                <t t-call="frontend_studio.social_networks" />
+            </span>
+		
                 <div class="form-group details-web">
                     <h4><t t-esc="fields['website']['string']"/></h4>
                     <p>
@@ -170,14 +173,7 @@
                     <t t-set="value" t-value="partner.fax"/>
                     <p><t t-esc="fields['fax']['string']"/>: <t t-call="frontend_studio.marqueePlus_placeholder"/></p>
                 </div>
-            </div>
 
-
-            <div class="col-xs-12 col-sm-6 pull-right">
-                <t t-call="frontend_studio.social_networks" />
-            </div>
-
-			
         </template>
 
         <template id="frontend_studio.social_networks" name="Studio: Social Networks">
@@ -265,14 +261,16 @@
 							<div class="row">
 								<h3>Address</h3>
 								<div class="col-sm-12">
-									<t t-call="frontend_studio.studio_address"/>
+								<t t-call="frontend_studio.studio_address"/>
 								</div>
 							</div>
 							
 							
 							<div class="row">
 								<h3>Connect</h3>
+								<div class="col-sm-12">
 								<t t-call="frontend_studio.studio_details"/>
+								</div>
 							</div>
 						</div>
 						
