@@ -351,7 +351,12 @@ body {
 		padding-bottom: 0.5em;
 		height: 240px;
 	}
-	img {
+	.logo-thumb {
+	  width: 64px  !important;
+	  height: 64px  !important;
+	  overflow: hidden  !important;
+	}
+	img, logo-thumb {
 		@media (max-width: $screen-xs-max) {
 			margin: 0 auto!important;
 			text-align: center!important;
@@ -362,13 +367,6 @@ body {
 		text-align: center!important;
 	}
 }
-
-.studios  .logo-thumb {
-  width: 64px  !important;
-  height: 64px  !important;
-  overflow: hidden  !important;
-}
-
 
 .bloc-signup {
     margin-bottom: -1.4em;
