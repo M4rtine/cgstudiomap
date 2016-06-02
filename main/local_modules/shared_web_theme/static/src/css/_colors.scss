@@ -54,6 +54,18 @@ $social:            (twitter,   $twitter),
 body{
 	background-color: $bg;
 }
+.navbar {
+    -webkit-transition: all 0.6s ease-out;
+    -moz-transition: all 0.6s ease-out;
+    -o-transition: all 0.6s ease-out;
+    -ms-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
+}
+
+.navbar.scrolled {
+    background: $color-cgsm-light; //IE
+    background: $color-cgsm-light; //NON-IE
+}
 .navbar-default, .navbar-inverse {
     background-color: transparent;
 }
