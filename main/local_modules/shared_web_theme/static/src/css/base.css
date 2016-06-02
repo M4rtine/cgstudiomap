@@ -6345,15 +6345,14 @@ body {
   background-color: #f2f2f2; }
 
 .navbar {
-  -webkit-transition: all 0.6s ease-out;
-  -moz-transition: all 0.6s ease-out;
-  -o-transition: all 0.6s ease-out;
-  -ms-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out; }
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
 
 .navbar.scrolled {
-  background: #f1f1f3;
-  background: #f1f1f3; }
+  background: #f2f2f2; }
 
 .navbar-default, .navbar-inverse {
   background-color: transparent; }
@@ -6396,6 +6395,11 @@ body {
 
 .jumbotron {
   background-color: transparent; }
+
+.bg-block {
+  background: #f2f2f2;
+  border-bottom: 2px solid #b05ae2;
+  border-top: 2px solid #b05ae2; }
 
 .dropdown-menu {
   font-family: 'cgsm-regular';

@@ -59,7 +59,7 @@ body{
 }
 
 .navbar.scrolled {
-    background: $color-cgsm-light;
+    background: $bg;
 }
 .navbar-default, .navbar-inverse {
     background-color: transparent;
@@ -114,6 +114,11 @@ body{
 
 .jumbotron {
     background-color: transparent;
+}
+.bg-block {
+	background: $bg;
+	border-bottom: 2px solid $color-cgsm;
+	border-top: 2px solid $color-cgsm;
 }
 .dropdown-menu {
 	font-family: 'cgsm-regular';
