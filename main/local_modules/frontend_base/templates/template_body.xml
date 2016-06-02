@@ -3,7 +3,7 @@
     <data>
 
         <template id="frontend_base.navbar" name="Base: body navbar">
-            <nav class="navbar navbar-inverse navbar-fixed-top fontCGSMlight" role="navigation">
+            <nav class="navbar navbar-inverse navbar-fixed-top fontCGSM" role="navigation">
                     <div class="navbar-header">
 						
 						<span class="navbar-text navbar-left"><a href="/" class="navbar-link"><span id="logo-nav"></span></a></span>

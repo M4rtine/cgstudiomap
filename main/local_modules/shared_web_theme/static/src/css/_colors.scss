@@ -60,6 +60,7 @@ body{
 
 .navbar.scrolled {
     background: $bg;
+	max-height: 90px;
 }
 .navbar-default, .navbar-inverse {
     background-color: transparent;
