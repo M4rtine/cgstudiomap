@@ -19,15 +19,12 @@
 	margin: 0 0;
 	padding: 0 0;
 	width: 100%;
-	
-	background-color: white;
 }
 #container-map-studio {
 	position: relative;
 	height: 350px;
 	margin-top: 45px;
 	z-index: 1;
-	background: url(../cgsm-pattern.svg) repeat fixed;
 }
 #geochart_target {
 	position: relative;
