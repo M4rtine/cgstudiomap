@@ -219,17 +219,12 @@ input {
 }
 
 
-
-
-
-
-
 .jumbotron {
     padding-bottom: 0;
     margin-bottom: 0;
     padding: 0 0;
-    
-    background: transparent;
+    border-top: 1px solid rgba(176,90,226,0.25);
+    background: #f2f2f2;
 }
 
 
