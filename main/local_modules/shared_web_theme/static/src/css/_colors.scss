@@ -117,8 +117,8 @@ body{
 }
 .bg-block {
 	background: $bg;
-	border-bottom: 2px solid $color-cgsm;
-	border-top: 2px solid $color-cgsm;
+	border-bottom: 1px solid rgba($color-cgsm, 0.25);
+	border-top: 1px solid  rgba($color-cgsm, 0.25);
 }
 .dropdown-menu {
 	font-family: 'cgsm-regular';

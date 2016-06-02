@@ -6398,8 +6398,8 @@ body {
 
 .bg-block {
   background: #f2f2f2;
-  border-bottom: 2px solid #b05ae2;
-  border-top: 2px solid #b05ae2; }
+  border-bottom: 1px solid rgba(176, 90, 226, 0.25);
+  border-top: 1px solid rgba(176, 90, 226, 0.25); }
 
 .dropdown-menu {
   font-family: 'cgsm-regular';
