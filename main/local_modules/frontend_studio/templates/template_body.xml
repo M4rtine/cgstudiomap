@@ -171,10 +171,12 @@
                     <p><t t-esc="fields['fax']['string']"/>: <t t-call="frontend_studio.marqueePlus_placeholder"/></p>
                 </div>
             </div>
-			
+
+
             <div class="col-xs-12 col-sm-6 pull-right">
                 <t t-call="frontend_studio.social_networks" />
             </div>
+
 			
         </template>
 
