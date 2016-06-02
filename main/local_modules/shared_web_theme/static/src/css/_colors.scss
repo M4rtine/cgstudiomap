@@ -67,6 +67,7 @@ body{
 .navbar-nav>li>a{
 	color: $color-cgsm;
 }
+
 .navbar-toggle {
     background-color: transparent;
     background-image: none;
@@ -74,6 +75,7 @@ body{
 	color : $color-cgsm;
 }
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+	color: $color-cgsm;
     background-color: transparent;
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
@@ -92,6 +94,7 @@ body{
 }
 
 .navbar-inverse .navbar-nav > a,
+.navbar-inverse .navbar-nav > a:hover,
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus,
@@ -99,9 +102,17 @@ body{
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
 	color: $color-cgsm;
-	background-color: transparent;
+	background-color: $bg;
 }
 
+.navbar-center li a {
+	color: $color-cgsm !important;
+	background: transparent;
+}
+.navbar-center li a:hover,
+.navbar-center li a:focus{
+	background: $bg;
+}
 .navbar-right {
 
 	#dLabel {
