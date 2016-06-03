@@ -19,15 +19,12 @@
 	margin: 0 0;
 	padding: 0 0;
 	width: 100%;
-	
-	background-color: white;
 }
 #container-map-studio {
 	position: relative;
 	height: 350px;
 	margin-top: 45px;
 	z-index: 1;
-	background: url(../cgsm-pattern.svg) repeat fixed;
 }
 #geochart_target {
 	position: relative;
@@ -95,7 +92,7 @@
 h3:before {
 	content: "";
 	display: block;
-	border-top: solid 1px #979699;
+	border-top: 1px solid rgba(176,90,226,0.25);
 	width: 80%;
 	height: 1px;
 	position: absolute;
@@ -105,7 +102,7 @@ h3:before {
 }
 .studio_industries h4 {
 	display: block;
-	border-bottom: solid 1px #cbcacc;
+	border-bottom: 1px solid rgba(176,90,226,0.15);
 
 }
 h3  {
@@ -144,12 +141,11 @@ h3  {
 .details-country a:hover{
 	font-family: 'cgsm-light';
 	font-size: 1.24em;
-	color: #323133;
-	background-color: #f1f1f3;
+	color: #f2f2f2;
+	background-color: #5bc0de;;
 	text-decoration: none;
 	padding: 0.1em 0.2em;
 	text-transform: uppercase;
-	float: right !important;
 	border-radius: 0.1em !important;
 	-webkit-border-radius: 0.1em !important;
 	-moz-border-radius: 0.1em !important;
@@ -193,7 +189,10 @@ h3  {
 	-webkit-border-radius: 0.15em !important;
 	-moz-border-radius: 0.15em !important;
 }
-
+.details-connect-right,
+.details-country {
+	float: right !important;
+}
 .studio-header .logo-thumb {
 	width: 128px !important;
 	height: 128px !important;
@@ -223,9 +222,9 @@ h3  {
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: baseline;
-	border-radius: 0.25em !important;
-	-webkit-border-radius: 0.25em !important;
-	-moz-border-radius: 0.25em !important;
+	border-radius: 0.15em !important;
+	-webkit-border-radius: 0.15em !important;
+	-moz-border-radius: 0.15em !important;
 }
 
 
@@ -478,6 +477,7 @@ input {
 		width: 50%;
 		left: 40%;
 	}
+	.details-connect-right,
 	.details-country,
 	.details-country a,
 	.details-country a:hover{
@@ -486,6 +486,7 @@ input {
 	.details-street, .details-city {
 		font-size: 1.33em;
 	}
+	.details-connect-right,
 	.details-country,
 	.details-country a,
 	.details-country a:hover{
@@ -503,6 +504,7 @@ input {
 		width: 50%;
 		left: 40%;
 	}
+	.details-connect-right,
 	.details-country,
 	.details-country a,
 	.details-country a:hover{

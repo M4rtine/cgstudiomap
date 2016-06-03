@@ -42,7 +42,7 @@ body {
     height: 45px;
     vertical-align: middle;
     color: #323133;
-    background-color: #f1f1f3;
+    background-color: #f8f8f8;
     background-image: none;
     border: 1px solid #cbcacc;
 }
@@ -83,7 +83,7 @@ body {
 }
 
 .navBgcolor{
-    background-color: #f1f1f3;
+    background-color: #f8f8f8;
     border: 0 solid #b05ae2;
     border-left: 8px solid #b05ae2;
 }
@@ -129,7 +129,7 @@ input {
 }
 .navSwitch .a-submit{
     color: #323133;
-    background-color: #f1f1f3;
+    background-color: #f8f8f8;
 }
 .navSwitch {
     font-size: 1em;
@@ -219,24 +219,19 @@ input {
 }
 
 
-
-
-
-
-
 .jumbotron {
     padding-bottom: 0;
     margin-bottom: 0;
     padding: 0 0;
-    
-    background: transparent;
+    border-top: 1px solid rgba(176,90,226,0.25);
+    background: #f2f2f2;
 }
 
 
 #map {
     position: absolute;
     top: 165px;
-	border-top: 1px solid #cbcacc;
+	border-top: 1px solid rgba(176,90,226,0.25);
     margin: 0 auto;
     padding: 0;
     width: 100%;

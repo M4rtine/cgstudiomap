@@ -19,19 +19,19 @@
 	}
 	.btn-connect {
 		background: none;
-		color: $color-cgsm-light;
+		color: $color-cgsm;
 		margin-top: -0.25em;
 	}
 	.btn-connect:link,
 	.btn-connect:visited,
 	.btn-connect:active,
 	.btn-connect.active	{
-		color: $color-cgsm-light;
+		color: $color-cgsm;
 	}
 	.btn-connect:hover,
 	.btn-connect:focus	{
-		background: $color-cgsm-light;
-		color: $color-cgsm;
+		background: $color-cgsm;
+		color: $color-cgsm-light;
 	}
 	.btn-default {
 		border: 2px solid $bg;
@@ -43,9 +43,9 @@
 	.btn-default:active,
 	.btn-default.active,
 	.open > .dropdown-toggle.btn-default {
-		background: $color-cgsm-light;
-		border-color: $color-cgsm-light;
-		color: $color-cgsm-light;
+		background: $color-cgsm;
+		border-color: $color-cgsm;
+		color: $color-cgsm;
 	}
 	.btn.outline {
 		background: none;

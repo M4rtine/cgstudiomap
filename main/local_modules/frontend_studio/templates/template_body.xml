@@ -125,7 +125,10 @@
         </template>
 
         <template id="frontend_studio.studio_details" name="Studio: Details">
-            <div class="col-xs-12 col-sm-4">
+            <span class="details-connect-right">
+                <t t-call="frontend_studio.social_networks" />
+            </span>
+		
                 <div class="form-group details-web">
                     <h4><t t-esc="fields['website']['string']"/></h4>
                     <p>
@@ -145,11 +148,6 @@
                         <t t-call="frontend_studio.marqueePlus_placeholder"/>
                     </p>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-4">
-                <t t-call="frontend_studio.social_networks" />
-            </div>
-            <div class="col-xs-12 col-sm-4 pull-right">
                 <h4>Calls</h4>
                 <div class="form-group details-phone">
                     <t t-set="display">
@@ -175,7 +173,6 @@
                     <t t-set="value" t-value="partner.fax"/>
                     <p><t t-esc="fields['fax']['string']"/>: <t t-call="frontend_studio.marqueePlus_placeholder"/></p>
                 </div>
-            </div>
 
         </template>
 
@@ -256,7 +253,7 @@
 					
 				</div>
 				
-				<div id="studioDetails">
+				<div id="studioDetails" class="bg-block">
 				<div class="container studio-details fontCGSM">
 					<div class="row">
 						<div class="col-sm-10">
@@ -264,14 +261,16 @@
 							<div class="row">
 								<h3>Address</h3>
 								<div class="col-sm-12">
-									<t t-call="frontend_studio.studio_address"/>
+								<t t-call="frontend_studio.studio_address"/>
 								</div>
 							</div>
 							
 							
 							<div class="row">
 								<h3>Connect</h3>
+								<div class="col-sm-12">
 								<t t-call="frontend_studio.studio_details"/>
+								</div>
 							</div>
 						</div>
 						
@@ -305,7 +304,7 @@
                 <t t-call="frontend_base.body">
                     <t t-raw="0"/>
 
-					<div class="full v-align fontCGSMlight">
+					<div class="full-thanks v-align fontCGSMlight">
 						<div class="container">
 							<div class="row">
 								<div class="col-xs-12">

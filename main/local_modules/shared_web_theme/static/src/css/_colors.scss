@@ -51,26 +51,36 @@ $social:            (twitter,   $twitter),
 //-------------------
 // BOOTSTRAP upgrade
 //-------------------
-body {
+body{
 	background-color: $bg;
 }
+.navbar {
+	@include transition(all 0.3s ease-out);
+}
+
+.navbar.scrolled {
+    background: $bg;
+	max-height: 90px;
+}
 .navbar-default, .navbar-inverse {
-    background-color: $color-cgsm;
+    background-color: transparent;
 }
 .navbar-nav>li>a{
-	color: $color-cgsm-light;
+	color: $color-cgsm;
 }
+
 .navbar-toggle {
     background-color: transparent;
     background-image: none;
     border: 0px solid transparent;
-	color : $color-cgsm-light;
+	color : $color-cgsm;
 }
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+	color: $color-cgsm;
     background-color: transparent;
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    border-color: $color-cgsm-light;
+    border-color: $color-cgsm;
 }
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -78,23 +88,32 @@ body {
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-    color: $color-cgsm-light;
+    color: $color-cgsm;
 }
 .navbar-inverse .navbar-nav > li > a{
-    color: $color-cgsm-light;
+    color: $color-cgsm;
 }
 
 .navbar-inverse .navbar-nav > a,
+.navbar-inverse .navbar-nav > a:hover,
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus,
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
-	color: $color-cgsm-light;
-	background-color: transparent;
+	color: $color-cgsm;
+	background-color: $bg;
 }
 
+.navbar-center li a {
+	color: $color-cgsm !important;
+	background: transparent;
+}
+.navbar-center li a:hover,
+.navbar-center li a:focus{
+	background: $bg;
+}
 .navbar-right {
 
 	#dLabel {
@@ -107,6 +126,11 @@ body {
 
 .jumbotron {
     background-color: transparent;
+}
+.bg-block {
+	background: $bg;
+	border-bottom: 1px solid rgba($color-cgsm, 0.25);
+	border-top: 1px solid  rgba($color-cgsm, 0.25);
 }
 .dropdown-menu {
 	font-family: 'cgsm-regular';
