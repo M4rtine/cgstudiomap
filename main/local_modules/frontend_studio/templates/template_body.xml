@@ -304,7 +304,7 @@
                 <t t-call="frontend_base.body">
                     <t t-raw="0"/>
 
-					<div class="full v-align fontCGSMlight">
+					<div class="full-thanks v-align fontCGSMlight">
 						<div class="container">
 							<div class="row">
 								<div class="col-xs-12">

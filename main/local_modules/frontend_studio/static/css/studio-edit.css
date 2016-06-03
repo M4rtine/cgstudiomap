@@ -15,11 +15,14 @@ body {
 	
 	margin-bottom: 80px;
 	overflow-x: hidden;
-	background-color: #e8e8e8;
+	background-color: #e8e8e8 !important;
 	color: #323133;
 	/* Margin bottom by footer height */
 	margin-bottom: 80px;
 
+}
+.full {
+	background: transparent;
 }
 .studio-edit {
 
