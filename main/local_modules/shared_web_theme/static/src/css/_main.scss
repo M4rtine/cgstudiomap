@@ -54,6 +54,30 @@ body {
 	padding-top: 0;
 	background: $bg url(../svg/cgsm-pattern-inv.svg) top center repeat;
 }
+.about {
+	span {
+		font-size: 2.33em;
+	}
+	a {
+		text-decoration: none;
+	}
+}
+.thumbnail {
+
+	h3 {
+
+	}
+	h4 {
+
+	}
+	span {
+		font-size: 1.66em;
+	}
+	a {
+		text-decoration: none;
+	}
+}
+
 .btn-connect {
 	padding: auto 0;
 	font-size: 24px !important;
