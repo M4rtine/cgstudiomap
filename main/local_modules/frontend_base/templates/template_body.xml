@@ -3,7 +3,7 @@
     <data>
 
         <template id="frontend_base.navbar" name="Base: body navbar">
-            <nav class="navbar navbar-inverse navbar-fixed-top fontCGSMlight" role="navigation">
+            <nav class="navbar navbar-inverse navbar-fixed-top fontCGSM" role="navigation">
                     <div class="navbar-header">
 						
 						<span class="navbar-text navbar-left"><a href="/" class="navbar-link"><span id="logo-nav"></span></a></span>
@@ -52,7 +52,7 @@
         </template>
 
         <template id="frontend_base.body" name="Base: body">
-            <body id="home">
+            <body id="home" class="full">
                 <t t-call="frontend_base.navbar"/>
                 <t t-raw="0"/>
                 <div id="wrapwrap"></div>

@@ -146,6 +146,7 @@ class ResPartnerSave(models.Model):
         if self.street: elements.append(self.street)
         if self.street2: elements.append(self.street2)
         if self.city: elements.append(self.city)
+        if self.zip: elements.append(self.zip)
         if self.state_id:
             elements.append(self.state_id.name)
         self.full_location = ', '.join(elements)

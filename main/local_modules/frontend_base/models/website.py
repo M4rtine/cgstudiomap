@@ -12,4 +12,4 @@ class Website(models.Model):
 
     directory_menu = '/directory'
     shop_menu = '/shop/'
-    about_menu = '/page/website.contactus'
+    about_menu = '/contactus/'

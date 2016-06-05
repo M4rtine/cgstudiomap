@@ -26,7 +26,7 @@
 
         <template id="frontend_studio.save_button" name="Studio: Save Button">
             <t t-if="create">
-                <input type='submit' class="btn btn-save a-submit pull-right hidden-xs" value="Create new company"/>
+                <input type='submit' class="btn btn-save a-submit pull-right hidden-xs" value="Add Company"/>
 				<input type='submit' class="btn btn-save a-submit pull-right fontCGSMicons hidden-sm hidden-md hidden-lg" value="check"/>
             </t>
             <t t-if="not create">

@@ -43,12 +43,11 @@
         'frontend_listing',
         'frontend_shop',
         'frontend_studio',
-
+        'frontend_about',
     ],
     'data': [
         'data/website_menus.xml',
         'templates/login_template.xml',
-        'templates/contact_us_template.xml',
         'templates/events.xml',
         'templates/website_partner.xml',
     ],

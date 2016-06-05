@@ -193,7 +193,7 @@
 					</div>
 				</div>
 
-				<div style="background:white">
+				<div class="bg-block">
 				<t t-call="frontend_homepage.promotional_text_box"/>
 				</div>
                     <div class="container">

@@ -47,13 +47,46 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.full {
+	width: 100%;
+	height: 100%;
+	padding-top: 0;
+	background: $bg url(../svg/cgsm-pattern-inv.svg) top center repeat;
+}
+.about {
+	span {
+		font-size: 2.33em;
+	}
+	a {
+		text-decoration: none;
+	}
+}
+.thumbnail {
+
+	h3 {
+
+	}
+	h4 {
+
+	}
+	span {
+		font-size: 1.66em;
+	}
+	a {
+		text-decoration: none;
+	}
+}
+
 .btn-connect {
 	padding: auto 0;
 	font-size: 24px !important;
 }
+
 .navbar-toggle {
 	font-size: 28px !important;
 }
+
 .divider {
     height: 1px;
     margin: 9px 0;
@@ -342,7 +375,12 @@ body {
 		padding-bottom: 0.5em;
 		height: 240px;
 	}
-	img {
+	.logo-thumb {
+	  width: 64px  !important;
+	  height: 64px  !important;
+	  overflow: hidden  !important;
+	}
+	img, logo-thumb {
 		@media (max-width: $screen-xs-max) {
 			margin: 0 auto!important;
 			text-align: center!important;
@@ -353,13 +391,6 @@ body {
 		text-align: center!important;
 	}
 }
-
-.studios  .logo-thumb {
-  width: 64px  !important;
-  height: 64px  !important;
-  overflow: hidden  !important;
-}
-
 
 .bloc-signup {
     margin-bottom: -1.4em;
