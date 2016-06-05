@@ -19,6 +19,8 @@
 	margin: 0 0;
 	padding: 0 0;
 	width: 100%;
+	border-top: 1px #cbcacc solid;
+	background-color: white;
 }
 #container-map-studio {
 	position: relative;
@@ -66,10 +68,11 @@
 	position: relative;
 	margin: 0 auto;
 	padding: 0;
-	padding-top: 100px;
-
+	padding-top: 165px;
 }
-
+.studio-header .row {
+	margin: 0 0;
+}
 .studio-header .btn {
 	z-index: 200;
 }
@@ -198,7 +201,7 @@ h3  {
 	height: 128px !important;
 	margin: 0 0;
 	overflow: hidden;
-	border: 2px solid #cbcacc;
+	border: 1px solid #cbcacc;
 	background-color: #fff;
 	border-radius: 0.15em !important;
 	-webkit-border-radius: 0.15em !important;
@@ -297,6 +300,16 @@ h3  {
     padding: auto 0;
     margin: 0;
 }
+.navEdit{
+	margin-top: 1.4em;
+}
+.navEdit form,
+.navEdit .input-group{
+	max-width: 100px;
+	display: inline !important;
+	height: 55px;
+	font-family: 'cgsm-thin';
+}
 
 .btn {
 	font-family: 'cgsm-regular';
@@ -319,14 +332,14 @@ h3  {
 
 .btn-edit {
 	font-size: 1.35em;
-	border: 2px solid #5ae2b0;
+	border: 0 solid #5ae2b0;
 	color: #5ae2b0;
 	padding: 12px 22px;
 }
 
 .btn-edit:hover,
 .btn-edit:focus,
-.btn-edit:active,
+.btn-edit:focus,
 .btn-edit.active,
 .open > .dropdown-toggle.btn-edit {
 	background: #f1f1f3;
@@ -423,6 +436,52 @@ input {
 	color: #f1f1f3;
 }
 
+.corner-ribbon.sticky {
+	position: fixed;
+}
+
+.corner-ribbon.top-left {
+	top: 25px;
+	left: -50px;
+	transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+.corner-ribbon.top-right {
+	top: 25px;
+	right: -50px;
+	left: auto;
+	transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+.corner-ribbon.bottom-left {
+	top: auto;
+	bottom: 25px;
+	left: -50px;
+	transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+.corner-ribbon.bottom-right {
+	top: auto;
+	right: -50px;
+	bottom: 25px;
+	left: auto;
+	transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+/*/////////////////////////////////
+        MODAL missing details
+///////////////////////////////// */
+.modal-content {
+    background-color: #f1f1f3;
+}
 
 /*/////////////////////////////////
         MEDIA QUERIES

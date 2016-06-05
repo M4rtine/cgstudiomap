@@ -11,25 +11,80 @@
 		
         <template id="frontend_studio.edit_button" name="Studio: Edit mode">
             <form t-att-action="'/directory/company/{}/edit'.format(partner.id)" method="get">
-                <div class="input-group">
+                <div class="input-group btn btn-edit outline ">
                     <input type='submit'
-                           class="btn btn-edit outline a-submit"
+                           class="fontCGSMicons a-submit"
+						   id="studio-edit"
                            title="Click to edit the details of the company."
-                           value="Edit"/>
+                           value="cog"/>
+					<label for="studio-edit">Edit</label>
                 </div>
             </form>
         </template>
 		
         <template id="frontend_studio.flag_button" name="Studio: Flag mode">
-            <form t-att-action="'/directory/company/{}/edit'.format(partner.id)" method="get">
-                <div class="input-group">
+<!--            <form t-att-action="'/directory/company/{}/flagged_missing_details'.format(partner.id)" method="get">
+                <div class="input-group btn btn-edit outline ">
                     <input type='submit'
-                           class="btn btn-edit outline fontCGSMicons a-submit"
+						   data-toggle="modal" 
+						   data-target="#myModal"
+                           class="fontCGSMicons a-submit"
+						   id="studio-flag"
+						   title="Click to alert wrongs details of the company."
                            value="flag"/>
+					<label for="studio-flag">Alert</label>
+                </div>
+            </form>-->
+			
+			<button type="button" class="btn btn-edit outline fontCGSMthin" data-toggle="modal" data-target="#myModal">
+				<span class="fontCGSMicons">flag</span>Alert
+			</button>
+        </template>
+		
+        <template id="frontend_studio.closed_button" name="Studio: Closed mode">
+            <form t-att-action="'/directory/company/{}/flagged_closed'.format(partner.id)" method="get">
+                <div class="input-group btn btn-edit outline ">
+                    <input type='submit'
+                           class="fontCGSMicons a-submit"
+						   id="studio-closed"
+						   title="Click to alert wrongs details of the company."
+                           value="ban"/>
+					<label for="studio-closed">Close</label>
                 </div>
             </form>
         </template>
+		
+		
+		
+		<!-- MODAL action with details missing checkbox -->
+        <template id="frontend_studio.modal" name="Studio: Modal flag">
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="fontCGSMicons">cross</span></button>
+							<h4 class="modal-title" id="myModalLabel">Flag Wrong details</h4>
+						</div>
+						<div class="modal-body">
+<!--							ICI 
+							Multiple CheckBox
+							- Adress
+							- Website & mail
+							- Socials
+							- Phones
+							- Industries-->
+							
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">SEND</button>
+						</div>
+					</div>
+				</div>
+			</div>
+        </template>
 
+		
         <template id="frontend_studio.base" name="Studio: base">
             <t t-call="frontend_base.doctype_html"/>
             <t t-call="frontend_base.html">
@@ -84,8 +139,11 @@
 			</div>
 			<div class="col-sm-9">
 				<h2 t-esc="partner.name" />
-				<t t-call="frontend_studio.edit_button"/> 
-				<!--<t t-call="frontend_studio.flag_button" />-->
+				<div class="navEdit">
+				<t t-call="frontend_studio.edit_button"/>
+				<t t-call="frontend_studio.flag_button" />
+				<t t-call="frontend_studio.closed_button" />
+				</div>
 
 			</div>
 		</div>
@@ -128,7 +186,7 @@
             <span class="details-connect-right">
                 <t t-call="frontend_studio.social_networks" />
             </span>
-		
+
                 <div class="form-group details-web">
                     <h4><t t-esc="fields['website']['string']"/></h4>
                     <p>
@@ -238,10 +296,10 @@
 
         <template id="frontend_studio.view" name="Studio: view">
             <t t-call="frontend_studio.base">
-				
+
 				<!-- STUDIO Closed -->
 				<t t-call="frontend_studio.studio_closed"/>
-				
+
 				<div class="jumbotron" id="container-map-studio">
 					
 					<t t-call="frontend_studio.search_zone"/>
@@ -250,7 +308,7 @@
 						<t t-call="frontend_studio.studio_header"/>
 						<t t-call="frontend_studio.map"/>
 					</div>
-					
+
 				</div>
 				
 				<div id="studioDetails" class="bg-block">
@@ -289,7 +347,7 @@
 				</div>
 				
             </t>
-
+			<t t-call="frontend_studio.modal" />
         </template>
 
         <template id="frontend_studio.thank_you">
