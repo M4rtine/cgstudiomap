@@ -1,7 +1,7 @@
 version: "2"
 services:
   base_pgsql:
-    image: cgstudiomap/postgis-unaccent
+    image: cgstudiomap/docker-postgis-unaccent
     volumes:
       - ~/.containers/cgstudiomap-pgsql-9.4:/var/lib/postgresql/data
     environment:
@@ -18,4 +18,6 @@ services:
       SLACK_WEBHOOK_MODERATION: https://hooks.slack.com/services/t0gu8tqtw/b0nak7h5x/8c9i1llztffhszeykzaz8kks
     volumes:
       - ./main:/opt/cgstudiomap
+      - ./main/module_manager.sh:/opt/cgstudiomap/module_manager.sh
       - ./openerp_serverrc:/home/cgstudiomap/.openerp_serverrc
+
