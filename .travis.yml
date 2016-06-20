@@ -20,5 +20,5 @@ before_install:
 
 script:
   - docker-compose -f docker-compose.test.yml up -d
-  - docker logs -f cgstudiomap
-  - exit $(docker wait cgstudiomap)
+  - docker logs -f odoo
+  - exit $(docker wait odoo)

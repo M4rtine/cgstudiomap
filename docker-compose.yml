@@ -6,10 +6,10 @@ services:
       file: services.yml
       service: base_pgsql
 
-  cgstudiomap:
+  odoo:
     extends:
       file: services.yml
-      service: base_cgstudiomap
+      service: base_odoo
     depends_on:
       - pgsql
     links:
