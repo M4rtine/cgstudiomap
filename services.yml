@@ -9,8 +9,7 @@ services:
       POSTGRES_PASSWORD: cgstudiomap
 
   base_cgstudiomap:
-    container_name: cgstudiomap
-    build: .
+    image: cgstudiomap/docker-odoo
     ports:
       - "localhost:8069:8069"
       - "localhost:8072:8072"
