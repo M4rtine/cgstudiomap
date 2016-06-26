@@ -11,8 +11,8 @@
 cgstudiomap is now under docker and docker-compose.
 
 Requirement to run the project:
-* [docker](https://docs.docker.com/engine/installation/)
-* [docker-compose](https://docs.docker.com/compose/install/)
+* [docker](https://docs.docker.com/engine/installation/) version 1.11.1
+* [docker-compose](https://docs.docker.com/compose/install/) version 1.6.2
 
 The setup is based on `services.yml`, where all the bases of each services are defined.
 The setup of the steps are defined in inheriting yml files.

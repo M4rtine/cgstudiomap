@@ -9,6 +9,8 @@ services:
       POSTGRES_PASSWORD: cgstudiomap
 
   base_odoo:
+    # The name of the container is referenced in .travis.yml file. Be careful when
+    # changing this value.
     container_name: odoo
     image: cgstudiomap/docker-odoo
     ports:
