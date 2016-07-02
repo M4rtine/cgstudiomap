@@ -15,7 +15,26 @@ ADD requirements_apt.txt /
 
 RUN apt-get update && \
     apt-get upgrade -yq && \
-    apt-get install -y $(cat /requirements_apt.txt)
+	apt-get install -y apt-utils && \
+	apt-get install -y git && \
+	apt-get install -y libfreetype6 && \
+	apt-get install -y libfreetype6-dev && \
+	apt-get install -y libgeos-dev && \
+	apt-get install -y libjpeg-dev && \
+	apt-get install -y libjpeg8-dev && \
+	apt-get install -y libldap2-dev && \
+	apt-get install -y libsasl2-dev && \
+	apt-get install -y libssl-dev && \
+	apt-get install -y libxml2-dev && \
+	apt-get install -y libxslt1-dev && \
+	apt-get install -y postgresql-server-dev-9.4 && \
+	apt-get install -y postgresql-client-9.4 && \
+	apt-get install -y python-pychart && \
+	apt-get install -y python-dev && \
+	apt-get install -y python-pip && \
+	apt-get install -y python2.7 && \
+	apt-get install -y zlib1g-dev && \
+	apt-get clean
 
 RUN rm /usr/bin/python && \
     ln -s /usr/bin/python2.7 /usr/bin/python

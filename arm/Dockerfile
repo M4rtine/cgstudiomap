@@ -33,7 +33,8 @@ RUN apt-get update && \
 	apt-get install -y python-dev && \
 	apt-get install -y python-pip && \
 	apt-get install -y python2.7 && \
-	apt-get install -y zlib1g-dev
+	apt-get install -y zlib1g-dev && \
+	apt-get clean
 
 RUN rm /usr/bin/python && \
     ln -s /usr/bin/python2.7 /usr/bin/python
