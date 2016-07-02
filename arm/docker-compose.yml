@@ -3,12 +3,12 @@ services:
 
   pgsql:
     extends:
-      file: services.yml
+      file: ../services.yml
       service: arm_pgsql
 
   cgstudiomap:
     extends:
-      file: services.yml
+      file: ../services.yml
       service: arm_odoo
     depends_on:
       - pgsql
