@@ -1,7 +1,7 @@
 ###################################
 ## IMAGE SETUP
 ###################################
-FROM ioft/armhf-ubuntu:15:10
+FROM ioft/armhf-ubuntu:15.10
 MAINTAINER cgstudiomap <cgstudiomap@gmail.com>
 ENV PROJECT_HOME=/opt/cgstudiomap
 ENV LOCAL_SHARE=/home/cgstudiomap/.local/share/Odoo/
