@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: cgstudiomap
       POSTGRES_PASSWORD: cgstudiomap
 
-  base_cgstudiomap:
+  base_odoo:
     container_name: cgstudiomap
     build: .
     ports:
@@ -21,3 +21,12 @@ services:
       - ./main/module_manager.sh:/opt/cgstudiomap/module_manager.sh
       - ./openerp_serverrc:/home/cgstudiomap/.openerp_serverrc
 
+  arm_psql:
+    extends:
+      service: base_pgsql
+    image: zsoltm/postgresql-armhf
+
+  arm_odoo:
+    extends:
+      service: base_odoo
+    build: arm/Dockerfile
