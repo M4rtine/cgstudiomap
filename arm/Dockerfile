@@ -11,8 +11,6 @@ VOLUME [ $PROJECT_HOME, LOCAL_SHARE]
 # See http://askubuntu.com/questions/506158/unable-to-initialize-frontend-dialog-when-using-ssh
 ENV DEBIAN_FRONTEND=noninteractive
 
-ADD requirements_apt.txt /
-
 RUN apt-get update && \
     apt-get upgrade -yq && \
 	apt-get install -y apt-utils && \
