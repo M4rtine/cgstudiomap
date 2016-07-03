@@ -67,50 +67,26 @@ class ResPartner(models.Model):
     """
     _inherit = 'res.partner'
 
-    @api.model
-    def do_notification(self, user):
-        """Check if the update of the partner should be notified.
-        Notifications are only for companies and if update is done by a user
-        not member of group_archetype_contributor.
-
-        :param record user: user that did the update.
-        :return: boolean, True if the notfication should be done
-        """
-        ir_model_data = self.env['ir.model.data']
-        contributor_group = ir_model_data.xmlid_to_object(
-            'res_group_archetype.group_archetype_contributor'
-        )
-
-        ret = (
-            self.is_company and
-            contributor_group not in user.groups_id and
-            user.id != 3  # id 3 is public user and we don't
-                          # want updates from him
-        )
-        _logger.debug('Do notification? %s', ret)
-        return ret
-
     @api.multi
     def write(self, vals):
         """Overcharge to add notification to slack."""
         ret = super(ResPartner, self).write(vals)
         user = self.env['res.users'].browse(self._uid)
 
-        if self.do_notification(user):
-            message = ''.join([
-                '<http://www.cgstudiomap.org{0}|{1}> '
-                '(id: {2}) has been *updated*. ',
-                'Update done by {3} (id: {4}).'
-            ])
-            _slack_logger.info(
-                message.format(
-                    self.partner_url,
-                    self.name.encode('utf8'),
-                    self.id,
-                    user.login,
-                    user.id
-                )
+        message = ''.join([
+            '<http://www.cgstudiomap.org{0}|{1}> '
+            '(id: {2}) has been *updated*. ',
+            'Update done by {3} (id: {4}).'
+        ])
+        _slack_logger.info(
+            message.format(
+                self.partner_url,
+                self.name.encode('utf8'),
+                self.id,
+                user.login,
+                user.id
             )
+        )
 
         return ret
 
@@ -119,22 +95,21 @@ class ResPartner(models.Model):
         """Overcharge to add notification to slack."""
         ret = super(ResPartner, self).create(vals)
         user = self.env['res.users'].browse(self._uid)
-        if ret.do_notification(user):
-            message = '. '.join([
-                'A new company has been *added*: '
-                '<http://www.cgstudiomap.org{0}|{1}> '
-                '(id: {2}). ',
-                'Update done by {3} (id: {4}).'
-            ])
+        message = '. '.join([
+            'A new company has been *added*: '
+            '<http://www.cgstudiomap.org{0}|{1}> '
+            '(id: {2}). ',
+            'Update done by {3} (id: {4}).'
+        ])
 
-            _slack_logger.info(
-                message.format(
-                    ret.partner_url,
-                    ret.name.encode('utf8'),
-                    ret.id,
-                    user.login,
-                    user.id
-                )
+        _slack_logger.info(
+            message.format(
+                ret.partner_url,
+                ret.name.encode('utf8'),
+                ret.id,
+                user.login,
+                user.id
             )
+        )
 
         return ret
