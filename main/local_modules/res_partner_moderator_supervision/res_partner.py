@@ -74,18 +74,17 @@ class ResPartner(models.Model):
         user = self.env['res.users'].browse(self._uid)
 
         message = ''.join([
-            '<http://www.cgstudiomap.org{0}|{1}> '
-            '(id: {2}) has been *updated*. ',
-            'Update done by {3} (id: {4}).'
+            '<http://www.cgstudiomap.org%s|%s> '
+            '(id: %s) has been *updated*. ',
+            'Update done by %s (id: %s).'
         ])
         _slack_logger.info(
-            message.format(
-                self.partner_url,
-                self.name.encode('utf8'),
-                self.id,
-                user.login,
-                user.id
-            )
+            message,
+            self.partner_url,
+            self.name.encode('utf8'),
+            str(self.id),
+            user.login,
+            str(user.id)
         )
 
         return ret
@@ -97,19 +96,18 @@ class ResPartner(models.Model):
         user = self.env['res.users'].browse(self._uid)
         message = '. '.join([
             'A new company has been *added*: '
-            '<http://www.cgstudiomap.org{0}|{1}> '
-            '(id: {2}). ',
-            'Update done by {3} (id: {4}).'
+            '<http://www.cgstudiomap.org%s|%s> '
+            '(id: %s). ',
+            'Update done by %s (id: %s).'
         ])
 
         _slack_logger.info(
-            message.format(
-                ret.partner_url,
-                ret.name.encode('utf8'),
-                ret.id,
-                user.login,
-                user.id
-            )
+            message,
+            ret.partner_url,
+            ret.name.encode('utf8'),
+            str(ret.id),
+            user.login,
+            str(user.id)
         )
 
         return ret
