@@ -1,0 +1,117 @@
+###################################
+## IMAGE SETUP
+###################################
+FROM ioft/armhf-ubuntu:15.10
+MAINTAINER cgstudiomap <cgstudiomap@gmail.com>
+ENV PROJECT_HOME=/opt/cgstudiomap
+ENV LOCAL_SHARE=/home/cgstudiomap/.local/share/Odoo/
+VOLUME [ $PROJECT_HOME, LOCAL_SHARE]
+
+# To avoid errors like debconf: unable to initialize frontend: Dialog
+# See http://askubuntu.com/questions/506158/unable-to-initialize-frontend-dialog-when-using-ssh
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get upgrade -yq && \
+    apt-get install -y apt-utils && \
+    apt-get install -y git
+RUN apt-get install -y libfreetype6 && \
+    apt-get install -y libfreetype6-dev && \
+    apt-get install -y libgeos-dev && \
+    apt-get install -y libjpeg-dev && \
+    apt-get install -y libjpeg8-dev && \
+    apt-get install -y libldap2-dev
+RUN apt-get install -y libsasl2-dev && \
+    apt-get install -y libssl-dev && \
+    apt-get install -y libxml2-dev && \
+    apt-get install -y zlib1g-dev && \
+    apt-get install -y libxslt1-dev
+RUN apt-get install -y postgresql-server-dev-9.4 && \
+    apt-get install -y postgresql-client-9.4
+RUN apt-get install -y python-pychart && \
+    apt-get install -y python-dev && \
+    apt-get install -y python-pip && \
+    apt-get install -y python2.7
+RUN apt-get clean
+
+RUN rm /usr/bin/python && \
+    ln -s /usr/bin/python2.7 /usr/bin/python
+
+#ADD requirements_pip.txt /
+#ADD main/parts/odoo/requirements.txt /
+
+RUN pip install pip --upgrade
+# the second round of pips needs to happen after the upgrade of pip.
+# cgstudiomap requirements.
+RUN pip install zc.buildout
+RUN pip install lxml==3.3.5
+RUN pip install anybox.recipe.odoo==1.9.1 && \
+    pip install cachetools==1.1.6 && \
+    pip install contextlib2==0.5.3 && \
+    pip install datadog==0.11.0 && \
+    pip install Django==1.9.6 && \
+    pip install funcsigs==1.0.2
+#RUN pip install geojson==1.3.2
+#RUN pip install Jinja==1.2
+#RUN pip install linecache2==1.0.0
+#RUN pip install num2words==0.5.3
+#RUN pip install pbr==1.9.1
+#RUN pip install phonenumbers==7.4.0
+#RUN pip install pygeocoder==1.2.5
+#RUN pip install pysub==0.2
+#RUN pip install python_stdnum==1.3
+#RUN pip install raven==5.18.0
+#RUN pip install Shapely==1.5.15
+#RUN pip install slack_log_handler==0.2.2
+#RUN pip install traceback2==1.4.0
+#RUN pip install validate_email==1.3
+#RUN pip install zc.recipe.egg==2.0.3
+#RUN pip install simplejson
+# odoo requirements.
+#RUN pip install Babel==1.3
+#RUN pip install Jinja2==2.7.3
+#RUN pip install Mako==1.0.0
+#RUN pip install MarkupSafe==0.23
+#RUN pip install Pillow==2.5.1
+#RUN pip install Python-Chart==1.39
+#RUN pip install PyYAML==3.11
+#RUN pip install Werkzeug==0.9.6
+#RUN pip install argparse==1.2.1
+#RUN pip install decorator==3.4.0
+#RUN pip install docutils==0.12
+#RUN pip install feedparser==5.1.3
+#RUN pip install gdata==2.0.18
+#RUN pip install gevent==1.0.2
+#RUN pip install greenlet==0.4.7
+#RUN pip install jcconv==0.2.3
+#RUN pip install lxml==3.3.5
+#RUN pip install mock==1.0.1
+#RUN pip install passlib==1.6.2
+#RUN pip install psutil==2.1.1
+#RUN pip install psycogreen==1.0
+#RUN pip install psycopg2==2.5.3
+#RUN pip install pyPdf==1.13
+#RUN pip install pydot==1.0.2
+#RUN pip install pyparsing==1.5.7
+#RUN pip install pyserial==2.7
+#RUN pip install python-dateutil==1.5
+#RUN pip install python-ldap==2.4.15
+#RUN pip install python-openid==2.2.5
+#RUN pip install pytz==2014.4
+#RUN pip install pyusb==1.0.0b1
+#RUN pip install qrcode==5.0.1
+#RUN pip install reportlab==3.1.44
+#RUN pip install requests==2.6.0
+#RUN pip install simplejson==3.5.3
+#RUN pip install six==1.7.3
+#RUN pip install unittest2==0.5.1
+#RUN pip install vatnumber==1.2
+#RUN pip install vobject==0.6.6
+#RUN pip install wsgiref==0.1.2
+#RUN pip install xlwt==0.7.5
+
+#RUN useradd -m -s /bin/bash cgstudiomap
+#EXPOSE 8069 8072
+
+#USER cgstudiomap
+#WORKDIR $PROJECT_HOME
