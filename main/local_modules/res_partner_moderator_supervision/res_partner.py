@@ -21,6 +21,8 @@
 
 import os
 import logging
+import socket
+import getpass
 
 from slack_log_handler import SlackLogHandler
 
@@ -33,6 +35,7 @@ _logger = logging.getLogger(__name__)
 # Use test_hook url webhook for tests
 WEBHOOK_URL = os.getenv('SLACK_WEBHOOK_MODERATION')
 _logger.debug('WEBHOOK_URL: %s', WEBHOOK_URL)
+
 
 
 def get_slack_logger(name, hook):
@@ -55,9 +58,17 @@ def get_slack_logger(name, hook):
     slack_handler.EMOJIS[logging.ERROR] = ':jazz:'
     slack_logger = logging.getLogger(name)
     slack_logger.addHandler(slack_handler)
+    slack_logger.info(
+        'Jazz Ready for action! (From: {0}@{1})'.format(
+            getpass.getuser(), socket.gethostname(),
+        )
+
+    )
     return slack_logger
 
 
+if not WEBHOOK_URL:
+    _logger.warning('No value for SLACK_WEBHOOK_MODERATION. No moderation.')
 _slack_logger = get_slack_logger(__name__, WEBHOOK_URL)
 
 
