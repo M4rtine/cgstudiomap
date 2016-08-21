@@ -1,8 +1,8 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
-# OpenERP, Open Source Management Solution
-#    This module copyright (C)  cgstudiomap.org <cgstudiomap@gmail.com>
+#    OpenERP, Open Source Management Solution
+#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,22 +18,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': 'Res Partner Moderator Supervision',
-    'version': 'beta',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Give supervision tools to moderators.',
-    'depends': [
-        'frontend_base',  # for partner.partner_url
-        'res_group_archetype',
-    ],
-    'external_dependencies': {
-        'python': ['slack_log_handler'],
-    },
-    'data': [],
-    'installable': True,
-}
+from . import test_res_partner
