@@ -7,7 +7,7 @@ _logger = logging.getLogger(__name__)
 
 
 class TestResPartnerSave(common.TransactionCase):
-    """Test Suite for the Studio controller."""
+    """Test Suite for the save of the res.partner."""
 
     def setUp(self):
         """Build the partners for each tests."""
