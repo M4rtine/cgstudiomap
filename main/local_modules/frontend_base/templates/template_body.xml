@@ -129,15 +129,6 @@
         </template>
 
         <!--template for the counter.-->
-        <!--Requirements:-->
-        <!--    * nbr-->
-        <!--    * type-->
-        <!---->
-        <!--How To:-->
-        <!--=======-->
-        <!--<t t-set="nbr" t-value="{value_for_nbr}"/>-->
-        <!--<t t-set="type" t-value="{value_for_type}"/>-->
-        <!--<t t-call="frontend_base.counter"/>-->
         <!---->
         <!--To pass a constant value like a string: <t t-set="type">My Type</t>-->
         <!--This way, odoo won't consider the given value as a variable.-->
@@ -151,12 +142,6 @@
 
 
         <!--Template for the counter of companies-->
-        <!--Requirements:-->
-        <!--* nbr-->
-        <!--How To:-->
-        <!--=======-->
-        <!--<t t-set="nbr" t-value="{value_for_nbr}"/>-->
-        <!--<t t-call="frontend_base.company_counter"/>-->
         <template id="frontend_base.company_counter" name="Company Counter">
             <t t-set="type">Companies</t>
             <t t-set="target">count_partners</t>

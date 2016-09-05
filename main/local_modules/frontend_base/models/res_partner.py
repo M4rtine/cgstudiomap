@@ -2,73 +2,85 @@
 """Suite of methods common operation on res.partner."""
 import logging
 import random
-
+from copy import deepcopy
 from openerp import api, models, fields
 
 _logger = logging.getLogger(__name__)
 
 
+class SearchDomain(object):
+    """Represent arguments of a search.
+
+    It has been set to be able to pass all the data needed to do a search or a
+    search_count.
+    """
+    def __init__(self, search, order='', limit=None):
+        """
+
+        :param list search: the search for the domain.
+        :param str order: the ordering.
+        :param int limit: the limit
+        """
+        self.search = search
+        self.order = order
+        self.limit = limit
+
+
 class ResPartner(models.Model):
     _inherit = 'res.partner'
+
+    #: represent the limit for the domain with latest notion.
+    latest_companies_limit = 20
 
     @property
     def active_companies_domain(self):
         """Return the domain that should be used to filter for active companies.
 
-        :return: list
+        :rtype: SearchDomain
         """
-        return [
-            ('active', '=', True),
-            ('is_company', '=', True),
-        ]
+        return SearchDomain([('active', '=', True), ('is_company', '=', True)])
 
     @property
     def closed_companies_domain(self):
         """Return the domain that should be used to filter for companies out of business.
 
-        :return: list
+        :rtype: SearchDomain
         """
-        return self.active_companies_domain + [('state', '=', 'closed')]
+        domain = deepcopy(self.active_companies_domain)
+        domain.search.extend([('state', '=', 'closed')])
+        return domain
 
     @property
     def open_companies_domain(self):
         """Return the domain that should be used to filter for open companies.
 
-        :return: list
+        :rtype: SearchDomain
         """
-        return self.active_companies_domain + [('state', '=', 'open')]
+        domain = deepcopy(self.active_companies_domain)
+        domain.search.extend([('state', '=', 'open')])
+        return domain
 
-    @api.model
-    def get_active_companies(self):
-        """Return recordsets of all the active companies.
+    @property
+    def latest_created_companies_domain(self):
+        """Return the domain that should be used to filter for latest created companies.
 
-        :return: recordset.
+        :rtype: SearchDomain
         """
-        return self.search(self.active_companies_domain)
+        domain = deepcopy(self.open_companies_domain)
+        domain.order = 'create_date desc'
+        domain.limit = self.latest_companies_limit
+        return domain
 
-    @api.model
-    def get_number_active_companies(self):
-        """Return the number of active companies.
+    @property
+    def latest_updated_companies_domain(self):
+        """Return the domain that should be used to filter for latest updated companies.
 
-        :return: int
+        :rtype: SearchDomain
         """
-        return len(self.get_active_companies())
-
-    @api.model
-    def get_closed_commpanies(self):
-        """Return recordsets of all the companies under the closed status.
-
-        :return: recordset.
-        """
-        return self.search(self.open_companies_domain)
-
-    @api.model
-    def get_open_commpanies(self):
-        """Return recordsets of all the companies under the open status.
-
-        :return: recordset.
-        """
-        return self.search(self.open_companies_domain)
+        domain = deepcopy(self.open_companies_domain)
+        domain.order = 'write_date desc'
+        domain.limit = self.latest_companies_limit
+        return domain
 
     @api.model
     def get_most_popular_studios(self, sample_):
@@ -93,7 +105,7 @@ class ResPartner(models.Model):
         # search return a recordset and we cannot do len() on it.
         partners = [
             partner for partner in self.search(
-                self.active_companies_domain +
+                self.active_companies_domain.search +
                 [
                     ('id', '!=', company.partner_id.id),
                     ('image', '!=', False)

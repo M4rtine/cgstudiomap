@@ -58,8 +58,11 @@ class Listing(Base):
 
         :return: record set answering the search criteria.
         """
+        search_domain = self.get_company_domain(search, company_status)
         return partner_pool.search(
-            self.get_company_domain(search, company_status)
+            search_domain.search,
+            order= search_domain.order,
+            limit=search_domain.limit
         )
 
     @statsd.timed('odoo.frontend.ajax.get_partner',
