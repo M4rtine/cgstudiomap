@@ -5,6 +5,9 @@ cache:
   directories:
     - $HOME/.cache/pip
 
+notifications:
+  slack: cgstudiomap:M6UODn2Bz8HspWEx8UB25Kyb
+
 python:
   - "2.7"
 
