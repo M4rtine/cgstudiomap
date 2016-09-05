@@ -33,7 +33,7 @@ _logger = logging.getLogger(__name__)
 # see https://cgstudiomap.slack.com/apps/manage/A0F7XDUAZ-incoming-webhooks
 # for the url.
 # Use test_hook url webhook for tests
-WEBHOOK_URL = os.getenv('SLACK_WEBHOOK_MODERATION')
+WEBHOOK_URL = os.getenv('SLACK_WEBHOOK_MODERATION', '')
 _logger.debug('WEBHOOK_URL: %s', WEBHOOK_URL)
 
 
@@ -67,9 +67,11 @@ def get_slack_logger(name, hook):
     return slack_logger
 
 
-if not WEBHOOK_URL:
+if WEBHOOK_URL:
+    _slack_logger = get_slack_logger(__name__, WEBHOOK_URL)
+else:
     _logger.warning('No value for SLACK_WEBHOOK_MODERATION. No moderation.')
-_slack_logger = get_slack_logger(__name__, WEBHOOK_URL)
+    _slack_logger = None
 
 
 class ResPartner(models.Model):
@@ -78,25 +80,37 @@ class ResPartner(models.Model):
     """
     _inherit = 'res.partner'
 
+    @staticmethod
+    def conditions_for_logging(user, partner):
+        """Check if all the conditions are set to log the message of moderation
+
+        :param record user: user that did the update.
+        :param record partner: the partner updated.
+        :rtype: bool
+        """
+        # id > 3 so admin, template and public actions are not logged
+        # we only care about updated companies, not about people.
+        return _slack_logger and user.id > 3 and partner.is_company
+
     @api.multi
     def write(self, vals):
         """Overcharge to add notification to slack."""
         ret = super(ResPartner, self).write(vals)
         user = self.env['res.users'].browse(self._uid)
-
-        message = ''.join([
-            '<http://www.cgstudiomap.org%s|%s> '
-            '(id: %s) has been *updated*. ',
-            'Update done by %s (id: %s).'
-        ])
-        _slack_logger.info(
-            message,
-            self.partner_url,
-            self.name.encode('utf8'),
-            str(self.id),
-            user.login,
-            str(user.id)
-        )
+        if self.conditions_for_logging(user, self):
+            message = ''.join([
+                '<http://www.cgstudiomap.org%s|%s> '
+                '(id: %s) has been *updated*. ',
+                'Update done by %s (id: %s).'
+            ])
+            _slack_logger.info(
+                message,
+                self.partner_url,
+                self.name.encode('utf8'),
+                str(self.id),
+                user.login,
+                str(user.id)
+            )
 
         return ret
 
@@ -105,20 +119,21 @@ class ResPartner(models.Model):
         """Overcharge to add notification to slack."""
         ret = super(ResPartner, self).create(vals)
         user = self.env['res.users'].browse(self._uid)
-        message = '. '.join([
-            'A new company has been *added*: '
-            '<http://www.cgstudiomap.org%s|%s> '
-            '(id: %s). ',
-            'Update done by %s (id: %s).'
-        ])
+        if self.conditions_for_logging(user, ret):
+            message = '. '.join([
+                'A new company has been *added*: '
+                '<http://www.cgstudiomap.org%s|%s> '
+                '(id: %s). ',
+                'Update done by %s (id: %s).'
+            ])
 
-        _slack_logger.info(
-            message,
-            ret.partner_url,
-            ret.name.encode('utf8'),
-            str(ret.id),
-            user.login,
-            str(user.id)
-        )
+            _slack_logger.info(
+                message,
+                ret.partner_url,
+                ret.name.encode('utf8'),
+                str(ret.id),
+                user.login,
+                str(user.id)
+            )
 
         return ret
