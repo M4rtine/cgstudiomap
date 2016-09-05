@@ -99,20 +99,22 @@
 
                 <form t-att-action="keep(url, search=search, company_status=company_status)" method="get" >
                     <div class="input-group navFilters ">
-                        <input type="hidden" name='company_status' value="latest_updated"/>
+                        <input type="hidden" name='company_status' value="latest_created"/>
                         <input type="hidden" name='search' t-att-value="search"/>
                         <input type='submit'
-                               t-att-class="'a-submit' if (company_status != 'latest_updated') else 'disabled' "
-                               value="recently updated 20)"/>
+                               title="See the 20 newly added studios."
+                               t-att-class="'a-submit' if (company_status != 'latest_created') else 'disabled' "
+                               value="latest"/>
                     </div>
                 </form>
                 <form t-att-action="keep(url, search=search, company_status=company_status)" method="get" >
                     <div class="input-group navFilters ">
-                        <input type="hidden" name='company_status' value="latest_created"/>
+                        <input type="hidden" name='company_status' value="latest_updated"/>
                         <input type="hidden" name='search' t-att-value="search"/>
                         <input type='submit'
-                               t-att-class="'a-submit' if (company_status != 'latest_created') else 'disabled' "
-                               value="newly added (20)"/>
+                               title="Magnify on the 20 most recently updated studios."
+                               t-att-class="'a-submit' if (company_status != 'latest_updated') else 'disabled' "
+                               value="trending"/>
                     </div>
                 </form>
             </div>
