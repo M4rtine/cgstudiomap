@@ -134,7 +134,7 @@ class Studio(Base):
 
         :return: mapping for values for all the views.
         """
-        logger.debug('main')
+        logger.debug('common_values')
         keep = QueryURL()
 
         partner = request.env['res.partner'].browse(1)
