@@ -15,6 +15,11 @@ class ResPartnerGetStudios(models.Model):
     from the location of the partner.
     """
     _inherit = 'res.partner'
+    visit_count = fields.Integer(
+        'Number of visit for this partner',
+        readonly=True,
+        help='Number increased each time the frontend  page of the studio is opened.'
+    )
 
     @api.model
     def get_studios_from_same_location(self):

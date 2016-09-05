@@ -9,7 +9,7 @@ from openerp import http
 from openerp.exceptions import ValidationError, except_orm
 from openerp.http import request
 
-_logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 partner_url = '/directory/company'
 
@@ -35,16 +35,16 @@ class Studio(Base):
 
         :return: request.render
         """
+        del dummy  # not used.
         values = self.common_values()
         values['partner'] = partner
         partner_values = partner.get_partner_values()
         values['social_networks'] = partner_values['social_networks'].keys()
-        # values['calls'] = partner_values['calls'].keys()
 
         marquee_plus_social_network = any(
             not getattr(partner, field) for field in values['social_networks']
         )
-        _logger.debug(
+        logger.debug(
             'marqueePlusSocialNetwork: %s', marquee_plus_social_network
         )
         values.update({
@@ -52,6 +52,8 @@ class Studio(Base):
             'partners': partner.get_random_studios_from_same_location(6),
             'filter_domain': partner.country_id.name,
         })
+        partner.visit_count += 1
+        logger.debug('partner visit count: %s', partner.visit_count)
         return request.website.render('frontend_studio.view', values)
 
     @statsd.timed(
@@ -132,13 +134,13 @@ class Studio(Base):
 
         :return: mapping for values for all the views.
         """
-        _logger.debug('main')
+        logger.debug('main')
         keep = QueryURL()
 
         partner = request.env['res.partner'].browse(1)
         fields = partner.fields_get()
         state_selections = fields['state']['selection']
-        _logger.debug('selections: %s', state_selections)
+        logger.debug('selections: %s', state_selections)
 
         return {
             'fields': fields,
@@ -167,8 +169,8 @@ class StudioPost(Studio):
         :param dict kwargs: list of fields to update.
         :return: request.render
         """
-        _logger.debug('save')
-        _logger.debug('kwargs: %s', kwargs)
+        logger.debug('save')
+        logger.debug('kwargs: %s', kwargs)
 
         try:
             partner.write_from_post_request(kwargs)
@@ -206,8 +208,8 @@ class StudioPost(Studio):
         :param dict kwargs: list of fields to update.
         :return: request.render
         """
-        _logger.debug('save_new')
-        _logger.debug('kwargs: %s', kwargs)
+        logger.debug('save_new')
+        logger.debug('kwargs: %s', kwargs)
         partner_pool = request.env['res.partner']
         try:
             partner = partner_pool.create_from_post_request(kwargs)
