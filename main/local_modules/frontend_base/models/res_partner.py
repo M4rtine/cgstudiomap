@@ -105,7 +105,7 @@ class ResPartner(models.Model):
         # search return a recordset and we cannot do len() on it.
         partners = [
             partner for partner in self.search(
-                self.active_companies_domain +
+                self.active_companies_domain.search +
                 [
                     ('id', '!=', company.partner_id.id),
                     ('image', '!=', False)

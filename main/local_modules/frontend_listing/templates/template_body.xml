@@ -103,7 +103,7 @@
                         <input type="hidden" name='search' t-att-value="search"/>
                         <input type='submit'
                                t-att-class="'a-submit' if (company_status != 'latest_updated') else 'disabled' "
-                               value="Latest updated (20)"/>
+                               value="recently updated 20)"/>
                     </div>
                 </form>
                 <form t-att-action="keep(url, search=search, company_status=company_status)" method="get" >
@@ -112,7 +112,7 @@
                         <input type="hidden" name='search' t-att-value="search"/>
                         <input type='submit'
                                t-att-class="'a-submit' if (company_status != 'latest_created') else 'disabled' "
-                               value="latest Created (20)"/>
+                               value="newly added (20)"/>
                     </div>
                 </form>
             </div>
