@@ -40,7 +40,7 @@ class ResPartnerGetStudios(models.Model):
         # search return a recordset and we cannot do len() on it.
         partners = [
             partner for partner in self.search(
-                self.open_companies_domain +
+                self.open_companies_domain.search +
                 [
                     ('id', '!=', company.partner_id.id),
                     ('image', '!=', False),
