@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,4 +19,18 @@
 #
 ##############################################################################
 
-from . import res_partner
+import logging
+
+from openerp import models, fields
+
+_logger = logging.getLogger(__name__)
+
+
+class ResPartner(models.Model):
+    """Represent addition of visit_count field."""
+    _inherit = 'res.partner'
+    visit_count = fields.Integer(
+        'Number of visit for this partner',
+        readonly=True,
+        help='Number increased each time the frontend  page of the studio is opened.'
+    )

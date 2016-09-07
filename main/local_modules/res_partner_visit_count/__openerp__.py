@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
+#    This module copyright (C)  cgstudiomap.org <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,4 +19,17 @@
 #
 ##############################################################################
 
-from . import res_partner
+{
+    'name': 'Res Partner Visit Count',
+    'version': 'beta',
+    'author': 'cgstudiomap',
+    'maintainer': 'cgstudiomap',
+    'license': 'AGPL-3',
+    'category': 'Main',
+    'summary': 'Add the field visit count.',
+    'depends': [],
+    'external_dependencies': {
+    },
+    'data': [],
+    'installable': True,
+}
