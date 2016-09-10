@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-# OpenERP, Open Source Management Solution
-#    This module copyright (C)  Jordi Riera <kender.jr@gmail.com>
+#    OpenERP, Open Source Management Solution
+#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,38 +20,19 @@
 ##############################################################################
 
 {
-    'name': 'Main For res.partner Based Modules',
+    'name': 'Res Partner Relations skip uniqueness',
     'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Main module that will install res.partner based modules.',
-    'description': """
-Main Module
-===========
-This module contains the dependencies to install all res.partner based modules.
-
-Contributors
-------------
-* Jordi Riera <kender.jr@gmail.com>
-
-""",
+    "category": "Customer Relationship Management",
+    'summary': 'Add a parameter that skip partner_relation uniqueness.',
     'depends': [
-        'res_partner_email_validation',
-        'res_partner_filter',
-        'res_partner_industry',
-        'res_partner_location_validation',
-        'res_partner_missing_details',
-        'res_partner_filter',
-        'res_partner_social_networks',
-        'res_partner_url_validation',
-        'res_partner_moderator_supervision',
-        'res_partner_relations_skip_uniqueness',
-        # partner-contact
         'partner_relations',
     ],
-    'data': [],
+    'external_dependencies': {},
+    'data': [
+        'views/res_partner_relation_type.xml',
+    ],
     'installable': True,
-    'application': True,
 }
