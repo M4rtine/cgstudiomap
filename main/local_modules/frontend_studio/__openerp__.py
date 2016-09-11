@@ -34,6 +34,7 @@
         'main_data',  # for state
         'res_partner_location_validation',
         'res_partner_social_networks',
+        'res_partner_relations_viewed',
     ],
     'data': [
         'templates/template_body.xml',
