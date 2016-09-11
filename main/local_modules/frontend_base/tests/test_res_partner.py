@@ -127,8 +127,8 @@ class TestResPartner(common.TransactionCase):
             '<a itemprop="name" href="/directory?company_status=open&search=Animation">'
             '<span class="label label-info">Animation</span>'
             '</a> '
-            '<a itemprop="name" href="/directory?company_status=open&search=Broadcast Media">'
-            '<span class="label label-info">Broadcast Media</span></a>'
+            '<a itemprop="name" href="/directory?company_status=open&search=Advertising">'
+            '<span class="label label-info">Advertising</span></a>'
             '</div>'
             '<div id="map_info_footer"><a href="{0.partner_url}">More ...</a></div></div>'.format(
                 partner)
