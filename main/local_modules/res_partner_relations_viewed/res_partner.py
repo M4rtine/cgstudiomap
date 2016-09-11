@@ -1,4 +1,5 @@
 import logging
+import datetime
 from openerp import models, api
 
 log = logging.getLogger(__name__)
@@ -15,11 +16,13 @@ class ResPartner(models.Model):
             'res_partner_relations_viewed', 'rel_type_viewed'
         )
         relation_pool = self.env['res.partner.relation']
-
+        today = datetime.date.today()
         relation_pool.create(
             {
                 'left_partner_id': self.id,
                 'right_partner_id': partner.id,
-                'type_id': viewed_relation_type.id
+                'type_id': viewed_relation_type.id,
+                'date_start': today,
+                'date_end': today,
             }
         )

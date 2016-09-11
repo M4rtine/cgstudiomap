@@ -20,6 +20,8 @@
 ##############################################################################
 import logging
 
+import datetime
+
 from openerp.tests import common
 
 _logger = logging.getLogger(__name__)
@@ -48,7 +50,11 @@ class TestResPartner(common.TransactionCase):
         relations = partner.relation_ids
 
         self.assertEqual(1, len(relations))
+        relation = relations[0]
         self.assertEqual(
-            viewed_relation_type, relations[0].type_id,
+            viewed_relation_type, relation.type_id,
             msg="The type of the relation is not a viewed/viewed_by"
         )
+        today = str(datetime.date.today())
+        self.assertEqual(today, relation.date_start)
+        self.assertEqual(today, relation.date_end)
