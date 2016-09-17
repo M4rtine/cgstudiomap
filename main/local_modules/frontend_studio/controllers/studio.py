@@ -52,8 +52,8 @@ class Studio(Base):
             'partners': partner.get_random_studios_from_same_location(6),
             'filter_domain': partner.country_id.name,
         })
-        partner.visit_count += 1
-        logger.debug('partner visit count: %s', partner.visit_count)
+        user_partner = request.env['res.users'].browse(request.uid).partner_id
+        user_partner.add_count_view(partner)
         return request.website.render('frontend_studio.view', values)
 
     @statsd.timed(

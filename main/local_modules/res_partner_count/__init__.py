@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
+#    This module copyright (C)  cgstudiomap.org <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,28 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Frontend Studio',
-    'version': 'beta',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Web',
-    'summary': 'Module that build the page that manage studio.',
-    'depends': [
-        'website',
-        'frontend_base',
-        'frontend_listing',  # url of the map page.
-        'main_data',  # for state
-        'res_partner_location_validation',
-        'res_partner_social_networks',
-        'res_partner_count',
-    ],
-    'data': [
-        'templates/template_body.xml',
-        'templates/template_body_edit_mode.xml',
-        'templates/template_engine.xml',
-        'views/website_views.xml',
-    ],
-    'installable': True,
-}
+from . import res_partner

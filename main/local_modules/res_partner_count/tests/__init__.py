@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -18,29 +18,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': 'Frontend Studio',
-    'version': 'beta',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Web',
-    'summary': 'Module that build the page that manage studio.',
-    'depends': [
-        'website',
-        'frontend_base',
-        'frontend_listing',  # url of the map page.
-        'main_data',  # for state
-        'res_partner_location_validation',
-        'res_partner_social_networks',
-        'res_partner_count',
-    ],
-    'data': [
-        'templates/template_body.xml',
-        'templates/template_body_edit_mode.xml',
-        'templates/template_engine.xml',
-        'views/website_views.xml',
-    ],
-    'installable': True,
-}
+from . import test_res_partner
