@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C)  cgstudiomap <cgstudiomap@gmail.com>
+#    This module copyright (C)  cgstudiomap.org <cgstudiomap@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,4 +19,21 @@
 #
 ##############################################################################
 
-from . import res_partner
+{
+    'name': 'Res Partner Count',
+    'version': 'beta',
+    'author': 'cgstudiomap',
+    'maintainer': 'cgstudiomap',
+    'license': 'AGPL-3',
+    'category': 'Main',
+    'summary': 'Allows to keep a track of who viewed and edited partners.',
+    'depends': [
+    ],
+    'external_dependencies': {
+    },
+    'data': [
+        'security/ir.model.access.csv',
+        'views/res_partner_count_view.xml',
+    ],
+    'installable': True,
+}
