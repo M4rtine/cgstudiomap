@@ -21,16 +21,34 @@
 
 import logging
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 _logger = logging.getLogger(__name__)
 
 
+class ResPartnerCountView(models.Model):
+    """Represent the visit from a partner to a company page."""
+    _name = 'res.partner.count.view'
+    _description = __doc__
+
+    active_partner_id = fields.Many2one('res.partner', string='Viewer')
+    passive_partner_id = fields.Many2one('res.partner', string='Viewed')
+    datetime = fields.Datetime('Date', default=fields.Datetime.now())
+
+
 class ResPartner(models.Model):
-    """Represent addition of visit_count field."""
+    """Add a method to add a count."""
     _inherit = 'res.partner'
-    visit_count = fields.Integer(
-        'Number of visit for this partner',
-        readonly=True,
-        help='Number increased each time the frontend  page of the studio is opened.'
-    )
+
+    @api.model
+    def add_count_view(self, viewed_partner):
+        """Add an entry res.partner.count.view.
+
+        :param viewed_partner: The visited partner.
+        :return: the new res.partner.count.view entry.
+        """
+        counter_pool = self.env['res.partner.count.view']
+        return counter_pool.create({
+            'active_partner_id': self.id,
+            'passive_partner_id': viewed_partner.id
+        })

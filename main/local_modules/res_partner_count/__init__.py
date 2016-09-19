@@ -19,17 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Res Partner Visit Count',
-    'version': 'beta',
-    'author': 'cgstudiomap',
-    'maintainer': 'cgstudiomap',
-    'license': 'AGPL-3',
-    'category': 'Main',
-    'summary': 'Add the field visit count.',
-    'depends': [],
-    'external_dependencies': {
-    },
-    'data': [],
-    'installable': True,
-}
+from . import res_partner

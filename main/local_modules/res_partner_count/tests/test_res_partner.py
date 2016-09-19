@@ -26,15 +26,16 @@ _logger = logging.getLogger(__name__)
 
 
 class TestResPartner(common.TransactionCase):
-    """Test suites to make sure the model is set has wanted."""
+    """Test suites interaction between partner and res.partner.count.*"""
 
     def setUp(self):
         super(TestResPartner, self).setUp()
         self.partner_pool = self.env['res.partner']
+        self.partner1 = self.partner_pool.create({'name': 'partner1'})
+        self.partner2 = self.partner_pool.create({'name': 'partner2'})
 
-    def test_field_visit_count(self):
-        """Double check the field is here and accepts integers."""
-        partner = self.partner_pool.create({'name': 'tname', 'visit_count': 1})
-        self.assertEqual(1, partner.visit_count)
-        partner.write({'visit_count': 666})
-        self.assertEqual(666, partner.visit_count)
+    def test_add_count_view(self):
+        """Test the entry res.partner.count.view is created."""
+        res = self.partner1.add_count_view(self.partner2)
+        self.assertEqual(self.partner1, res.active_partner_id)
+        self.assertEqual(self.partner2, res.passive_partner_id)
