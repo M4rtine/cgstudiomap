@@ -20,7 +20,7 @@
 ##############################################################################
 
 import logging
-
+import datetime
 from openerp import models, fields, api
 
 _logger = logging.getLogger(__name__)
@@ -50,5 +50,6 @@ class ResPartner(models.Model):
         counter_pool = self.env['res.partner.count.view']
         return counter_pool.create({
             'active_partner_id': self.id,
-            'passive_partner_id': viewed_partner.id
+            'passive_partner_id': viewed_partner.id,
+            'datetime': datetime.datetime.now(),
         })
