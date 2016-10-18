@@ -9,7 +9,7 @@
                     <sheet>
                         <field name="active_partner_id" />
                         <field name="passive_partner_id" />
-                        <field name="datetime" />
+                        <field name="create_date" />
                     </sheet>
                 </form>
             </field>
@@ -21,7 +21,7 @@
                 <tree string="Partner Count Views">
                     <field name="active_partner_id" />
                     <field name="passive_partner_id" />
-                    <field name="datetime" />
+                    <field name="create_date" />
                 </tree>
             </field>
         </record>
@@ -32,7 +32,7 @@
                 <search string="Search Relations">
                     <field name="active_partner_id" />
                     <field name="passive_partner_id" />
-                    <field name="datetime" />
+                    <field name="create_date" />
                 </search>
             </field>
         </record>

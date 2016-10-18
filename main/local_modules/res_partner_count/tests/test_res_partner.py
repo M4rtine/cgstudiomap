@@ -19,7 +19,6 @@
 #
 ##############################################################################
 import logging
-
 from openerp.tests import common
 
 _logger = logging.getLogger(__name__)
