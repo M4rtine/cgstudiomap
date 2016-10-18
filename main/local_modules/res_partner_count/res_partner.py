@@ -33,7 +33,7 @@ class ResPartnerCountView(models.Model):
 
     active_partner_id = fields.Many2one('res.partner', string='Viewer')
     passive_partner_id = fields.Many2one('res.partner', string='Viewed')
-    datetime = fields.Datetime('Date', default=fields.Datetime.now())
+    # datetime = fields.Datetime('Date', default=fields.Datetime.now())
 
 
 class ResPartner(models.Model):
@@ -51,5 +51,5 @@ class ResPartner(models.Model):
         return counter_pool.create({
             'active_partner_id': self.id,
             'passive_partner_id': viewed_partner.id,
-            'datetime': datetime.datetime.now(),
+            # 'datetime': datetime.datetime.now(),
         })
