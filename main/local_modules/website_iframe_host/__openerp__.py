@@ -20,38 +20,23 @@
 ##############################################################################
 
 {
-    'name': 'Frontend',
+    'name': 'Website Iframe Host',
     'version': 'beta',
     'author': 'cgstudiomap',
     'maintainer': 'cgstudiomap',
     'license': 'AGPL-3',
     'category': 'Web',
-    'summary': 'Frontend pages',
+    'summary': 'Allow another website to host an iframe from us.',
     'depends': [
-        'web',
         'website',
-        'portal',
-        'auth_signup',
-        'auditlog',
-        'website_menu_by_user_status',
-        'res_partner_industry',
-        'main_data',
-        # frontend modules
-        'frontend_base',
-        'frontend_homepage',
-        'frontend_link_to_dashboard',
-        'frontend_listing',
-        'frontend_shop',
-        'frontend_studio',
-        'frontend_about',
-        # website
-        'website_iframe_host',
+        'res_group_archetype',  # needed for security rules.
+        'frontend_base',  # the module extends templates of frontend_base.
+        'frontend_listing',  # update the controller.
     ],
     'data': [
-        'data/website_menus.xml',
-        'templates/login_template.xml',
-        'templates/events.xml',
-        'templates/website_partner.xml',
+        'security/ir.model.access.csv',
+        'views/website_iframe_host.xml',
+        'templates/template_body.xml',
     ],
     'installable': True,
 }

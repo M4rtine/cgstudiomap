@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
-
+import os
 import simplejson
 from datadog import statsd
 from openerp.addons.web import http
@@ -57,19 +57,20 @@ def small_image_url(record, field):
                 sudo_record.write_date or sudo_record.create_date or ''
             ).hexdigest()[0:7]
         )
-        record.small_image_url = '/website/image/%s/%s/%s' % (
-        model, id_, field)
-        # else:
-        # _logger.debug('Great found small image url for %s!', record.id)
+        record.small_image_url = '/website/image/%s/%s/%s' % (model, id_, field)
 
     return record.small_image_url
+
+
+class FrontendBaseError(Exception):
+    """Base exception for the module."""
+    pass
 
 
 class Base(Website):
     """Representation of the homepage of the website."""
 
-    @staticmethod
-    def get_company_domain(search, company_status='open'):
+    def get_company_domain(self, search, company_status='open'):
         """get the domain to use for the given parameters.
 
         :param str search: search to filter with
@@ -88,6 +89,7 @@ class Base(Website):
         search_domain = search_domains[company_status]
         if search:
             search_domain.search.extend(partner_pool.search_domain(search))
+
         return search_domain
 
     @statsd.timed('odoo.frontend.ajax.get_user_count_json',
