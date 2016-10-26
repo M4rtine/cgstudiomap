@@ -13,14 +13,14 @@ class IframeHostError(FrontendBaseError):
     pass
 
 
-class NotAllowHostFrontendBaseError(IframeHostError):
-    """Exception that should be raised if the host name is not allowed to
+class NotAuthorizedHostFrontendBaseError(FrontendBaseError):
+    """Exception that should be raised if the host name is not authorized to
     display the iframe.
     """
 
     def __init__(self, host_name):
-        super(NotAllowHostFrontendBaseError, self).__init__(
-            'The host "{host_name}" is not allowed to display the iframe.'.format(
+        super(NotAuthorizedHostFrontendBaseError, self).__init__(
+            'The host "{host_name}" is not authorized to display the iframe.'.format(
                 host_name=host_name
             )
         )
@@ -40,16 +40,6 @@ class NotCompatibleSearchDomainFrontendBaseError(IframeHostError):
 
 class WebsiteIframe(Base):
 
-    def get_config(self):
-        """Lazily get the config file of the module.
-
-        :rtype: dict
-        """
-        current_folder = os.path.dirname(__file__)
-        with open(os.path.join(current_folder, '..', 'static', 'config.json'),
-                  'r') as file_:
-            return simplejson.load(file_)
-
     def get_iframe_host(self):
         """Find if the host has a special SearchDomain.
 
@@ -60,12 +50,8 @@ class WebsiteIframe(Base):
         iframe_host = website_iframe_host_pool.search(
             [('host', '=', host_name)], limit=1
         )
-        # TODO: put the whitelisted_hosts in the database.
-        valid_host = (not iframe_host == website_iframe_host_pool) and \
-                     (host_name not in self.get_config()['whitelisted_hosts'])
-
-        if not valid_host:
-            raise NotAllowHostFrontendBaseError(host_name)
+        if not iframe_host:
+            raise NotAuthorizedHostFrontendBaseError(host_name)
 
         logger.debug('get_iframe_host: %s', iframe_host)
         return iframe_host
@@ -82,16 +68,26 @@ class WebsiteIframe(Base):
 
         return search_domain
 
-    def is_website_navbar_display(self):
-        """Set up the display of the navbar according to the settings of the current
+    def is_website_light_hosting(self):
+        """Check if the host is expecting to have the redirections.
+
+        :rtype: bool
+        :return: if the redirection to cgstudiomap should be activated (True).
+        """
+        iframe_host = self.get_iframe_host()
+        logger.debug('iframe_host.hide_navbar; %s', iframe_host.light_hosting)
+        return iframe_host.light_hosting if iframe_host else False
+
+    def is_website_navbar_hidden(self):
+        """Set up the hide of the navbar according to the settings of the current
         host.
 
         :rtype: bool
-        :return: if the navbar will be displayed or not.
+        :return: if the navbar will be hidden (True) or not.
         """
         iframe_host = self.get_iframe_host()
-        logger.debug('iframe_host.navbar; %s', iframe_host.navbar)
-        return iframe_host.navbar if iframe_host else True
+        logger.debug('iframe_host.hide_navbar; %s', iframe_host.hide_navbar)
+        return iframe_host.hide_navbar if iframe_host else False
 
     def get_additional_search_domain(self, host):
         """Extend the current search_domain according to the settings of the current
@@ -111,15 +107,23 @@ class WebsiteIframe(Base):
         logger.debug('get_company_domain extension: %s', additional_search_domain)
         return additional_search_domain
 
-    def add_display_navbar_setting(self, values):
-        values['display_navbar'] = self.is_website_navbar_display()
-        logger.debug('display navbar? %s', values['display_navbar'])
+    def add_host_settings(self, values):
+        """Add to values the special settings for the iframe hosts.
+
+        :param dict values: rendering values
+        :return: values with additional keys/values
+        :rtype: dict
+        """
+        values['hide_navbar'] = self.is_website_navbar_hidden()
+        logger.debug('hide navbar? %s', values['hide_navbar'])
+        values['light_hosting'] = self.is_website_light_hosting()
+        logger.debug('Light hosting? %s', values['light_hosting'])
         return values
 
     def get_map_data(self, *args, **kwargs):
         values = super(WebsiteIframe, self).get_map_data(*args, **kwargs)
-        return self.add_display_navbar_setting(values)
+        return self.add_host_settings(values)
 
     def get_list_data(self, *args, **kwargs):
         values = super(WebsiteIframe, self).get_list_data(*args, **kwargs)
-        return self.add_display_navbar_setting(values)
+        return self.add_host_settings(values)
