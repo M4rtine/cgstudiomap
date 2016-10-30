@@ -4,6 +4,7 @@ import logging
 import random
 from copy import deepcopy
 from openerp import api, models, fields
+from openerp.addons.website.models.website import hashlib
 
 _logger = logging.getLogger(__name__)
 
@@ -14,6 +15,7 @@ class SearchDomain(object):
     It has been set to be able to pass all the data needed to do a search or a
     search_count.
     """
+
     def __init__(self, search, order='', limit=None):
         """
 
@@ -133,14 +135,13 @@ class ResPartner(models.Model):
 
         return super(ResPartner, self).write(vals)
 
+    partner_url_pattern = '/directory/company/{0}'
     partner_url = fields.Char('Partner url', compute='partner_url_link')
 
     @api.one
     def partner_url_link(self):
         """Return the link to the page of the current partner."""
-        self.partner_url = (
-            '/directory/company/{0}'.format(self.id)
-        )
+        self.partner_url = self.partner_url_pattern.format(self.id)
 
     def info_window(self, company_status='open'):
         """Build the info window for the google map."""
@@ -164,17 +165,69 @@ class ResPartner(models.Model):
 
         return title + body + footer
 
+    def info_window_details(self,
+                             id_,
+                             name,
+                             industries,
+                             company_status,
+                             city=None, state=None, country=None):
+        """Build the info window for the google map."""
+        industry_pool = self.env['res.industry']
+        partner_url = self.partner_url_pattern.format(id_)
+        title = (
+            '<div id="iw-container">'
+            '<div class="iw-title"><a href="{0}">{1}</a></div>'
+        ).format(partner_url, name.encode('utf8'))
+        body = '<div class="iw-content">'
+        location = self.get_location(city, state, country)
+        body += '<p>{0}</p>'.format(location.encode('utf8'))
+        body += ' '.join(
+            [
+                industry_pool.tag_url_link_details(ind_name_, company_status)
+                for ind_name_ in industries
+                ]
+        )
+        body += '</div>'
+        footer = (
+            '<div id="map_info_footer"><a href="{0}">More ...</a></div></div>'
+        ).format(partner_url)
+        return title + body + footer
+
     small_image_url = fields.Char('Url to the small image of the partner.')
 
-    location = fields.Char('Location', compute='location_code')
+    @api.model
+    def get_small_image_url(self):
+        """Returns a local url that points to the image field of a
+        given browse record.
 
-    @api.one
-    def location_code(self):
+        :return: str, url of the image.
+        """
+        model = self._name
+        sudo_record = self.sudo()
+        id_ = '%s_%s' % (
+            self.id,
+            hashlib.sha1(
+                sudo_record.write_date or sudo_record.create_date or ''
+            ).hexdigest()[0:7]
+        )
+        return '/website/image/%s/%s/%s' % (model, id_, 'image_small')
+
+    @api.multi
+    def write(self, vals):
+        """Make sure the small_url is set when a partner is updated."""
+        if 'small_image_url' not in vals:
+            vals['small_image_url'] = self.get_small_image_url()
+
+        if vals.get('image', None) is False:
+            vals['small_image_url'] = False
+
+        return super(ResPartner, self).write(vals)
+
+    @staticmethod
+    def get_location(city=None, state=None, country=None):
         """Return the concatenation of city, state and country."""
         elements = []
-        if self.city:
-            elements.append(self.city)
-        for element in (self.state_id, self.country_id):
+        for element in (city, state, country):
             if element:
-                elements.append(element.name)
-        self.location = ', '.join(elements)
+                elements.append(element)
+        return ', '.join(elements)
