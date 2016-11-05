@@ -7196,7 +7196,7 @@ body {
   height: 64px  !important;
   overflow: hidden  !important; }
 @media (max-width: 767px) {
-  .studios img, .studios logo-thumb {
+  .studios img, .studios .logo-thumb {
     margin: 0 auto !important;
     text-align: center !important; } }
 @media (max-width: 767px) {
