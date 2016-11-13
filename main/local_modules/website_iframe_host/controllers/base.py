@@ -8,7 +8,9 @@ logger = logging.getLogger(__name__)
 
 class IframeHostError(FrontendBaseError):
     """Base exception for the module."""
-    pass
+    def __init__(self, message):
+        logger.error(message)
+        super(IframeHostError, self).__init__(message)
 
 
 class NotAuthorizedHostFrontendBaseError(FrontendBaseError):
