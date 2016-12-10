@@ -33,8 +33,10 @@ _logger = logging.getLogger(__name__)
 # see https://cgstudiomap.slack.com/apps/manage/A0F7XDUAZ-incoming-webhooks
 # for the url.
 # Use test_hook url webhook for tests
-MAIN_SLACK_WEBHOOK_URL = config.get('SLACK_WEBHOOK_MODERATION', '').strip()
-_logger.debug('WEBHOOK_URL: %s', MAIN_SLACK_WEBHOOK_URL)
+# For some reasons, the key in the config file cannot be uppercase.
+SLACK_WEBHOOK_MODERATION = 'slack_webhook_moderation'
+SLACK_WEBHOOK_URL = config.get(SLACK_WEBHOOK_MODERATION, '').strip()
+_logger.debug('SLACK_WEBHOOK_MODERATION: %s', SLACK_WEBHOOK_URL)
 
 
 
@@ -67,10 +69,12 @@ def get_slack_logger(name, hook):
     return slack_logger
 
 
-if MAIN_SLACK_WEBHOOK_URL:
-    main_slack_logger = get_slack_logger(__name__, MAIN_SLACK_WEBHOOK_URL)
+if SLACK_WEBHOOK_URL:
+    main_slack_logger = get_slack_logger(__name__, SLACK_WEBHOOK_URL)
 else:
-    _logger.warning('No value for MAIN_SLACK_WEBHOOK_URL. No moderation.')
+    _logger.error(
+        'No value found for %s in config file. No moderation.', SLACK_WEBHOOK_MODERATION
+    )
     main_slack_logger = None
 
 
