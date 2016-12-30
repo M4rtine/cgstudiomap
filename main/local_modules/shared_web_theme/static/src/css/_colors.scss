@@ -68,6 +68,9 @@ body{
 		background-color: $bg;
 	}
 	@media (min-width: $screen-xs-min) {
+		background-color: transparent;
+	}
+	@media (max-width: $screen-xs-max) {
 		background-color: $bg;
 	}
 }
@@ -87,6 +90,10 @@ body{
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
     border-color: $color-cgsm;
+	
+	@media (max-width: $screen-sm-min) {
+		border-color: transparent;
+	}
 }
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -97,7 +104,7 @@ body{
     color: $color-cgsm;
 }
 .navbar-inverse .navbar-nav > li > a{
-    color: $color-cgsm;
+    color: $color-cgsm-dark;
 }
 
 .navbar-inverse .navbar-nav > a,
@@ -107,18 +114,23 @@ body{
 .navbar-inverse .navbar-nav > .active > a:focus,
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
-.navbar-inverse .navbar-nav > .open > a:focus {
+.navbar-inverse .navbar-nav > .open > a:focus{
 	color: $color-cgsm;
 	background-color: $bg;
 }
 
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+	color: $color-cgsm;
+	background-color: transparent;
+}
 .navbar-center li a {
 	color: $color-cgsm !important;
 	background: transparent;
 }
 .navbar-center li a:hover,
 .navbar-center li a:focus{
-	background: $bg;
+	background: $color-cgsm;
 }
 .navbar-right {
 
@@ -129,7 +141,37 @@ body{
 
 	}
 }
-
+.navbar-nav .btn-cgsm-add {
+    background-color: transparent;
+    color: $color-cgsm !important;
+	border: $color-cgsm 1px solid;
+	
+	&:hover {
+		background-color: $color-tonic;
+		color: $color-cgsm-dark;
+	}
+}
+.input-group-addon {
+    color: #555555;
+    background-color: #dddddd;
+    border: 0px solid #ccc;
+	@include border-radius(0);
+	  a {
+		cursor: pointer;
+		&:visited {
+		  text-decoration: none;
+		}
+		&:hover {
+		  text-decoration: none;   
+		}
+		&:focus {
+		  text-decoration: none;   
+		}
+		&:active {
+		  text-decoration: none;
+		}
+	}
+}
 .jumbotron {
     background-color: transparent;
 }
