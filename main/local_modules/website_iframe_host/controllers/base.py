@@ -69,7 +69,7 @@ def get_host_from_session(session_id):
             )
 
     except (IndexError, AttributeError) as err:
-        logger.warning(
+        logger.info(
             'Referrer does not seems to reliable. Fallback to host. Error: %s', err
         )
         host = exclude_subdomain(request_host)
@@ -83,7 +83,10 @@ def get_host_from_session(session_id):
                 'request_host': request_host,
                 'host': host,
                 'iframe_host': str(iframe_host),
-                'iframe_host.host': iframe_host.host
+                'iframe_host.host': iframe_host.host,
+                'iframe_host.search_domain': iframe_host.search_domain,
+                'iframe_host.hide_navbar': iframe_host.hide_navbar,
+                'iframe_host.light_hosting': iframe_host.light_hosting,
             }
         )
     )

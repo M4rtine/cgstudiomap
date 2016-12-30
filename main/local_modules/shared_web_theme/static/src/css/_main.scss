@@ -13,17 +13,20 @@ $color-grey-dark: rgb(76,76,76);
 
 body {
 	overflow-y: auto;
-	font-family: 'Noto Sans', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", 
+    "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    sans-serif;
 }
 
 .fontCGSM {
-    font-family: 'cgsm-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'cgsm-regular', sans-serif;
 }
 .fontCGSMbold {
-    font-family: 'cgsm-bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'cgsm-bold', sans-serif;
 }
 .fontCGSMlight {
-    font-family: 'cgsm-light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'cgsm-light', sans-serif;
 }
 .fontCGSMicons {
     /* use !important to prevent issues with browser extensions that change fonts */
@@ -81,13 +84,39 @@ body {
 
 .btn-connect {
 	padding: auto 0;
-	font-size: 24px !important;
+	font-size: 1.4em !important;
+	margin-top: -0.05em !important;
+	margin-left: 0.2em !important;
 }
 
 .navbar-toggle {
 	font-size: 28px !important;
 }
+.navbar .navbar-collapse {
+    text-align: left;
+}
+.navbar-center > li > a {
+    font-size: 1.1em;
+    font-weight: normal;
+    text-transform: capitalize;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	@media (max-width: screen-xs-max) {
+			font-size: 2em;
 
+	}
+}
+.header-search {
+	width: 360px;
+
+	@media (max-width: $screen-sm-min) {
+		top: -16px;
+		width: 220px;
+	}
+	@media (max-width: $screen-xsmall) {
+		width: 160px;
+	}
+}
 .divider {
     height: 1px;
     margin: 9px 0;
@@ -98,6 +127,32 @@ body {
     margin: 9px 0;
     overflow: hidden;
 }
+.navbar-nav .btn-cgsm-add {
+    font-size: 1em;
+    line-height: 1;
+    vertical-align: baseline;
+    padding: 0.66em;
+    margin: 0.66em auto;
+
+	@include border-radius(2px);
+	
+	@media (max-width: $screen-md-min) {
+			font-size: 0.9em;
+			line-height: 2em;
+			border: 0 solid;
+	}
+	@media (max-width: screen-xs-max) {
+			font-size: 0.8em;
+			line-height: 1.33em;
+	}
+}
+.btn-cgsm-add:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
 
 #container-map {
 	position: relative;
@@ -329,7 +384,6 @@ body {
 .text {
 	
 	h3 {
-		font-family: 'cgsm-light';
 		font-size : 1.99em;
 	}
 	p {
@@ -369,7 +423,6 @@ body {
 
 .studios {
 	h4 {
-		font-family: 'cgsm-regular';
 		margin-top: 0;
 	}
 	.partner-item {
@@ -555,7 +608,6 @@ body {
 	z-index: 100000 !important;
 }
 .corner-ribbon {
-	font-family: 'cgsm-regular';
 	width: 200px;
 	background: $danger;
 	position: absolute;
