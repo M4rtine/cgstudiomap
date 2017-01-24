@@ -147,13 +147,13 @@ body{
 	border: $color-cgsm 1px solid;
 	
 	&:hover {
-		background-color: $color-tonic;
-		color: $color-cgsm-dark;
+		background-color: $color-cgsm !important;
+		color: $color-cgsm-light !important;
 	}
 }
 .input-group-addon {
     color: #555555;
-    background-color: #dddddd;
+    background-color: transparent;
     border: 0px solid #ccc;
 	@include border-radius(0);
 	  a {
