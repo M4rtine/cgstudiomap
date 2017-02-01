@@ -32,7 +32,7 @@ class ResIndustry(models.Model):
         :return: html  code to build the tag.
         :rtype: str
         """
-        url = listing and '/directorylist' or ''
+        url = listing and '/directory/list' or ''
         url += '?company_status={0}'.format(company_status)
         url += '&search={0}'.format(ind_name)
 
