@@ -16,9 +16,3 @@
         </template>
     </data>
 </openerp>
-
-<!--
-//*[@id="navbarUsers"]
-//*[@id="home"]/nav/div/div[2]/div/div/ul/li/a
-//*[@id="home"]/nav/div/div[2]/div/div/ul
--->
