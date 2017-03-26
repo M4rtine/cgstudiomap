@@ -82,6 +82,7 @@
         </template>
 
         <template id="frontend_listing.filters" name="Listing: Filters">
+			
             <div class="filters">
                 <form t-att-action="keep(url, search=search, company_status='open')" method="get" >
                     <div class="input-group navFilters ">
@@ -134,7 +135,7 @@
 					<div class="col-sm-8">
 						<t t-call="frontend_listing.search"/>
 					</div>
-					<div class="col-sm-3 col-sm-offset-1 navBtnColor">
+					<div class="col-sm-3 col-sm-offset-1 navBtnColor">				
 						<a class="btn btn-cgsm-add center-block"
 						href="/directory/company/create"
 						role="button">ADD Studio <span class="fontCGSMicons">upload</span>
@@ -182,6 +183,9 @@
 
             <t t-set="title">Home</t>
             <t t-call="frontend_listing.base">
+				<div class="visible-xs-inline" id="btGetLocation2">
+					<button onclick="google_map.getLocation()" class="fontCGSMicons">location2</button>
+				</div>
                 <div id="map"></div>
                 <footer id="footer_map" class="footer">
                     <t t-call="frontend_listing.footer_base"/>

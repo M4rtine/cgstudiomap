@@ -6,11 +6,32 @@
  * CUSTOMS infos windows ref : http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html
  */
 
+// namespace
+var google_map = {
+    map: null,
+
+    /*
+     Get the current position of the user and move the google map to the location
+     */
+    getLocation: function () {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                google_map.map.panTo(center)
+            });
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+};
+
 function initialize(geoloc) {
     //To center map on markers
     var bounds = new google.maps.LatLngBounds();
 
     var mapCanvas = document.getElementById('map');
+	
+	
     var mapOptions = {
 		minZoom: 3,
 		gestureHandling: 'greedy',
@@ -27,7 +48,7 @@ function initialize(geoloc) {
             position: google.maps.ControlPosition.LEFT_CENTER
         }
     };
-    var map = new google.maps.Map(mapCanvas, mapOptions);
+    google_map.map = new google.maps.Map(mapCanvas, mapOptions);
     var markers = [];
     var icon = '/frontend_listing/static/src/marker.svg';
     var iconStudio = '/frontend_listing/static/src/marker-studio.svg';
@@ -41,24 +62,23 @@ function initialize(geoloc) {
     });
 
 
-
     jQuery.each(geoloc, function (i, val) {
         var contentString = '<div id="content">' + val[2] + '</div>';
 
         var marker = new google.maps.Marker({
             position: {lat: val[0], lng: val[1]},
-            map: map,
+            map: google_map.map,
             icon: iconStudio,
             title: i
         });
-        
+
         //extend the bounds to include each marker's position
         bounds.extend(marker.position);
         markers.push(marker);
 
         google.maps.event.addListener(marker, 'click', function () {
             infowindow.setContent(contentString);
-            infowindow.open(map, marker);
+            infowindow.open(google_map.map, marker);
         });
 
     });
@@ -79,9 +99,12 @@ function initialize(geoloc) {
         maxZoom: 15
     };
 
-    var mc = new MarkerClusterer(map, markers, mcOptions);
+    var mc = new MarkerClusterer(google_map.map, markers, mcOptions);
     //now fit the map to the newly inclusive bounds
-    map.fitBounds(bounds);
-    map.setOptions({styles: snazzy_theme()});
+    google_map.map.fitBounds(bounds);
+    google_map.map.setOptions({styles: snazzy_theme()});
+
+
 }
+
 google.maps.event.addDomListener(window, 'load', initialize);
