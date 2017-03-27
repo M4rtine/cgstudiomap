@@ -1,9 +1,8 @@
 /**
  * Script to manage the map displayed to list companies
- * Created by foutoucour on 12/10/15.
+ * Created by foutoucour on 26/03/17.
  * The theme of the map is loaded from `snazzy_theme.py` file.
 
- * CUSTOMS infos windows ref : http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html
  */
 
 // namespace
@@ -17,7 +16,9 @@ var google_map = {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 var center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                google_map.map.panTo(center)
+				/*google_map.map.setZoom(7);*/
+                google_map.map.panTo(center);
+				setTimeout("google_map.map.setZoom(7)",1000)
             });
         } else {
             x.innerHTML = "Geolocation is not supported by this browser.";
