@@ -24,7 +24,7 @@
 		
         <template id="frontend_studio.flag_button" name="Studio: Flag mode">
 			
-			<button type="button" class="btn btn-edit outline" data-toggle="modal" data-target="#myModal">
+			<button type="button" class="btn btn-edit outline hidden" data-toggle="modal" data-target="#myModal">
 				<span class="fontCGSMicons">flag</span><label class="hidden-xs">  Alert</label>
 			</button>
         </template>
@@ -332,18 +332,20 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-xs-12">
+									<h1>Thank you</h1>
 									<span id="love"></span>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-12">
-									<h1>Thank you!</h1>
-									<h2><a t-att-href="partner_url"><t t-esc="partner.name" /></a> has been successfully updated!</h2>
+									
+									<h2><a t-att-href="partner_url"><t t-esc="partner.name" /></a></h2>  
+									<h2>has been successfully updated</h2>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-12">
-									<p>Check your updates <a t-att-href="partner_url">here</a> or continue your great work by <a t-att-href="map_url">updating more studios</a>!</p>
+									<p><a t-att-href="map_url">continue your great work by updating more studios</a></p>
 								</div>
 							</div>
 						</div>

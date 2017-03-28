@@ -63,22 +63,18 @@
 							<p class="pull-right visible-lg-inline">
 								<a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-3x"></i></a>
 								<a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-3x"></i></a>
-								<a t-att-href="website.social_github"><i class="fa fa-github fa-3x"></i></a>
 							</p>
 							<p class="pull-right visible-md-inline">
 								<a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-2x"></i></a>
 								<a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-2x"></i></a>
-								<a t-att-href="website.social_github"><i class="fa fa-github fa-2x"></i></a>
 							</p>
 							<p class="pull-right visible-sm-inline">
 								<a t-att-href="website.social_twitter"><i class="fa fa-twitter fa-lg"></i></a>
 								<a t-att-href="website.social_linkedin"><i class="fa fa-linkedin fa-lg"></i></a>
-								<a t-att-href="website.social_github"><i class="fa fa-github fa-lg"></i></a>
 							</p>
 							<p class="pull-right visible-xs-inline">
 								<a t-att-href="website.social_twitter"><i class="fa fa-twitter"></i></a>
 								<a t-att-href="website.social_linkedin"><i class="fa fa-linkedin"></i></a>
-								<a t-att-href="website.social_github"><i class="fa fa-github"></i></a>
 							</p>
 						</div>
 				   </div>
@@ -86,6 +82,7 @@
         </template>
 
         <template id="frontend_listing.filters" name="Listing: Filters">
+			
             <div class="filters">
                 <form t-att-action="keep(url, search=search, company_status='open')" method="get" >
                     <div class="input-group navFilters ">
@@ -138,7 +135,7 @@
 					<div class="col-sm-8">
 						<t t-call="frontend_listing.search"/>
 					</div>
-					<div class="col-sm-3 col-sm-offset-1 navBtnColor">
+					<div class="col-sm-3 col-sm-offset-1 navBtnColor">				
 						<a class="btn btn-cgsm-add center-block"
 						href="/directory/company/create"
 						role="button">ADD Studio <span class="fontCGSMicons">upload</span>
@@ -186,6 +183,9 @@
 
             <t t-set="title">Home</t>
             <t t-call="frontend_listing.base">
+				<div class="visible-xs-inline" id="btGetLocation2">
+					<button onclick="google_map.getLocation()" class="fontCGSMicons">location2</button>
+				</div>
                 <div id="map"></div>
                 <footer id="footer_map" class="footer">
                     <t t-call="frontend_listing.footer_base"/>

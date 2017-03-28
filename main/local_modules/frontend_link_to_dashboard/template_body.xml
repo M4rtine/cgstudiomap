@@ -4,7 +4,7 @@
 
         <template id="link_to_dashboard" name="frontend: Link To Dashboard"
                   inherit_id="frontend_base.navbar">
-            <xpath expr="//nav/div/div/ul" position="inside">
+            <xpath expr="//nav/div/div[2]/div/div/ul" position="inside">
                 <li class="divider"
                     groups="frontend_link_to_dashboard.group_archetype_direct_link_to_dashboard"/>
                 <li t-ignore="true"

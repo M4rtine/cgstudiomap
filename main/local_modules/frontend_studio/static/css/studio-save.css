@@ -51,36 +51,69 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b05ae2', end
 	padding: 0 0;
 }
 .full h1 {
-	font-size: 5em;
-	line-height: 1.5em;
+	font-size: 4em;
+	text-transform: uppercase;
+	line-height: 1.2em;
 	color: #f1f1f3;
-	font-family: 'cgsm-thin';
-
 }
 .full h2 {
-	font-size: 2.25em;
+	font-size: 1.55em;
 	line-height: 1.5em;
-	font-family: 'cgsm-thin';
-}
-.full p {
-	font-size: 1.25em;
+	word-spacing: 0.045em;
 }
 
-.full h2 a{
+.full h2 a {
+	font-size: 1.55em;
 	background-color: #f1f1f3;
+	padding: 0.4em 0.4em;
+	text-decoration: none;
+    border-radius: 0.25em !important;
+    -webkit-border-radius: 0.25em !important;
+    -moz-border-radius: 0.25em !important;
+	
+}
+.full h2 a:hover,
+.full h2 a:focus{
+	color: #f1f1f3;
+	background-color: #b05ae2;
+}
+.full p {
+	font-size: 1.1em;
+	margin-top: 1.25em;
+}
+.full p a,
+.full p a:active{
+	text-decoration: underline;
+	border: 1px solid #f1f1f3;
+	color: #f1f1f3;
+	background-color: transparent;
 	padding: 0.3em 0.4em;
 	text-decoration: none;
     border-radius: 0.25em !important;
     -webkit-border-radius: 0.25em !important;
     -moz-border-radius: 0.25em !important;
 }
-.full p a{
-	text-decoration: underline;
+.full p a:hover,
+.full p a:focus{
+	color: #f1f1f3;
+	background-color: #5ae2b0;
 }
 .navbar-default, .navbar-inverse {
     background-color: rgba(241,241,243,0.65); !important;
-} 
+}
 
+.navbar-inverse .navbar-nav > li > a,
+.navbar-inverse .navbar-nav > li > a:active {
+    color: #b05ae2 !important;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #f1f1f3 !important;
+}
+.navbar-nav .btn-cgsm-add {
+	display: none;
+}
 /*/////////////////////////////////
         MEDIA QUERIES
 ///////////////////////////////// */
@@ -92,11 +125,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b05ae2', end
 		line-height: 1em;
 	}
 	.full h2 {
-		font-size: 1.65em;
+		font-size: 1.35em;
 		line-height: 1em;
 	}
 	.full h2 a{
 		padding: 0.15em 0.2em;
 
+	}
+	.full p {
+		font-size: 0.9em;
+		margin-top: 1.1em;
 	}
 }
