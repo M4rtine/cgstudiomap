@@ -1,0 +1,25 @@
+#To set up the instance:
+#
+## build the dockers
+#docker-compose build
+#
+## link the instance and launch the odoo instance
+#docker-compose up
+
+# for tests:
+# docker-compose up -d; sudo docker logs -f cgstudiomap_production; sudo docker wait cgstudiomap_production
+version: "2"
+services:
+  cgstudiomap:
+    container_name: cgstudiomap
+    build: .
+    ports:
+      - "8069:8069"
+      - "8072:8072"
+    environment:
+      SLACK_WEBHOOK_MODERATION: https://hooks.slack.com/services/t0gu8tqtw/b0nak7h5x/8c9i1llztffhszeykzaz8kks
+    volumes:
+#      - ./main:/opt/cgstudiomap
+       - ./openerp_serverrc:/home/cgstudiomap/.openerp_serverrc
+#    command: /opt/cgstudiomap/bin/start_odoo -d cgstudiomap -r cgstudiomap --workers=0
+    command: /opt/cgstudiomap/bin/start_odoo --worker=0 -d prod
