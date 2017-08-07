@@ -1,5 +1,6 @@
 #autocomplete {
     border: 0;
+    width: 100%;
 }
 
 #eac-container-autocomplete {
@@ -17,4 +18,7 @@
 
 #eac-container-autocomplete > ul > li > div > b {
     color: #b05ae2;
+}
+.easy-autocomplete {
+    width: 100% !important;
 }
